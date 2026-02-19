@@ -10,1120 +10,1118 @@
 <link rel="manifest" href="manifest.json">
 <style>
 :root{
-  --bg:#0a0a0f;--s1:#12121a;--s2:#1a1a26;--s3:#222233;
-  --bd:#2a2a3a;--red:#e84444;--ora:#f59e0b;--grn:#10b981;--blu:#3b82f6;
-  --txt:#e8e8f0;--mut:#9090a8;
-  --rbg:rgba(232,68,68,.12);--obg:rgba(245,158,11,.12);
-  --gbg:rgba(16,185,129,.12);--bbg:rgba(59,130,246,.12);
+--bg:#0a0a0f;--s1:#12121a;--s2:#1a1a26;--s3:#222233;
+--bd:#2a2a3a;--red:#e84444;--ora:#f59e0b;--grn:#10b981;--blu:#3b82f6;
+--txt:#e8e8f0;--mut:#9090a8;
+--rbg:rgba(232,68,68,.12);--obg:rgba(245,158,11,.12);
+--gbg:rgba(16,185,129,.12);--bbg:rgba(59,130,246,.12);
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;font-size:15px;line-height:1.7}
-header{background:var(--s1);border-bottom:1px solid var(--bd);padding:11px 14px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300}
-.logo{font-size:17px;font-weight:800;color:var(--red)}
-.logo span{color:var(--txt);font-weight:300;font-size:13px}
-.off-badge{background:var(--gbg);border:1px solid var(--grn);color:var(--grn);padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700}
-.abar{background:var(--rbg);border-bottom:2px solid var(--red);padding:8px 14px;display:flex;align-items:center;gap:9px;font-size:12px;font-weight:600;color:var(--red)}
-.dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:blink 1.4s infinite;flex-shrink:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;font-size:clamp(14px, 2.5vw, 16px);line-height:1.7;overflow-x:hidden}
+header{background:var(--s1);border-bottom:1px solid var(--bd);padding:clamp(10px, 2vw, 14px);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300;gap:10px}
+.logo{font-size:clamp(16px, 3vw, 18px);font-weight:800;color:var(--red);white-space:nowrap}
+.logo span{color:var(--txt);font-weight:300;font-size:clamp(12px, 2vw, 14px)}
+.off-badge{background:var(--gbg);border:1px solid var(--grn);color:var(--grn);padding:3px 10px;border-radius:20px;font-size:clamp(10px, 2vw, 12px);font-weight:700;white-space:nowrap}
+.abar{background:var(--rbg);border-bottom:2px solid var(--red);padding:clamp(8px, 2vw, 10px) clamp(12px, 3vw, 16px);display:flex;align-items:center;gap:9px;font-size:clamp(11px, 2.5vw, 13px);font-weight:600;color:var(--red);line-height:1.5}
+.dot{width:clamp(6px, 1.5vw, 8px);height:clamp(6px, 1.5vw, 8px);background:var(--red);border-radius:50%;animation:blink 1.4s infinite;flex-shrink:0}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
-nav{background:var(--s1);border-bottom:1px solid var(--bd);display:flex;overflow-x:auto;scrollbar-width:none;position:sticky;top:53px;z-index:290}
+nav{background:var(--s1);border-bottom:1px solid var(--bd);display:flex;overflow-x:auto;scrollbar-width:none;position:sticky;top:53px;z-index:290;-webkit-overflow-scrolling:touch}
 nav::-webkit-scrollbar{display:none}
-.nb{background:none;border:none;border-bottom:2px solid transparent;color:var(--mut);padding:10px 13px;cursor:pointer;font-size:12px;white-space:nowrap;font-family:inherit;transition:all .2s}
+.nb{background:none;border:none;border-bottom:2px solid transparent;color:var(--mut);padding:clamp(10px, 2vw, 12px) clamp(10px, 2.5vw, 14px);cursor:pointer;font-size:clamp(11px, 2.5vw, 13px);white-space:nowrap;font-family:inherit;transition:all .2s;flex-shrink:0}
 .nb:hover{color:var(--txt)}.nb.on{color:var(--red);border-bottom-color:var(--red)}
-main{max-width:760px;margin:0 auto;padding:14px}
-.pg{display:none}.pg.on{display:block}
-.stit{font-size:17px;font-weight:800;margin-bottom:14px;padding-right:10px;border-right:3px solid var(--red)}
-.card{background:var(--s1);border:1px solid var(--bd);border-radius:12px;padding:16px;margin-bottom:12px}
-.ctit{font-size:14px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:7px}
-.ci{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+main{max-width:800px;margin:0 auto;padding:clamp(12px, 3vw, 16px);padding-bottom:80px}
+.pg{display:none}.pg.on{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.stit{font-size:clamp(16px, 3.5vw, 18px);font-weight:800;margin-bottom:clamp(12px, 2vw, 16px);padding-right:10px;border-right:3px solid var(--red);line-height:1.4}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:clamp(10px, 2vw, 12px);padding:clamp(14px, 3vw, 18px);margin-bottom:clamp(10px, 2vw, 14px)}
+.ctit{font-size:clamp(13px, 2.8vw, 15px);font-weight:700;margin-bottom:clamp(10px, 2vw, 14px);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.ci{width:clamp(26px, 5vw, 30px);height:clamp(26px, 5vw, 30px);border-radius:clamp(6px, 1.5vw, 8px);display:flex;align-items:center;justify-content:center;font-size:clamp(13px, 2.5vw, 15px);flex-shrink:0}
 .cr{background:var(--rbg)}.co{background:var(--obg)}.cg{background:var(--gbg)}.cb{background:var(--bbg)}
-.bx{border-radius:9px;padding:12px;margin-bottom:9px;font-size:13px;line-height:1.8}
-.bx strong{display:block;margin-bottom:4px;font-size:13px;font-weight:700}
+.bx{border-radius:clamp(8px, 2vw, 10px);padding:clamp(10px, 2.5vw, 14px);margin-bottom:clamp(8px, 1.5vw, 10px);font-size:clamp(12px, 2.5vw, 14px);line-height:1.8}
+.bx strong{display:block;margin-bottom:4px;font-size:clamp(12px, 2.5vw, 14px);font-weight:700}
 .bxr{background:var(--rbg);border:1px solid rgba(232,68,68,.25)}.bxr strong{color:var(--red)}
 .bxo{background:var(--obg);border:1px solid rgba(245,158,11,.25)}.bxo strong{color:var(--ora)}
 .bxg{background:var(--gbg);border:1px solid rgba(16,185,129,.25)}.bxg strong{color:var(--grn)}
 .bxb{background:var(--bbg);border:1px solid rgba(59,130,246,.25)}.bxb strong{color:var(--blu)}
-.steps{display:flex;flex-direction:column;gap:8px}
-.step{background:var(--s2);border:1px solid var(--bd);border-radius:9px;padding:11px;display:flex;gap:10px}
-.sn{width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.steps{display:flex;flex-direction:column;gap:clamp(6px, 1.5vw, 10px)}
+.step{background:var(--s2);border:1px solid var(--bd);border-radius:clamp(8px, 2vw, 10px);padding:clamp(10px, 2.5vw, 12px);display:flex;gap:clamp(8px, 2vw, 12px);align-items:flex-start}
+.sn{width:clamp(22px, 5vw, 26px);height:clamp(22px, 5vw, 26px);border-radius:50%;background:var(--red);color:#fff;font-size:clamp(10px, 2vw, 12px);font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
 .sn.g{background:var(--grn)}.sn.o{background:var(--ora)}.sn.b{background:var(--blu)}
-.st{font-weight:600;margin-bottom:2px;font-size:13px}.sd{font-size:12px;color:var(--mut);line-height:1.7}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:11px}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:12px}
-@media(max-width:480px){.g2{grid-template-columns:1fr}.g3{grid-template-columns:repeat(2,1fr)}}
-.qc{background:var(--s1);border:1px solid var(--bd);border-radius:11px;padding:13px 9px;text-align:center;cursor:pointer;transition:all .2s}
+.st{font-weight:600;margin-bottom:2px;font-size:clamp(12px, 2.5vw, 14px);line-height:1.4}.sd{font-size:clamp(11px, 2.3vw, 13px);color:var(--mut);line-height:1.7}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px, 2vw, 10px);margin-bottom:clamp(10px, 2vw, 12px)}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px, 2vw, 10px);margin-bottom:clamp(10px, 2vw, 14px)}
+@media(max-width:600px){.g2{grid-template-columns:1fr}.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:400px){.g3{grid-template-columns:1fr}}
+.qc{background:var(--s1);border:1px solid var(--bd);border-radius:clamp(10px, 2vw, 12px);padding:clamp(12px, 3vw, 15px) clamp(8px, 2vw, 10px);text-align:center;cursor:pointer;transition:all .2s;min-width:0}
 .qc:hover{border-color:var(--red);transform:translateY(-2px)}.qc:active{transform:scale(.96)}
-.qi{font-size:24px;margin-bottom:6px}.ql{font-size:11px;color:var(--mut)}
-.acc{display:flex;flex-direction:column;gap:6px}
-.ai{background:var(--s2);border:1px solid var(--bd);border-radius:10px;overflow:hidden}
-.ah{padding:12px 13px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:13px;gap:8px}
+.qi{font-size:clamp(20px, 5vw, 26px);margin-bottom:clamp(4px, 1vw, 8px)}.ql{font-size:clamp(10px, 2vw, 12px);color:var(--mut);line-height:1.3}
+.acc{display:flex;flex-direction:column;gap:clamp(5px, 1vw, 8px)}
+.ai{background:var(--s2);border:1px solid var(--bd);border-radius:clamp(9px, 2vw, 11px);overflow:hidden}
+.ah{padding:clamp(11px, 2.5vw, 14px) clamp(12px, 3vw, 15px);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:clamp(12px, 2.5vw, 14px);gap:8px;min-height:48px}
 .ah:hover{background:var(--s3)}
-.aw{transition:transform .25s;color:var(--mut);font-size:10px;flex-shrink:0}
+.aw{transition:transform .25s;color:var(--mut);font-size:clamp(9px, 2vw, 11px);flex-shrink:0}
 .ai.on .aw{transform:rotate(180deg)}
-.ab{display:none;padding:13px;border-top:1px solid var(--bd);font-size:13px;color:var(--mut);line-height:1.8}
+.ab{display:none;padding:clamp(12px, 3vw, 15px);border-top:1px solid var(--bd);font-size:clamp(12px, 2.5vw, 14px);color:var(--mut);line-height:1.8}
 .ai.on .ab{display:block}
-.ng{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:8px;margin-bottom:14px}
-.nc{background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:12px;text-align:center;text-decoration:none;display:block;transition:all .2s}
+.ng{display:grid;grid-template-columns:repeat(auto-fit,minmax(clamp(100px, 25vw, 120px),1fr));gap:clamp(6px, 1.5vw, 10px);margin-bottom:clamp(12px, 2vw, 16px)}
+.nc{background:var(--s2);border:1px solid var(--bd);border-radius:clamp(9px, 2vw, 11px);padding:clamp(10px, 2.5vw, 14px);text-align:center;text-decoration:none;display:block;transition:all .2s;min-height:clamp(70px, 18vw, 85px);display:flex;flex-direction:column;justify-content:center}
 .nc:hover{border-color:var(--grn);background:var(--gbg)}.nc:active{transform:scale(.95)}
-.nn{font-size:22px;font-weight:800;color:var(--grn);direction:ltr;display:block;letter-spacing:1px}
-.nl{font-size:11px;color:var(--mut);margin-top:2px}
-.cl{display:flex;flex-direction:column;gap:6px}
-.cli{display:flex;align-items:center;gap:9px;padding:9px 12px;background:var(--s2);border:1px solid var(--bd);border-radius:8px;cursor:pointer;font-size:13px;transition:all .15s}
+.nn{font-size:clamp(18px, 5vw, 24px);font-weight:800;color:var(--grn);direction:ltr;display:block;letter-spacing:1px;line-height:1.2}.nl{font-size:clamp(10px, 2vw, 12px);color:var(--mut);margin-top:2px;line-height:1.3}
+.cl{display:flex;flex-direction:column;gap:clamp(5px, 1vw, 8px)}
+.cli{display:flex;align-items:center;gap:clamp(8px, 2vw, 10px);padding:clamp(8px, 2vw, 10px) clamp(10px, 2.5vw, 14px);background:var(--s2);border:1px solid var(--bd);border-radius:clamp(7px, 1.5vw, 9px);cursor:pointer;font-size:clamp(12px, 2.5vw, 14px);transition:all .15s;min-height:44px;flex-wrap:wrap}
 .cli:hover{border-color:var(--grn)}
-.cli input{width:16px;height:16px;accent-color:var(--grn);cursor:pointer;flex-shrink:0}
+.cli input{width:clamp(16px, 4vw, 18px);height:clamp(16px, 4vw, 18px);accent-color:var(--grn);cursor:pointer;flex-shrink:0}
 .cli.done{border-color:rgba(16,185,129,.4);background:var(--gbg);text-decoration:line-through;color:var(--mut)}
-.clcat{font-size:11px;color:var(--mut);font-weight:700;padding:8px 0 2px;border-bottom:1px solid var(--bd);margin-bottom:2px}
-.pw{background:var(--s2);border-radius:20px;height:7px;overflow:hidden;margin:8px 0 4px}
+.clcat{font-size:clamp(10px, 2vw, 12px);color:var(--mut);font-weight:700;padding:clamp(6px, 1.5vw, 10px) 0 clamp(2px, 0.5vw, 4px);border-bottom:1px solid var(--bd);margin-bottom:clamp(2px, 0.5vw, 4px)}
+.pw{background:var(--s2);border-radius:20px;height:clamp(6px, 1.5vw, 8px);overflow:hidden;margin:clamp(6px, 1.5vw, 10px) 0 clamp(4px, 1vw, 6px)}
 .pb{height:100%;background:linear-gradient(90deg,var(--grn),var(--blu));border-radius:20px;transition:width .4s}
-.pt{font-size:11px;color:var(--mut);margin-bottom:4px}
-.tbl{width:100%;border-collapse:collapse}
-.tbl th,.tbl td{padding:8px 12px;text-align:right;border-bottom:1px solid var(--bd);font-size:12px}
-.tbl th{color:var(--mut);font-weight:700;background:var(--s2);font-size:11px}
+.pt{font-size:clamp(10px, 2vw, 12px);color:var(--mut);margin-bottom:clamp(3px, 0.5vw, 6px)}
+.tbl{width:100%;border-collapse:collapse;font-size:clamp(11px, 2.3vw, 13px)}
+.tbl th,.tbl td{padding:clamp(6px, 1.5vw, 10px) clamp(10px, 2.5vw, 14px);text-align:right;border-bottom:1px solid var(--bd);font-size:clamp(11px, 2.3vw, 13px);word-break:break-word}
+.tbl th{color:var(--mut);font-weight:700;background:var(--s2);font-size:clamp(10px, 2vw, 12px)}
 .tbl tr:last-child td{border:none}
-.tfr{direction:ltr;font-family:monospace;color:var(--grn);font-size:13px}
-.tag{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;margin:2px}
+.tfr{direction:ltr;font-family:monospace;color:var(--grn);font-size:clamp(12px, 2.5vw, 14px)}
+.tag{display:inline-block;padding:2px 8px;border-radius:20px;font-size:clamp(9px, 2vw, 11px);font-weight:700;margin:2px;white-space:nowrap}
 .tr{background:var(--rbg);color:var(--red)}.tg{background:var(--gbg);color:var(--grn)}.to{background:var(--obg);color:var(--ora)}.tb{background:var(--bbg);color:var(--blu)}
-textarea{background:var(--s2);border:1px solid var(--bd);border-radius:9px;color:var(--txt);font-family:inherit;font-size:13px;padding:11px;width:100%;resize:vertical;min-height:100px;line-height:1.7}
+textarea{background:var(--s2);border:1px solid var(--bd);border-radius:clamp(8px, 2vw, 10px);color:var(--txt);font-family:inherit;font-size:clamp(12px, 2.5vw, 14px);padding:clamp(10px, 2.5vw, 12px);width:100%;resize:vertical;min-height:clamp(100px, 25vw, 120px);line-height:1.7}
 textarea:focus{outline:none;border-color:var(--blu)}
 textarea::placeholder{color:var(--mut)}
-.save-btn{background:var(--gbg);border:1px solid var(--grn);border-radius:8px;color:var(--grn);padding:7px 16px;cursor:pointer;font-size:12px;font-family:inherit;margin-top:7px;transition:all .2s;font-weight:600}
+.save-btn{background:var(--gbg);border:1px solid var(--grn);border-radius:clamp(7px, 1.5vw, 9px);color:var(--grn);padding:clamp(6px, 1.5vw, 8px) clamp(14px, 3vw, 18px);cursor:pointer;font-size:clamp(11px, 2.3vw, 13px);font-family:inherit;margin-top:clamp(6px, 1.5vw, 8px);transition:all .2s;font-weight:600;min-height:40px}
 .save-btn:hover{background:var(--grn);color:#000}
-.saved-note{font-size:11px;color:var(--grn);margin-top:5px;display:none}
-.csel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:7px;margin-bottom:12px}
-.csb{background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:8px 5px;text-align:center;cursor:pointer;font-size:12px;font-family:inherit;color:var(--txt);transition:all .2s;line-height:1.4}
+.saved-note{font-size:clamp(10px, 2vw, 12px);color:var(--grn);margin-top:clamp(4px, 1vw, 6px);display:none}
+.csel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(90px, 22vw, 110px),1fr));gap:clamp(6px, 1.5vw, 8px);margin-bottom:clamp(10px, 2vw, 14px)}
+.csb{background:var(--s2);border:1px solid var(--bd);border-radius:clamp(7px, 1.5vw, 9px);padding:clamp(7px, 2vw, 10px) clamp(4px, 1vw, 6px);text-align:center;cursor:pointer;font-size:clamp(11px, 2.3vw, 13px);font-family:inherit;color:var(--txt);transition:all .2s;line-height:1.4;min-height:clamp(50px, 12vw, 60px);display:flex;flex-direction:column;justify-content:center}
 .csb:hover,.csb.sel{border-color:var(--ora);background:var(--obg);color:var(--ora);font-weight:700}
-.city-card{background:var(--s2);border:1px solid var(--bd);border-radius:11px;padding:14px;margin-bottom:11px}
-.city-name{font-size:16px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.info-r{display:flex;gap:8px;margin-bottom:6px;font-size:12px;align-items:flex-start}
-.info-l{color:var(--mut);width:80px;flex-shrink:0;padding-top:1px}
-.lvl{border-radius:10px;padding:11px;text-align:center;border:1px solid transparent}
+.city-card{background:var(--s2);border:1px solid var(--bd);border-radius:clamp(10px, 2vw, 12px);padding:clamp(12px, 3vw, 16px);margin-bottom:clamp(10px, 2vw, 12px)}
+.city-name{font-size:clamp(15px, 3.5vw, 17px);font-weight:800;margin-bottom:clamp(8px, 2vw, 12px);display:flex;align-items:center;gap:clamp(6px, 1.5vw, 10px);flex-wrap:wrap;line-height:1.4}
+.info-r{display:flex;gap:clamp(6px, 1.5vw, 10px);margin-bottom:clamp(4px, 1vw, 8px);font-size:clamp(11px, 2.3vw, 13px);align-items:flex-start;flex-wrap:wrap}
+.info-l{color:var(--mut);width:clamp(70px, 18vw, 90px);flex-shrink:0;padding-top:1px}
+.lvl{border-radius:clamp(9px, 2vw, 11px);padding:clamp(10px, 2.5vw, 12px);text-align:center;border:1px solid transparent}
 .lv-g{background:var(--gbg);border-color:rgba(16,185,129,.3)}
 .lv-o{background:var(--obg);border-color:rgba(245,158,11,.3)}
 .lv-r{background:var(--rbg);border-color:rgba(232,68,68,.3)}
-.lv-icon{font-size:22px;margin-bottom:5px}.lv-name{font-weight:700;font-size:12px}.lv-desc{font-size:10px;color:var(--mut);margin-top:2px}
-hr{border:none;border-top:1px solid var(--bd);margin:11px 0}
-.mt8{margin-top:8px}
-/* search */
-.search-wrap{position:relative;margin-bottom:10px}
-.search-inp{background:var(--s2);border:1px solid var(--bd);border-radius:9px;color:var(--txt);font-family:inherit;font-size:13px;padding:9px 36px 9px 12px;width:100%;outline:none}
+.lv-icon{font-size:clamp(18px, 4vw, 24px);margin-bottom:clamp(4px, 1vw, 6px)}.lv-name{font-weight:700;font-size:clamp(11px, 2.3vw, 13px)}.lv-desc{font-size:clamp(9px, 2vw, 11px);color:var(--mut);margin-top:2px;line-height:1.3}
+hr{border:none;border-top:1px solid var(--bd);margin:clamp(10px, 2vw, 12px) 0}
+.mt8{margin-top:clamp(6px, 1.5vw, 10px)}
+.search-wrap{position:relative;margin-bottom:clamp(8px, 2vw, 12px)}
+.search-inp{background:var(--s2);border:1px solid var(--bd);border-radius:clamp(8px, 2vw, 10px);color:var(--txt);font-family:inherit;font-size:clamp(12px, 2.5vw, 14px);padding:clamp(8px, 2vw, 10px) clamp(34px, 8vw, 40px) clamp(8px, 2vw, 10px) clamp(10px, 2.5vw, 14px);width:100%;outline:none;min-height:44px}
 .search-inp:focus{border-color:var(--blu)}
 .search-inp::placeholder{color:var(--mut)}
-.search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--mut);font-size:14px;pointer-events:none}
+.search-icon{position:absolute;left:clamp(10px, 2.5vw, 12px);top:50%;transform:translateY(-50%);color:var(--mut);font-size:clamp(13px, 3vw, 15px);pointer-events:none}
+@media(max-width:480px){
+header{flex-wrap:wrap}
+.logo span{display:none}
+nav{top:clamp(50px, 12vw, 55px)}
+.qc{padding:clamp(10px, 2.5vw, 12px) clamp(6px, 1.5vw, 8px)}
+.ng{grid-template-columns:repeat(2,1fr)}
+.nc{min-height:clamp(60px, 15vw, 75px)}
+.tbl th,.tbl td{padding:clamp(5px, 1vw, 8px)}
+}
+@media(max-width:360px){
+.ng{grid-template-columns:1fr}
+.g3{grid-template-columns:1fr}
+.csel-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:768px){
+main{padding:20px 24px}
+.card{padding:18px 20px}
+.qc:hover{transform:translateY(-3px)}
+.nc:hover{transform:translateY(-2px)}
+}
+@media(print){
+header,nav,.abar,.off-badge,.search-wrap,.save-btn{display:none!important}
+body{background:#fff;color:#000}
+.card{border:1px solid #000;break-inside:avoid}
+}
 </style>
 </head>
 <body>
-
 <header>
-  <div class="logo">🛡️ پناه<span> — راهنمای اضطراری</span></div>
-  <div class="off-badge">● آفلاین</div>
+<div class="logo">🛡️ پناه<span> — راهنمای اضطراری</span></div>
+<div class="off-badge">● آفلاین</div>
 </header>
-
 <div class="abar">
-  <div class="dot"></div>
-  آژیر خطر = فوری زیرزمین  — حداقل ۳ متر از پنجره دور بمانید
+<div class="dot"></div>
+آژیر خطر = فوری زیرزمین — حداقل ۳ متر از پنجره دور بمانید
 </div>
-
 <nav>
-  <button class="nb on" onclick="go(0)">🏠 خانه</button>
-  <button class="nb" onclick="go(1)">🏚️ پناه</button>
-  <button class="nb" onclick="go(2)">🩺 کمک اولیه</button>
-  <button class="nb" onclick="go(3)">🗺️ استان‌ها</button>
-  <button class="nb" onclick="go(4)">🎒 کیف</button>
-  <button class="nb" onclick="go(5)">📡 ارتباط</button>
-  <button class="nb" onclick="go(6)">📞 اورژانس</button>
-  <button class="nb" onclick="go(7)">📝 یادداشت</button>
+<button class="nb on" onclick="go(0)">🏠 خانه</button>
+<button class="nb" onclick="go(1)">🏚️ پناه</button>
+<button class="nb" onclick="go(2)">🩺 کمک اولیه</button>
+<button class="nb" onclick="go(3)">🗺️ استان‌ها</button>
+<button class="nb" onclick="go(4)">🎒 کیف</button>
+<button class="nb" onclick="go(5)">📡 ارتباط</button>
+<button class="nb" onclick="go(6)">📞 اورژانس</button>
+<button class="nb" onclick="go(7)">📝 یادداشت</button>
 </nav>
-
 <main>
-
 <!-- ========== PAGE 0: HOME ========== -->
 <div class="pg on" id="p0">
-  <div class="card" style="border-color:rgba(232,68,68,.35);background:var(--rbg)">
-    <div style="font-size:11px;color:var(--red);font-weight:700;margin-bottom:9px">⚠️ دسترسی سریع اضطراری</div>
-    <div class="g3">
-      <div class="qc" onclick="go(1)"><div class="qi">🏚️</div><div class="ql">پناه‌گیری</div></div>
-      <div class="qc" onclick="go(2)"><div class="qi">🩺</div><div class="ql">کمک اولیه</div></div>
-      <div class="qc" onclick="go(6)"><div class="qi">📞</div><div class="ql">شماره‌ها</div></div>
-      <div class="qc" onclick="go(4)"><div class="qi">🎒</div><div class="ql">کیف اضطراری</div></div>
-      <div class="qc" onclick="go(5)"><div class="qi">📡</div><div class="ql">ارتباطات</div></div>
-      <div class="qc" onclick="go(3)"><div class="qi">🗺️</div><div class="ql">نقشه استان‌ها</div></div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci cr">⚡</div>الان خطر وجود دارد؟</div>
-    <div class="steps">
-      <div class="step"><div class="sn">۱</div><div><div class="st">فوری پناه بگیرید</div><div class="sd">زیرزمین، زیر پله بتونی، یا کنار دیوار  داخلی</div></div></div>
-      <div class="step"><div class="sn">۲</div><div><div class="st">از پنجره دور بمانید</div><div class="sd">حداقل ۳ متر — موج انفجار شیشه را تبدیل به تیکه‌های تیز می‌کند</div></div></div>
-      <div class="step"><div class="sn">۳</div><div><div class="st">دراز بکشید روی زمین</div><div class="sd">دست‌ها روی پشت گردن — صورت با بازو — دهان کمی باز</div></div></div>
-      <div class="step"><div class="sn g">۴</div><div><div class="st">منتظر اعلام رسمی باشید</div><div class="sd">رادیو AM 810 kHz را گوش دهید</div></div></div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci co">🔔</div>سطوح هشدار</div>
-    <div class="g3">
-      <div class="lvl lv-g"><div class="lv-icon">🟢</div><div class="lv-name">آماده‌باش</div><div class="lv-desc">کیف را آماده کنید</div></div>
-      <div class="lvl lv-o"><div class="lv-icon">🟡</div><div class="lv-name">هشدار</div><div class="lv-desc">به فضای امن بروید</div></div>
-      <div class="lvl lv-r"><div class="lv-icon">🔴</div><div class="lv-name">خطر فوری</div><div class="lv-desc">فوری پناه بگیرید</div></div>
-    </div>
-    <div class="bx bxo mt8"><strong>🔊 آژیرها را بشناسید</strong>ممتد بلند: خطر فوری — فوری پناه بگیرید<br>متناوب کوتاه: پایان خطر — می‌توانید خارج شوید</div>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci cg">ℹ️</div>درباره پناه</div>
-    <p style="font-size:12px;color:var(--mut)">کاملاً آفلاین. بدون ذخیره داده روی سرور. بدون ردیابی. برای شرایط قطعی اینترنت و جنگ.</p>
-    <div class="mt8">
-      <span class="tag tg">✓ آفلاین</span><span class="tag tg">✓ فارسی</span><span class="tag to">v2.1</span>
-    </div>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci cb">💻</div>گیت‌هاب پروژه</div>
-    <div class="bx bxb">
-      <strong>📂 متن‌باز (Open Source)</strong>
-      این پروژه به صورت آزاد و متن‌باز منتشر شده است. برای مشارکت، ارسال پیشنهاد یا بررسی کد به مخزن گیت‌هاب مراجعه کنید.
-    </div>
-    <a href="https://github.com/MR-Amouei/Panah" target="_blank" class="nc" style="background:var(--s2);color:var(--txt);border:1px solid var(--bd);text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px">
-      <span>مشاهده در GitHub</span>
-      <span style="font-size:16px">↗</span>
-    </a>
-  </div>
+<div class="card" style="border-color:rgba(232,68,68,.35);background:var(--rbg)">
+<div style="font-size:clamp(10px, 2vw, 12px);color:var(--red);font-weight:700;margin-bottom:clamp(8px, 1.5vw, 10px)">⚠️ دسترسی سریع اضطراری</div>
+<div class="g3">
+<div class="qc" onclick="go(1)"><div class="qi">🏚️</div><div class="ql">پناه‌گیری</div></div>
+<div class="qc" onclick="go(2)"><div class="qi">🩺</div><div class="ql">کمک اولیه</div></div>
+<div class="qc" onclick="go(6)"><div class="qi">📞</div><div class="ql">شماره‌ها</div></div>
+<div class="qc" onclick="go(4)"><div class="qi">🎒</div><div class="ql">کیف اضطراری</div></div>
+<div class="qc" onclick="go(5)"><div class="qi">📡</div><div class="ql">ارتباطات</div></div>
+<div class="qc" onclick="go(3)"><div class="qi">🗺️</div><div class="ql">نقشه استان‌ها</div></div>
 </div>
-
+</div>
+<div class="card">
+<div class="ctit"><div class="ci cr">⚡</div>الان خطر وجود دارد؟</div>
+<div class="steps">
+<div class="step"><div class="sn">۱</div><div><div class="st">فوری پناه بگیرید</div><div class="sd">زیرزمین، زیر پله بتونی، یا کنار دیوار داخلی</div></div></div>
+<div class="step"><div class="sn">۲</div><div><div class="st">از پنجره دور بمانید</div><div class="sd">حداقل ۳ متر — موج انفجار شیشه را تبدیل به تیکه‌های تیز می‌کند</div></div></div>
+<div class="step"><div class="sn">۳</div><div><div class="st">دراز بکشید روی زمین</div><div class="sd">دست‌ها روی پشت گردن — صورت با بازو — دهان کمی باز</div></div></div>
+<div class="step"><div class="sn g">۴</div><div><div class="st">منتظر اعلام رسمی باشید</div><div class="sd">رادیو AM 810 kHz را گوش دهید</div></div></div>
+</div>
+</div>
+<div class="card">
+<div class="ctit"><div class="ci co">🔔</div>سطوح هشدار</div>
+<div class="g3">
+<div class="lvl lv-g"><div class="lv-icon">🟢</div><div class="lv-name">آماده‌باش</div><div class="lv-desc">کیف را آماده کنید</div></div>
+<div class="lvl lv-o"><div class="lv-icon">🟡</div><div class="lv-name">هشدار</div><div class="lv-desc">به فضای امن بروید</div></div>
+<div class="lvl lv-r"><div class="lv-icon">🔴</div><div class="lv-name">خطر فوری</div><div class="lv-desc">فوری پناه بگیرید</div></div>
+</div>
+<div class="bx bxo mt8"><strong>🔊 آژیرها را بشناسید</strong>ممتد بلند: خطر فوری — فوری پناه بگیرید<br>متناوب کوتاه: پایان خطر — می‌توانید خارج شوید</div>
+</div>
+<div class="card">
+<div class="ctit"><div class="ci cg">ℹ️</div>درباره پناه</div>
+<p style="font-size:clamp(11px, 2.3vw, 13px);color:var(--mut)">کاملاً آفلاین. بدون ذخیره داده روی سرور. بدون ردیابی. برای شرایط قطعی اینترنت و جنگ.</p>
+<div class="mt8">
+<span class="tag tg">✓ آفلاین</span><span class="tag tg">✓ فارسی</span><span class="tag to">v2.1</span>
+</div>
+</div>
+<div class="card">
+<div class="ctit"><div class="ci cb">💻</div>گیت‌هاب پروژه</div>
+<div class="bx bxb">
+<strong>📂 متن‌باز (Open Source)</strong>
+این پروژه به صورت آزاد و متن‌باز منتشر شده است. برای مشارکت، ارسال پیشنهاد یا بررسی کد به مخزن گیت‌هاب مراجعه کنید.
+</div>
+<a href="https://github.com/MR-Amouei/Panah" target="_blank" class="nc" style="background:var(--s2);color:var(--txt);border:1px solid var(--bd);text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px">
+<span>مشاهده در GitHub</span>
+<span style="font-size:clamp(14px, 3vw, 17px)">↗</span>
+</a>
+</div>
+</div>
 <!-- ========== PAGE 1: SHELTER ========== -->
 <div class="pg" id="p1">
-  <div class="stit">🏚️ راهنمای پناه‌گیری</div>
-  <div class="card">
-    <div class="ctit"><div class="ci cr">🚨</div>آژیر خطر — گام‌به‌گام</div>
-    <div class="steps">
-      <div class="step"><div class="sn">۱</div><div><div class="st">آرامش — وحشت نکنید</div><div class="sd">دویدن بی‌هدف از پناه گرفتن همانجا خطرناک‌تر است</div></div></div>
-      <div class="step"><div class="sn">۲</div><div><div class="st">پایین‌ترین طبقه یا زیرزمین</div><div class="sd">زیرزمین بهترین است. اگر نیست: طبقه اول، زیر پله بتونی</div></div></div>
-      <div class="step"><div class="sn">۳</div><div><div class="st">حداقل ۳ متر از پنجره</div><div class="sd">موج انفجار شیشه را به تیکه‌های تیز تبدیل می‌کند</div></div></div>
-      <div class="step"><div class="sn">۴</div><div><div class="st">نزدیک دیوار  یا ستون بتونی</div><div class="sd">دیوارهای ضخیم داخلی بهترین حفاظت را دارند</div></div></div>
-      <div class="step"><div class="sn">۵</div><div><div class="st">دراز بکشید — وضعیت حفاظتی</div><div class="sd">روی زمین — دست‌ها روی پشت گردن — صورت با آرنج — دهان کمی باز</div></div></div>
-      <div class="step"><div class="sn g">۶</div><div><div class="st">منتظر اعلام رسمی باشید</div><div class="sd">رادیو AM 810 kHz گوش دهید — تا اعلام پایان خطر خارج نشوید</div></div></div>
-    </div>
-  </div>
-  <div class="g2">
-    <div class="bx bxg"><strong>✅ مکان‌های امن</strong>زیرزمین بتونی<br>زیر پله بتونی<br>کنار دیوار <br>داخل حمام<br>تونل مترو / زیرگذر<br>زیر میز فلزی محکم</div>
-    <div class="bx bxr"><strong>❌ مکان‌های خطرناک</strong>کنار پنجره<br>طبقه‌های بالا<br>زیر سقف سبک<br>فضای باز<br>نزدیک تأسیسات گاز<br>کنار خودرو</div>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci co">🏢</div>در خیابان هستید؟</div>
-    <div class="steps">
-      <div class="step"><div class="sn">۱</div><div><div class="st">وارد ساختمان بتونی شوید</div><div class="sd">در بزنید — مردم در خطر کمک می‌کنند</div></div></div>
-      <div class="step"><div class="sn">۲</div><div><div class="st">اگر فرصت ندارید</div><div class="sd">پشت دیوار بتونی یا روی زمین — دور از ماشین، تیر برق، درخت</div></div></div>
-      <div class="step"><div class="sn">۳</div><div><div class="st">تونل مترو یا زیرگذر بتونی</div><div class="sd">بهترین پناهگاه عمومی در شهر</div></div></div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci co">💥</div>بعد از انفجار</div>
-    <div class="bx bxr"><strong>⚠️ خطر انفجار ثانویه</strong>حداقل ۱۵ دقیقه از محل خارج نشوید</div>
-    <div class="steps">
-      <div class="step"><div class="sn o">۱</div><div><div class="st">بوی گاز؟</div><div class="sd">برق نزنید — در/پنجره باز — فوری خارج — ۱۹۴</div></div></div>
-      <div class="step"><div class="sn o">۲</div><div><div class="st">آتش؟</div><div class="sd">۱۲۵ — پله نه آسانسور — زیر دود خم شوید</div></div></div>
-      <div class="step"><div class="sn o">۳</div><div><div class="st">ترک دیوار یا صدای مشکوک؟</div><div class="sd">فوری خارج شوید — خطر ریزش</div></div></div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci cb">🏗️</div>حفاظت انواع ساختمان</div>
-    <table class="tbl">
-      <thead><tr><th>نوع ساختمان</th><th>سطح حفاظت</th></tr></thead>
-      <tbody>
-        <tr><td>بتون مسلح چند طبقه</td><td class="tfr" style="color:var(--grn)">★★★★★</td></tr>
-        <tr><td>آجری قدیمی محکم</td><td class="tfr" style="color:var(--grn)">★★★★</td></tr>
-        <tr><td>اسکلت فلزی</td><td class="tfr" style="color:var(--ora)">★★★</td></tr>
-        <tr><td>یک طبقه آجری</td><td class="tfr" style="color:var(--ora)">★★</td></tr>
-        <tr><td>سازه سبک / پیش‌ساخته</td><td class="tfr" style="color:var(--red)">★</td></tr>
-      </tbody>
-    </table>
-  </div>
+<div class="stit">🏚️ راهنمای پناه‌گیری</div>
+<div class="card">
+<div class="ctit"><div class="ci cr">🚨</div>آژیر خطر — گام‌به‌گام</div>
+<div class="steps">
+<div class="step"><div class="sn">۱</div><div><div class="st">آرامش — وحشت نکنید</div><div class="sd">دویدن بی‌هدف از پناه گرفتن همانجا خطرناک‌تر است</div></div></div>
+<div class="step"><div class="sn">۲</div><div><div class="st">پایین‌ترین طبقه یا زیرزمین</div><div class="sd">زیرزمین بهترین است. اگر نیست: طبقه اول، زیر پله بتونی</div></div></div>
+<div class="step"><div class="sn">۳</div><div><div class="st">حداقل ۳ متر از پنجره</div><div class="sd">موج انفجار شیشه را به تیکه‌های تیز تبدیل می‌کند</div></div></div>
+<div class="step"><div class="sn">۴</div><div><div class="st">نزدیک دیوار یا ستون بتونی</div><div class="sd">دیوارهای ضخیم داخلی بهترین حفاظت را دارند</div></div></div>
+<div class="step"><div class="sn">۵</div><div><div class="st">دراز بکشید — وضعیت حفاظتی</div><div class="sd">روی زمین — دست‌ها روی پشت گردن — صورت با آرنج — دهان کمی باز</div></div></div>
+<div class="step"><div class="sn g">۶</div><div><div class="st">منتظر اعلام رسمی باشید</div><div class="sd">رادیو AM 810 kHz گوش دهید — تا اعلام پایان خطر خارج نشوید</div></div></div>
 </div>
-
+</div>
+<div class="g2">
+<div class="bx bxg"><strong>✅ مکان‌های امن</strong>زیرزمین بتونی<br>زیر پله بتونی<br>کنار دیوار<br>داخل حمام<br>تونل مترو / زیرگذر<br>زیر میز فلزی محکم</div>
+<div class="bx bxr"><strong>❌ مکان‌های خطرناک</strong>کنار پنجره<br>طبقه‌های بالا<br>زیر سقف سبک<br>فضای باز<br>نزدیک تأسیسات گاز<br>کنار خودرو</div>
+</div>
+<div class="card">
+<div class="ctit"><div class="ci co">🏢</div>در خیابان هستید؟</div>
+<div class="steps">
+<div class="step"><div class="sn">۱</div><div><div class="st">وارد ساختمان بتونی شوید</div><div class="sd">در بزنید — مردم در خطر کمک می‌کنند</div></div></div>
+<div class="step"><div class="sn">۲</div><div><div class="st">اگر فرصت ندارید</div><div class="sd">پشت دیوار بتونی یا روی زمین — دور از ماشین، تیر برق، درخت</div></div></div>
+<div class="step"><div class="sn">۳</div><div><div class="st">تونل مترو یا زیرگذر بتونی</div><div class="sd">بهترین پناهگاه عمومی در شهر</div></div></div>
+</div>
+</div>
+<div class="card">
+<div class="ctit"><div class="ci co">💥</div>بعد از انفجار</div>
+<div class="bx bxr"><strong>⚠️ خطر انفجار ثانویه</strong>حداقل ۱۵ دقیقه از محل خارج نشوید</div>
+<div class="steps">
+<div class="step"><div class="sn o">۱</div><div><div class="st">بوی گاز؟</div><div class="sd">برق نزنید — در/پنجره باز — فوری خارج — ۱۹۴</div></div></div>
+<div class="step"><div class="sn o">۲</div><div><div class="st">آتش؟</div><div class="sd">۱۲۵ — پله نه آسانسور — زیر دود خم شوید</div></div></div>
+<div class="step"><div class="sn o">۳</div><div><div class="st">ترک دیوار یا صدای مشکوک؟</div><div class="sd">فوری خارج شوید — خطر ریزش</div></div></div>
+</div>
+</div>
+<div class="card">
+<div class="ctit"><div class="ci cb">🏗️</div>حفاظت انواع ساختمان</div>
+<table class="tbl">
+<thead><tr><th>نوع ساختمان</th><th>سطح حفاظت</th></tr></thead>
+<tbody>
+<tr><td>بتون مسلح چند طبقه</td><td class="tfr" style="color:var(--grn)">★★★★★</td></tr>
+<tr><td>آجری قدیمی محکم</td><td class="tfr" style="color:var(--grn)">★★★★</td></tr>
+<tr><td>اسکلت فلزی</td><td class="tfr" style="color:var(--ora)">★★★</td></tr>
+<tr><td>یک طبقه آجری</td><td class="tfr" style="color:var(--ora)">★★</td></tr>
+<tr><td>سازه سبک / پیش‌ساخته</td><td class="tfr" style="color:var(--red)">★</td></tr>
+</tbody>
+</table>
+</div>
+</div>
 <!-- ========== PAGE 2: FIRST AID ========== -->
 <div class="pg" id="p2">
-  <div class="stit">🩺 کمک‌های اولیه</div>
-  <div class="bx bxo"><strong>⚠️ مهم</strong>این اطلاعات برای شرایط اضطراری است. در اولین فرصت با ۱۱۵ تماس بگیرید.</div>
-  <div class="acc">
-    <div class="ai">
-      <div class="ah" onclick="ta(this)">🩸 خونریزی شدید <span class="aw">▼</span></div>
-      <div class="ab">
-        <div class="steps">
-          <div class="step"><div class="sn">۱</div><div><div class="st">فشار مستقیم — حداقل ۱۰ دقیقه</div><div class="sd">پارچه تمیز — فشار محکم بدون وقفه — رها نکنید</div></div></div>
-          <div class="step"><div class="sn">۲</div><div><div class="st">اندام را بالا ببرید</div><div class="sd">بالاتر از سطح قلب نگه دارید</div></div></div>
-          <div class="step"><div class="sn">۳</div><div><div class="st">تورنیکه — آخرین راه</div><div class="sd">فقط اندام — ۵ سانت بالای زخم — زمان را روی پوست بنویسید</div></div></div>
-        </div>
-        <div class="bx bxr mt8"><strong>❌ نکنید</strong>پارچه خونی را برندارید — روی همان بگذارید</div>
-      </div>
-    </div>
-    <div class="ai">
-      <div class="ah" onclick="ta(this)">❤️ CPR احیاء قلبی‌ریوی <span class="aw">▼</span></div>
-      <div class="ab">
-        <div class="bx bxo"><strong>⏱️ هر ثانیه مهم است</strong>بعد از ۴ دقیقه بدون CPR آسیب مغزی جدی شروع می‌شود</div>
-        <div class="steps">
-          <div class="step"><div class="sn">۱</div><div><div class="st">بیهوش + نفس ندارد؟</div><div class="sd">شانه تکان دهید — صدا بزنید — ۱۱۵ بزنید</div></div></div>
-          <div class="step"><div class="sn">۲</div><div><div class="st">۳۰ فشار قفسه سینه</div><div class="sd">روی جناغ — عمق ۵ سانت — ۱۰۰-۱۲۰ بار/دقیقه — بازوها صاف</div></div></div>
-          <div class="step"><div class="sn">۳</div><div><div class="st">۲ نفس مصنوعی (اختیاری)</div><div class="sd">سر به عقب — بینی بگیرید — ۱ ثانیه بدمید</div></div></div>
-          <div class="step"><div class="sn g">۴</div><div><div class="st">ادامه ۳۰:۲ تا اورژانس برسد</div><div class="sd">فقط فشار قفسه سینه بدون نفس هم مؤثر است</div></div></div>
-        </div>
-      </div>
-    </div>
-    <div class="ai">
-      <div class="ah" onclick="ta(this)">💫 بیهوشی و ضربه مغزی <span class="aw">▼</span></div>
-      <div class="ab">
-        <div class="steps">
-          <div class="step"><div class="sn">۱</div><div><div class="st">بررسی: واکنش + تنفس</div><div class="sd">صدا + شانه تکان — سینه را نگاه کنید</div></div></div>
-          <div class="step"><div class="sn g">۲</div><div><div class="st">وضعیت ریکاوری (تنفس دارد)</div><div class="sd">روی پهلو — سر کمی به عقب — دهان رو به پایین</div></div></div>
-          <div class="step"><div class="sn">۳</div><div><div class="st">سر و گردن را تکان ندهید</div><div class="sd">احتمال آسیب ستون فقرات</div></div></div>
-        </div>
-        <div class="bx bxr mt8"><strong>علائم خطرناک</strong>بیهوشی بیش از ۱ دقیقه — تشنج — خونریزی از گوش — نابرابری مردمک</div>
-      </div>
-    </div>
-    <div class="ai">
-      <div class="ah" onclick="ta(this)">🔥 سوختگی <span class="aw">▼</span></div>
-      <div class="ab">
-        <div class="steps">
-          <div class="step"><div class="sn">۱</div><div><div class="st">۲۰ دقیقه آب سرد جاری</div><div class="sd">ولرم تا خنک — نه یخ مستقیم — مهم‌ترین قدم</div></div></div>
-          <div class="step"><div class="sn">۲</div><div><div class="st">لباس و جواهر را دربیاورید</div><div class="sd">اگر به پوست نچسبیده — تورم می‌کند</div></div></div>
-          <div class="step"><div class="sn">۳</div><div><div class="st">پارچه تمیز مرطوب</div><div class="sd">از تماس با هوا جلوگیری کنید</div></div></div>
-        </div>
-        <div class="bx bxr mt8"><strong>❌ هرگز</strong>خمیردندان — روغن — کره — ماست — یخ مستقیم</div>
-      </div>
-    </div>
-    <div class="ai">
-      <div class="ah" onclick="ta(this)">🦴 شکستگی و دررفتگی <span class="aw">▼</span></div>
-      <div class="ab">
-        <div class="steps">
-          <div class="step"><div class="sn">۱</div><div><div class="st">ثابت نگه دارید</div><div class="sd">هیچ حرکت اجباری ندهید — به‌خصوص ستون فقرات</div></div></div>
-          <div class="step"><div class="sn">۲</div><div><div class="st">آتل بگذارید</div><div class="sd">چوب یا مقوا — هر دو سمت استخوان — نه خیلی محکم</div></div></div>
-          <div class="step"><div class="sn">۳</div><div><div class="st">یخ با پارچه</div><div class="sd">نه مستقیم — تورم کاهش می‌یابد</div></div></div>
-        </div>
-        <div class="bx bxr mt8"><strong>⚠️ دررفتگی را جا نیندازید</strong>فقط اورژانس این کار را می‌کند</div>
-      </div>
-    </div>
-    <div class="ai">
-      <div class="ah" onclick="ta(this)">😰 شوک (Shock) <span class="aw">▼</span></div>
-      <div class="ab">
-        <div class="bx bxo"><strong>علائم</strong>رنگ‌پریدگی — سرما و لرز — نبض سریع و ضعیف — تنفس سریع — بی‌هوشی تدریجی</div>
-        <div class="steps">
-          <div class="step"><div class="sn g">۱</div><div><div class="st">دراز بکشانید — پاها بالا</div><div class="sd">۳۰ سانت بالاتر از سطح قلب — مگر آسیب سر یا پا</div></div></div>
-          <div class="step"><div class="sn g">۲</div><div><div class="st">گرم نگه دارید</div><div class="sd">پتو یا لباس — از سرما جلوگیری کنید</div></div></div>
-          <div class="step"><div class="sn">۳</div><div><div class="st">آب ندهید تا هوشیاری کامل</div><div class="sd">فوری ۱۱۵ بزنید</div></div></div>
-        </div>
-      </div>
-    </div>
-    <div class="ai">
-      <div class="ah" onclick="ta(this)">😮‍💨 خفگی — هیملیخ <span class="aw">▼</span></div>
-      <div class="ab">
-        <div class="steps">
-          <div class="step"><div class="sn">۱</div><div><div class="st">هنوز سرفه می‌کند؟</div><div class="sd">تشویق کنید — مداخله نکنید</div></div></div>
-          <div class="step"><div class="sn">۲</div><div><div class="st">۵ ضربه پشت + ۵ هیملیخ</div><div class="sd">ضربه بین کتف‌ها — هیملیخ: مشت زیر جناغ، فشار به داخل-بالا</div></div></div>
-          <div class="step"><div class="sn">۳</div><div><div class="st">بیهوش شد؟</div><div class="sd">روی زمین — CPR شروع کنید</div></div></div>
-        </div>
-      </div>
-    </div>
-    <div class="ai">
-      <div class="ah" onclick="ta(this)">🌡️ گرمازدگی و سرمازدگی <span class="aw">▼</span></div>
-      <div class="ab">
-        <b style="font-size:13px;color:var(--txt)">🌡️ گرمازدگی</b>
-        <div class="steps mt8">
-          <div class="step"><div class="sn o">۱</div><div><div class="st">به سایه و هوای خنک ببرید</div><div class="sd">هواکش یا هوای تازه</div></div></div>
-          <div class="step"><div class="sn o">۲</div><div><div class="st">پارچه مرطوب روی گردن و زیر بغل</div><div class="sd">آب خنک (نه یخ) — آب + نمک اگر هوشیار است</div></div></div>
-        </div>
-        <hr>
-        <b style="font-size:13px;color:var(--txt)">❄️ سرمازدگی موضعی</b>
-        <div class="steps mt8">
-          <div class="step"><div class="sn b">۱</div><div><div class="st">آب ولرم ۳۸-۴۲ درجه — ۲۰-۳۰ دقیقه</div><div class="sd">هرگز با آتش، آب داغ یا مالش گرم نکنید</div></div></div>
-          <div class="step"><div class="sn b">۲</div><div><div class="st">روی انگشتان منجمد راه نروید</div><div class="sd">آسیب بیشتری وارد می‌کند</div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="stit">🩺 کمک‌های اولیه</div>
+<div class="bx bxo"><strong>⚠️ مهم</strong>این اطلاعات برای شرایط اضطراری است. در اولین فرصت با ۱۱۵ تماس بگیرید.</div>
+<div class="acc">
+<div class="ai">
+<div class="ah" onclick="ta(this)">🩸 خونریزی شدید <span class="aw">▼</span></div>
+<div class="ab">
+<div class="steps">
+<div class="step"><div class="sn">۱</div><div><div class="st">فشار مستقیم — حداقل ۱۰ دقیقه</div><div class="sd">پارچه تمیز — فشار محکم بدون وقفه — رها نکنید</div></div></div>
+<div class="step"><div class="sn">۲</div><div><div class="st">اندام را بالا ببرید</div><div class="sd">بالاتر از سطح قلب نگه دارید</div></div></div>
+<div class="step"><div class="sn">۳</div><div><div class="st">تورنیکه — آخرین راه</div><div class="sd">فقط اندام — ۵ سانت بالای زخم — زمان را روی پوست بنویسید</div></div></div>
 </div>
-
+<div class="bx bxr mt8"><strong>❌ نکنید</strong>پارچه خونی را برندارید — روی همان بگذارید</div>
+</div>
+</div>
+<div class="ai">
+<div class="ah" onclick="ta(this)">❤️ CPR احیاء قلبی‌ریوی <span class="aw">▼</span></div>
+<div class="ab">
+<div class="bx bxo"><strong>⏱️ هر ثانیه مهم است</strong>بعد از ۴ دقیقه بدون CPR آسیب مغزی جدی شروع می‌شود</div>
+<div class="steps">
+<div class="step"><div class="sn">۱</div><div><div class="st">بیهوش + نفس ندارد؟</div><div class="sd">شانه تکان دهید — صدا بزنید — ۱۱۵ بزنید</div></div></div>
+<div class="step"><div class="sn">۲</div><div><div class="st">۳۰ فشار قفسه سینه</div><div class="sd">روی جناغ — عمق ۵ سانت — ۱۰۰-۱۲۰ بار/دقیقه — بازوها صاف</div></div></div>
+<div class="step"><div class="sn">۳</div><div><div class="st">۲ نفس مصنوعی (اختیاری)</div><div class="sd">سر به عقب — بینی بگیرید — ۱ ثانیه بدمید</div></div></div>
+<div class="step"><div class="sn g">۴</div><div><div class="st">ادامه ۳۰:۲ تا اورژانس برسد</div><div class="sd">فقط فشار قفسه سینه بدون نفس هم مؤثر است</div></div></div>
+</div>
+</div>
+</div>
+<div class="ai">
+<div class="ah" onclick="ta(this)">💫 بیهوشی و ضربه مغزی <span class="aw">▼</span></div>
+<div class="ab">
+<div class="steps">
+<div class="step"><div class="sn">۱</div><div><div class="st">بررسی: واکنش + تنفس</div><div class="sd">صدا + شانه تکان — سینه را نگاه کنید</div></div></div>
+<div class="step"><div class="sn g">۲</div><div><div class="st">وضعیت ریکاوری (تنفس دارد)</div><div class="sd">روی پهلو — سر کمی به عقب — دهان رو به پایین</div></div></div>
+<div class="step"><div class="sn">۳</div><div><div class="st">سر و گردن را تکان ندهید</div><div class="sd">احتمال آسیب ستون فقرات</div></div></div>
+</div>
+<div class="bx bxr mt8"><strong>علائم خطرناک</strong>بیهوشی بیش از ۱ دقیقه — تشنج — خونریزی از گوش — نابرابری مردمک</div>
+</div>
+</div>
+<div class="ai">
+<div class="ah" onclick="ta(this)">🔥 سوختگی <span class="aw">▼</span></div>
+<div class="ab">
+<div class="steps">
+<div class="step"><div class="sn">۱</div><div><div class="st">۲۰ دقیقه آب سرد جاری</div><div class="sd">ولرم تا خنک — نه یخ مستقیم — مهم‌ترین قدم</div></div></div>
+<div class="step"><div class="sn">۲</div><div><div class="st">لباس و جواهر را دربیاورید</div><div class="sd">اگر به پوست نچسبیده — تورم می‌کند</div></div></div>
+<div class="step"><div class="sn">۳</div><div><div class="st">پارچه تمیز مرطوب</div><div class="sd">از تماس با هوا جلوگیری کنید</div></div></div>
+</div>
+<div class="bx bxr mt8"><strong>❌ هرگز</strong>خمیردندان — روغن — کره — ماست — یخ مستقیم</div>
+</div>
+</div>
+<div class="ai">
+<div class="ah" onclick="ta(this)">🦴 شکستگی و دررفتگی <span class="aw">▼</span></div>
+<div class="ab">
+<div class="steps">
+<div class="step"><div class="sn">۱</div><div><div class="st">ثابت نگه دارید</div><div class="sd">هیچ حرکت اجباری ندهید — به‌خصوص ستون فقرات</div></div></div>
+<div class="step"><div class="sn">۲</div><div><div class="st">آتل بگذارید</div><div class="sd">چوب یا مقوا — هر دو سمت استخوان — نه خیلی محکم</div></div></div>
+<div class="step"><div class="sn">۳</div><div><div class="st">یخ با پارچه</div><div class="sd">نه مستقیم — تورم کاهش می‌یابد</div></div></div>
+</div>
+<div class="bx bxr mt8"><strong>⚠️ دررفتگی را جا نیندازید</strong>فقط اورژانس این کار را می‌کند</div>
+</div>
+</div>
+<div class="ai">
+<div class="ah" onclick="ta(this)">😰 شوک (Shock) <span class="aw">▼</span></div>
+<div class="ab">
+<div class="bx bxo"><strong>علائم</strong>رنگ‌پریدگی — سرما و لرز — نبض سریع و ضعیف — تنفس سریع — بی‌هوشی تدریجی</div>
+<div class="steps">
+<div class="step"><div class="sn g">۱</div><div><div class="st">دراز بکشانید — پاها بالا</div><div class="sd">۳۰ سانت بالاتر از سطح قلب — مگر آسیب سر یا پا</div></div></div>
+<div class="step"><div class="sn g">۲</div><div><div class="st">گرم نگه دارید</div><div class="sd">پتو یا لباس — از سرما جلوگیری کنید</div></div></div>
+<div class="step"><div class="sn">۳</div><div><div class="st">آب ندهید تا هوشیاری کامل</div><div class="sd">فوری ۱۱۵ بزنید</div></div></div>
+</div>
+</div>
+</div>
+<div class="ai">
+<div class="ah" onclick="ta(this)">😮‍💨 خفگی — هیملیخ <span class="aw">▼</span></div>
+<div class="ab">
+<div class="steps">
+<div class="step"><div class="sn">۱</div><div><div class="st">هنوز سرفه می‌کند؟</div><div class="sd">تشویق کنید — مداخله نکنید</div></div></div>
+<div class="step"><div class="sn">۲</div><div><div class="st">۵ ضربه پشت + ۵ هیملیخ</div><div class="sd">ضربه بین کتف‌ها — هیملیخ: مشت زیر جناغ، فشار به داخل-بالا</div></div></div>
+<div class="step"><div class="sn">۳</div><div><div class="st">بیهوش شد؟</div><div class="sd">روی زمین — CPR شروع کنید</div></div></div>
+</div>
+</div>
+</div>
+<div class="ai">
+<div class="ah" onclick="ta(this)">🌡️ گرمازدگی و سرمازدگی <span class="aw">▼</span></div>
+<div class="ab">
+<b style="font-size:clamp(12px, 2.5vw, 14px);color:var(--txt)">🌡️ گرمازدگی</b>
+<div class="steps mt8">
+<div class="step"><div class="sn o">۱</div><div><div class="st">به سایه و هوای خنک ببرید</div><div class="sd">هواکش یا هوای تازه</div></div></div>
+<div class="step"><div class="sn o">۲</div><div><div class="st">پارچه مرطوب روی گردن و زیر بغل</div><div class="sd">آب خنک (نه یخ) — آب + نمک اگر هوشیار است</div></div></div>
+</div>
+<hr>
+<b style="font-size:clamp(12px, 2.5vw, 14px);color:var(--txt)">❄️ سرمازدگی موضعی</b>
+<div class="steps mt8">
+<div class="step"><div class="sn b">۱</div><div><div class="st">آب ولرم ۳۸-۴۲ درجه — ۲۰-۳۰ دقیقه</div><div class="sd">هرگز با آتش، آب داغ یا مالش گرم نکنید</div></div></div>
+<div class="step"><div class="sn b">۲</div><div><div class="st">روی انگشتان منجمد راه نروید</div><div class="sd">آسیب بیشتری وارد می‌کند</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <!-- ========== PAGE 3: MAP ========== -->
 <div class="pg" id="p3">
-  <div class="stit">🗺️ اطلاعات ۳۱ استان</div>
-  <div class="search-wrap">
-    <input class="search-inp" type="text" placeholder="جستجوی استان یا شهر..." oninput="filterCities(this.value)" id="search-inp">
-    <span class="search-icon">🔍</span>
-  </div>
-  <div class="csel-grid" id="csel"></div>
-  <div id="city-detail"></div>
+<div class="stit">🗺️ اطلاعات ۳۱ استان</div>
+<div class="search-wrap">
+<input class="search-inp" type="text" placeholder="جستجوی استان یا شهر..." oninput="filterCities(this.value)" id="search-inp">
+<span class="search-icon">🔍</span>
 </div>
-
+<div class="csel-grid" id="csel"></div>
+<div id="city-detail"></div>
+</div>
 <!-- ========== PAGE 4: BAG ========== -->
 <div class="pg" id="p4">
-  <div class="stit">🎒 کیف اضطراری</div>
-  <div class="card">
-    <div class="ctit"><div class="ci co">📊</div>پیشرفت آماده‌سازی</div>
-    <div class="pt" id="pt">محاسبه...</div>
-    <div class="pw"><div class="pb" id="pb" style="width:0%"></div></div>
-    <div class="bx bxo mt8"><strong>⏰ همین الان آماده کنید</strong>نه وقتی خطر باشد — بهترین زمان همین لحظه است</div>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci co">📋</div>چک‌لیست کامل</div>
-    <div class="cl">
-      <div class="clcat">💧 آب و غذا</div>
-      <label class="cli" data-k="w1"><input type="checkbox" onchange="ck(this,'w1')"> آب — ۳ لیتر برای هر نفر در روز (حداقل ۳ روز)</label>
-      <label class="cli" data-k="w2"><input type="checkbox" onchange="ck(this,'w2')"> غذای کنسروی یا خشک — ۳ روز</label>
-      <label class="cli" data-k="w3"><input type="checkbox" onchange="ck(this,'w3')"> باز کننده کنسرو دستی</label>
-      <label class="cli" data-k="w4"><input type="checkbox" onchange="ck(this,'w4')"> قرص تصفیه آب</label>
-      <div class="clcat">🩺 پزشکی</div>
-      <label class="cli" data-k="m1"><input type="checkbox" onchange="ck(this,'m1')"> کیت کمک‌های اولیه کامل</label>
-      <label class="cli" data-k="m2"><input type="checkbox" onchange="ck(this,'m2')"> داروهای ضروری شخصی (۲ هفته)</label>
-      <label class="cli" data-k="m3"><input type="checkbox" onchange="ck(this,'m3')"> ید پویدون + گاز استریل</label>
-      <label class="cli" data-k="m4"><input type="checkbox" onchange="ck(this,'m4')"> باند الاستیک + چسب زخم</label>
-      <label class="cli" data-k="m5"><input type="checkbox" onchange="ck(this,'m5')"> مسکن (ایبوبروفن + استامینوفن)</label>
-      <div class="clcat">📡 ارتباطات و نور</div>
-      <label class="cli" data-k="c1"><input type="checkbox" onchange="ck(this,'c1')"> رادیو باتری‌دار یا دستی (دینامو)</label>
-      <label class="cli" data-k="c2"><input type="checkbox" onchange="ck(this,'c2')"> پاوربانک ظرفیت بالا — شارژ کامل</label>
-      <label class="cli" data-k="c3"><input type="checkbox" onchange="ck(this,'c3')"> چراغ قوه + باتری اضافه</label>
-      <label class="cli" data-k="c4"><input type="checkbox" onchange="ck(this,'c4')"> شمع + کبریت ضدآب</label>
-      <label class="cli" data-k="c5"><input type="checkbox" onchange="ck(this,'c5')"> سوت اضطراری</label>
-      <div class="clcat">📄 اسناد و پول</div>
-      <label class="cli" data-k="d1"><input type="checkbox" onchange="ck(this,'d1')"> کپی مدارک شناسایی (کیف ضدآب)</label>
-      <label class="cli" data-k="d2"><input type="checkbox" onchange="ck(this,'d2')"> پول نقد کافی</label>
-      <label class="cli" data-k="d3"><input type="checkbox" onchange="ck(this,'d3')"> لیست شماره‌های مهم — کاغذی</label>
-      <label class="cli" data-k="d4"><input type="checkbox" onchange="ck(this,'d4')"> عکس خانواده</label>
-      <div class="clcat">👕 لباس و تجهیزات</div>
-      <label class="cli" data-k="e1"><input type="checkbox" onchange="ck(this,'e1')"> لباس گرم + جوراب ضخیم</label>
-      <label class="cli" data-k="e2"><input type="checkbox" onchange="ck(this,'e2')"> کفش محکم</label>
-      <label class="cli" data-k="e3"><input type="checkbox" onchange="ck(this,'e3')"> دستکش کار</label>
-      <label class="cli" data-k="e4"><input type="checkbox" onchange="ck(this,'e4')"> ماسک N95 — حداقل ۳ عدد</label>
-      <label class="cli" data-k="e5"><input type="checkbox" onchange="ck(this,'e5')"> پتوی نجات نقره‌ای</label>
-      <label class="cli" data-k="e6"><input type="checkbox" onchange="ck(this,'e6')"> کیسه نایلون بزرگ</label>
-    </div>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci cg">💧</div>تصفیه آب اضطراری</div>
-    <div class="steps">
-      <div class="step"><div class="sn g">۱</div><div><div class="st">جوشاندن — مطمئن‌ترین روش</div><div class="sd">۱ دقیقه جوش کامل (ارتفاع بالا: ۳ دقیقه)</div></div></div>
-      <div class="step"><div class="sn g">۲</div><div><div class="st">کلر خانگی ۵٪</div><div class="sd">۸ قطره به هر لیتر — ۳۰ دقیقه صبر — آب نباید کدر باشد</div></div></div>
-      <div class="step"><div class="sn g">۳</div><div><div class="st">قرص تصفیه آب</div><div class="sd">طبق دستور روی جعبه — معمولاً ۱ قرص برای ۱ لیتر</div></div></div>
-    </div>
-  </div>
+<div class="stit">🎒 کیف اضطراری</div>
+<div class="card">
+<div class="ctit"><div class="ci co">📊</div>پیشرفت آماده‌سازی</div>
+<div class="pt" id="pt">محاسبه...</div>
+<div class="pw"><div class="pb" id="pb" style="width:0%"></div></div>
+<div class="bx bxo mt8"><strong>⏰ همین الان آماده کنید</strong>نه وقتی خطر باشد — بهترین زمان همین لحظه است</div>
 </div>
-
+<div class="card">
+<div class="ctit"><div class="ci co">📋</div>چک‌لیست کامل</div>
+<div class="cl">
+<div class="clcat">💧 آب و غذا</div>
+<label class="cli" data-k="w1"><input type="checkbox" onchange="ck(this,'w1')"> آب — ۳ لیتر برای هر نفر در روز (حداقل ۳ روز)</label>
+<label class="cli" data-k="w2"><input type="checkbox" onchange="ck(this,'w2')"> غذای کنسروی یا خشک — ۳ روز</label>
+<label class="cli" data-k="w3"><input type="checkbox" onchange="ck(this,'w3')"> باز کننده کنسرو دستی</label>
+<label class="cli" data-k="w4"><input type="checkbox" onchange="ck(this,'w4')"> قرص تصفیه آب</label>
+<div class="clcat">🩺 پزشکی</div>
+<label class="cli" data-k="m1"><input type="checkbox" onchange="ck(this,'m1')"> کیت کمک‌های اولیه کامل</label>
+<label class="cli" data-k="m2"><input type="checkbox" onchange="ck(this,'m2')"> داروهای ضروری شخصی (۲ هفته)</label>
+<label class="cli" data-k="m3"><input type="checkbox" onchange="ck(this,'m3')"> ید پویدون + گاز استریل</label>
+<label class="cli" data-k="m4"><input type="checkbox" onchange="ck(this,'m4')"> باند الاستیک + چسب زخم</label>
+<label class="cli" data-k="m5"><input type="checkbox" onchange="ck(this,'m5')"> مسکن (ایبوبروفن + استامینوفن)</label>
+<div class="clcat">📡 ارتباطات و نور</div>
+<label class="cli" data-k="c1"><input type="checkbox" onchange="ck(this,'c1')"> رادیو باتری‌دار یا دستی (دینامو)</label>
+<label class="cli" data-k="c2"><input type="checkbox" onchange="ck(this,'c2')"> پاوربانک ظرفیت بالا — شارژ کامل</label>
+<label class="cli" data-k="c3"><input type="checkbox" onchange="ck(this,'c3')"> چراغ قوه + باتری اضافه</label>
+<label class="cli" data-k="c4"><input type="checkbox" onchange="ck(this,'c4')"> شمع + کبریت ضدآب</label>
+<label class="cli" data-k="c5"><input type="checkbox" onchange="ck(this,'c5')"> سوت اضطراری</label>
+<div class="clcat">📄 اسناد و پول</div>
+<label class="cli" data-k="d1"><input type="checkbox" onchange="ck(this,'d1')"> کپی مدارک شناسایی (کیف ضدآب)</label>
+<label class="cli" data-k="d2"><input type="checkbox" onchange="ck(this,'d2')"> پول نقد کافی</label>
+<label class="cli" data-k="d3"><input type="checkbox" onchange="ck(this,'d3')"> لیست شماره‌های مهم — کاغذی</label>
+<label class="cli" data-k="d4"><input type="checkbox" onchange="ck(this,'d4')"> عکس خانواده</label>
+<div class="clcat">👕 لباس و تجهیزات</div>
+<label class="cli" data-k="e1"><input type="checkbox" onchange="ck(this,'e1')"> لباس گرم + جوراب ضخیم</label>
+<label class="cli" data-k="e2"><input type="checkbox" onchange="ck(this,'e2')"> کفش محکم</label>
+<label class="cli" data-k="e3"><input type="checkbox" onchange="ck(this,'e3')"> دستکش کار</label>
+<label class="cli" data-k="e4"><input type="checkbox" onchange="ck(this,'e4')"> ماسک N95 — حداقل ۳ عدد</label>
+<label class="cli" data-k="e5"><input type="checkbox" onchange="ck(this,'e5')"> پتوی نجات نقره‌ای</label>
+<label class="cli" data-k="e6"><input type="checkbox" onchange="ck(this,'e6')"> کیسه نایلون بزرگ</label>
+</div>
+</div>
+<div class="card">
+<div class="ctit"><div class="ci cg">💧</div>تصفیه آب اضطراری</div>
+<div class="steps">
+<div class="step"><div class="sn g">۱</div><div><div class="st">جوشاندن — مطمئن‌ترین روش</div><div class="sd">۱ دقیقه جوش کامل (ارتفاع بالا: ۳ دقیقه)</div></div></div>
+<div class="step"><div class="sn g">۲</div><div><div class="st">کلر خانگی ۵٪</div><div class="sd">۸ قطره به هر لیتر — ۳۰ دقیقه صبر — آب نباید کدر باشد</div></div></div>
+<div class="step"><div class="sn g">۳</div><div><div class="st">قرص تصفیه آب</div><div class="sd">طبق دستور روی جعبه — معمولاً ۱ قرص برای ۱ لیتر</div></div></div>
+</div>
+</div>
+</div>
 <!-- ========== PAGE 5: COMMS ========== -->
 <div class="pg" id="p5">
-  <div class="stit">📡 ارتباطات اضطراری</div>
-  <div class="card">
-    <div class="ctit"><div class="ci co">📻</div>رادیو ایران — فرکانس‌ها</div>
-    <div class="bx bxo"><strong>📻 رادیو مهم‌ترین منبع اطلاع در قطع اینترنت</strong>رادیو باتری‌دار یا دستی (دینامو) حتماً داشته باشید</div>
-    <table class="tbl">
-      <thead><tr><th>شبکه</th><th>نوع</th><th>فرکانس</th></tr></thead>
-      <tbody>
-        <tr><td>رادیو ایران (ملی)</td><td>AM</td><td class="tfr">810 kHz</td></tr>
-        <tr><td>رادیو ایران</td><td>FM تهران</td><td class="tfr">100.1 MHz</td></tr>
-        <tr><td>رادیو پیام</td><td>FM</td><td class="tfr">105.5 MHz</td></tr>
-        <tr><td>رادیو جوان</td><td>FM</td><td class="tfr">98.6 MHz</td></tr>
-        <tr><td>رادیو فرهنگ</td><td>FM</td><td class="tfr">107.3 MHz</td></tr>
-        <tr><td>رادیو تهران</td><td>FM</td><td class="tfr">92.8 MHz</td></tr>
-        <tr><td>رادیو اقتصاد</td><td>FM</td><td class="tfr">103.5 MHz</td></tr>
-        <tr><td>رادیو ورزش</td><td>FM</td><td class="tfr">97.6 MHz</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci cb">📱</div>وقتی اینترنت قطع است</div>
-    <div class="steps">
-      <div class="step"><div class="sn g">۱</div><div><div class="st">SMS اول ارسال کنید</div><div class="sd">در شلوغی شبکه بهتر از تماس صوتی ارسال می‌شود — کوتاه بنویسید</div></div></div>
-      <div class="step"><div class="sn g">۲</div><div><div class="st">ساعت ۳-۵ صبح تماس بگیرید</div><div class="sd">شبکه خلوت‌تر — احتمال موفقیت بیشتر</div></div></div>
-      <div class="step"><div class="sn">۳</div><div><div class="st">نقطه تجمع خانوادگی</div><div class="sd">از همین الان یک محل مشخص تعیین کنید — همه بدانند</div></div></div>
-      <div class="step"><div class="sn b">۴</div><div><div class="st">رادیو آماتور</div><div class="sd">باند ۲ متری: ۱۴۴-۱۴۸ MHz — باند ۷۰ سانت: ۴۳۰-۴۴۰ MHz</div></div></div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci cr">✋</div>علائم دستی بین‌المللی</div>
-    <div class="g2">
-      <div class="bx bxg"><strong>✅ سالم هستم</strong>هر دو دست بالا (باز)<br>انگشت شست بالا<br>دایره با انگشتان (OK)</div>
-      <div class="bx bxr"><strong>🆘 کمک لازم دارم</strong>هر دو دست بالا (مشت)<br>SOS روی زمین<br>آتش یا دود در روز</div>
-    </div>
-    <div class="bx bxo"><strong>📐 SOS مورس — با چراغ یا بوق</strong><span style="direction:ltr;font-family:monospace;font-size:16px;display:block;letter-spacing:4px;margin-top:4px">· · · — — — · · ·</span>۳ کوتاه — ۳ بلند — ۳ کوتاه</div>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci co">🔋</div>مدیریت باتری</div>
-    <div class="steps">
-      <div class="step"><div class="sn g">۱</div><div><div class="st">حالت هواپیما + WiFi جداگانه</div><div class="sd">شبکه سلولی قطع — مصرف ۴۰٪ کاهش می‌یابد</div></div></div>
-      <div class="step"><div class="sn g">۲</div><div><div class="st">روشنایی صفحه حداقل</div><div class="sd">GPS — بلوتوث — NFC خاموش</div></div></div>
-      <div class="step"><div class="sn g">۳</div><div><div class="st">بین استفاده‌ها خاموش کنید</div><div class="sd">شارژ ۳-۴ برابر دوام می‌آورد</div></div></div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci cg">📝</div>الگوی SMS اضطراری</div>
-    <div class="bx bxg"><strong>پیام کوتاه اضطراری — کپی کنید</strong>
-      <div style="direction:ltr;font-family:monospace;line-height:2.2;font-size:12px;margin-top:7px;background:var(--s1);padding:8px;border-radius:6px">
-        وضعیت: سالم / مصدوم<br>
-        آدرس: [خیابان، کوچه، پلاک]<br>
-        نیاز: [پزشکی / پناه / تخلیه]<br>
-        تعداد: [نفر]<br>
-        ساعت: [___]
-      </div>
-    </div>
-  </div>
+<div class="stit">📡 ارتباطات اضطراری</div>
+<div class="card">
+<div class="ctit"><div class="ci co">📻</div>رادیو ایران — فرکانس‌ها</div>
+<div class="bx bxo"><strong>📻 رادیو مهم‌ترین منبع اطلاع در قطع اینترنت</strong>رادیو باتری‌دار یا دستی (دینامو) حتماً داشته باشید</div>
+<table class="tbl">
+<thead><tr><th>شبکه</th><th>نوع</th><th>فرکانس</th></tr></thead>
+<tbody>
+<tr><td>رادیو ایران (ملی)</td><td>AM</td><td class="tfr">810 kHz</td></tr>
+<tr><td>رادیو ایران</td><td>FM تهران</td><td class="tfr">100.1 MHz</td></tr>
+<tr><td>رادیو پیام</td><td>FM</td><td class="tfr">105.5 MHz</td></tr>
+<tr><td>رادیو جوان</td><td>FM</td><td class="tfr">98.6 MHz</td></tr>
+<tr><td>رادیو فرهنگ</td><td>FM</td><td class="tfr">107.3 MHz</td></tr>
+<tr><td>رادیو تهران</td><td>FM</td><td class="tfr">92.8 MHz</td></tr>
+<tr><td>رادیو اقتصاد</td><td>FM</td><td class="tfr">103.5 MHz</td></tr>
+<tr><td>رادیو ورزش</td><td>FM</td><td class="tfr">97.6 MHz</td></tr>
+</tbody>
+</table>
 </div>
-
+<div class="card">
+<div class="ctit"><div class="ci cb">📱</div>وقتی اینترنت قطع است</div>
+<div class="steps">
+<div class="step"><div class="sn g">۱</div><div><div class="st">SMS اول ارسال کنید</div><div class="sd">در شلوغی شبکه بهتر از تماس صوتی ارسال می‌شود — کوتاه بنویسید</div></div></div>
+<div class="step"><div class="sn g">۲</div><div><div class="st">ساعت ۳-۵ صبح تماس بگیرید</div><div class="sd">شبکه خلوت‌تر — احتمال موفقیت بیشتر</div></div></div>
+<div class="step"><div class="sn">۳</div><div><div class="st">نقطه تجمع خانوادگی</div><div class="sd">از همین الان یک محل مشخص تعیین کنید — همه بدانند</div></div></div>
+<div class="step"><div class="sn b">۴</div><div><div class="st">رادیو آماتور</div><div class="sd">باند ۲ متری: ۱۴۴-۱۴۸ MHz — باند ۷۰ سانت: ۴۳۰-۴۴۰ MHz</div></div></div>
+</div>
+</div>
+<div class="card">
+<div class="ctit"><div class="ci cr">✋</div>علائم دستی بین‌المللی</div>
+<div class="g2">
+<div class="bx bxg"><strong>✅ سالم هستم</strong>هر دو دست بالا (باز)<br>انگشت شست بالا<br>دایره با انگشتان (OK)</div>
+<div class="bx bxr"><strong>🆘 کمک لازم دارم</strong>هر دو دست بالا (مشت)<br>SOS روی زمین<br>آتش یا دود در روز</div>
+</div>
+<div class="bx bxo"><strong>📐 SOS مورس — با چراغ یا بوق</strong><span style="direction:ltr;font-family:monospace;font-size:clamp(14px, 3vw, 17px);display:block;letter-spacing:4px;margin-top:4px">· · · — — — · · ·</span>۳ کوتاه — ۳ بلند — ۳ کوتاه</div>
+</div>
+<div class="card">
+<div class="ctit"><div class="ci co">🔋</div>مدیریت باتری</div>
+<div class="steps">
+<div class="step"><div class="sn g">۱</div><div><div class="st">حالت هواپیما + WiFi جداگانه</div><div class="sd">شبکه سلولی قطع — مصرف ۴۰٪ کاهش می‌یابد</div></div></div>
+<div class="step"><div class="sn g">۲</div><div><div class="st">روشنایی صفحه حداقل</div><div class="sd">GPS — بلوتوث — NFC خاموش</div></div></div>
+<div class="step"><div class="sn g">۳</div><div><div class="st">بین استفاده‌ها خاموش کنید</div><div class="sd">شارژ ۳-۴ برابر دوام می‌آورد</div></div></div>
+</div>
+</div>
+<div class="card">
+<div class="ctit"><div class="ci cg">📝</div>الگوی SMS اضطراری</div>
+<div class="bx bxg"><strong>پیام کوتاه اضطراری — کپی کنید</strong>
+<div style="direction:ltr;font-family:monospace;line-height:2.2;font-size:clamp(11px, 2.3vw, 13px);margin-top:7px;background:var(--s1);padding:clamp(6px, 1.5vw, 10px);border-radius:clamp(5px, 1vw, 7px)">
+وضعیت: سالم / مصدوم<br>
+آدرس: [خیابان، کوچه، پلاک]<br>
+نیاز: [پزشکی / پناه / تخلیه]<br>
+تعداد: [نفر]<br>
+ساعت: [___]
+</div>
+</div>
+</div>
+</div>
 <!-- ========== PAGE 6: NUMBERS ========== -->
 <div class="pg" id="p6">
-  <div class="stit">📞 شماره‌های اورژانس</div>
-  <div class="bx bxg"><strong>📞 لمس کنید تا تماس بگیرید</strong>در شرایط قطع اینترنت هم کار می‌کنند</div>
-  <div class="ng">
-    <a href="tel:115" class="nc"><span class="nn">۱۱۵</span><div class="nl">🚑 اورژانس پزشکی</div></a>
-    <a href="tel:110" class="nc"><span class="nn">۱۱۰</span><div class="nl">👮 پلیس</div></a>
-    <a href="tel:125" class="nc"><span class="nn">۱۲۵</span><div class="nl">🚒 آتش‌نشانی</div></a>
-    <a href="tel:1480" class="nc"><span class="nn">۱۴۸۰</span><div class="nl">🔴 هلال احمر</div></a>
-    <a href="tel:123" class="nc"><span class="nn">۱۲۳</span><div class="nl">👥 اورژانس اجتماعی</div></a>
-    <a href="tel:141" class="nc"><span class="nn">۱۴۱</span><div class="nl">⚡ برق اضطراری</div></a>
-    <a href="tel:194" class="nc"><span class="nn">۱۹۴</span><div class="nl">💨 گاز اضطراری</div></a>
-    <a href="tel:122" class="nc"><span class="nn">۱۲۲</span><div class="nl">💧 آب و فاضلاب</div></a>
-    <a href="tel:150" class="nc"><span class="nn">۱۵۰</span><div class="nl">🏥 اجتماعی ۲</div></a>
-    <a href="tel:1669" class="nc"><span class="nn">۱۶۶۹</span><div class="nl">⛽ سوخت اضطراری</div></a>
-    <a href="tel:1521" class="nc"><span class="nn">۱۵۲۱</span><div class="nl">🌊 مدیریت بحران</div></a>
-    <a href="tel:1480" class="nc"><span class="nn">۱۴۸۰</span><div class="nl">🩸 اهدای خون</div></a>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci co">📋</div>نکات مکالمه اضطراری</div>
-    <div class="steps">
-      <div class="step"><div class="sn">۱</div><div><div class="st">آدرس دقیق — اول از همه</div><div class="sd">خیابان اصلی — فرعی — پلاک — نزدیک‌ترین تقاطع معروف</div></div></div>
-      <div class="step"><div class="sn">۲</div><div><div class="st">نوع و تعداد مصدوم</div><div class="sd">تعداد — نوع آسیب — وضعیت هوشیاری</div></div></div>
-      <div class="step"><div class="sn g">۳</div><div><div class="st">گوشی را قطع نکنید</div><div class="sd">منتظر دستورالعمل اپراتور باشید — شماره خود را بدهید</div></div></div>
-    </div>
-  </div>
+<div class="stit">📞 شماره‌های اورژانس</div>
+<div class="bx bxg"><strong>📞 لمس کنید تا تماس بگیرید</strong>در شرایط قطع اینترنت هم کار می‌کنند</div>
+<div class="ng">
+<a href="tel:115" class="nc"><span class="nn">۱۱۵</span><div class="nl">🚑 اورژانس پزشکی</div></a>
+<a href="tel:110" class="nc"><span class="nn">۱۱۰</span><div class="nl">👮 پلیس</div></a>
+<a href="tel:125" class="nc"><span class="nn">۱۲۵</span><div class="nl">🚒 آتش‌نشانی</div></a>
+<a href="tel:1480" class="nc"><span class="nn">۱۴۸۰</span><div class="nl">🔴 هلال احمر</div></a>
+<a href="tel:123" class="nc"><span class="nn">۱۲۳</span><div class="nl">👥 اورژانس اجتماعی</div></a>
+<a href="tel:141" class="nc"><span class="nn">۱۴۱</span><div class="nl">⚡ برق اضطراری</div></a>
+<a href="tel:194" class="nc"><span class="nn">۱۹۴</span><div class="nl">💨 گاز اضطراری</div></a>
+<a href="tel:122" class="nc"><span class="nn">۱۲۲</span><div class="nl">💧 آب و فاضلاب</div></a>
+<a href="tel:150" class="nc"><span class="nn">۱۵۰</span><div class="nl">🏥 اجتماعی ۲</div></a>
+<a href="tel:1669" class="nc"><span class="nn">۱۶۶۹</span><div class="nl">⛽ سوخت اضطراری</div></a>
+<a href="tel:1521" class="nc"><span class="nn">۱۵۲۱</span><div class="nl">🌊 مدیریت بحران</div></a>
+<a href="tel:1480" class="nc"><span class="nn">۱۴۸۰</span><div class="nl">🩸 اهدای خون</div></a>
 </div>
-
+<div class="card">
+<div class="ctit"><div class="ci co">📋</div>نکات مکالمه اضطراری</div>
+<div class="steps">
+<div class="step"><div class="sn">۱</div><div><div class="st">آدرس دقیق — اول از همه</div><div class="sd">خیابان اصلی — فرعی — پلاک — نزدیک‌ترین تقاطع معروف</div></div></div>
+<div class="step"><div class="sn">۲</div><div><div class="st">نوع و تعداد مصدوم</div><div class="sd">تعداد — نوع آسیب — وضعیت هوشیاری</div></div></div>
+<div class="step"><div class="sn g">۳</div><div><div class="st">گوشی را قطع نکنید</div><div class="sd">منتظر دستورالعمل اپراتور باشید — شماره خود را بدهید</div></div></div>
+</div>
+</div>
+</div>
 <!-- ========== PAGE 7: NOTES ========== -->
 <div class="pg" id="p7">
-  <div class="stit">📝 یادداشت‌های شخصی</div>
-  <div class="card">
-    <div class="ctit"><div class="ci cg">👨‍👩‍👧</div>مخاطبین اضطراری</div>
-    <textarea id="contacts-ta" placeholder="مثال:&#10;پزشک خانوادگی: ۰۹۱۲...&#10;بیمارستان نزدیک: ...&#10;نقطه تجمع: پارک..."></textarea>
-    <button class="save-btn" onclick="sv('contacts')">💾 ذخیره</button>
-    <div class="saved-note" id="contacts-saved">✓ ذخیره شد</div>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci co">📍</div>آدرس‌های مهم</div>
-    <textarea id="addresses-ta" placeholder="مثال:&#10;خانه: خ. ولیعصر، ک. ...&#10;محل کار: ...&#10;مدرسه بچه‌ها: ...&#10;پناهگاه نزدیک: ..."></textarea>
-    <button class="save-btn" onclick="sv('addresses')">💾 ذخیره</button>
-    <div class="saved-note" id="addresses-saved">✓ ذخیره شد</div>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci cb">💊</div>اطلاعات پزشکی</div>
-    <textarea id="medical-ta" placeholder="مثال:&#10;گروه خون: A+&#10;آلرژی: پنی‌سیلین&#10;داروی مزمن: متفورمین ۵۰۰mg&#10;بیماری: دیابت نوع ۲"></textarea>
-    <button class="save-btn" onclick="sv('medical')">💾 ذخیره</button>
-    <div class="saved-note" id="medical-saved">✓ ذخیره شد</div>
-  </div>
-  <div class="card">
-    <div class="ctit"><div class="ci cr">🔑</div>یادداشت آزاد</div>
-    <textarea id="free-ta" placeholder="هر یادداشت اضطراری..." style="min-height:140px"></textarea>
-    <button class="save-btn" onclick="sv('free')">💾 ذخیره</button>
-    <div class="saved-note" id="free-saved">✓ ذخیره شد</div>
-  </div>
-  <div class="bx bxg"><strong>🔒 حریم خصوصی کامل</strong>تمام یادداشت‌ها فقط روی همین دستگاه ذخیره می‌شوند. هیچ داده‌ای به هیچ سروری ارسال نمی‌شود.</div>
+<div class="stit">📝 یادداشت‌های شخصی</div>
+<div class="card">
+<div class="ctit"><div class="ci cg">👨‍👩‍👧</div>مخاطبین اضطراری</div>
+<textarea id="contacts-ta" placeholder="مثال:&#10;پزشک خانوادگی: ۰۹۱۲...&#10;بیمارستان نزدیک: ...&#10;نقطه تجمع: پارک..."></textarea>
+<button class="save-btn" onclick="sv('contacts')">💾 ذخیره</button>
+<div class="saved-note" id="contacts-saved">✓ ذخیره شد</div>
 </div>
-
+<div class="card">
+<div class="ctit"><div class="ci co">📍</div>آدرس‌های مهم</div>
+<textarea id="addresses-ta" placeholder="مثال:&#10;خانه: خ. ولیعصر، ک. ...&#10;محل کار: ...&#10;مدرسه بچه‌ها: ...&#10;پناهگاه نزدیک: ..."></textarea>
+<button class="save-btn" onclick="sv('addresses')">💾 ذخیره</button>
+<div class="saved-note" id="addresses-saved">✓ ذخیره شد</div>
+</div>
+<div class="card">
+<div class="ctit"><div class="ci cb">💊</div>اطلاعات پزشکی</div>
+<textarea id="medical-ta" placeholder="مثال:&#10;گروه خون: A+&#10;آلرژی: پنی‌سیلین&#10;داروی مزمن: متفورمین ۵۰۰mg&#10;بیماری: دیابت نوع ۲"></textarea>
+<button class="save-btn" onclick="sv('medical')">💾 ذخیره</button>
+<div class="saved-note" id="medical-saved">✓ ذخیره شد</div>
+</div>
+<div class="card">
+<div class="ctit"><div class="ci cr">🔑</div>یادداشت آزاد</div>
+<textarea id="free-ta" placeholder="هر یادداشت اضطراری..." style="min-height:clamp(120px, 30vw, 150px)"></textarea>
+<button class="save-btn" onclick="sv('free')">💾 ذخیره</button>
+<div class="saved-note" id="free-saved">✓ ذخیره شد</div>
+</div>
+<div class="bx bxg"><strong>🔒 حریم خصوصی کامل</strong>تمام یادداشت‌ها فقط روی همین دستگاه ذخیره می‌شوند. هیچ داده‌ای به هیچ سروری ارسال نمی‌شود.</div>
+</div>
 </main>
-
 <script>
 // ============================================================
 // DATA — ALL 31 PROVINCES OF IRAN
 // ============================================================
 const PROVINCES = {
-  'تهران':{
-    capital:'تهران', pop:'۱۵.۸ میلیون', area:'۱۲٬۹۸۱ کیلومتر مربع',
-    warn:'⚠️ پرجمعیت‌ترین استان — ترافیک شبکه در خطر زیاد',
-    hospitals:[
-      'بیمارستان امام خمینی — میدان حر — ۰۲۱-۶۶۵۸۱۵۸۰',
-      'بیمارستان شریعتی — جلال‌آل‌احمد — ۰۲۱-۸۴۹۰۲۴۴۶',
-      'بیمارستان لقمان‌حکیم — ابوذر — ۰۲۱-۵۵۶۳۴۰۰۱',
-      'بیمارستان رسول اکرم — ستارخان — ۰۲۱-۶۴۳۵۲۰۰۰',
-      'بیمارستان مسیح دانشوری — دارآباد — ۰۲۱-۲۷۱۲۲۰۰۰',
-      'بیمارستان فارابی — قزوین میدان — ۰۲۱-۵۵۴۱۶۱۴۴',
-      'بیمارستان بهرامی (اطفال) — شریعتی'
-    ],
-    shelter:[
-      'تمام ۱۱۴ ایستگاه مترو تهران',
-      'پارکینگ‌های زیرزمینی میدان ونک، تجریش، آزادی',
-      'تونل‌های زیرزمینی بزرگراه‌ها',
-      'پناهگاه‌های سازمان پدافند غیرعامل شهرداری'
-    ],
-    rc:'هلال احمر تهران — خیابان سعدی — ۰۲۱-۶۶۴۸۰۳۱۱'
-  },
-  'البرز':{
-    capital:'کرج', pop:'۲.۸ میلیون', area:'۵٬۱۲۲ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان شهید مدنی — جهانشهر — ۰۲۶-۳۴۴۴۱۲۷۱',
-      'بیمارستان کمالی — چهارراه طالقانی — ۰۲۶-۳۲۵۱۰۰۰۰',
-      'بیمارستان باهنر — باغستان — ۰۲۶-۳۶۱۱۸۰۰۰',
-      'بیمارستان مهرگان — مهرشهر'
-    ],
-    shelter:[
-      'مترو تهران-کرج خط ۵ (کرج تا صادقیه)',
-      'پارکینگ‌های زیرزمینی مراکز خرید',
-      'اداره فرمانداری البرز'
-    ],
-    rc:'هلال احمر البرز — ۰۲۶-۳۲۵۳۳۹۳۳'
-  },
-  'اصفهان':{
-    capital:'اصفهان', pop:'۵.۵ میلیون', area:'۱۰۷٬۰۲۷ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان الزهرا — بزرگمهر — ۰۳۱-۳۶۲۰۱۰۰۸',
-      'بیمارستان امین — چهارباغ عباسی — ۰۳۱-۳۵۵۴۱۰۰۰',
-      'بیمارستان آیت‌الله کاشانی — حکیم نظامی — ۰۳۱-۳۶۶۱۵۹۱۱',
-      'بیمارستان شریعتی رضوی — ابن‌سینا — ۰۳۱-۳۲۳۵۰۰۰۰',
-      'بیمارستان امام موسی کاظم'
-    ],
-    shelter:[
-      'مترو اصفهان — خط ۱ (میدان امام تا عوارضی) و خط ۲',
-      'میدان نقش جهان — زیرگذرها',
-      'پارکینگ‌های زیرزمینی مرکز شهر'
-    ],
-    rc:'هلال احمر اصفهان — ۰۳۱-۳۲۲۲۰۰۸۸'
-  },
-  'آذربایجان شرقی':{
-    capital:'تبریز', pop:'۴ میلیون', area:'۴۵٬۶۵۱ کیلومتر مربع',
-    warn:'⚠️ نزدیکی به مرز ترکیه و جمهوری آذربایجان',
-    hospitals:[
-      'بیمارستان سینا — ارتش — ۰۴۱-۳۴۷۶۱۸۱۱',
-      'بیمارستان امام خمینی — آذربایجان — ۰۴۱-۳۳۳۴۰۰۰۰',
-      'بیمارستان شهید مدنی — گلکار — ۰۴۱-۳۵۴۱۲۰۰۰',
-      'بیمارستان شهریار — ولیعصر — ۰۴۱-۳۵۵۴۴۰۰۰'
-    ],
-    shelter:[
-      'مترو تبریز — خط ۱ (میدان ساعت تا باسمنج)',
-      'مترو خط ۲ (تبریز جدید)',
-      'بازار بزرگ تبریز — زیرزمین‌های تاریخی'
-    ],
-    rc:'هلال احمر آذربایجان شرقی — ۰۴۱-۳۳۲۹۰۱۲۰'
-  },
-  'آذربایجان غربی':{
-    capital:'ارومیه', pop:'۳.۳ میلیون', area:'۳۷٬۴۱۱ کیلومتر مربع',
-    warn:'⚠️ نزدیکی به مرز ترکیه و عراق',
-    hospitals:[
-      'بیمارستان امام خمینی — ارومیه — ۰۴۴-۳۲۷۵۴۰۰۰',
-      'بیمارستان مطهری — رسالت — ۰۴۴-۳۲۲۵۵۰۰۰',
-      'بیمارستان شهید بهشتی — ارومیه',
-      'بیمارستان امام رضا — ارومیه'
-    ],
-    shelter:[
-      'ساختمان‌های دولتی بتونی مرکز شهر',
-      'پارکینگ‌های زیرزمینی میدان انقلاب',
-      'تونل‌های ارتباطی زیرزمینی'
-    ],
-    rc:'هلال احمر آذربایجان غربی — ۰۴۴-۳۲۲۲۸۶۲۲'
-  },
-  'اردبیل':{
-    capital:'اردبیل', pop:'۱.۳ میلیون', area:'۱۷٬۸۰۰ کیلومتر مربع',
-    warn:'⚠️ نزدیکی به مرز جمهوری آذربایجان',
-    hospitals:[
-      'بیمارستان علوی — اردبیل — ۰۴۵-۳۳۷۲۰۷۲۱',
-      'بیمارستان فاطمی — استاد شهریار — ۰۴۵-۳۳۷۶۰۰۰۰',
-      'بیمارستان امام خمینی — اردبیل'
-    ],
-    shelter:[
-      'بازار سنتی اردبیل — زیرزمین‌ها',
-      'ساختمان‌های اداری مرکز شهر'
-    ],
-    rc:'هلال احمر اردبیل — ۰۴۵-۳۳۲۴۵۵۵۵'
-  },
-  'ایلام':{
-    capital:'ایلام', pop:'۶۰۰ هزار', area:'۱۹٬۰۸۶ کیلومتر مربع',
-    warn:'⚠️ مرز مستقیم با عراق — منطقه پرخطر',
-    hospitals:[
-      'بیمارستان مصطفی خمینی — ایلام — ۰۸۴-۳۳۳۳۳۳۳۳',
-      'بیمارستان شهدا — ایلام — ۰۸۴-۳۳۳۴۱۹۷۱',
-      'بیمارستان امام خمینی — دهلران'
-    ],
-    shelter:[
-      'پناهگاه‌های کوهستانی زاگرس',
-      'ساختمان‌های دولتی و استانداری',
-      'غارهای طبیعی منطقه'
-    ],
-    rc:'هلال احمر ایلام — ۰۸۴-۳۳۳۵۱۲۸۱'
-  },
-  'بوشهر':{
-    capital:'بوشهر', pop:'۱.۲ میلیون', area:'۲۳٬۱۷۰ کیلومتر مربع',
-    warn:'⚠️ ساحل خلیج فارس — احتمال تهدید دریایی',
-    hospitals:[
-      'بیمارستان شهید گنجی — بوشهر — ۰۷۷-۳۳۵۴۰۰۰۰',
-      'بیمارستان خلیج فارس — بوشهر',
-      'بیمارستان امام خمینی — بوشهر — ۰۷۷-۳۳۳۴۰۰۰۰'
-    ],
-    shelter:[
-      'ساختمان‌های بتونی دور از خط ساحلی',
-      'پارکینگ‌های زیرزمینی مراکز اداری',
-      'اداره استانداری و فرمانداری'
-    ],
-    rc:'هلال احمر بوشهر — ۰۷۷-۳۳۵۴۷۵۱۱'
-  },
-  'چهارمحال و بختیاری':{
-    capital:'شهرکرد', pop:'۹۵۰ هزار', area:'۱۶٬۳۳۲ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان هاجر — شهرکرد — ۰۳۸-۳۲۲۲۸۰۸۰',
-      'بیمارستان آیت‌الله کاشانی — شهرکرد',
-      'بیمارستان امام علی — بروجن'
-    ],
-    shelter:[
-      'پناهگاه‌های کوهستانی زاگرس مرکزی',
-      'ساختمان‌های دولتی شهرکرد',
-      'دامنه‌های کوه زردکوه (پناه طبیعی)'
-    ],
-    rc:'هلال احمر چهارمحال و بختیاری — ۰۳۸-۳۲۲۲۸۵۹۵'
-  },
-  'خراسان رضوی':{
-    capital:'مشهد', pop:'۶.۸ میلیون', area:'۱۱۸٬۸۵۴ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان قائم — احمدآباد — ۰۵۱-۳۸۴۱۱۵۲۱',
-      'بیمارستان ابن‌سینا — ابن‌سینا — ۰۵۱-۳۸۴۲۵۰۱۵',
-      'بیمارستان امام رضا — خیابان شریعتی — ۰۵۱-۳۸۵۴۴۰۰۰',
-      'بیمارستان ام‌البنین — مشهد',
-      'بیمارستان خاتم‌الانبیاء — مشهد'
-    ],
-    shelter:[
-      'مترو مشهد — خط ۱ (امام رضا تا پایانه) و خط ۲',
-      'حرم امام رضا — زیرزمین‌های گسترده',
-      'پارکینگ‌های زیرزمینی میدان شهدا'
-    ],
-    rc:'هلال احمر خراسان رضوی — ۰۵۱-۳۸۴۴۰۳۱۱'
-  },
-  'خراسان شمالی':{
-    capital:'بجنورد', pop:'۸۶۰ هزار', area:'۲۸٬۴۳۴ کیلومتر مربع',
-    warn:'⚠️ نزدیکی به مرز ترکمنستان',
-    hospitals:[
-      'بیمارستان امام علی — بجنورد — ۰۵۸-۳۲۷۲۷۰۷۰',
-      'بیمارستان ولیعصر — بجنورد',
-      'بیمارستان امام خمینی — شیروان'
-    ],
-    shelter:[
-      'ساختمان‌های دولتی بتونی مرکز شهر',
-      'فرمانداری و استانداری'
-    ],
-    rc:'هلال احمر خراسان شمالی — ۰۵۸-۳۲۲۲۳۳۳۳'
-  },
-  'خراسان جنوبی':{
-    capital:'بیرجند', pop:'۷۶۰ هزار', area:'۱۵۱٬۱۹۳ کیلومتر مربع',
-    warn:'⚠️ نزدیکی به مرز افغانستان',
-    hospitals:[
-      'بیمارستان ولیعصر — بیرجند — ۰۵۶-۳۲۳۸۲۰۶۱',
-      'بیمارستان امام رضا — بیرجند — ۰۵۶-۳۲۲۹۰۴۰۰',
-      'بیمارستان امام علی — قاین'
-    ],
-    shelter:[
-      'ساختمان‌های دولتی مرکز بیرجند',
-      'پناهگاه‌های طبیعی کوهستان'
-    ],
-    rc:'هلال احمر خراسان جنوبی — ۰۵۶-۳۲۲۲۰۳۳۳'
-  },
-  'خوزستان':{
-    capital:'اهواز', pop:'۵ میلیون', area:'۶۳٬۲۳۸ کیلومتر مربع',
-    warn:'⚠️ مرز مستقیم با عراق — منطقه پرریسک',
-    hospitals:[
-      'بیمارستان رازی — کیانپارس — ۰۶۱-۳۳۳۳۴۴۴۴',
-      'بیمارستان گلستان — اهواز — ۰۶۱-۳۳۳۸۰۰۰۰',
-      'بیمارستان امام خمینی — اهواز — ۰۶۱-۳۳۳۷۰۰۰۰',
-      'بیمارستان آبادان — آبادان — ۰۶۱-۵۳۳۴۰۰۰۰',
-      'بیمارستان سینا — اهواز'
-    ],
-    shelter:[
-      'ساختمان‌های بتونی دولتی — دور از رود کارون',
-      'پارکینگ‌های زیرزمینی اهواز',
-      'پادگان‌های نظامی در صورت دستور تخلیه'
-    ],
-    rc:'هلال احمر خوزستان — ۰۶۱-۳۳۳۳۴۴۸۴'
-  },
-  'زنجان':{
-    capital:'زنجان', pop:'۱.۱ میلیون', area:'۲۱٬۷۷۳ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان ولیعصر — زنجان — ۰۲۴-۳۳۴۴۰۰۰۱',
-      'بیمارستان آیت‌الله موسوی — زنجان — ۰۲۴-۳۳۴۴۶۰۰۰',
-      'بیمارستان امیرالمومنین — زنجان'
-    ],
-    shelter:[
-      'پارکینگ‌های زیرزمینی مرکز شهر',
-      'ساختمان‌های دولتی بتونی'
-    ],
-    rc:'هلال احمر زنجان — ۰۲۴-۳۳۴۲۵۲۵۲'
-  },
-  'سمنان':{
-    capital:'سمنان', pop:'۷۰۰ هزار', area:'۹۷٬۴۹۱ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان کوثر — سمنان — ۰۲۳-۳۳۴۴۰۰۰۰',
-      'بیمارستان امیرالمومنین — سمنان',
-      'بیمارستان امام علی — شاهرود — ۰۲۳-۳۲۳۸۰۰۰۰'
-    ],
-    shelter:[
-      'ساختمان‌های دولتی مرکز شهر',
-      'دامنه کوه‌های البرز جنوبی'
-    ],
-    rc:'هلال احمر سمنان — ۰۲۳-۳۳۳۳۱۲۳۴'
-  },
-  'سیستان و بلوچستان':{
-    capital:'زاهدان', pop:'۲.۸ میلیون', area:'۱۸۷٬۵۰۲ کیلومتر مربع',
-    warn:'⚠️ مرز پاکستان و افغانستان — منطقه پرریسک',
-    hospitals:[
-      'بیمارستان علی‌ابن‌ابیطالب — زاهدان — ۰۵۴-۳۳۲۳۴۴۶۴',
-      'بیمارستان خاتم‌الانبیاء — زاهدان — ۰۵۴-۳۳۴۴۰۰۰۰',
-      'بیمارستان امام علی — چابهار — ۰۵۴-۳۵۳۵۰۰۰۰',
-      'بیمارستان خلیج‌عمان — چابهار'
-    ],
-    shelter:[
-      'ساختمان‌های دولتی و اداری زاهدان',
-      'پناهگاه‌های طبیعی کوهستان',
-      'فرمانداری و استانداری زاهدان'
-    ],
-    rc:'هلال احمر سیستان و بلوچستان — ۰۵۴-۳۳۴۲۲۵۵۵'
-  },
-  'فارس':{
-    capital:'شیراز', pop:'۵.۲ میلیون', area:'۱۲۱٬۸۲۴ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان نمازی — زند — ۰۷۱-۳۶۴۷۴۵۲۴',
-      'بیمارستان شهید فقیهی — ملاصدرا — ۰۷۱-۳۶۲۸۰۱۱۱',
-      'بیمارستان حافظ — حافظیه — ۰۷۱-۳۲۳۳۶۰۶۰',
-      'بیمارستان دستغیب — شیراز',
-      'بیمارستان مادر (مریم) — شیراز'
-    ],
-    shelter:[
-      'پارکینگ‌های زیرزمینی میدان ارم',
-      'تونل‌های بزرگراهی شیراز',
-      'مترو شیراز — خط ۱ (در حال تکمیل)'
-    ],
-    rc:'هلال احمر فارس — ۰۷۱-۳۲۲۳۶۳۶۳'
-  },
-  'قزوین':{
-    capital:'قزوین', pop:'۱.۳ میلیون', area:'۱۵٬۵۶۷ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان بوعلی سینا — قزوین — ۰۲۸-۳۳۳۳۵۳۵۳',
-      'بیمارستان کوثر — قزوین — ۰۲۸-۳۳۳۵۰۰۰۰',
-      'بیمارستان ولایت — قزوین'
-    ],
-    shelter:[
-      'پارکینگ‌های زیرزمینی مرکز شهر',
-      'بازار سنتی قزوین — زیرزمین‌ها'
-    ],
-    rc:'هلال احمر قزوین — ۰۲۸-۳۳۳۲۴۶۴۶'
-  },
-  'قم':{
-    capital:'قم', pop:'۱.۴ میلیون', area:'۱۱٬۲۳۷ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان کامکار — دور شهر — ۰۲۵-۳۷۷۰۰۰۰۰',
-      'بیمارستان نکویی — قم — ۰۲۵-۳۷۷۵۴۰۰۰',
-      'بیمارستان میلاد — قم — ۰۲۵-۳۷۷۳۰۰۰۰',
-      'بیمارستان حضرت معصومه — قم'
-    ],
-    shelter:[
-      'حرم حضرت معصومه — زیرزمین‌های گسترده',
-      'پارکینگ‌های زیرزمینی میدان جمهوری',
-      'مترو قم — خط ۱'
-    ],
-    rc:'هلال احمر قم — ۰۲۵-۳۷۷۳۵۷۵۷'
-  },
-  'کردستان':{
-    capital:'سنندج', pop:'۱.۷ میلیون', area:'۲۸٬۲۰۳ کیلومتر مربع',
-    warn:'⚠️ نزدیکی به مرز عراق',
-    hospitals:[
-      'بیمارستان توحید — سنندج — ۰۸۷-۳۳۶۶۵۵۵۵',
-      'بیمارستان بعثت — سنندج — ۰۸۷-۳۳۶۲۱۰۰۰',
-      'بیمارستان قدس — سنندج',
-      'بیمارستان امام خمینی — بانه'
-    ],
-    shelter:[
-      'پناهگاه‌های کوهستانی زاگرس',
-      'ساختمان‌های دولتی مرکز سنندج',
-      'غارهای طبیعی منطقه'
-    ],
-    rc:'هلال احمر کردستان — ۰۸۷-۳۳۲۷۸۳۸۳'
-  },
-  'کرمان':{
-    capital:'کرمان', pop:'۳.۳ میلیون', area:'۱۸۳٬۲۸۵ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان شفا — هزار دستگاه — ۰۳۴-۳۱۳۲۰۰۰۰',
-      'بیمارستان باهنر — جهاد — ۰۳۴-۳۱۴۴۰۰۰۰',
-      'بیمارستان افضلی‌پور — کرمان',
-      'بیمارستان امام علی — جیرفت'
-    ],
-    shelter:[
-      'پارکینگ‌های زیرزمینی مرکز شهر',
-      'بازار سنتی کرمان',
-      'ساختمان‌های دولتی'
-    ],
-    rc:'هلال احمر کرمان — ۰۳۴-۳۲۴۵۵۵۵۵'
-  },
-  'کرمانشاه':{
-    capital:'کرمانشاه', pop:'۲ میلیون', area:'۲۴٬۶۴۱ کیلومتر مربع',
-    warn:'⚠️ نزدیکی به مرز عراق — منطقه لرزه‌خیز',
-    hospitals:[
-      'بیمارستان امام علی — کرمانشاه — ۰۸۳-۳۸۳۶۰۰۰۰',
-      'بیمارستان طالقانی — کرمانشاه — ۰۸۳-۳۸۳۸۰۰۰۰',
-      'بیمارستان امام خمینی — کرمانشاه',
-      'بیمارستان محرم — کرمانشاه'
-    ],
-    shelter:[
-      'پناهگاه‌های کوهستانی زاگرس',
-      'غارهای طبیعی (غار قوری قلعه)',
-      'ساختمان‌های دولتی مرکز شهر'
-    ],
-    rc:'هلال احمر کرمانشاه — ۰۸۳-۳۷۲۶۳۰۳۰'
-  },
-  'کهگیلویه و بویراحمد':{
-    capital:'یاسوج', pop:'۷۱۰ هزار', area:'۱۵٬۵۶۳ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان مدنی — یاسوج — ۰۷۴-۳۳۳۳۱۹۱۱',
-      'بیمارستان امام خمینی — یاسوج — ۰۷۴-۳۳۲۲۰۰۰۰',
-      'بیمارستان امام سجاد — دوگنبدان'
-    ],
-    shelter:[
-      'پناهگاه‌های کوهستانی زاگرس جنوبی',
-      'ساختمان‌های دولتی مرکز شهر'
-    ],
-    rc:'هلال احمر کهگیلویه و بویراحمد — ۰۷۴-۳۳۳۳۴۴۴۴'
-  },
-  'گلستان':{
-    capital:'گرگان', pop:'۱.۹ میلیون', area:'۲۰٬۳۶۷ کیلومتر مربع',
-    warn:'⚠️ نزدیکی به مرز ترکمنستان',
-    hospitals:[
-      'بیمارستان صیاد شیرازی — گرگان — ۰۱۷-۳۲۲۵۰۰۰۰',
-      'بیمارستان دکتر پنجه‌شاهی — گرگان — ۰۱۷-۳۲۴۲۰۰۰۰',
-      'بیمارستان امام علی — گنبد کاووس — ۰۱۷-۳۴۲۸۰۰۰۰'
-    ],
-    shelter:[
-      'ساختمان‌های دولتی گرگان',
-      'پارکینگ‌های زیرزمینی مراکز خرید',
-      'دامنه کوه‌های جنگلی البرز شرقی'
-    ],
-    rc:'هلال احمر گلستان — ۰۱۷-۳۲۲۳۵۵۵۵'
-  },
-  'گیلان':{
-    capital:'رشت', pop:'۲.۶ میلیون', area:'۱۴٬۰۴۲ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان رازی — رشت — ۰۱۳-۳۳۲۲۰۰۲۲',
-      'بیمارستان الزهرا — رشت — ۰۱۳-۳۳۲۴۴۰۰۰',
-      'بیمارستان ولیعصر — رشت — ۰۱۳-۳۳۲۰۰۰۰۰',
-      'بیمارستان امام خمینی — انزلی'
-    ],
-    shelter:[
-      'ساختمان‌های بتونی — رطوبت بالا — مراقب لغزندگی باشید',
-      'پارکینگ‌های زیرزمینی مراکز خرید رشت',
-      'بازار رشت — ساختمان‌های قدیمی محکم'
-    ],
-    rc:'هلال احمر گیلان — ۰۱۳-۳۳۲۴۱۴۱۴'
-  },
-  'لرستان':{
-    capital:'خرم‌آباد', pop:'۱.۸ میلیون', area:'۲۸٬۵۶۰ کیلومتر مربع',
-    warn:'⚠️ منطقه لرزه‌خیز — احتمال زلزله همزمان',
-    hospitals:[
-      'بیمارستان شهید مدنی — خرم‌آباد — ۰۶۶-۳۳۲۰۰۰۰۰',
-      'بیمارستان شهید رحیمی — خرم‌آباد — ۰۶۶-۳۳۲۴۴۰۰۰',
-      'بیمارستان امام رضا — بروجرد — ۰۶۶-۳۴۲۴۰۰۰۰'
-    ],
-    shelter:[
-      'پناهگاه‌های کوهستانی زاگرس',
-      'دور از دره‌ها و مسیل‌ها (خطر سیل)',
-      'ساختمان‌های دولتی مرکز شهر'
-    ],
-    rc:'هلال احمر لرستان — ۰۶۶-۳۳۲۴۲۲۲۲'
-  },
-  'مازندران':{
-    capital:'ساری', pop:'۳.۵ میلیون', area:'۲۳٬۸۲۳ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان بوعلی‌سینا — ساری — ۰۱۱-۳۳۳۰۴۰۰۴',
-      'بیمارستان امیرمازندرانی — ساری — ۰۱۱-۳۳۳۵۰۰۰۰',
-      'بیمارستان شهید بهشتی — بابل — ۰۱۱-۳۲۲۸۰۰۰۰',
-      'بیمارستان امام خمینی — آمل — ۰۱۱-۴۴۴۵۵۵۵۵'
-    ],
-    shelter:[
-      'ساختمان‌های بتونی — دور از خط ساحل',
-      'پناهگاه‌های کوهستانی البرز شمالی',
-      'پارکینگ‌های زیرزمینی ساری و بابل'
-    ],
-    rc:'هلال احمر مازندران — ۰۱۱-۳۳۲۲۰۲۰۲'
-  },
-  'مرکزی':{
-    capital:'اراک', pop:'۱.۴ میلیون', area:'۲۹٬۱۳۰ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان امام خمینی — اراک — ۰۸۶-۳۴۱۷۳۰۰۰',
-      'بیمارستان ولیعصر — اراک — ۰۸۶-۳۴۱۷۰۰۰۰',
-      'بیمارستان امیرکبیر — اراک — ۰۸۶-۳۴۱۷۱۰۰۰'
-    ],
-    shelter:[
-      'پارکینگ‌های زیرزمینی مراکز اداری',
-      'ساختمان‌های دولتی بتونی'
-    ],
-    rc:'هلال احمر مرکزی — ۰۸۶-۳۲۲۳۱۱۱۱'
-  },
-  'هرمزگان':{
-    capital:'بندرعباس', pop:'۱.۸ میلیون', area:'۷۰٬۶۹۷ کیلومتر مربع',
-    warn:'⚠️ ساحل تنگه هرمز — منطقه حساس استراتژیک',
-    hospitals:[
-      'بیمارستان شهید محمدی — بندرعباس — ۰۷۶-۳۳۵۵۵۵۵۵',
-      'بیمارستان خلیج فارس — بندرعباس — ۰۷۶-۳۳۵۲۰۰۰۰',
-      'بیمارستان ارتش — بندرعباس',
-      'بیمارستان ابوریحان — بندرعباس'
-    ],
-    shelter:[
-      'ساختمان‌های بتونی دور از خط ساحلی',
-      'پارکینگ‌های زیرزمینی مراکز خرید',
-      'پایگاه‌های نظامی در صورت اعلام'
-    ],
-    rc:'هلال احمر هرمزگان — ۰۷۶-۳۳۵۵۲۵۲۵'
-  },
-  'همدان':{
-    capital:'همدان', pop:'۱.۸ میلیون', area:'۱۹٬۴۹۳ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان بعثت — همدان — ۰۸۱-۳۸۳۸۱۱۱۱',
-      'بیمارستان شهید بهشتی — همدان — ۰۸۱-۳۸۲۷۰۰۰۰',
-      'بیمارستان فرشچیان — همدان — ۰۸۱-۳۸۴۵۰۰۰۰',
-      'بیمارستان بیستون — کنگاور'
-    ],
-    shelter:[
-      'پناهگاه‌های غار طبیعی (غار علیصدر — بزرگ‌ترین غار آبی جهان)',
-      'تونل‌های منطقه',
-      'دامنه‌های کوه الوند'
-    ],
-    rc:'هلال احمر همدان — ۰۸۱-۳۸۲۶۶۶۶۶'
-  },
-  'یزد':{
-    capital:'یزد', pop:'۱.۱ میلیون', area:'۷۲٬۷۱۳ کیلومتر مربع',
-    warn:'',
-    hospitals:[
-      'بیمارستان شهید صدوقی — یزد — ۰۳۵-۳۸۲۰۱۰۰۰',
-      'بیمارستان بهشتی — یزد — ۰۳۵-۳۸۲۵۰۰۰۰',
-      'بیمارستان افشار — یزد — ۰۳۵-۳۸۲۷۰۰۰۰'
-    ],
-    shelter:[
-      'بافت تاریخی یزد — زیرزمین‌های شبکه قنات',
-      'قنات‌های قدیمی (عمق ۱۰-۳۰ متر)',
-      'ساختمان‌های دولتی مرکز شهر'
-    ],
-    rc:'هلال احمر یزد — ۰۳۵-۳۶۲۷۲۷۲۷'
-  }
+'تهران':{
+capital:'تهران', pop:'۱۵.۸ میلیون', area:'۱۲٬۹۸۱ کیلومتر مربع',
+warn:'⚠️ پرجمعیت‌ترین استان — ترافیک شبکه در خطر زیاد',
+hospitals:[
+'بیمارستان امام خمینی — میدان حر — ۰۲۱-۶۶۵۸۱۵۸۰',
+'بیمارستان شریعتی — جلال‌آل‌احمد — ۰۲۱-۸۴۹۰۲۴۴۶',
+'بیمارستان لقمان‌حکیم — ابوذر — ۰۲۱-۵۵۶۳۴۰۰۱',
+'بیمارستان رسول اکرم — ستارخان — ۰۲۱-۶۴۳۵۲۰۰۰',
+'بیمارستان مسیح دانشوری — دارآباد — ۰۲۱-۲۷۱۲۲۰۰۰',
+'بیمارستان فارابی — قزوین میدان — ۰۲۱-۵۵۴۱۶۱۴۴',
+'بیمارستان بهرامی (اطفال) — شریعتی'
+],
+shelter:[
+'تمام ۱۱۴ ایستگاه مترو تهران',
+'پارکینگ‌های زیرزمینی میدان ونک، تجریش، آزادی',
+'تونل‌های زیرزمینی بزرگراه‌ها',
+'پناهگاه‌های سازمان پدافند غیرعامل شهرداری'
+],
+rc:'هلال احمر تهران — خیابان سعدی — ۰۲۱-۶۶۴۸۰۳۱۱'
+},
+'البرز':{
+capital:'کرج', pop:'۲.۸ میلیون', area:'۵٬۱۲۲ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان شهید مدنی — جهانشهر — ۰۲۶-۳۴۴۴۱۲۷۱',
+'بیمارستان کمالی — چهارراه طالقانی — ۰۲۶-۳۲۵۱۰۰۰۰',
+'بیمارستان باهنر — باغستان — ۰۲۶-۳۶۱۱۸۰۰۰',
+'بیمارستان مهرگان — مهرشهر'
+],
+shelter:[
+'مترو تهران-کرج خط ۵ (کرج تا صادقیه)',
+'پارکینگ‌های زیرزمینی مراکز خرید',
+'اداره فرمانداری البرز'
+],
+rc:'هلال احمر البرز — ۰۲۶-۳۲۵۳۳۹۳۳'
+},
+'اصفهان':{
+capital:'اصفهان', pop:'۵.۵ میلیون', area:'۱۰۷٬۰۲۷ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان الزهرا — بزرگمهر — ۰۳۱-۳۶۲۰۱۰۰۸',
+'بیمارستان امین — چهارباغ عباسی — ۰۳۱-۳۵۵۴۱۰۰۰',
+'بیمارستان آیت‌الله کاشانی — حکیم نظامی — ۰۳۱-۳۶۶۱۵۹۱۱',
+'بیمارستان شریعتی رضوی — ابن‌سینا — ۰۳۱-۳۲۳۵۰۰۰۰',
+'بیمارستان امام موسی کاظم'
+],
+shelter:[
+'مترو اصفهان — خط ۱ (میدان امام تا عوارضی) و خط ۲',
+'میدان نقش جهان — زیرگذرها',
+'پارکینگ‌های زیرزمینی مرکز شهر'
+],
+rc:'هلال احمر اصفهان — ۰۳۱-۳۲۲۲۰۰۸۸'
+},
+'آذربایجان شرقی':{
+capital:'تبریز', pop:'۴ میلیون', area:'۴۵٬۶۵۱ کیلومتر مربع',
+warn:'⚠️ نزدیکی به مرز ترکیه و جمهوری آذربایجان',
+hospitals:[
+'بیمارستان سینا — ارتش — ۰۴۱-۳۴۷۶۱۸۱۱',
+'بیمارستان امام خمینی — آذربایجان — ۰۴۱-۳۳۳۴۰۰۰۰',
+'بیمارستان شهید مدنی — گلکار — ۰۴۱-۳۵۴۱۲۰۰۰',
+'بیمارستان شهریار — ولیعصر — ۰۴۱-۳۵۵۴۴۰۰۰'
+],
+shelter:[
+'مترو تبریز — خط ۱ (میدان ساعت تا باسمنج)',
+'مترو خط ۲ (تبریز جدید)',
+'بازار بزرگ تبریز — زیرزمین‌های تاریخی'
+],
+rc:'هلال احمر آذربایجان شرقی — ۰۴۱-۳۳۲۹۰۱۲۰'
+},
+'آذربایجان غربی':{
+capital:'ارومیه', pop:'۳.۳ میلیون', area:'۳۷٬۴۱۱ کیلومتر مربع',
+warn:'⚠️ نزدیکی به مرز ترکیه و عراق',
+hospitals:[
+'بیمارستان امام خمینی — ارومیه — ۰۴۴-۳۲۷۵۴۰۰۰',
+'بیمارستان مطهری — رسالت — ۰۴۴-۳۲۲۵۵۰۰۰',
+'بیمارستان شهید بهشتی — ارومیه',
+'بیمارستان امام رضا — ارومیه'
+],
+shelter:[
+'ساختمان‌های دولتی بتونی مرکز شهر',
+'پارکینگ‌های زیرزمینی میدان انقلاب',
+'تونل‌های ارتباطی زیرزمینی'
+],
+rc:'هلال احمر آذربایجان غربی — ۰۴۴-۳۲۲۲۸۶۲۲'
+},
+'اردبیل':{
+capital:'اردبیل', pop:'۱.۳ میلیون', area:'۱۷٬۸۰۰ کیلومتر مربع',
+warn:'⚠️ نزدیکی به مرز جمهوری آذربایجان',
+hospitals:[
+'بیمارستان علوی — اردبیل — ۰۴۵-۳۳۷۲۰۷۲۱',
+'بیمارستان فاطمی — استاد شهریار — ۰۴۵-۳۳۷۶۰۰۰۰',
+'بیمارستان امام خمینی — اردبیل'
+],
+shelter:[
+'بازار سنتی اردبیل — زیرزمین‌ها',
+'ساختمان‌های اداری مرکز شهر'
+],
+rc:'هلال احمر اردبیل — ۰۴۵-۳۳۲۴۵۵۵۵'
+},
+'ایلام':{
+capital:'ایلام', pop:'۶۰۰ هزار', area:'۱۹٬۰۸۶ کیلومتر مربع',
+warn:'⚠️ مرز مستقیم با عراق — منطقه پرخطر',
+hospitals:[
+'بیمارستان مصطفی خمینی — ایلام — ۰۸۴-۳۳۳۳۳۳۳۳',
+'بیمارستان شهدا — ایلام — ۰۸۴-۳۳۳۴۱۹۷۱',
+'بیمارستان امام خمینی — دهلران'
+],
+shelter:[
+'پناهگاه‌های کوهستانی زاگرس',
+'ساختمان‌های دولتی و استانداری',
+'غارهای طبیعی منطقه'
+],
+rc:'هلال احمر ایلام — ۰۸۴-۳۳۳۵۱۲۸۱'
+},
+'بوشهر':{
+capital:'بوشهر', pop:'۱.۲ میلیون', area:'۲۳٬۱۷۰ کیلومتر مربع',
+warn:'⚠️ ساحل خلیج فارس — احتمال تهدید دریایی',
+hospitals:[
+'بیمارستان شهید گنجی — بوشهر — ۰۷۷-۳۳۵۴۰۰۰۰',
+'بیمارستان خلیج فارس — بوشهر',
+'بیمارستان امام خمینی — بوشهر — ۰۷۷-۳۳۳۴۰۰۰۰'
+],
+shelter:[
+'ساختمان‌های بتونی دور از خط ساحلی',
+'پارکینگ‌های زیرزمینی مراکز اداری',
+'اداره استانداری و فرمانداری'
+],
+rc:'هلال احمر بوشهر — ۰۷۷-۳۳۵۴۷۵۱۱'
+},
+'چهارمحال و بختیاری':{
+capital:'شهرکرد', pop:'۹۵۰ هزار', area:'۱۶٬۳۳۲ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان هاجر — شهرکرد — ۰۳۸-۳۲۲۲۸۰۸۰',
+'بیمارستان آیت‌الله کاشانی — شهرکرد',
+'بیمارستان امام علی — بروجن'
+],
+shelter:[
+'پناهگاه‌های کوهستانی زاگرس مرکزی',
+'ساختمان‌های دولتی شهرکرد',
+'دامنه‌های کوه زردکوه (پناه طبیعی)'
+],
+rc:'هلال احمر چهارمحال و بختیاری — ۰۳۸-۳۲۲۲۸۵۹۵'
+},
+'خراسان رضوی':{
+capital:'مشهد', pop:'۶.۸ میلیون', area:'۱۱۸٬۸۵۴ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان قائم — احمدآباد — ۰۵۱-۳۸۴۱۱۵۲۱',
+'بیمارستان ابن‌سینا — ابن‌سینا — ۰۵۱-۳۸۴۲۵۰۱۵',
+'بیمارستان امام رضا — خیابان شریعتی — ۰۵۱-۳۸۵۴۴۰۰۰',
+'بیمارستان ام‌البنین — مشهد',
+'بیمارستان خاتم‌الانبیاء — مشهد'
+],
+shelter:[
+'مترو مشهد — خط ۱ (امام رضا تا پایانه) و خط ۲',
+'حرم امام رضا — زیرزمین‌های گسترده',
+'پارکینگ‌های زیرزمینی میدان شهدا'
+],
+rc:'هلال احمر خراسان رضوی — ۰۵۱-۳۸۴۴۰۳۱۱'
+},
+'خراسان شمالی':{
+capital:'بجنورد', pop:'۸۶۰ هزار', area:'۲۸٬۴۳۴ کیلومتر مربع',
+warn:'⚠️ نزدیکی به مرز ترکمنستان',
+hospitals:[
+'بیمارستان امام علی — بجنورد — ۰۵۸-۳۲۷۲۷۰۷۰',
+'بیمارستان ولیعصر — بجنورد',
+'بیمارستان امام خمینی — شیروان'
+],
+shelter:[
+'ساختمان‌های دولتی بتونی مرکز شهر',
+'فرمانداری و استانداری'
+],
+rc:'هلال احمر خراسان شمالی — ۰۵۸-۳۲۲۲۳۳۳۳'
+},
+'خراسان جنوبی':{
+capital:'بیرجند', pop:'۷۶۰ هزار', area:'۱۵۱٬۱۹۳ کیلومتر مربع',
+warn:'⚠️ نزدیکی به مرز افغانستان',
+hospitals:[
+'بیمارستان ولیعصر — بیرجند — ۰۵۶-۳۲۳۸۲۰۶۱',
+'بیمارستان امام رضا — بیرجند — ۰۵۶-۳۲۲۹۰۴۰۰',
+'بیمارستان امام علی — قاین'
+],
+shelter:[
+'ساختمان‌های دولتی مرکز بیرجند',
+'پناهگاه‌های طبیعی کوهستان'
+],
+rc:'هلال احمر خراسان جنوبی — ۰۵۶-۳۲۲۲۰۳۳۳'
+},
+'خوزستان':{
+capital:'اهواز', pop:'۵ میلیون', area:'۶۳٬۲۳۸ کیلومتر مربع',
+warn:'⚠️ مرز مستقیم با عراق — منطقه پرریسک',
+hospitals:[
+'بیمارستان رازی — کیانپارس — ۰۶۱-۳۳۳۳۴۴۴۴',
+'بیمارستان گلستان — اهواز — ۰۶۱-۳۳۳۸۰۰۰۰',
+'بیمارستان امام خمینی — اهواز — ۰۶۱-۳۳۳۷۰۰۰۰',
+'بیمارستان آبادان — آبادان — ۰۶۱-۵۳۳۴۰۰۰۰',
+'بیمارستان سینا — اهواز'
+],
+shelter:[
+'ساختمان‌های بتونی دولتی — دور از رود کارون',
+'پارکینگ‌های زیرزمینی اهواز',
+'پادگان‌های نظامی در صورت دستور تخلیه'
+],
+rc:'هلال احمر خوزستان — ۰۶۱-۳۳۳۳۴۴۸۴'
+},
+'زنجان':{
+capital:'زنجان', pop:'۱.۱ میلیون', area:'۲۱٬۷۷۳ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان ولیعصر — زنجان — ۰۲۴-۳۳۴۴۰۰۰۱',
+'بیمارستان آیت‌الله موسوی — زنجان — ۰۲۴-۳۳۴۴۶۰۰۰',
+'بیمارستان امیرالمومنین — زنجان'
+],
+shelter:[
+'پارکینگ‌های زیرزمینی مرکز شهر',
+'ساختمان‌های دولتی بتونی'
+],
+rc:'هلال احمر زنجان — ۰۲۴-۳۳۴۲۵۲۵۲'
+},
+'سمنان':{
+capital:'سمنان', pop:'۷۰۰ هزار', area:'۹۷٬۴۹۱ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان کوثر — سمنان — ۰۲۳-۳۳۴۴۰۰۰۰',
+'بیمارستان امیرالمومنین — سمنان',
+'بیمارستان امام علی — شاهرود — ۰۲۳-۳۲۳۸۰۰۰۰'
+],
+shelter:[
+'ساختمان‌های دولتی مرکز شهر',
+'دامنه کوه‌های البرز جنوبی'
+],
+rc:'هلال احمر سمنان — ۰۲۳-۳۳۳۳۱۲۳۴'
+},
+'سیستان و بلوچستان':{
+capital:'زاهدان', pop:'۲.۸ میلیون', area:'۱۸۷٬۵۰۲ کیلومتر مربع',
+warn:'⚠️ مرز پاکستان و افغانستان — منطقه پرریسک',
+hospitals:[
+'بیمارستان علی‌ابن‌ابیطالب — زاهدان — ۰۵۴-۳۳۲۳۴۴۶۴',
+'بیمارستان خاتم‌الانبیاء — زاهدان — ۰۵۴-۳۳۴۴۰۰۰۰',
+'بیمارستان امام علی — چابهار — ۰۵۴-۳۵۳۵۰۰۰۰',
+'بیمارستان خلیج‌عمان — چابهار'
+],
+shelter:[
+'ساختمان‌های دولتی و اداری زاهدان',
+'پناهگاه‌های طبیعی کوهستان',
+'فرمانداری و استانداری زاهدان'
+],
+rc:'هلال احمر سیستان و بلوچستان — ۰۵۴-۳۳۴۲۲۵۵۵'
+},
+'فارس':{
+capital:'شیراز', pop:'۵.۲ میلیون', area:'۱۲۱٬۸۲۴ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان نمازی — زند — ۰۷۱-۳۶۴۷۴۵۲۴',
+'بیمارستان شهید فقیهی — ملاصدرا — ۰۷۱-۳۶۲۸۰۱۱۱',
+'بیمارستان حافظ — حافظیه — ۰۷۱-۳۲۳۳۶۰۶۰',
+'بیمارستان دستغیب — شیراز',
+'بیمارستان مادر (مریم) — شیراز'
+],
+shelter:[
+'پارکینگ‌های زیرزمینی میدان ارم',
+'تونل‌های بزرگراهی شیراز',
+'مترو شیراز — خط ۱ (در حال تکمیل)'
+],
+rc:'هلال احمر فارس — ۰۷۱-۳۲۲۳۶۳۶۳'
+},
+'قزوین':{
+capital:'قزوین', pop:'۱.۳ میلیون', area:'۱۵٬۵۶۷ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان بوعلی سینا — قزوین — ۰۲۸-۳۳۳۳۵۳۵۳',
+'بیمارستان کوثر — قزوین — ۰۲۸-۳۳۳۵۰۰۰۰',
+'بیمارستان ولایت — قزوین'
+],
+shelter:[
+'پارکینگ‌های زیرزمینی مرکز شهر',
+'بازار سنتی قزوین — زیرزمین‌ها'
+],
+rc:'هلال احمر قزوین — ۰۲۸-۳۳۳۲۴۶۴۶'
+},
+'قم':{
+capital:'قم', pop:'۱.۴ میلیون', area:'۱۱٬۲۳۷ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان کامکار — دور شهر — ۰۲۵-۳۷۷۰۰۰۰۰',
+'بیمارستان نکویی — قم — ۰۲۵-۳۷۷۵۴۰۰۰',
+'بیمارستان میلاد — قم — ۰۲۵-۳۷۷۳۰۰۰۰',
+'بیمارستان حضرت معصومه — قم'
+],
+shelter:[
+'حرم حضرت معصومه — زیرزمین‌های گسترده',
+'پارکینگ‌های زیرزمینی میدان جمهوری',
+'مترو قم — خط ۱'
+],
+rc:'هلال احمر قم — ۰۲۵-۳۷۷۳۵۷۵۷'
+},
+'کردستان':{
+capital:'سنندج', pop:'۱.۷ میلیون', area:'۲۸٬۲۰۳ کیلومتر مربع',
+warn:'⚠️ نزدیکی به مرز عراق',
+hospitals:[
+'بیمارستان توحید — سنندج — ۰۸۷-۳۳۶۶۵۵۵۵',
+'بیمارستان بعثت — سنندج — ۰۸۷-۳۳۶۲۱۰۰۰',
+'بیمارستان قدس — سنندج',
+'بیمارستان امام خمینی — بانه'
+],
+shelter:[
+'پناهگاه‌های کوهستانی زاگرس',
+'ساختمان‌های دولتی مرکز سنندج',
+'غارهای طبیعی منطقه'
+],
+rc:'هلال احمر کردستان — ۰۸۷-۳۳۲۷۸۳۸۳'
+},
+'کرمان':{
+capital:'کرمان', pop:'۳.۳ میلیون', area:'۱۸۳٬۲۸۵ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان شفا — هزار دستگاه — ۰۳۴-۳۱۳۲۰۰۰۰',
+'بیمارستان باهنر — جهاد — ۰۳۴-۳۱۴۴۰۰۰۰',
+'بیمارستان افضلی‌پور — کرمان',
+'بیمارستان امام علی — جیرفت'
+],
+shelter:[
+'پارکینگ‌های زیرزمینی مرکز شهر',
+'بازار سنتی کرمان',
+'ساختمان‌های دولتی'
+],
+rc:'هلال احمر کرمان — ۰۳۴-۳۲۴۵۵۵۵۵'
+},
+'کرمانشاه':{
+capital:'کرمانشاه', pop:'۲ میلیون', area:'۲۴٬۶۴۱ کیلومتر مربع',
+warn:'⚠️ نزدیکی به مرز عراق — منطقه لرزه‌خیز',
+hospitals:[
+'بیمارستان امام علی — کرمانشاه — ۰۸۳-۳۸۳۶۰۰۰۰',
+'بیمارستان طالقانی — کرمانشاه — ۰۸۳-۳۸۳۸۰۰۰۰',
+'بیمارستان امام خمینی — کرمانشاه',
+'بیمارستان محرم — کرمانشاه'
+],
+shelter:[
+'پناهگاه‌های کوهستانی زاگرس',
+'غارهای طبیعی (غار قوری قلعه)',
+'ساختمان‌های دولتی مرکز شهر'
+],
+rc:'هلال احمر کرمانشاه — ۰۸۳-۳۷۲۶۳۰۳۰'
+},
+'کهگیلویه و بویراحمد':{
+capital:'یاسوج', pop:'۷۱۰ هزار', area:'۱۵٬۵۶۳ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان مدنی — یاسوج — ۰۷۴-۳۳۳۳۱۹۱۱',
+'بیمارستان امام خمینی — یاسوج — ۰۷۴-۳۳۲۲۰۰۰۰',
+'بیمارستان امام سجاد — دوگنبدان'
+],
+shelter:[
+'پناهگاه‌های کوهستانی زاگرس جنوبی',
+'ساختمان‌های دولتی مرکز شهر'
+],
+rc:'هلال احمر کهگیلویه و بویراحمد — ۰۷۴-۳۳۳۳۴۴۴۴'
+},
+'گلستان':{
+capital:'گرگان', pop:'۱.۹ میلیون', area:'۲۰٬۳۶۷ کیلومتر مربع',
+warn:'⚠️ نزدیکی به مرز ترکمنستان',
+hospitals:[
+'بیمارستان صیاد شیرازی — گرگان — ۰۱۷-۳۲۲۵۰۰۰۰',
+'بیمارستان دکتر پنجه‌شاهی — گرگان — ۰۱۷-۳۲۴۲۰۰۰۰',
+'بیمارستان امام علی — گنبد کاووس — ۰۱۷-۳۴۲۸۰۰۰۰'
+],
+shelter:[
+'ساختمان‌های دولتی گرگان',
+'پارکینگ‌های زیرزمینی مراکز خرید',
+'دامنه کوه‌های جنگلی البرز شرقی'
+],
+rc:'هلال احمر گلستان — ۰۱۷-۳۲۲۳۵۵۵۵'
+},
+'گیلان':{
+capital:'رشت', pop:'۲.۶ میلیون', area:'۱۴٬۰۴۲ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان رازی — رشت — ۰۱۳-۳۳۲۲۰۰۲۲',
+'بیمارستان الزهرا — رشت — ۰۱۳-۳۳۲۴۴۰۰۰',
+'بیمارستان ولیعصر — رشت — ۰۱۳-۳۳۲۰۰۰۰۰',
+'بیمارستان امام خمینی — انزلی'
+],
+shelter:[
+'ساختمان‌های بتونی — رطوبت بالا — مراقب لغزندگی باشید',
+'پارکینگ‌های زیرزمینی مراکز خرید رشت',
+'بازار رشت — ساختمان‌های قدیمی محکم'
+],
+rc:'هلال احمر گیلان — ۰۱۳-۳۳۲۴۱۴۱۴'
+},
+'لرستان':{
+capital:'خرم‌آباد', pop:'۱.۸ میلیون', area:'۲۸٬۵۶۰ کیلومتر مربع',
+warn:'⚠️ منطقه لرزه‌خیز — احتمال زلزله همزمان',
+hospitals:[
+'بیمارستان شهید مدنی — خرم‌آباد — ۰۶۶-۳۳۲۰۰۰۰۰',
+'بیمارستان شهید رحیمی — خرم‌آباد — ۰۶۶-۳۳۲۴۴۰۰۰',
+'بیمارستان امام رضا — بروجرد — ۰۶۶-۳۴۲۴۰۰۰۰'
+],
+shelter:[
+'پناهگاه‌های کوهستانی زاگرس',
+'دور از دره‌ها و مسیل‌ها (خطر سیل)',
+'ساختمان‌های دولتی مرکز شهر'
+],
+rc:'هلال احمر لرستان — ۰۶۶-۳۳۲۴۲۲۲۲'
+},
+'مازندران':{
+capital:'ساری', pop:'۳.۵ میلیون', area:'۲۳٬۸۲۳ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان بوعلی‌سینا — ساری — ۰۱۱-۳۳۳۰۴۰۰۴',
+'بیمارستان امیرمازندرانی — ساری — ۰۱۱-۳۳۳۵۰۰۰۰',
+'بیمارستان شهید بهشتی — بابل — ۰۱۱-۳۲۲۸۰۰۰۰',
+'بیمارستان امام خمینی — آمل — ۰۱۱-۴۴۴۵۵۵۵۵'
+],
+shelter:[
+'ساختمان‌های بتونی — دور از خط ساحل',
+'پناهگاه‌های کوهستانی البرز شمالی',
+'پارکینگ‌های زیرزمینی ساری و بابل'
+],
+rc:'هلال احمر مازندران — ۰۱۱-۳۳۲۲۰۲۰۲'
+},
+'مرکزی':{
+capital:'اراک', pop:'۱.۴ میلیون', area:'۲۹٬۱۳۰ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان امام خمینی — اراک — ۰۸۶-۳۴۱۷۳۰۰۰',
+'بیمارستان ولیعصر — اراک — ۰۸۶-۳۴۱۷۰۰۰۰',
+'بیمارستان امیرکبیر — اراک — ۰۸۶-۳۴۱۷۱۰۰۰'
+],
+shelter:[
+'پارکینگ‌های زیرزمینی مراکز اداری',
+'ساختمان‌های دولتی بتونی'
+],
+rc:'هلال احمر مرکزی — ۰۸۶-۳۲۲۳۱۱۱۱'
+},
+'هرمزگان':{
+capital:'بندرعباس', pop:'۱.۸ میلیون', area:'۷۰٬۶۹۷ کیلومتر مربع',
+warn:'⚠️ ساحل تنگه هرمز — منطقه حساس استراتژیک',
+hospitals:[
+'بیمارستان شهید محمدی — بندرعباس — ۰۷۶-۳۳۵۵۵۵۵۵',
+'بیمارستان خلیج فارس — بندرعباس — ۰۷۶-۳۳۵۲۰۰۰۰',
+'بیمارستان ارتش — بندرعباس',
+'بیمارستان ابوریحان — بندرعباس'
+],
+shelter:[
+'ساختمان‌های بتونی دور از خط ساحلی',
+'پارکینگ‌های زیرزمینی مراکز خرید',
+'پایگاه‌های نظامی در صورت اعلام'
+],
+rc:'هلال احمر هرمزگان — ۰۷۶-۳۳۵۵۲۵۲۵'
+},
+'همدان':{
+capital:'همدان', pop:'۱.۸ میلیون', area:'۱۹٬۴۹۳ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان بعثت — همدان — ۰۸۱-۳۸۳۸۱۱۱۱',
+'بیمارستان شهید بهشتی — همدان — ۰۸۱-۳۸۲۷۰۰۰۰',
+'بیمارستان فرشچیان — همدان — ۰۸۱-۳۸۴۵۰۰۰۰',
+'بیمارستان بیستون — کنگاور'
+],
+shelter:[
+'پناهگاه‌های غار طبیعی (غار علیصدر — بزرگ‌ترین غار آبی جهان)',
+'تونل‌های منطقه',
+'دامنه‌های کوه الوند'
+],
+rc:'هلال احمر همدان — ۰۸۱-۳۸۲۶۶۶۶۶'
+},
+'یزد':{
+capital:'یزد', pop:'۱.۱ میلیون', area:'۷۲٬۷۱۳ کیلومتر مربع',
+warn:'',
+hospitals:[
+'بیمارستان شهید صدوقی — یزد — ۰۳۵-۳۸۲۰۱۰۰۰',
+'بیمارستان بهشتی — یزد — ۰۳۵-۳۸۲۵۰۰۰۰',
+'بیمارستان افشار — یزد — ۰۳۵-۳۸۲۷۰۰۰۰'
+],
+shelter:[
+'بافت تاریخی یزد — زیرزمین‌های شبکه قنات',
+'قنات‌های قدیمی (عمق ۱۰-۳۰ متر)',
+'ساختمان‌های دولتی مرکز شهر'
+],
+rc:'هلال احمر یزد — ۰۳۵-۳۶۲۷۲۷۲۷'
 }
-
+}
 // ============================================================
 // INIT & UTILS
 // ============================================================
 const TOTAL_CHK = 22
-
 function go(idx) {
-  document.querySelectorAll('.pg').forEach((p,i) => p.classList.toggle('on', i===idx))
-  document.querySelectorAll('.nb').forEach((b,i) => b.classList.toggle('on', i===idx))
-  window.scrollTo(0,0)
+document.querySelectorAll('.pg').forEach((p,i) => p.classList.toggle('on', i===idx))
+document.querySelectorAll('.nb').forEach((b,i) => b.classList.toggle('on', i===idx))
+window.scrollTo(0,0)
 }
-
 function ta(h) { h.parentElement.classList.toggle('on') }
-
 function ck(input, key) {
-  const lbl = input.parentElement
-  if (input.checked) { lbl.classList.add('done'); localStorage.setItem('chk_'+key,'1') }
-  else { lbl.classList.remove('done'); localStorage.removeItem('chk_'+key) }
-  updateProg()
+const lbl = input.parentElement
+if (input.checked) { lbl.classList.add('done'); localStorage.setItem('chk_'+key,'1') }
+else { lbl.classList.remove('done'); localStorage.removeItem('chk_'+key) }
+updateProg()
 }
-
 function updateProg() {
-  const done = document.querySelectorAll('.cli.done').length
-  const pct = Math.round((done/TOTAL_CHK)*100)
-  document.getElementById('pb').style.width = pct+'%'
-  document.getElementById('pt').textContent = `${done} از ${TOTAL_CHK} آیتم تکمیل شده (${pct}٪)`
+const done = document.querySelectorAll('.cli.done').length
+const pct = Math.round((done/TOTAL_CHK)*100)
+document.getElementById('pb').style.width = pct+'%'
+document.getElementById('pt').textContent = `${done} از ${TOTAL_CHK} آیتم تکمیل شده (${pct}٪)`
 }
-
 function loadChecklist() {
-  document.querySelectorAll('.cli').forEach(l => {
-    const k = l.dataset.k
-    if (localStorage.getItem('chk_'+k)) { l.classList.add('done'); l.querySelector('input').checked = true }
-  })
-  updateProg()
+document.querySelectorAll('.cli').forEach(l => {
+const k = l.dataset.k
+if (localStorage.getItem('chk_'+k)) { l.classList.add('done'); l.querySelector('input').checked = true }
+})
+updateProg()
 }
-
 function sv(key) {
-  localStorage.setItem('note_'+key, document.getElementById(key+'-ta').value)
-  const n = document.getElementById(key+'-saved')
-  n.style.display = 'block'
-  setTimeout(() => n.style.display='none', 2000)
+localStorage.setItem('note_'+key, document.getElementById(key+'-ta').value)
+const n = document.getElementById(key+'-saved')
+n.style.display = 'block'
+setTimeout(() => n.style.display='none', 2000)
 }
-
 function loadNotes() {
-  ['contacts','addresses','medical','free'].forEach(k => {
-    const v = localStorage.getItem('note_'+k)
-    if (v) document.getElementById(k+'-ta').value = v
-  })
+['contacts','addresses','medical','free'].forEach(k => {
+const v = localStorage.getItem('note_'+k)
+if (v) document.getElementById(k+'-ta').value = v
+})
 }
-
 // ============================================================
 // CITY SELECTOR
 // ============================================================
 let allProvKeys = Object.keys(PROVINCES)
-
 function buildSelector() {
-  const grid = document.getElementById('csel')
-  grid.innerHTML = ''
-  allProvKeys.forEach(prov => {
-    const d = PROVINCES[prov]
-    const btn = document.createElement('button')
-    btn.className = 'csb'
-    btn.dataset.prov = prov
-    btn.innerHTML = `<div style="font-size:12px;font-weight:700">${prov}</div><div style="font-size:10px;color:var(--mut);margin-top:2px">${d.capital}</div>`
-    btn.onclick = () => selectProv(prov)
-    grid.appendChild(btn)
-  })
+const grid = document.getElementById('csel')
+grid.innerHTML = ''
+allProvKeys.forEach(prov => {
+const d = PROVINCES[prov]
+const btn = document.createElement('button')
+btn.className = 'csb'
+btn.dataset.prov = prov
+btn.innerHTML = `<div style="font-size:clamp(11px, 2.3vw, 13px);font-weight:700">${prov}</div><div style="font-size:clamp(9px, 2vw, 11px);color:var(--mut);margin-top:2px">${d.capital}</div>`
+btn.onclick = () => selectProv(prov)
+grid.appendChild(btn)
+})
 }
-
 function selectProv(prov) {
-  document.querySelectorAll('.csb').forEach(b => b.classList.toggle('sel', b.dataset.prov===prov))
-  renderCity(prov)
-  document.getElementById('city-detail').scrollIntoView({behavior:'smooth', block:'nearest'})
+document.querySelectorAll('.csb').forEach(b => b.classList.toggle('sel', b.dataset.prov===prov))
+renderCity(prov)
+document.getElementById('city-detail').scrollIntoView({behavior:'smooth', block:'nearest'})
 }
-
 function filterCities(query) {
-  const q = query.trim().toLowerCase()
-  const grid = document.getElementById('csel')
-  grid.querySelectorAll('.csb').forEach(btn => {
-    const match = btn.dataset.prov.toLowerCase().includes(q) ||
-                  PROVINCES[btn.dataset.prov].capital.toLowerCase().includes(q)
-    btn.style.display = match ? '' : 'none'
-  })
+const q = query.trim().toLowerCase()
+const grid = document.getElementById('csel')
+grid.querySelectorAll('.csb').forEach(btn => {
+const match = btn.dataset.prov.toLowerCase().includes(q) ||
+PROVINCES[btn.dataset.prov].capital.toLowerCase().includes(q)
+btn.style.display = match ? '' : 'none'
+})
 }
-
 function renderCity(prov) {
-  const d = PROVINCES[prov]
-  if (!d) return
-  const warnHTML = d.warn ? `<span class="tag tr">${d.warn}</span>` : ''
-  // Radio line removed as requested
-  document.getElementById('city-detail').innerHTML = `
-    <div class="city-card">
-      <div class="city-name">📍 ${prov} ${warnHTML}</div>
-      <div class="info-r"><span class="info-l">مرکز:</span><span>${d.capital}</span></div>
-      <div class="info-r"><span class="info-l">جمعیت:</span><span>${d.pop}</span></div>
-      <div class="info-r"><span class="info-l">مساحت:</span><span>${d.area}</span></div>
-      <div class="info-r"><span class="info-l">هلال احمر:</span><span style="font-size:12px">${d.rc}</span></div>
-      <hr>
-      <div style="font-weight:700;margin-bottom:8px;font-size:13px;color:var(--txt)">🏥 بیمارستان‌های اصلی</div>
-      ${d.hospitals.map(h=>`<div class="bx bxg" style="margin-bottom:6px;padding:9px 11px;font-size:12px">🏥 ${h}</div>`).join('')}
-      <div style="font-weight:700;margin:10px 0 8px;font-size:13px;color:var(--txt)">🏚️ پناهگاه‌های موقت</div>
-      ${d.shelter.map(s=>`<div class="bx bxb" style="margin-bottom:6px;padding:9px 11px;font-size:12px">🏚️ ${s}</div>`).join('')}
-    </div>
-  `
+const d = PROVINCES[prov]
+if (!d) return
+const warnHTML = d.warn ? `<span class="tag tr">${d.warn}</span>` : ''
+document.getElementById('city-detail').innerHTML = `
+<div class="city-card">
+<div class="city-name">📍 ${prov} ${warnHTML}</div>
+<div class="info-r"><span class="info-l">مرکز:</span><span>${d.capital}</span></div>
+<div class="info-r"><span class="info-l">جمعیت:</span><span>${d.pop}</span></div>
+<div class="info-r"><span class="info-l">مساحت:</span><span>${d.area}</span></div>
+<div class="info-r"><span class="info-l">هلال احمر:</span><span style="font-size:clamp(11px, 2.3vw, 13px)">${d.rc}</span></div>
+<hr>
+<div style="font-weight:700;margin-bottom:clamp(6px, 1.5vw, 10px);font-size:clamp(12px, 2.5vw, 14px);color:var(--txt)">🏥 بیمارستان‌های اصلی</div>
+${d.hospitals.map(h=>`<div class="bx bxg" style="margin-bottom:clamp(5px, 1vw, 8px);padding:clamp(8px, 2vw, 10px) clamp(10px, 2.5vw, 12px);font-size:clamp(11px, 2.3vw, 13px)">🏥 ${h}</div>`).join('')}
+<div style="font-weight:700;margin:clamp(8px, 2vw, 12px) 0 clamp(6px, 1.5vw, 10px);font-size:clamp(12px, 2.5vw, 14px);color:var(--txt)">🏚️ پناهگاه‌های موقت</div>
+${d.shelter.map(s=>`<div class="bx bxb" style="margin-bottom:clamp(5px, 1vw, 8px);padding:clamp(8px, 2vw, 10px) clamp(10px, 2.5vw, 12px);font-size:clamp(11px, 2.3vw, 13px)">🏚️ ${s}</div>`).join('')}
+</div>
+`
 }
-
 // ============================================================
 // BOOT
 // ============================================================
 window.addEventListener('DOMContentLoaded', () => {
-  loadChecklist()
-  loadNotes()
-  buildSelector()
-  renderCity('تهران')
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{})
+loadChecklist()
+loadNotes()
+buildSelector()
+renderCity('تهران')
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{})
 })
 </script>
 </body>
 </html>
+
