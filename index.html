@@ -6,305 +6,233 @@
 <meta name="theme-color" content="#080810">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title> پناه — راهنمای اضطراری</title>
+<title>پناه — راهنمای اضطراری</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* 
- DESIGN TOKENS
- */
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
 :root {
- --bg: #080810;
- --s1: #0f0f1a;
- --s2: #161625;
- --s3: #1e1e30;
- --bd: #2a2a40;
- --bd2: #363650;
+  --bg: #080810;
+  --s1: #0f0f1a;
+  --s2: #161625;
+  --s3: #1e1e30;
+  --bd: #2a2a40;
+  --bd2: #363650;
 
- --red: #f04040;
- --red2: #ff6b6b;
- --ora: #f59e0b;
- --ora2: #fbbf24;
- --grn: #10b981;
- --grn2: #34d399;
- --blu: #3b82f6;
- --blu2: #60a5fa;
+  --red: #f04040;
+  --red2: #ff6b6b;
+  --ora: #f59e0b;
+  --ora2: #fbbf24;
+  --grn: #10b981;
+  --grn2: #34d399;
+  --blu: #3b82f6;
+  --blu2: #60a5fa;
 
- --txt: #ececf4;
- --txt2: #b0b0c8;
- --mut: #6868888;
+  --txt: #ececf4;
+  --txt2: #b0b0c8;
 
- --rbg: rgba(240,64,64,.10);
- --rbg2: rgba(240,64,64,.18);
- --obg: rgba(245,158,11,.10);
- --obg2: rgba(245,158,11,.18);
- --gbg: rgba(16,185,129,.10);
- --gbg2: rgba(16,185,129,.18);
- --bbg: rgba(59,130,246,.10);
- --bbg2: rgba(59,130,246,.18);
+  --rbg: rgba(240,64,64,.10);
+  --rbg2: rgba(240,64,64,.18);
+  --obg: rgba(245,158,11,.10);
+  --obg2: rgba(245,158,11,.18);
+  --gbg: rgba(16,185,129,.10);
+  --gbg2: rgba(16,185,129,.18);
+  --bbg: rgba(59,130,246,.10);
+  --bbg2: rgba(59,130,246,.18);
 
- --radius: 14px;
- --radius-sm: 9px;
- --font: 'Vazirmatn', 'Segoe UI', Tahoma, Arial, sans-serif;
- --transition: all .2s cubic-bezier(.4,0,.2,1);
- --shadow: 0 4px 24px rgba(0,0,0,.35);
- --shadow-lg: 0 8px 40px rgba(0,0,0,.5);
+  --radius: 14px;
+  --radius-sm: 9px;
+  --font: 'Vazirmatn', 'Segoe UI', Tahoma, Arial, sans-serif;
+  --transition: all .2s cubic-bezier(.4,0,.2,1);
+  --shadow: 0 4px 24px rgba(0,0,0,.35);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,.5);
 }
 
-/* 
- RESET & BASE
- */
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
 *, *::before, *::after {
- margin: 0; padding: 0;
- box-sizing: border-box;
- -webkit-tap-highlight-color: transparent;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 html { font-size: 16px; scroll-behavior: smooth; }
 body {
- font-family: var(--font);
- background: var(--bg);
- color: var(--txt);
- min-height: 100vh;
- font-size: 14px;
- line-height: 1.75;
- overflow-x: hidden;
- -webkit-font-smoothing: antialiased;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--txt);
+  min-height: 100vh;
+  font-size: 14px;
+  line-height: 1.75;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* 
- HEADER
- */
+/* ============================================================
+   HEADER
+   ============================================================ */
 header {
- background: rgba(8,8,16,.9);
- backdrop-filter: blur(16px);
- -webkit-backdrop-filter: blur(16px);
- border-bottom: 1px solid var(--bd);
- padding: 0 16px;
- height: 56px;
- display: flex;
- align-items: center;
- justify-content: space-between;
- position: sticky;
- top: 0;
- z-index: 300;
- gap: 12px;
+  background: rgba(8,8,16,.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--bd);
+  padding: 0 16px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 300;
+  gap: 12px;
 }
 .logo {
- display: flex;
- align-items: center;
- gap: 8px;
- font-weight: 900;
- font-size: 18px;
- color: var(--txt);
- white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--txt);
+  white-space: nowrap;
 }
 .logo-icon {
- width: 32px;
- height: 32px;
- background: linear-gradient(135deg, var(--red), #b91c1c);
- border-radius: 8px;
- display: flex;
- align-items: center;
- justify-content: center;
- font-size: 16px;
- box-shadow: 0 2px 12px rgba(240,64,64,.4);
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--red), #b91c1c);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 2px 12px rgba(240,64,64,.4);
 }
 .logo-sub {
- font-weight: 300;
- font-size: 12px;
- color: var(--txt2);
- display: block;
- line-height: 1;
-}
-.off-badge {
- background: var(--gbg);
- border: 1px solid rgba(16,185,129,.3);
- color: var(--grn);
- padding: 4px 12px;
- border-radius: 20px;
- font-size: 11px;
- font-weight: 700;
- display: flex;
- align-items: center;
- gap: 5px;
- white-space: nowrap;
-}
-.off-dot {
- width: 6px;
- height: 6px;
- background: var(--grn);
- border-radius: 50%;
- animation: pulse-grn 2s infinite;
-}
-@keyframes pulse-grn {
- 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16,185,129,.4); }
- 50% { opacity: .7; box-shadow: 0 0 0 4px rgba(16,185,129,0); }
+  font-weight: 300; font-size: 12px; color: var(--txt2);
+  display: block; line-height: 1;
 }
 
-/* 
- ALERT BAR
- */
+
+/* ============================================================
+   ALERT BAR
+   ============================================================ */
 .abar {
- background: linear-gradient(90deg, rgba(240,64,64,.15), rgba(240,64,64,.08));
- border-bottom: 1px solid rgba(240,64,64,.3);
- padding: 10px 16px;
- display: flex;
- align-items: center;
- gap: 10px;
- font-size: 12px;
- font-weight: 700;
- color: var(--red2);
- position: sticky;
- top: 56px;
- z-index: 290;
- backdrop-filter: blur(12px);
+  background: linear-gradient(90deg, rgba(240,64,64,.15), rgba(240,64,64,.08));
+  border-bottom: 1px solid rgba(240,64,64,.3);
+  padding: 10px 16px;
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; font-weight: 700; color: var(--red2);
+  position: sticky; top: 56px; z-index: 290;
+  backdrop-filter: blur(12px);
 }
 .abar-dot {
- width: 8px;
- height: 8px;
- background: var(--red);
- border-radius: 50%;
- animation: blink 1.4s infinite;
- flex-shrink: 0;
- box-shadow: 0 0 8px var(--red);
+  width: 8px; height: 8px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: blink 1.4s infinite;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px var(--red);
 }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.15} }
 
-/* 
- NAVIGATION
- */
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
 nav {
- background: rgba(15,15,26,.95);
- backdrop-filter: blur(12px);
- border-bottom: 1px solid var(--bd);
- display: flex;
- overflow-x: auto;
- scrollbar-width: none;
- position: sticky;
- top: 94px;
- z-index: 280;
- -webkit-overflow-scrolling: touch;
- padding: 0 4px;
+  background: rgba(15,15,26,.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--bd);
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  position: sticky; top: 94px; z-index: 280;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 4px;
 }
 nav::-webkit-scrollbar { display: none; }
 .nb {
- background: none;
- border: none;
- border-bottom: 2px solid transparent;
- color: var(--txt2);
- padding: 14px 14px;
- cursor: pointer;
- font-size: 12px;
- white-space: nowrap;
- font-family: var(--font);
- font-weight: 600;
- transition: var(--transition);
- flex-shrink: 0;
- display: flex;
- align-items: center;
- gap: 5px;
- letter-spacing: .01em;
+  background: none; border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--txt2);
+  padding: 14px 14px;
+  cursor: pointer; font-size: 12px; white-space: nowrap;
+  font-family: var(--font); font-weight: 600;
+  transition: var(--transition); flex-shrink: 0;
+  display: flex; align-items: center; gap: 5px;
+  letter-spacing: .01em;
 }
 .nb:hover { color: var(--txt); }
 .nb.on {
- color: var(--red2);
- border-bottom-color: var(--red);
- background: linear-gradient(0deg, rgba(240,64,64,.08), transparent);
+  color: var(--red2);
+  border-bottom-color: var(--red);
+  background: linear-gradient(0deg, rgba(240,64,64,.08), transparent);
 }
 
-/* 
- MAIN LAYOUT
- */
-main {
- max-width: 720px;
- margin: 0 auto;
- padding: 16px 14px 100px;
-}
+/* ============================================================
+   MAIN LAYOUT
+   ============================================================ */
+main { max-width: 720px; margin: 0 auto; padding: 16px 14px 100px; }
 .pg { display: none; }
 .pg.on { display: block; animation: fadeUp .28s cubic-bezier(.4,0,.2,1); }
 @keyframes fadeUp {
- from { opacity: 0; transform: translateY(12px); }
- to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* 
- SECTION TITLES
- */
+/* ============================================================
+   SECTION TITLES
+   ============================================================ */
 .stit {
- font-size: 17px;
- font-weight: 800;
- margin-bottom: 16px;
- display: flex;
- align-items: center;
- gap: 10px;
- color: var(--txt);
+  font-size: 17px; font-weight: 800;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+  color: var(--txt);
 }
 .stit::before {
- content: '';
- width: 4px;
- height: 22px;
- background: linear-gradient(180deg, var(--red), transparent);
- border-radius: 2px;
- flex-shrink: 0;
+  content: '';
+  width: 4px; height: 22px;
+  background: linear-gradient(180deg, var(--red), transparent);
+  border-radius: 2px; flex-shrink: 0;
 }
 
-/* 
- CARDS
- */
+/* ============================================================
+   CARDS
+   ============================================================ */
 .card {
- background: var(--s1);
- border: 1px solid var(--bd);
- border-radius: var(--radius);
- padding: 16px;
- margin-bottom: 12px;
- transition: var(--transition);
+  background: var(--s1);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius);
+  padding: 16px; margin-bottom: 12px;
+  transition: var(--transition);
 }
 .card:hover { border-color: var(--bd2); }
 
 .ctit {
- font-size: 13px;
- font-weight: 800;
- margin-bottom: 14px;
- display: flex;
- align-items: center;
- gap: 9px;
- color: var(--txt);
- letter-spacing: .01em;
+  font-size: 13px; font-weight: 800;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 9px;
+  color: var(--txt); letter-spacing: .01em;
 }
 .ci {
- width: 30px;
- height: 30px;
- border-radius: 8px;
- display: flex;
- align-items: center;
- justify-content: center;
- font-size: 14px;
- flex-shrink: 0;
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; flex-shrink: 0;
 }
 .cr { background: var(--rbg); }
 .co { background: var(--obg); }
 .cg { background: var(--gbg); }
 .cb { background: var(--bbg); }
 
-/* 
- BOXES
- */
+/* ============================================================
+   BOXES
+   ============================================================ */
 .bx {
- border-radius: var(--radius-sm);
- padding: 12px 14px;
- margin-bottom: 8px;
- font-size: 13px;
- line-height: 1.8;
+  border-radius: var(--radius-sm);
+  padding: 12px 14px; margin-bottom: 8px;
+  font-size: 13px; line-height: 1.8;
 }
 .bx:last-child { margin-bottom: 0; }
-.bx strong {
- display: block;
- margin-bottom: 4px;
- font-size: 12px;
- font-weight: 800;
- letter-spacing: .02em;
-}
+.bx strong { display: block; margin-bottom: 4px; font-size: 12px; font-weight: 800; letter-spacing: .02em; }
 .bxr { background: var(--rbg); border: 1px solid rgba(240,64,64,.2); }
 .bxr strong { color: var(--red2); }
 .bxo { background: var(--obg); border: 1px solid rgba(245,158,11,.2); }
@@ -314,35 +242,24 @@ main {
 .bxb { background: var(--bbg); border: 1px solid rgba(59,130,246,.2); }
 .bxb strong { color: var(--blu2); }
 
-/* 
- STEPS
- */
+/* ============================================================
+   STEPS
+   ============================================================ */
 .steps { display: flex; flex-direction: column; gap: 8px; }
 .step {
- background: var(--s2);
- border: 1px solid var(--bd);
- border-radius: var(--radius-sm);
- padding: 12px;
- display: flex;
- gap: 12px;
- align-items: flex-start;
- transition: var(--transition);
+  background: var(--s2); border: 1px solid var(--bd);
+  border-radius: var(--radius-sm); padding: 12px;
+  display: flex; gap: 12px; align-items: flex-start;
+  transition: var(--transition);
 }
 .step:hover { border-color: var(--bd2); background: var(--s3); }
 .sn {
- width: 24px;
- height: 24px;
- border-radius: 50%;
- background: var(--red);
- color: #fff;
- font-size: 11px;
- font-weight: 800;
- display: flex;
- align-items: center;
- justify-content: center;
- flex-shrink: 0;
- margin-top: 1px;
- box-shadow: 0 2px 8px rgba(240,64,64,.3);
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--red); color: #fff;
+  font-size: 11px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+  box-shadow: 0 2px 8px rgba(240,64,64,.3);
 }
 .sn.g { background: var(--grn); box-shadow: 0 2px 8px rgba(16,185,129,.3); }
 .sn.o { background: var(--ora); box-shadow: 0 2px 8px rgba(245,158,11,.3); }
@@ -350,342 +267,235 @@ main {
 .st { font-weight: 700; margin-bottom: 2px; font-size: 13px; line-height: 1.4; }
 .sd { font-size: 12px; color: var(--txt2); line-height: 1.6; }
 
-/* 
- GRIDS
- */
-.g2 {
- display: grid;
- grid-template-columns: 1fr 1fr;
- gap: 10px;
- margin-bottom: 10px;
-}
-.g3 {
- display: grid;
- grid-template-columns: repeat(3, 1fr);
- gap: 8px;
- margin-bottom: 12px;
-}
+/* ============================================================
+   GRIDS
+   ============================================================ */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
 @media (max-width: 480px) {
- .g2 { grid-template-columns: 1fr; }
- .g3 { grid-template-columns: repeat(2, 1fr); }
+  .g2 { grid-template-columns: 1fr; }
+  .g3 { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* 
- QUICK CARDS (HOME)
- */
+/* ============================================================
+   QUICK CARDS (HOME)
+   ============================================================ */
 .qc {
- background: var(--s2);
- border: 1px solid var(--bd);
- border-radius: var(--radius);
- padding: 14px 8px;
- text-align: center;
- cursor: pointer;
- transition: var(--transition);
- min-width: 0;
- user-select: none;
+  background: var(--s2); border: 1px solid var(--bd);
+  border-radius: var(--radius); padding: 14px 8px;
+  text-align: center; cursor: pointer;
+  transition: var(--transition); min-width: 0; user-select: none;
 }
 .qc:hover {
- border-color: rgba(240,64,64,.4);
- background: var(--rbg);
- transform: translateY(-2px);
- box-shadow: 0 6px 20px rgba(240,64,64,.12);
+  border-color: rgba(240,64,64,.4); background: var(--rbg);
+  transform: translateY(-2px); box-shadow: 0 6px 20px rgba(240,64,64,.12);
 }
 .qc:active { transform: scale(.95); }
 .qi { font-size: 24px; margin-bottom: 6px; display: block; }
 .ql { font-size: 11px; color: var(--txt2); line-height: 1.3; font-weight: 600; }
 
-/* 
- ACCORDION
- */
+/* ============================================================
+   ACCORDION
+   ============================================================ */
 .acc { display: flex; flex-direction: column; gap: 6px; }
 .ai {
- background: var(--s2);
- border: 1px solid var(--bd);
- border-radius: var(--radius-sm);
- overflow: hidden;
- transition: border-color .2s;
+  background: var(--s2); border: 1px solid var(--bd);
+  border-radius: var(--radius-sm); overflow: hidden;
+  transition: border-color .2s;
 }
 .ai.on { border-color: rgba(240,64,64,.3); }
 .ah {
- padding: 14px 15px;
- cursor: pointer;
- display: flex;
- justify-content: space-between;
- align-items: center;
- font-weight: 700;
- font-size: 13px;
- gap: 8px;
- min-height: 50px;
- user-select: none;
- transition: background .15s;
+  padding: 14px 15px; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  font-weight: 700; font-size: 13px; gap: 8px;
+  min-height: 50px; user-select: none; transition: background .15s;
 }
 .ah:hover { background: var(--s3); }
 .ai.on .ah { color: var(--red2); }
 .aw { color: var(--txt2); font-size: 10px; flex-shrink: 0; transition: transform .25s; }
 .ai.on .aw { transform: rotate(180deg); color: var(--red2); }
 .ab {
- display: none;
- padding: 14px 15px;
- border-top: 1px solid var(--bd);
- font-size: 13px;
- color: var(--txt2);
- line-height: 1.8;
- animation: fadeUp .2s ease;
+  display: none; padding: 14px 15px;
+  border-top: 1px solid var(--bd);
+  font-size: 13px; color: var(--txt2); line-height: 1.8;
+  animation: fadeUp .2s ease;
 }
 .ai.on .ab { display: block; }
 
-/* 
- EMERGENCY NUMBERS
- */
+/* ============================================================
+   EMERGENCY NUMBERS
+   ============================================================ */
 .ng {
- display: grid;
- grid-template-columns: repeat(4, 1fr);
- gap: 8px;
- margin-bottom: 14px;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 8px; margin-bottom: 14px;
 }
 @media (max-width: 500px) { .ng { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 360px) { .ng { grid-template-columns: repeat(2, 1fr); } }
 .nc {
- background: var(--s2);
- border: 1px solid var(--bd);
- border-radius: var(--radius-sm);
- padding: 12px 6px;
- text-align: center;
- text-decoration: none;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- gap: 4px;
- transition: var(--transition);
- min-height: 72px;
- user-select: none;
+  background: var(--s2); border: 1px solid var(--bd);
+  border-radius: var(--radius-sm); padding: 12px 6px;
+  text-align: center; text-decoration: none;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px; transition: var(--transition); min-height: 72px; user-select: none;
 }
 .nc:hover, .nc:active {
- border-color: rgba(16,185,129,.5);
- background: var(--gbg2);
- transform: scale(.97);
+  border-color: rgba(16,185,129,.5); background: var(--gbg2);
+  transform: scale(.97);
 }
-.nn {
- font-size: 18px;
- font-weight: 900;
- color: var(--grn2);
- direction: ltr;
- letter-spacing: 1px;
- line-height: 1;
-}
+.nn { font-size: 18px; font-weight: 900; color: var(--grn2); direction: ltr; letter-spacing: 1px; line-height: 1; }
 .nl { font-size: 10px; color: var(--txt2); line-height: 1.3; font-weight: 600; }
 
-/* 
- CHECKLIST
- */
+/* ============================================================
+   CHECKLIST
+   ============================================================ */
 .cl { display: flex; flex-direction: column; gap: 5px; }
 .cli {
- display: flex;
- align-items: center;
- gap: 10px;
- padding: 10px 12px;
- background: var(--s2);
- border: 1px solid var(--bd);
- border-radius: var(--radius-sm);
- cursor: pointer;
- font-size: 13px;
- transition: var(--transition);
- min-height: 44px;
- user-select: none;
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px;
+  background: var(--s2); border: 1px solid var(--bd);
+  border-radius: var(--radius-sm); cursor: pointer;
+  font-size: 13px; transition: var(--transition);
+  min-height: 44px; user-select: none;
 }
 .cli:hover { border-color: var(--bd2); background: var(--s3); }
-.cli input {
- width: 17px;
- height: 17px;
- accent-color: var(--grn);
- cursor: pointer;
- flex-shrink: 0;
-}
+.cli input { width: 17px; height: 17px; accent-color: var(--grn); cursor: pointer; flex-shrink: 0; }
 .cli.done {
- border-color: rgba(16,185,129,.3);
- background: var(--gbg);
- text-decoration: line-through;
- color: var(--txt2);
- opacity: .75;
+  border-color: rgba(16,185,129,.3); background: var(--gbg);
+  text-decoration: line-through; color: var(--txt2); opacity: .75;
 }
 .clcat {
- font-size: 11px;
- color: var(--txt2);
- font-weight: 800;
- padding: 8px 0 3px;
- border-bottom: 1px solid var(--bd);
- margin-bottom: 3px;
- letter-spacing: .06em;
- text-transform: uppercase;
+  font-size: 11px; color: var(--txt2); font-weight: 800;
+  padding: 8px 0 3px; border-bottom: 1px solid var(--bd);
+  margin-bottom: 3px; letter-spacing: .06em; text-transform: uppercase;
 }
 
-/* 
- PROGRESS BAR
- */
+/* ============================================================
+   PROGRESS BAR
+   ============================================================ */
 .pw {
- background: var(--s2);
- border-radius: 20px;
- height: 8px;
- overflow: hidden;
- margin: 8px 0 6px;
- border: 1px solid var(--bd);
+  background: var(--s2); border-radius: 20px; height: 8px;
+  overflow: hidden; margin: 8px 0 6px; border: 1px solid var(--bd);
 }
 .pb {
- height: 100%;
- background: linear-gradient(90deg, var(--grn), var(--blu));
- border-radius: 20px;
- transition: width .5s cubic-bezier(.4,0,.2,1);
- box-shadow: 0 0 12px rgba(16,185,129,.3);
+  height: 100%;
+  background: linear-gradient(90deg, var(--grn), var(--blu));
+  border-radius: 20px;
+  transition: width .5s cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 0 12px rgba(16,185,129,.3);
 }
 .pt { font-size: 11px; color: var(--txt2); margin-bottom: 4px; font-weight: 600; }
 
-/* 
- TABLE
- */
-.tbl {
- width: 100%;
- border-collapse: collapse;
- font-size: 12px;
-}
+/* ============================================================
+   TABLE
+   ============================================================ */
+.tbl { width: 100%; border-collapse: collapse; font-size: 12px; }
 .tbl th, .tbl td {
- padding: 9px 12px;
- text-align: right;
- border-bottom: 1px solid var(--bd);
- word-break: break-word;
+  padding: 9px 12px; text-align: right;
+  border-bottom: 1px solid var(--bd); word-break: break-word;
 }
 .tbl th {
- color: var(--txt2);
- font-weight: 800;
- background: var(--s2);
- font-size: 11px;
- letter-spacing: .03em;
- text-transform: uppercase;
+  color: var(--txt2); font-weight: 800; background: var(--s2);
+  font-size: 11px; letter-spacing: .03em; text-transform: uppercase;
 }
 .tbl tr:last-child td { border: none; }
 .tbl tr:hover td { background: var(--s2); }
 .tfr { direction: ltr; font-family: 'Courier New', monospace; color: var(--grn2); font-size: 13px; font-weight: 700; }
 
-/* 
- TAGS
- */
+/* ============================================================
+   TAGS
+   ============================================================ */
 .tag {
- display: inline-block;
- padding: 3px 10px;
- border-radius: 20px;
- font-size: 10px;
- font-weight: 800;
- margin: 2px;
- white-space: nowrap;
- letter-spacing: .03em;
+  display: inline-block; padding: 3px 10px; border-radius: 20px;
+  font-size: 10px; font-weight: 800; margin: 2px;
+  white-space: nowrap; letter-spacing: .03em;
 }
 .tr { background: var(--rbg); color: var(--red2); border: 1px solid rgba(240,64,64,.25); }
 .tg { background: var(--gbg); color: var(--grn2); border: 1px solid rgba(16,185,129,.25); }
 .to { background: var(--obg); color: var(--ora2); border: 1px solid rgba(245,158,11,.25); }
 .tb { background: var(--bbg); color: var(--blu2); border: 1px solid rgba(59,130,246,.25); }
 
-/* 
- TEXTAREA & BUTTONS
- */
+/* ============================================================
+   TEXTAREA & BUTTONS
+   ============================================================ */
 textarea {
- background: var(--s2);
- border: 1px solid var(--bd);
- border-radius: var(--radius-sm);
- color: var(--txt);
- font-family: var(--font);
- font-size: 13px;
- padding: 12px;
- width: 100%;
- resize: vertical;
- min-height: 110px;
- line-height: 1.8;
- transition: border-color .2s;
+  background: var(--s2); border: 1px solid var(--bd);
+  border-radius: var(--radius-sm); color: var(--txt);
+  font-family: var(--font); font-size: 13px; padding: 12px;
+  width: 100%; resize: vertical; min-height: 110px;
+  line-height: 1.8; transition: border-color .2s;
 }
 textarea:focus { outline: none; border-color: var(--blu); }
 textarea::placeholder { color: var(--txt2); opacity: .6; }
 .save-btn {
- background: var(--gbg);
- border: 1px solid rgba(16,185,129,.3);
- border-radius: var(--radius-sm);
- color: var(--grn2);
- padding: 9px 20px;
- cursor: pointer;
- font-size: 12px;
- font-family: var(--font);
- margin-top: 8px;
- transition: var(--transition);
- font-weight: 700;
- min-height: 40px;
- letter-spacing: .02em;
+  background: var(--gbg); border: 1px solid rgba(16,185,129,.3);
+  border-radius: var(--radius-sm); color: var(--grn2);
+  padding: 9px 20px; cursor: pointer; font-size: 12px;
+  font-family: var(--font); margin-top: 8px;
+  transition: var(--transition); font-weight: 700;
+  min-height: 40px; letter-spacing: .02em;
 }
 .save-btn:hover { background: rgba(16,185,129,.25); border-color: var(--grn); }
 .saved-note { font-size: 11px; color: var(--grn2); margin-top: 5px; display: none; font-weight: 700; }
 
-/* 
- CITY SELECTOR
- */
+/* ============================================================
+   SEARCH
+   ============================================================ */
+.search-wrap { position: relative; margin-bottom: 10px; }
+.search-inp {
+  background: var(--s2); border: 1px solid var(--bd);
+  border-radius: var(--radius-sm); color: var(--txt);
+  font-family: var(--font); font-size: 13px;
+  padding: 11px 14px 11px 40px;
+  width: 100%; outline: none; min-height: 46px;
+  transition: border-color .2s;
+}
+.search-inp:focus { border-color: var(--blu); }
+.search-inp::placeholder { color: var(--txt2); opacity: .6; }
+.search-icon {
+  position: absolute; left: 13px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--txt2); font-size: 15px; pointer-events: none;
+}
+
+/* ============================================================
+   CITY / PROVINCE SELECTOR
+   ============================================================ */
 .csel-grid {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
- gap: 6px;
- margin-bottom: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 6px; margin-bottom: 14px;
 }
 .csb {
- background: var(--s2);
- border: 1px solid var(--bd);
- border-radius: var(--radius-sm);
- padding: 9px 5px;
- text-align: center;
- cursor: pointer;
- font-size: 12px;
- font-family: var(--font);
- color: var(--txt);
- transition: var(--transition);
- line-height: 1.4;
- min-height: 52px;
- display: flex;
- flex-direction: column;
- justify-content: center;
- font-weight: 600;
- user-select: none;
+  background: var(--s2); border: 1px solid var(--bd);
+  border-radius: var(--radius-sm); padding: 9px 5px;
+  text-align: center; cursor: pointer; font-size: 12px;
+  font-family: var(--font); color: var(--txt);
+  transition: var(--transition); line-height: 1.4;
+  min-height: 52px; display: flex; flex-direction: column;
+  justify-content: center; font-weight: 600; user-select: none;
 }
 .csb:hover { border-color: rgba(245,158,11,.4); background: var(--obg); }
 .csb.sel { border-color: var(--ora); background: var(--obg2); color: var(--ora2); font-weight: 800; }
+
 .city-card {
- background: var(--s2);
- border: 1px solid var(--bd);
- border-radius: var(--radius);
- padding: 16px;
- margin-bottom: 12px;
- animation: fadeUp .25s ease;
+  background: var(--s2); border: 1px solid var(--bd);
+  border-radius: var(--radius); padding: 16px; margin-bottom: 12px;
+  animation: fadeUp .25s ease;
 }
 .city-name {
- font-size: 16px;
- font-weight: 900;
- margin-bottom: 12px;
- display: flex;
- align-items: center;
- gap: 8px;
- flex-wrap: wrap;
+  font-size: 16px; font-weight: 900; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
 }
-.info-r {
- display: flex;
- gap: 10px;
- margin-bottom: 6px;
- font-size: 12px;
- align-items: flex-start;
-}
+.info-r { display: flex; gap: 10px; margin-bottom: 6px; font-size: 12px; align-items: flex-start; }
 .info-l { color: var(--txt2); width: 80px; flex-shrink: 0; font-weight: 600; }
 
-/* 
- LEVEL CARDS
- */
+/* ============================================================
+   LEVEL CARDS
+   ============================================================ */
 .lvl {
- border-radius: var(--radius-sm);
- padding: 14px 10px;
- text-align: center;
- border: 1px solid transparent;
- transition: var(--transition);
+  border-radius: var(--radius-sm); padding: 14px 10px;
+  text-align: center; border: 1px solid transparent;
+  transition: var(--transition);
 }
 .lvl:hover { transform: translateY(-2px); }
 .lv-g { background: var(--gbg); border-color: rgba(16,185,129,.25); }
@@ -695,755 +505,1386 @@ textarea::placeholder { color: var(--txt2); opacity: .6; }
 .lv-name { font-weight: 800; font-size: 12px; }
 .lv-desc { font-size: 10px; color: var(--txt2); margin-top: 2px; line-height: 1.4; }
 
-/* 
- SEARCH
- */
-.search-wrap { position: relative; margin-bottom: 10px; }
-.search-inp {
- background: var(--s2);
- border: 1px solid var(--bd);
- border-radius: var(--radius-sm);
- color: var(--txt);
- font-family: var(--font);
- font-size: 13px;
- padding: 11px 14px 11px 40px;
- width: 100%;
- outline: none;
- min-height: 46px;
- transition: border-color .2s;
-}
-.search-inp:focus { border-color: var(--blu); }
-.search-inp::placeholder { color: var(--txt2); opacity: .6; }
-.search-icon {
- position: absolute;
- left: 13px;
- top: 50%;
- transform: translateY(-50%);
- color: var(--txt2);
- font-size: 15px;
- pointer-events: none;
-}
-
-/* 
- HOME HERO CARD
- */
+/* ============================================================
+   HOME HERO CARD
+   ============================================================ */
 .hero-card {
- background: linear-gradient(135deg, rgba(240,64,64,.12), rgba(240,64,64,.05));
- border: 1px solid rgba(240,64,64,.3);
- border-radius: var(--radius);
- padding: 16px;
- margin-bottom: 12px;
- position: relative;
- overflow: hidden;
+  background: linear-gradient(135deg, rgba(240,64,64,.12), rgba(240,64,64,.05));
+  border: 1px solid rgba(240,64,64,.3);
+  border-radius: var(--radius); padding: 16px; margin-bottom: 12px;
+  position: relative; overflow: hidden;
 }
 .hero-card::before {
- content: '';
- position: absolute;
- top: -40px; right: -40px;
- width: 120px; height: 120px;
- background: radial-gradient(circle, rgba(240,64,64,.12), transparent 70%);
- border-radius: 50%;
- pointer-events: none;
+  content: '';
+  position: absolute; top: -40px; right: -40px;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, rgba(240,64,64,.12), transparent 70%);
+  border-radius: 50%; pointer-events: none;
 }
 .hero-label {
- font-size: 11px;
- color: var(--red2);
- font-weight: 800;
- margin-bottom: 10px;
- letter-spacing: .05em;
- text-transform: uppercase;
- display: flex;
- align-items: center;
- gap: 6px;
+  font-size: 11px; color: var(--red2); font-weight: 800;
+  margin-bottom: 10px; letter-spacing: .05em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 6px;
 }
 
-/* 
- DIVIDER
- */
-hr {
- border: none;
- border-top: 1px solid var(--bd);
- margin: 12px 0;
+/* ============================================================
+   HOSPITAL-SPECIFIC STYLES (v3.0)
+   ============================================================ */
+.v-badge {
+  display: inline-flex; align-items: center; gap: 3px;
+  background: rgba(16,185,129,.12); border: 1px solid rgba(16,185,129,.3);
+  border-radius: 4px; padding: 1px 6px;
+  font-size: 9px; color: var(--grn2); font-weight: 700;
+  vertical-align: middle; margin-right: 4px;
 }
+.u-badge {
+  display: inline-flex; align-items: center; gap: 3px;
+  background: rgba(245,158,11,.10); border: 1px solid rgba(245,158,11,.25);
+  border-radius: 4px; padding: 1px 6px;
+  font-size: 9px; color: var(--ora2); font-weight: 700;
+  vertical-align: middle; margin-right: 4px;
+}
+.contrib-bar {
+  background: linear-gradient(90deg, rgba(59,130,246,.12), rgba(59,130,246,.05));
+  border: 1px solid rgba(59,130,246,.3);
+  border-radius: var(--radius-sm); padding: 10px 14px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; margin-bottom: 12px; flex-wrap: wrap;
+}
+.contrib-bar a { color: var(--blu2); font-size: 11px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.contrib-bar a:hover { text-decoration: underline; }
+.contrib-text { font-size: 11px; color: var(--txt2); }
+
+.hosp-row {
+  background: var(--s1); border: 1px solid var(--bd);
+  border-radius: var(--radius-sm); padding: 10px 12px;
+  margin-bottom: 6px;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 10px; flex-wrap: wrap; transition: border-color .2s;
+}
+.hosp-row:hover { border-color: var(--bd2); }
+.hosp-info { flex: 1; min-width: 0; }
+.hosp-name { font-size: 13px; font-weight: 700; color: var(--txt); margin-bottom: 2px; }
+.hosp-addr { font-size: 11px; color: var(--txt2); }
+.hosp-city { font-size: 10px; color: var(--ora2); font-weight: 600; margin-top: 2px; }
+.hosp-phone {
+  direction: ltr; font-family: 'Courier New', monospace;
+  color: var(--grn2); font-weight: 700; font-size: 12px;
+  white-space: nowrap; align-self: center; text-decoration: none;
+}
+.count-badge {
+  background: var(--bbg); border: 1px solid rgba(59,130,246,.2);
+  border-radius: 6px; padding: 2px 8px;
+  font-size: 10px; color: var(--blu2); font-weight: 700;
+}
+
+/* ============================================================
+   MISC
+   ============================================================ */
+.freq-badge {
+  font-family: 'Courier New', monospace; font-size: 13px; font-weight: 900;
+  color: var(--grn2); background: var(--gbg); padding: 2px 8px;
+  border-radius: 5px; direction: ltr; display: inline-block;
+}
+hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
 .mt10 { margin-top: 10px; }
 
-/* 
- RADIO TABLE SPECIAL
- */
-.freq-badge {
- font-family: 'Courier New', monospace;
- font-size: 13px;
- font-weight: 900;
- color: var(--grn2);
- background: var(--gbg);
- padding: 2px 8px;
- border-radius: 5px;
- direction: ltr;
- display: inline-block;
-}
+/* sidebar elements — hidden on mobile */
+.nav-logo  { display: none; }
+.nav-footer { display: none; }
+.prov-col { display: contents; } /* passthrough wrapper on mobile */
 
-/* 
- SCROLLBAR
- */
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--bd2); border-radius: 4px; }
 
-/* 
- MOBILE FINE TUNING
- */
+/* ============================================================
+   RESPONSIVE — SMALL MOBILE
+   ============================================================ */
 @media (max-width: 380px) {
- .logo-sub { display: none; }
- main { padding: 12px 10px 90px; }
- .nb { padding: 13px 11px; font-size: 11px; }
- .ng { grid-template-columns: repeat(3, 1fr); }
-}
-@media (min-width: 768px) {
- main { padding: 20px 20px 100px; }
- .card { padding: 20px; }
- .nb { padding: 14px 16px; font-size: 13px; }
- .ng { grid-template-columns: repeat(4, 1fr); }
+  .logo-sub { display: none; }
+  main { padding: 12px 10px 90px; }
+  .nb { padding: 13px 11px; font-size: 11px; }
+  .ng { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* 
- PRINT
- */
+/* ============================================================
+   RESPONSIVE — TABLET (768–1023px)
+   ============================================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+  main { padding: 20px 20px 100px; }
+  .card { padding: 20px; }
+  .nb { padding: 14px 16px; font-size: 13px; }
+  .ng { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ============================================================
+   RESPONSIVE — DESKTOP (≥1024px)
+   Fixed right sidebar + multi-column content layout
+   ============================================================ */
+@media (min-width: 1024px) {
+  :root {
+    --sidebar-w: 260px;
+    --header-h: 64px;
+  }
+
+  /* ---- HEADER ---- */
+  header {
+    height: var(--header-h);
+    padding: 0 calc(var(--sidebar-w) + 28px) 0 32px;
+  }
+  .logo { font-size: 20px; gap: 10px; }
+  .logo-icon { width: 38px; height: 38px; font-size: 19px; }
+  .logo-sub { font-size: 13px; }
+
+  /* ---- ALERT BAR ---- */
+  .abar {
+    top: var(--header-h);
+    padding: 12px 32px;
+    padding-right: calc(var(--sidebar-w) + 28px);
+    font-size: 13px;
+  }
+
+  /* ---- SIDEBAR NAVIGATION ---- */
+  nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: var(--sidebar-w);
+    height: 100vh;
+    flex-direction: column;
+    align-items: stretch;
+    border-left: 1px solid var(--bd);
+    border-bottom: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bd2) transparent;
+    z-index: 350;
+    background: rgba(7,7,15,.98);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 0;
+  }
+  nav::-webkit-scrollbar { width: 3px; }
+  nav::-webkit-scrollbar-thumb { background: var(--bd2); border-radius: 3px; }
+
+  /* sidebar logo */
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 20px;
+    height: var(--header-h);
+    border-bottom: 1px solid var(--bd);
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    background: rgba(7,7,15,.98);
+    z-index: 2;
+  }
+  .nav-logo-icon {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--red), #991b1b);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+    box-shadow: 0 2px 14px rgba(240,64,64,.45);
+  }
+  .nav-logo-text { font-weight: 900; font-size: 16px; line-height: 1.2; }
+  .nav-logo-sub { font-size: 10px; color: var(--txt2); font-weight: 300; }
+
+  /* sidebar footer */
+  .nav-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    margin-top: auto;
+    border-top: 1px solid var(--bd);
+    flex-shrink: 0;
+    background: rgba(7,7,15,.98);
+    position: sticky;
+    bottom: 0;
+  }
+  .nav-footer a {
+    color: var(--blu2); font-size: 11px; font-weight: 700; text-decoration: none;
+  }
+  .nav-footer a:hover { text-decoration: underline; }
+
+  /* nav buttons */
+  .nb {
+    padding: 15px 20px 15px 18px;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    border-right: none;
+    border-left: 3px solid transparent;
+    width: 100%;
+    justify-content: flex-start;
+    border-radius: 0;
+    min-height: 52px;
+    letter-spacing: .015em;
+    gap: 8px;
+  }
+  .nb:hover { background: var(--s2); color: var(--txt); border-bottom-color: rgba(255,255,255,.04); }
+  .nb.on {
+    border-left-color: var(--red);
+    border-bottom-color: rgba(255,255,255,.04);
+    background: linear-gradient(90deg, rgba(240,64,64,.12), rgba(240,64,64,.02));
+    color: var(--red2);
+    font-weight: 700;
+  }
+  /* prevent hover from overriding active item color */
+  .nb.on:hover {
+    color: var(--red2);
+    background: linear-gradient(90deg, rgba(240,64,64,.18), rgba(240,64,64,.04));
+  }
+
+  /* ---- MAIN CONTENT ---- */
+  main {
+    margin-right: var(--sidebar-w);
+    max-width: none;
+    padding: 32px 44px 60px;
+  }
+  .pg { max-width: 1020px; margin: 0 auto; }
+  .card { padding: 24px; }
+  .stit { font-size: 21px; margin-bottom: 22px; }
+  .ctit { font-size: 14px; margin-bottom: 18px; }
+  .st { font-size: 14px; }
+  .sd { font-size: 13px; }
+  .step { padding: 14px 16px; }
+  .bx { padding: 14px 16px; font-size: 13px; }
+  .ah { padding: 16px 20px; font-size: 14px; min-height: 58px; }
+  .ab { padding: 16px 20px; font-size: 13px; }
+  .ai { border-radius: var(--radius); }
+
+  /* ---- HIDE HERO CARD ON DESKTOP ---- */
+  .hero-card { display: none !important; }
+
+  /* ---- PAGE 0: HOME — 2-column layout ---- */
+  #p0.on {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  /* hero hidden — direct children re-mapped */
+  #p0.on > *:nth-child(2) { grid-column: 1; }       /* danger now */
+  #p0.on > *:nth-child(3) { grid-column: 2; }       /* alert levels */
+  #p0.on > *:nth-child(4) { grid-column: 1 / -1; } /* about */
+
+  /* ---- PAGE 1: SHELTER — 2-column ---- */
+  #p1.on {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  #p1.on > *:nth-child(1) { grid-column: 1 / -1; }
+  #p1.on > *:nth-child(2) { grid-column: 1 / -1; }
+  #p1.on > *:nth-child(3) { grid-column: 1 / -1; }
+  #p1.on > *:nth-child(4) { grid-column: 1; }
+  #p1.on > *:nth-child(5) { grid-column: 2; }
+  #p1.on > *:nth-child(6) { grid-column: 1 / -1; }
+
+  /* ---- PAGE 3: HOSPITALS — sidebar province list ---- */
+  #p3.on {
+    display: grid;
+    grid-template-columns: 268px 1fr;
+    gap: 0 22px;
+    align-items: start;
+  }
+  #p3.on > *:nth-child(1) { grid-column: 1 / -1; }
+  #p3.on > *:nth-child(2) { grid-column: 1 / -1; }
+  #p3.on > *:nth-child(3) { grid-column: 1 / -1; }
+  .prov-col {
+    display: block; /* override display:contents on mobile */
+    grid-column: 1;
+    position: sticky;
+    top: calc(var(--header-h) + 46px);
+    max-height: calc(100vh - var(--header-h) - 60px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bd2) transparent;
+    padding-bottom: 8px;
+  }
+  #hosp-detail { grid-column: 2; }
+  /* 2 cols for province buttons in sidebar */
+  .csel-grid { grid-template-columns: repeat(2, 1fr); }
+  .csb { min-height: 44px; font-size: 11px; }
+  .csb > div:first-child { font-size: 11px; }
+
+  /* ---- PAGE 5: COMMS — 2-column ---- */
+  #p5.on {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  #p5.on > *:nth-child(1) { grid-column: 1 / -1; }
+  #p5.on > *:nth-child(2) { grid-column: 1; }
+  #p5.on > *:nth-child(3) { grid-column: 2; }
+  #p5.on > *:nth-child(4) { grid-column: 1; }
+  #p5.on > *:nth-child(5) { grid-column: 2; }
+  #p5.on > *:nth-child(6) { grid-column: 1 / -1; }
+
+  /* ---- PAGE 6: EMERGENCY NUMBERS — 6 per row ---- */
+  .ng { grid-template-columns: repeat(6, 1fr); }
+
+  /* ---- PAGE 7: NOTES — 2x2 grid ---- */
+  #p7.on {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  #p7.on > *:nth-child(1) { grid-column: 1 / -1; }
+  #p7.on > *:last-child   { grid-column: 1 / -1; }
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
 @media print {
- header, nav, .abar, .off-badge, .search-wrap, .save-btn, .hero-card::before { display: none !important; }
- body { background: #fff; color: #000; }
- .card { border: 1px solid #ccc; break-inside: avoid; }
+  header, nav, .abar, .off-badge, .search-wrap, .save-btn, .hero-card::before { display: none !important; }
+  body { background: #fff; color: #000; }
+  main { margin-right: 0 !important; max-width: 100% !important; padding: 20px !important; }
+  .card { border: 1px solid #ccc; break-inside: avoid; }
 }
 </style>
 </head>
 <body>
 
 <header>
- <div class="logo">
- <div class="logo-icon"></div>
- <div>
- پناه
- <span class="logo-sub">راهنمای اضطراری</span>
- </div>
- </div>
- <div class="off-badge">
- <div class="off-dot"></div>
- آفلاین
- </div>
+  <div class="logo">
+    <div class="logo-icon">🛡️</div>
+    <div>
+      پناه
+      <span class="logo-sub">راهنمای اضطراری</span>
+    </div>
+  </div>
 </header>
 
 <div class="abar">
- <div class="abar-dot"></div>
- آژیر خطر = فوری زیرزمین — حداقل ۳ متر از پنجره دور بمانید
+  <div class="abar-dot"></div>
+  آژیر خطر = فوری زیرزمین — حداقل ۳ متر از پنجره دور بمانید
 </div>
 
 <nav>
- <button class="nb on" onclick="go(0)"> خانه</button>
- <button class="nb" onclick="go(1)"> پناه</button>
- <button class="nb" onclick="go(2)"> کمک اولیه</button>
- <button class="nb" onclick="go(3)"> استان‌ها</button>
- <button class="nb" onclick="go(4)"> کیف</button>
- <button class="nb" onclick="go(5)"> ارتباط</button>
- <button class="nb" onclick="go(6)"> اورژانس</button>
- <button class="nb" onclick="go(7)"> یادداشت</button>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">🛡️</div>
+    <div>
+      <div class="nav-logo-text">پناه</div>
+      <div class="nav-logo-sub">راهنمای اضطراری</div>
+    </div>
+  </div>
+  <button class="nb on" onclick="go(0)">🏠 خانه</button>
+  <button class="nb" onclick="go(1)">🏚️ پناه</button>
+  <button class="nb" onclick="go(2)">🩺 کمک اولیه</button>
+  <button class="nb" onclick="go(3)">🏥 بیمارستان‌ها</button>
+  <button class="nb" onclick="go(4)">🎒 کیف</button>
+  <button class="nb" onclick="go(5)">📡 ارتباط</button>
+  <button class="nb" onclick="go(6)">📞 اورژانس</button>
+  <button class="nb" onclick="go(7)">📝 یادداشت</button>
+  <div class="nav-footer">
+    <span class="tag to">v3.0</span>
+    <a href="https://github.com/MR-Amouei/Panah" target="_blank">GitHub ↗</a>
+  </div>
 </nav>
 
 <main>
 
-<!-- PAGE 0: HOME -->
+<!-- ============================================================
+     PAGE 0: HOME
+     ============================================================ -->
 <div class="pg on" id="p0">
 
- <div class="hero-card">
- <div class="hero-label">⚠️ دسترسی سریع اضطراری</div>
- <div class="g3">
- <div class="qc" onclick="go(1)"><span class="qi">🏚️</span><div class="ql">پناه‌گیری</div></div>
- <div class="qc" onclick="go(2)"><span class="qi">🩺</span><div class="ql">کمک اولیه</div></div>
- <div class="qc" onclick="go(6)"><span class="qi">📞</span><div class="ql">شماره‌ها</div></div>
- <div class="qc" onclick="go(4)"><span class="qi">🎒</span><div class="ql">کیف اضطراری</div></div>
- <div class="qc" onclick="go(5)"><span class="qi">📡</span><div class="ql">ارتباطات</div></div>
- <div class="qc" onclick="go(3)"><span class="qi">🗺️</span><div class="ql">استان‌ها</div></div>
- </div>
- </div>
+  <div class="hero-card">
+    <div class="hero-label">⚠️ دسترسی سریع اضطراری</div>
+    <div class="g3">
+      <div class="qc" onclick="go(1)"><span class="qi">🏚️</span><div class="ql">پناه‌گیری</div></div>
+      <div class="qc" onclick="go(2)"><span class="qi">🩺</span><div class="ql">کمک اولیه</div></div>
+      <div class="qc" onclick="go(6)"><span class="qi">📞</span><div class="ql">شماره‌ها</div></div>
+      <div class="qc" onclick="go(4)"><span class="qi">🎒</span><div class="ql">کیف اضطراری</div></div>
+      <div class="qc" onclick="go(5)"><span class="qi">📡</span><div class="ql">ارتباطات</div></div>
+      <div class="qc" onclick="go(3)"><span class="qi">🏥</span><div class="ql">بیمارستان‌ها</div></div>
+    </div>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci cr"></div>الان خطر وجود دارد؟</div>
- <div class="steps">
- <div class="step"><div class="sn">۱</div><div><div class="st">فوری پناه بگیرید</div><div class="sd">زیرزمین، زیر پله بتونی، یا کنار دیوار داخلی</div></div></div>
- <div class="step"><div class="sn">۲</div><div><div class="st">از پنجره دور بمانید</div><div class="sd">حداقل ۳ متر — موج انفجار شیشه را تبدیل به تیکه‌های تیز می‌کند</div></div></div>
- <div class="step"><div class="sn">۳</div><div><div class="st">دراز بکشید روی زمین</div><div class="sd">دست‌ها روی پشت گردن — صورت با بازو — دهان کمی باز</div></div></div>
- <div class="step"><div class="sn g">۴</div><div><div class="st">منتظر اعلام رسمی باشید</div><div class="sd">رادیو AM 810 kHz را گوش دهید</div></div></div>
- </div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci cr">🚨</div>الان خطر وجود دارد؟</div>
+    <div class="steps">
+      <div class="step"><div class="sn">۱</div><div><div class="st">فوری پناه بگیرید</div><div class="sd">زیرزمین، زیر پله بتونی، یا کنار دیوار داخلی</div></div></div>
+      <div class="step"><div class="sn">۲</div><div><div class="st">از پنجره دور بمانید</div><div class="sd">حداقل ۳ متر — موج انفجار شیشه را تبدیل به تیکه‌های تیز می‌کند</div></div></div>
+      <div class="step"><div class="sn">۳</div><div><div class="st">دراز بکشید روی زمین</div><div class="sd">دست‌ها روی پشت گردن — صورت با بازو — دهان کمی باز</div></div></div>
+      <div class="step"><div class="sn g">۴</div><div><div class="st">منتظر اعلام رسمی باشید</div><div class="sd">رادیو AM 810 kHz را گوش دهید</div></div></div>
+    </div>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci co"></div>سطوح هشدار</div>
- <div class="g3">
- <div class="lvl lv-g"><div class="lv-icon"></div><div class="lv-name">آماده‌باش</div><div class="lv-desc">کیف را آماده کنید</div></div>
- <div class="lvl lv-o"><div class="lv-icon"></div><div class="lv-name">هشدار</div><div class="lv-desc">به فضای امن بروید</div></div>
- <div class="lvl lv-r"><div class="lv-icon"></div><div class="lv-name">خطر فوری</div><div class="lv-desc">فوری پناه بگیرید</div></div>
- </div>
- <div class="bx bxo"><strong> آژیرها را بشناسید</strong>ممتد بلند: خطر فوری — فوری پناه بگیرید<br>متناوب کوتاه: پایان خطر — می‌توانید خارج شوید</div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci co">⚠️</div>سطوح هشدار</div>
+    <div class="g3">
+      <div class="lvl lv-g"><div class="lv-icon">🟢</div><div class="lv-name">آماده‌باش</div><div class="lv-desc">کیف را آماده کنید</div></div>
+      <div class="lvl lv-o"><div class="lv-icon">🟠</div><div class="lv-name">هشدار</div><div class="lv-desc">به فضای امن بروید</div></div>
+      <div class="lvl lv-r"><div class="lv-icon">🔴</div><div class="lv-name">خطر فوری</div><div class="lv-desc">فوری پناه بگیرید</div></div>
+    </div>
+    <div class="bx bxo"><strong>🔊 آژیرها را بشناسید</strong>ممتد بلند: خطر فوری — فوری پناه بگیرید<br>متناوب کوتاه: پایان خطر — می‌توانید خارج شوید</div>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci cg">ℹ</div>درباره پناه</div>
- <p style="font-size:12px;color:var(--txt2);line-height:1.8">کاملاً آفلاین. بدون ذخیره داده روی سرور. بدون ردیابی. برای شرایط قطعی اینترنت و جنگ.</p>
- <div style="margin-top:10px">
- <span class="tag tg"> آفلاین</span>
- <span class="tag tg"> فارسی</span>
- <span class="tag to">v2.2</span>
- </div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci cg">ℹ</div>درباره پناه</div>
+    <p style="font-size:12px;color:var(--txt2);line-height:1.8">کاملاً آفلاین. بدون ذخیره داده روی سرور. بدون ردیابی. برای شرایط قطعی اینترنت و جنگ. متن‌باز (Open Source).</p>
+    <div class="bx bxo" style="margin-top:10px"><strong>🤖 درباره دقت اطلاعات</strong>برخی داده‌ها (شماره‌ها، آدرس بیمارستان‌ها) با کمک هوش مصنوعی جمع‌آوری شده‌اند و ممکن است دارای خطا باشند. اطلاعات تأیید شده با نشان ✓ مشخص‌اند. در صورت مشاهده خطا از طریق GitHub گزارش دهید.</div>
+    <div style="margin-top:10px">
+      <span class="tag tg">✓ آفلاین</span>
+      <span class="tag tg">✓ فارسی</span>
+      <span class="tag to">v3.0</span>
+      <span class="tag tb">open source</span>
+    </div>
+    <a href="https://github.com/MR-Amouei/Panah" target="_blank" class="nc" style="margin-top:10px;flex-direction:row;padding:12px 16px;font-size:13px;font-weight:700;color:var(--txt);gap:8px">
+      <span>مشارکت در GitHub ↗</span>
+    </a>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci cb"></div>گیت‌هاب پروژه</div>
- <div class="bx bxb"><strong> متن‌باز (Open Source)</strong>این پروژه به صورت آزاد و متن‌باز منتشر شده است.</div>
- <a href="https://github.com/MR-Amouei/Panah" target="_blank" class="nc" style="margin-top:10px;flex-direction:row;padding:12px 16px;font-size:13px;font-weight:700;color:var(--txt);gap:8px">
- <span>مشاهده در GitHub</span>
- <span style="font-size:16px">↗</span>
- </a>
- </div>
 </div>
 
-<!-- PAGE 1: SHELTER -->
+<!-- ============================================================
+     PAGE 1: SHELTER
+     ============================================================ -->
 <div class="pg" id="p1">
- <div class="stit"> راهنمای پناه‌گیری</div>
+  <div class="stit">🏚️ راهنمای پناه‌گیری</div>
 
- <div class="card">
- <div class="ctit"><div class="ci cr"></div>آژیر خطر — گام‌به‌گام</div>
- <div class="steps">
- <div class="step"><div class="sn">۱</div><div><div class="st">آرامش — وحشت نکنید</div><div class="sd">دویدن بی‌هدف از پناه گرفتن همانجا خطرناک‌تر است</div></div></div>
- <div class="step"><div class="sn">۲</div><div><div class="st">پایین‌ترین طبقه یا زیرزمین</div><div class="sd">زیرزمین بهترین است. اگر نیست: طبقه اول، زیر پله بتونی</div></div></div>
- <div class="step"><div class="sn">۳</div><div><div class="st">حداقل ۳ متر از پنجره</div><div class="sd">موج انفجار شیشه را به تیکه‌های تیز تبدیل می‌کند</div></div></div>
- <div class="step"><div class="sn">۴</div><div><div class="st">نزدیک دیوار یا ستون بتونی</div><div class="sd">دیوارهای ضخیم داخلی بهترین حفاظت را دارند</div></div></div>
- <div class="step"><div class="sn">۵</div><div><div class="st">دراز بکشید — وضعیت حفاظتی</div><div class="sd">روی زمین — دست‌ها پشت گردن — صورت با آرنج — دهان کمی باز</div></div></div>
- <div class="step"><div class="sn g">۶</div><div><div class="st">منتظر اعلام رسمی باشید</div><div class="sd">رادیو AM 810 kHz گوش دهید — تا اعلام پایان خطر خارج نشوید</div></div></div>
- </div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci cr">🚨</div>آژیر خطر — گام‌به‌گام</div>
+    <div class="steps">
+      <div class="step"><div class="sn">۱</div><div><div class="st">آرامش — وحشت نکنید</div><div class="sd">دویدن بی‌هدف از پناه گرفتن همانجا خطرناک‌تر است</div></div></div>
+      <div class="step"><div class="sn">۲</div><div><div class="st">پایین‌ترین طبقه یا زیرزمین</div><div class="sd">زیرزمین بهترین است. اگر نیست: طبقه اول، زیر پله بتونی</div></div></div>
+      <div class="step"><div class="sn">۳</div><div><div class="st">حداقل ۳ متر از پنجره</div><div class="sd">موج انفجار شیشه را به تیکه‌های تیز تبدیل می‌کند</div></div></div>
+      <div class="step"><div class="sn">۴</div><div><div class="st">نزدیک دیوار یا ستون بتونی</div><div class="sd">دیوارهای ضخیم داخلی بهترین حفاظت را دارند</div></div></div>
+      <div class="step"><div class="sn">۵</div><div><div class="st">دراز بکشید — وضعیت حفاظتی</div><div class="sd">روی زمین — دست‌ها پشت گردن — صورت با آرنج — دهان کمی باز</div></div></div>
+      <div class="step"><div class="sn g">۶</div><div><div class="st">منتظر اعلام رسمی باشید</div><div class="sd">رادیو AM 810 kHz گوش دهید — تا اعلام پایان خطر خارج نشوید</div></div></div>
+    </div>
+  </div>
 
- <div class="g2">
- <div class="bx bxg"><strong> مکان‌های امن</strong>زیرزمین بتونی<br>زیر پله بتونی<br>کنار دیوار داخلی<br>داخل حمام<br>تونل مترو / زیرگذر<br>زیر میز فلزی محکم</div>
- <div class="bx bxr"><strong> مکان‌های خطرناک</strong>کنار پنجره<br>طبقه‌های بالا<br>زیر سقف سبک<br>فضای باز<br>نزدیک تأسیسات گاز<br>کنار خودرو</div>
- </div>
+  <div class="g2">
+    <div class="bx bxg"><strong>✅ مکان‌های امن</strong>زیرزمین بتونی<br>زیر پله بتونی<br>کنار دیوار داخلی<br>داخل حمام<br>تونل مترو / زیرگذر<br>زیر میز فلزی محکم</div>
+    <div class="bx bxr"><strong>❌ مکان‌های خطرناک</strong>کنار پنجره<br>طبقه‌های بالا<br>زیر سقف سبک<br>فضای باز<br>نزدیک تأسیسات گاز<br>کنار خودرو</div>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci co"></div>در خیابان هستید؟</div>
- <div class="steps">
- <div class="step"><div class="sn">۱</div><div><div class="st">وارد ساختمان بتونی شوید</div><div class="sd">در بزنید — مردم در خطر کمک می‌کنند</div></div></div>
- <div class="step"><div class="sn">۲</div><div><div class="st">اگر فرصت ندارید</div><div class="sd">پشت دیوار بتونی یا روی زمین — دور از ماشین، تیر برق، درخت</div></div></div>
- <div class="step"><div class="sn">۳</div><div><div class="st">تونل مترو یا زیرگذر بتونی</div><div class="sd">بهترین پناهگاه عمومی در شهر</div></div></div>
- </div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci co">🚶</div>در خیابان هستید؟</div>
+    <div class="steps">
+      <div class="step"><div class="sn">۱</div><div><div class="st">وارد ساختمان بتونی شوید</div><div class="sd">در بزنید — مردم در خطر کمک می‌کنند</div></div></div>
+      <div class="step"><div class="sn">۲</div><div><div class="st">اگر فرصت ندارید</div><div class="sd">پشت دیوار بتونی یا روی زمین — دور از ماشین، تیر برق، درخت</div></div></div>
+      <div class="step"><div class="sn">۳</div><div><div class="st">تونل مترو یا زیرگذر بتونی</div><div class="sd">بهترین پناهگاه عمومی در شهر</div></div></div>
+    </div>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci co"></div>بعد از انفجار</div>
- <div class="bx bxr"><strong> خطر انفجار ثانویه</strong>حداقل ۱۵ دقیقه از محل خارج نشوید</div>
- <div class="steps">
- <div class="step"><div class="sn o">۱</div><div><div class="st">بوی گاز؟</div><div class="sd">برق نزنید — در/پنجره باز کنید — فوری خارج — ۱۹۴</div></div></div>
- <div class="step"><div class="sn o">۲</div><div><div class="st">آتش؟</div><div class="sd">۱۲۵ — پله نه آسانسور — زیر دود خم شوید</div></div></div>
- <div class="step"><div class="sn o">۳</div><div><div class="st">ترک دیوار یا صدای مشکوک؟</div><div class="sd">فوری خارج شوید — خطر ریزش</div></div></div>
- </div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci co">💥</div>بعد از انفجار</div>
+    <div class="bx bxr"><strong>⚠️ خطر انفجار ثانویه</strong>حداقل ۱۵ دقیقه از محل خارج نشوید</div>
+    <div class="steps">
+      <div class="step"><div class="sn o">۱</div><div><div class="st">بوی گاز؟</div><div class="sd">برق نزنید — در/پنجره باز کنید — فوری خارج — ۱۹۴</div></div></div>
+      <div class="step"><div class="sn o">۲</div><div><div class="st">آتش؟</div><div class="sd">۱۲۵ — پله نه آسانسور — زیر دود خم شوید</div></div></div>
+      <div class="step"><div class="sn o">۳</div><div><div class="st">ترک دیوار یا صدای مشکوک؟</div><div class="sd">فوری خارج شوید — خطر ریزش</div></div></div>
+    </div>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci cb"></div>حفاظت انواع ساختمان</div>
- <table class="tbl">
- <thead><tr><th>نوع ساختمان</th><th>سطح حفاظت</th></tr></thead>
- <tbody>
- <tr><td>بتون مسلح چند طبقه</td><td><span class="tfr" style="color:var(--grn2)">★★★★★</span></td></tr>
- <tr><td>آجری قدیمی محکم</td><td><span class="tfr" style="color:var(--grn)">★★★★</span></td></tr>
- <tr><td>اسکلت فلزی</td><td><span class="tfr" style="color:var(--ora2)">★★★</span></td></tr>
- <tr><td>یک طبقه آجری</td><td><span class="tfr" style="color:var(--ora)">★★</span></td></tr>
- <tr><td>سازه سبک / پیش‌ساخته</td><td><span class="tfr" style="color:var(--red2)">★</span></td></tr>
- </tbody>
- </table>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci cb">🏗️</div>حفاظت انواع ساختمان</div>
+    <table class="tbl">
+      <thead><tr><th>نوع ساختمان</th><th>سطح حفاظت</th></tr></thead>
+      <tbody>
+        <tr><td>بتون مسلح چند طبقه</td><td><span class="tfr" style="color:var(--grn2)">★★★★★</span></td></tr>
+        <tr><td>آجری قدیمی محکم</td><td><span class="tfr" style="color:var(--grn)">★★★★</span></td></tr>
+        <tr><td>اسکلت فلزی</td><td><span class="tfr" style="color:var(--ora2)">★★★</span></td></tr>
+        <tr><td>یک طبقه آجری</td><td><span class="tfr" style="color:var(--ora)">★★</span></td></tr>
+        <tr><td>سازه سبک / پیش‌ساخته</td><td><span class="tfr" style="color:var(--red2)">★</span></td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<!-- PAGE 2: FIRST AID -->
+<!-- ============================================================
+     PAGE 2: FIRST AID
+     ============================================================ -->
 <div class="pg" id="p2">
- <div class="stit"> کمک‌های اولیه</div>
- <div class="bx bxo"><strong> مهم</strong>این اطلاعات برای شرایط اضطراری است. در اولین فرصت با ۱۱۵ تماس بگیرید.</div>
+  <div class="stit">🩺 کمک‌های اولیه</div>
+  <div class="bx bxo"><strong>⚠️ مهم</strong>این اطلاعات برای شرایط اضطراری است. در اولین فرصت با ۱۱۵ تماس بگیرید.</div>
+  <div class="bx bxr" style="margin-top:8px"><strong>🤖 هشدار — محتوای AI</strong>بخشی از اطلاعات این بخش با کمک هوش مصنوعی تهیه شده و ممکن است ناقص یا نادرست باشد. این راهنما <strong>جایگزین آموزش رسمی کمک‌های اولیه نیست.</strong> توصیه می‌شود یک دوره آموزشی معتبر از هلال احمر یا اورژانس اجتماعی بگذرانید.</div>
 
- <div class="acc" style="margin-top:10px">
+  <div class="acc" style="margin-top:10px">
 
- <div class="ai">
- <div class="ah" onclick="ta(this)"> خونریزی شدید <span class="aw"></span></div>
- <div class="ab">
- <div class="steps">
- <div class="step"><div class="sn">۱</div><div><div class="st">فشار مستقیم — حداقل ۱۰ دقیقه</div><div class="sd">پارچه تمیز — فشار محکم بدون وقفه — رها نکنید</div></div></div>
- <div class="step"><div class="sn">۲</div><div><div class="st">اندام را بالا ببرید</div><div class="sd">بالاتر از سطح قلب نگه دارید</div></div></div>
- <div class="step"><div class="sn">۳</div><div><div class="st">تورنیکه — آخرین راه</div><div class="sd">فقط اندام — ۵ سانت بالای زخم — زمان را روی پوست بنویسید</div></div></div>
- </div>
- <div class="bx bxr mt10"><strong> نکنید</strong>پارچه خونی را برندارید — روی همان بگذارید</div>
- </div>
- </div>
+    <div class="ai">
+      <div class="ah" onclick="ta(this)">🩸 خونریزی شدید <span class="aw">▼</span></div>
+      <div class="ab">
+        <div class="steps">
+          <div class="step"><div class="sn">۱</div><div><div class="st">فشار مستقیم — حداقل ۱۰ دقیقه</div><div class="sd">پارچه تمیز — فشار محکم بدون وقفه — رها نکنید</div></div></div>
+          <div class="step"><div class="sn">۲</div><div><div class="st">اندام را بالا ببرید</div><div class="sd">بالاتر از سطح قلب نگه دارید</div></div></div>
+          <div class="step"><div class="sn">۳</div><div><div class="st">تورنیکه — آخرین راه</div><div class="sd">فقط اندام — ۵ سانت بالای زخم — زمان را روی پوست بنویسید</div></div></div>
+        </div>
+        <div class="bx bxr mt10"><strong>❌ نکنید</strong>پارچه خونی را برندارید — روی همان بگذارید</div>
+      </div>
+    </div>
 
- <div class="ai">
- <div class="ah" onclick="ta(this)"> CPR احیاء قلبی‌ریوی <span class="aw"></span></div>
- <div class="ab">
- <div class="bx bxo"><strong>⏱ هر ثانیه مهم است</strong>بعد از ۴ دقیقه بدون CPR آسیب مغزی جدی شروع می‌شود</div>
- <div class="steps" style="margin-top:10px">
- <div class="step"><div class="sn">۱</div><div><div class="st">بیهوش + نفس ندارد؟</div><div class="sd">شانه تکان دهید — صدا بزنید — ۱۱۵ بزنید</div></div></div>
- <div class="step"><div class="sn">۲</div><div><div class="st">۳۰ فشار قفسه سینه</div><div class="sd">روی جناغ — عمق ۵ سانت — ۱۰۰-۱۲۰ بار/دقیقه — بازوها صاف</div></div></div>
- <div class="step"><div class="sn">۳</div><div><div class="st">۲ نفس مصنوعی (اختیاری)</div><div class="sd">سر به عقب — بینی بگیرید — ۱ ثانیه بدمید</div></div></div>
- <div class="step"><div class="sn g">۴</div><div><div class="st">ادامه ۳۰:۲ تا اورژانس برسد</div><div class="sd">فقط فشار قفسه سینه بدون نفس هم مؤثر است</div></div></div>
- </div>
- </div>
- </div>
+    <div class="ai">
+      <div class="ah" onclick="ta(this)">❤️ CPR احیاء قلبی‌ریوی <span class="aw">▼</span></div>
+      <div class="ab">
+        <div class="bx bxo"><strong>⏱ هر ثانیه مهم است</strong>بعد از ۴ دقیقه بدون CPR آسیب مغزی جدی شروع می‌شود</div>
+        <div class="steps" style="margin-top:10px">
+          <div class="step"><div class="sn">۱</div><div><div class="st">بیهوش + نفس ندارد؟</div><div class="sd">شانه تکان دهید — صدا بزنید — ۱۱۵ بزنید</div></div></div>
+          <div class="step"><div class="sn">۲</div><div><div class="st">۳۰ فشار قفسه سینه</div><div class="sd">روی جناغ — عمق ۵ سانت — ۱۰۰-۱۲۰ بار/دقیقه — بازوها صاف</div></div></div>
+          <div class="step"><div class="sn">۳</div><div><div class="st">۲ نفس مصنوعی (اختیاری)</div><div class="sd">سر به عقب — بینی بگیرید — ۱ ثانیه بدمید</div></div></div>
+          <div class="step"><div class="sn g">۴</div><div><div class="st">ادامه ۳۰:۲ تا اورژانس برسد</div><div class="sd">فقط فشار قفسه سینه بدون نفس هم مؤثر است</div></div></div>
+        </div>
+      </div>
+    </div>
 
- <div class="ai">
- <div class="ah" onclick="ta(this)"> بیهوشی و ضربه مغزی <span class="aw"></span></div>
- <div class="ab">
- <div class="steps">
- <div class="step"><div class="sn">۱</div><div><div class="st">بررسی: واکنش + تنفس</div><div class="sd">صدا + شانه تکان — سینه را نگاه کنید</div></div></div>
- <div class="step"><div class="sn g">۲</div><div><div class="st">وضعیت ریکاوری (تنفس دارد)</div><div class="sd">روی پهلو — سر کمی به عقب — دهان رو به پایین</div></div></div>
- <div class="step"><div class="sn">۳</div><div><div class="st">سر و گردن را تکان ندهید</div><div class="sd">احتمال آسیب ستون فقرات</div></div></div>
- </div>
- <div class="bx bxr mt10"><strong>علائم خطرناک</strong>بیهوشی بیش از ۱ دقیقه — تشنج — خونریزی از گوش — نابرابری مردمک</div>
- </div>
- </div>
+    <div class="ai">
+      <div class="ah" onclick="ta(this)">😵 بیهوشی و ضربه مغزی <span class="aw">▼</span></div>
+      <div class="ab">
+        <div class="steps">
+          <div class="step"><div class="sn">۱</div><div><div class="st">بررسی: واکنش + تنفس</div><div class="sd">صدا + شانه تکان — سینه را نگاه کنید</div></div></div>
+          <div class="step"><div class="sn g">۲</div><div><div class="st">وضعیت ریکاوری (تنفس دارد)</div><div class="sd">روی پهلو — سر کمی به عقب — دهان رو به پایین</div></div></div>
+          <div class="step"><div class="sn">۳</div><div><div class="st">سر و گردن را تکان ندهید</div><div class="sd">احتمال آسیب ستون فقرات</div></div></div>
+        </div>
+        <div class="bx bxr mt10"><strong>⚠️ علائم خطرناک</strong>بیهوشی بیش از ۱ دقیقه — تشنج — خونریزی از گوش — نابرابری مردمک</div>
+      </div>
+    </div>
 
- <div class="ai">
- <div class="ah" onclick="ta(this)"> سوختگی <span class="aw"></span></div>
- <div class="ab">
- <div class="steps">
- <div class="step"><div class="sn">۱</div><div><div class="st">۲۰ دقیقه آب سرد جاری</div><div class="sd">ولرم تا خنک — نه یخ مستقیم — مهم‌ترین قدم</div></div></div>
- <div class="step"><div class="sn">۲</div><div><div class="st">لباس و جواهر را دربیاورید</div><div class="sd">اگر به پوست نچسبیده — تورم می‌کند</div></div></div>
- <div class="step"><div class="sn">۳</div><div><div class="st">پارچه تمیز مرطوب</div><div class="sd">از تماس با هوا جلوگیری کنید</div></div></div>
- </div>
- <div class="bx bxr mt10"><strong> هرگز</strong>خمیردندان — روغن — کره — ماست — یخ مستقیم</div>
- </div>
- </div>
+    <div class="ai">
+      <div class="ah" onclick="ta(this)">🔥 سوختگی <span class="aw">▼</span></div>
+      <div class="ab">
+        <div class="steps">
+          <div class="step"><div class="sn">۱</div><div><div class="st">۲۰ دقیقه آب سرد جاری</div><div class="sd">ولرم تا خنک — نه یخ مستقیم — مهم‌ترین قدم</div></div></div>
+          <div class="step"><div class="sn">۲</div><div><div class="st">لباس و جواهر را دربیاورید</div><div class="sd">اگر به پوست نچسبیده — تورم می‌کند</div></div></div>
+          <div class="step"><div class="sn">۳</div><div><div class="st">پارچه تمیز مرطوب</div><div class="sd">از تماس با هوا جلوگیری کنید</div></div></div>
+        </div>
+        <div class="bx bxr mt10"><strong>❌ هرگز</strong>خمیردندان — روغن — کره — ماست — یخ مستقیم</div>
+      </div>
+    </div>
 
- <div class="ai">
- <div class="ah" onclick="ta(this)"> شکستگی و دررفتگی <span class="aw"></span></div>
- <div class="ab">
- <div class="steps">
- <div class="step"><div class="sn">۱</div><div><div class="st">ثابت نگه دارید</div><div class="sd">هیچ حرکت اجباری ندهید — به‌خصوص ستون فقرات</div></div></div>
- <div class="step"><div class="sn">۲</div><div><div class="st">آتل بگذارید</div><div class="sd">چوب یا مقوا — هر دو سمت استخوان — نه خیلی محکم</div></div></div>
- <div class="step"><div class="sn">۳</div><div><div class="st">یخ با پارچه</div><div class="sd">نه مستقیم — تورم کاهش می‌یابد</div></div></div>
- </div>
- <div class="bx bxr mt10"><strong> دررفتگی را جا نیندازید</strong>فقط اورژانس این کار را می‌کند</div>
- </div>
- </div>
+    <div class="ai">
+      <div class="ah" onclick="ta(this)">🦴 شکستگی و دررفتگی <span class="aw">▼</span></div>
+      <div class="ab">
+        <div class="steps">
+          <div class="step"><div class="sn">۱</div><div><div class="st">ثابت نگه دارید</div><div class="sd">هیچ حرکت اجباری ندهید — به‌خصوص ستون فقرات</div></div></div>
+          <div class="step"><div class="sn">۲</div><div><div class="st">آتل بگذارید</div><div class="sd">چوب یا مقوا — هر دو سمت استخوان — نه خیلی محکم</div></div></div>
+          <div class="step"><div class="sn">۳</div><div><div class="st">یخ با پارچه</div><div class="sd">نه مستقیم — تورم کاهش می‌یابد</div></div></div>
+        </div>
+        <div class="bx bxr mt10"><strong>⚠️ دررفتگی را جا نیندازید</strong>فقط اورژانس این کار را می‌کند</div>
+      </div>
+    </div>
 
- <div class="ai">
- <div class="ah" onclick="ta(this)"> شوک (Shock) <span class="aw"></span></div>
- <div class="ab">
- <div class="bx bxo"><strong>علائم</strong>رنگ‌پریدگی — سرما و لرز — نبض سریع و ضعیف — تنفس سریع — بی‌هوشی تدریجی</div>
- <div class="steps" style="margin-top:10px">
- <div class="step"><div class="sn g">۱</div><div><div class="st">دراز بکشانید — پاها بالا</div><div class="sd">۳۰ سانت بالاتر از سطح قلب — مگر آسیب سر یا پا</div></div></div>
- <div class="step"><div class="sn g">۲</div><div><div class="st">گرم نگه دارید</div><div class="sd">پتو یا لباس — از سرما جلوگیری کنید</div></div></div>
- <div class="step"><div class="sn">۳</div><div><div class="st">آب ندهید تا هوشیاری کامل</div><div class="sd">فوری ۱۱۵ بزنید</div></div></div>
- </div>
- </div>
- </div>
+    <div class="ai">
+      <div class="ah" onclick="ta(this)">😰 شوک (Shock) <span class="aw">▼</span></div>
+      <div class="ab">
+        <div class="bx bxo"><strong>علائم</strong>رنگ‌پریدگی — سرما و لرز — نبض سریع و ضعیف — تنفس سریع — بی‌هوشی تدریجی</div>
+        <div class="steps" style="margin-top:10px">
+          <div class="step"><div class="sn g">۱</div><div><div class="st">دراز بکشانید — پاها بالا</div><div class="sd">۳۰ سانت بالاتر از سطح قلب — مگر آسیب سر یا پا</div></div></div>
+          <div class="step"><div class="sn g">۲</div><div><div class="st">گرم نگه دارید</div><div class="sd">پتو یا لباس — از سرما جلوگیری کنید</div></div></div>
+          <div class="step"><div class="sn">۳</div><div><div class="st">آب ندهید تا هوشیاری کامل</div><div class="sd">فوری ۱۱۵ بزنید</div></div></div>
+        </div>
+      </div>
+    </div>
 
- <div class="ai">
- <div class="ah" onclick="ta(this)"> خفگی — هیملیخ <span class="aw"></span></div>
- <div class="ab">
- <div class="steps">
- <div class="step"><div class="sn">۱</div><div><div class="st">هنوز سرفه می‌کند؟</div><div class="sd">تشویق کنید — مداخله نکنید</div></div></div>
- <div class="step"><div class="sn">۲</div><div><div class="st">۵ ضربه پشت + ۵ هیملیخ</div><div class="sd">ضربه بین کتف‌ها — هیملیخ: مشت زیر جناغ، فشار به داخل-بالا</div></div></div>
- <div class="step"><div class="sn">۳</div><div><div class="st">بیهوش شد؟</div><div class="sd">روی زمین — CPR شروع کنید</div></div></div>
- </div>
- </div>
- </div>
+    <div class="ai">
+      <div class="ah" onclick="ta(this)">🤧 خفگی — هیملیخ <span class="aw">▼</span></div>
+      <div class="ab">
+        <div class="steps">
+          <div class="step"><div class="sn">۱</div><div><div class="st">هنوز سرفه می‌کند؟</div><div class="sd">تشویق کنید — مداخله نکنید</div></div></div>
+          <div class="step"><div class="sn">۲</div><div><div class="st">۵ ضربه پشت + ۵ هیملیخ</div><div class="sd">ضربه بین کتف‌ها — هیملیخ: مشت زیر جناغ، فشار به داخل-بالا</div></div></div>
+          <div class="step"><div class="sn">۳</div><div><div class="st">بیهوش شد؟</div><div class="sd">روی زمین — CPR شروع کنید</div></div></div>
+        </div>
+      </div>
+    </div>
 
- <div class="ai">
- <div class="ah" onclick="ta(this)"> گرمازدگی و سرمازدگی <span class="aw"></span></div>
- <div class="ab">
- <b style="font-size:13px;color:var(--txt)"> گرمازدگی</b>
- <div class="steps mt10">
- <div class="step"><div class="sn o">۱</div><div><div class="st">به سایه و هوای خنک ببرید</div><div class="sd">هواکش یا هوای تازه</div></div></div>
- <div class="step"><div class="sn o">۲</div><div><div class="st">پارچه مرطوب روی گردن و زیر بغل</div><div class="sd">آب خنک (نه یخ) — آب + نمک اگر هوشیار است</div></div></div>
- </div>
- <hr>
- <b style="font-size:13px;color:var(--txt)"> سرمازدگی موضعی</b>
- <div class="steps mt10">
- <div class="step"><div class="sn b">۱</div><div><div class="st">آب ولرم ۳۸-۴۲ درجه — ۲۰-۳۰ دقیقه</div><div class="sd">هرگز با آتش، آب داغ یا مالش گرم نکنید</div></div></div>
- <div class="step"><div class="sn b">۲</div><div><div class="st">روی انگشتان منجمد راه نروید</div><div class="sd">آسیب بیشتری وارد می‌کند</div></div></div>
- </div>
- </div>
- </div>
+    <div class="ai">
+      <div class="ah" onclick="ta(this)">🌡️ گرمازدگی و سرمازدگی <span class="aw">▼</span></div>
+      <div class="ab">
+        <b style="font-size:13px;color:var(--txt)">☀️ گرمازدگی</b>
+        <div class="steps mt10">
+          <div class="step"><div class="sn o">۱</div><div><div class="st">به سایه و هوای خنک ببرید</div><div class="sd">هواکش یا هوای تازه</div></div></div>
+          <div class="step"><div class="sn o">۲</div><div><div class="st">پارچه مرطوب روی گردن و زیر بغل</div><div class="sd">آب خنک (نه یخ) — آب + نمک اگر هوشیار است</div></div></div>
+        </div>
+        <hr>
+        <b style="font-size:13px;color:var(--txt)">❄️ سرمازدگی موضعی</b>
+        <div class="steps mt10">
+          <div class="step"><div class="sn b">۱</div><div><div class="st">آب ولرم ۳۸-۴۲ درجه — ۲۰-۳۰ دقیقه</div><div class="sd">هرگز با آتش، آب داغ یا مالش گرم نکنید</div></div></div>
+          <div class="step"><div class="sn b">۲</div><div><div class="st">روی انگشتان منجمد راه نروید</div><div class="sd">آسیب بیشتری وارد می‌کند</div></div></div>
+        </div>
+      </div>
+    </div>
 
- </div>
+  </div>
 </div>
 
-<!-- PAGE 3: MAP -->
+<!-- ============================================================
+     PAGE 3: HOSPITALS (v3.0 — با پایگاه داده کامل)
+     ============================================================ -->
 <div class="pg" id="p3">
- <div class="stit"> اطلاعات ۳۱ استان</div>
- <div class="search-wrap">
- <input class="search-inp" type="text" placeholder="جستجوی استان یا شهر..." oninput="filterCities(this.value)">
- <span class="search-icon"></span>
- </div>
- <div class="csel-grid" id="csel"></div>
- <div id="city-detail"></div>
+  <div class="stit">🏥 بیمارستان‌های اضطراری</div>
+
+  <div class="bx bxr" style="margin-bottom:10px">
+    <strong>⚠️ هشدار مهم — دقت اطلاعات</strong>
+    بخشی از اطلاعات این صفحه (شماره‌ها، آدرس‌ها، ...) با کمک هوش مصنوعی جمع‌آوری شده و ممکن است ناقص یا اشتباه باشد.
+    قبل از هر اقدام اورژانسی، شماره‌ها را از منابع رسمی تأیید کنید.
+    برای گزارش خطا یا اصلاح اطلاعات از لینک GitHub زیر استفاده کنید.
+  </div>
+
+  <div class="contrib-bar">
+    <span class="contrib-text">🤖 داده AI + تأیید دستی — اشتباهی دیدید؟ گزارش دهید</span>
+    <a href="https://github.com/MR-Amouei/Panah/issues/new" target="_blank">گزارش خطا ↗</a>
+  </div>
+
+  <div class="prov-col">
+    <div class="search-wrap">
+      <input class="search-inp" type="text" placeholder="جستجوی استان، شهر یا نام بیمارستان..." oninput="filterHosp(this.value)" id="hosp-search">
+      <span class="search-icon">🔍</span>
+    </div>
+    <div class="csel-grid" id="prov-sel"></div>
+  </div>
+  <div id="hosp-detail"></div>
 </div>
 
-<!-- PAGE 4: BAG -->
+<!-- ============================================================
+     PAGE 4: BAG
+     ============================================================ -->
 <div class="pg" id="p4">
- <div class="stit"> کیف اضطراری</div>
+  <div class="stit">🎒 کیف اضطراری</div>
 
- <div class="card">
- <div class="ctit"><div class="ci co"></div>پیشرفت آماده‌سازی</div>
- <div class="pt" id="pt">محاسبه...</div>
- <div class="pw"><div class="pb" id="pb" style="width:0%"></div></div>
- <div class="bx bxo mt10"><strong>⏰ همین الان آماده کنید</strong>نه وقتی خطر باشد — بهترین زمان همین لحظه است</div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci co">📊</div>پیشرفت آماده‌سازی</div>
+    <div class="pt" id="pt">محاسبه...</div>
+    <div class="pw"><div class="pb" id="pb" style="width:0%"></div></div>
+    <div class="bx bxo mt10"><strong>⏰ همین الان آماده کنید</strong>نه وقتی خطر باشد — بهترین زمان همین لحظه است</div>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci co"></div>چک‌لیست کامل</div>
- <div class="cl">
- <div class="clcat"> آب و غذا</div>
- <label class="cli" data-k="w1"><input type="checkbox" onchange="ck(this,'w1')"> آب — ۳ لیتر برای هر نفر در روز (حداقل ۳ روز)</label>
- <label class="cli" data-k="w2"><input type="checkbox" onchange="ck(this,'w2')"> غذای کنسروی یا خشک — ۳ روز</label>
- <label class="cli" data-k="w3"><input type="checkbox" onchange="ck(this,'w3')"> باز کننده کنسرو دستی</label>
- <label class="cli" data-k="w4"><input type="checkbox" onchange="ck(this,'w4')"> قرص تصفیه آب</label>
- <div class="clcat"> پزشکی</div>
- <label class="cli" data-k="m1"><input type="checkbox" onchange="ck(this,'m1')"> کیت کمک‌های اولیه کامل</label>
- <label class="cli" data-k="m2"><input type="checkbox" onchange="ck(this,'m2')"> داروهای ضروری شخصی (۲ هفته)</label>
- <label class="cli" data-k="m3"><input type="checkbox" onchange="ck(this,'m3')"> ید پویدون + گاز استریل</label>
- <label class="cli" data-k="m4"><input type="checkbox" onchange="ck(this,'m4')"> باند الاستیک + چسب زخم</label>
- <label class="cli" data-k="m5"><input type="checkbox" onchange="ck(this,'m5')"> مسکن (ایبوبروفن + استامینوفن)</label>
- <div class="clcat"> ارتباطات و نور</div>
- <label class="cli" data-k="c1"><input type="checkbox" onchange="ck(this,'c1')"> رادیو باتری‌دار یا دستی (دینامو)</label>
- <label class="cli" data-k="c2"><input type="checkbox" onchange="ck(this,'c2')"> پاوربانک ظرفیت بالا — شارژ کامل</label>
- <label class="cli" data-k="c3"><input type="checkbox" onchange="ck(this,'c3')"> چراغ قوه + باتری اضافه</label>
- <label class="cli" data-k="c4"><input type="checkbox" onchange="ck(this,'c4')"> شمع + کبریت ضدآب</label>
- <label class="cli" data-k="c5"><input type="checkbox" onchange="ck(this,'c5')"> سوت اضطراری</label>
- <div class="clcat"> اسناد و پول</div>
- <label class="cli" data-k="d1"><input type="checkbox" onchange="ck(this,'d1')"> کپی مدارک شناسایی (کیف ضدآب)</label>
- <label class="cli" data-k="d2"><input type="checkbox" onchange="ck(this,'d2')"> پول نقد کافی</label>
- <label class="cli" data-k="d3"><input type="checkbox" onchange="ck(this,'d3')"> لیست شماره‌های مهم — کاغذی</label>
- <label class="cli" data-k="d4"><input type="checkbox" onchange="ck(this,'d4')"> عکس خانواده</label>
- <div class="clcat"> لباس و تجهیزات</div>
- <label class="cli" data-k="e1"><input type="checkbox" onchange="ck(this,'e1')"> لباس گرم + جوراب ضخیم</label>
- <label class="cli" data-k="e2"><input type="checkbox" onchange="ck(this,'e2')"> کفش محکم</label>
- <label class="cli" data-k="e3"><input type="checkbox" onchange="ck(this,'e3')"> دستکش کار</label>
- <label class="cli" data-k="e4"><input type="checkbox" onchange="ck(this,'e4')"> ماسک N95 — حداقل ۳ عدد</label>
- <label class="cli" data-k="e5"><input type="checkbox" onchange="ck(this,'e5')"> پتوی نجات نقره‌ای</label>
- <label class="cli" data-k="e6"><input type="checkbox" onchange="ck(this,'e6')"> کیسه نایلون بزرگ</label>
- </div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci co">✅</div>چک‌لیست کامل</div>
+    <div class="cl">
+      <div class="clcat">💧 آب و غذا</div>
+      <label class="cli" data-k="w1"><input type="checkbox" onchange="ck(this,'w1')"> آب — ۳ لیتر برای هر نفر در روز (حداقل ۳ روز)</label>
+      <label class="cli" data-k="w2"><input type="checkbox" onchange="ck(this,'w2')"> غذای کنسروی یا خشک — ۳ روز</label>
+      <label class="cli" data-k="w3"><input type="checkbox" onchange="ck(this,'w3')"> باز کننده کنسرو دستی</label>
+      <label class="cli" data-k="w4"><input type="checkbox" onchange="ck(this,'w4')"> قرص تصفیه آب</label>
+      <div class="clcat">💊 پزشکی</div>
+      <label class="cli" data-k="m1"><input type="checkbox" onchange="ck(this,'m1')"> کیت کمک‌های اولیه کامل</label>
+      <label class="cli" data-k="m2"><input type="checkbox" onchange="ck(this,'m2')"> داروهای ضروری شخصی (۲ هفته)</label>
+      <label class="cli" data-k="m3"><input type="checkbox" onchange="ck(this,'m3')"> ید پویدون + گاز استریل</label>
+      <label class="cli" data-k="m4"><input type="checkbox" onchange="ck(this,'m4')"> باند الاستیک + چسب زخم</label>
+      <label class="cli" data-k="m5"><input type="checkbox" onchange="ck(this,'m5')"> مسکن (ایبوبروفن + استامینوفن)</label>
+      <div class="clcat">📻 ارتباطات و نور</div>
+      <label class="cli" data-k="c1"><input type="checkbox" onchange="ck(this,'c1')"> رادیو باتری‌دار یا دستی (دینامو)</label>
+      <label class="cli" data-k="c2"><input type="checkbox" onchange="ck(this,'c2')"> پاوربانک ظرفیت بالا — شارژ کامل</label>
+      <label class="cli" data-k="c3"><input type="checkbox" onchange="ck(this,'c3')"> چراغ قوه + باتری اضافه</label>
+      <label class="cli" data-k="c4"><input type="checkbox" onchange="ck(this,'c4')"> شمع + کبریت ضدآب</label>
+      <label class="cli" data-k="c5"><input type="checkbox" onchange="ck(this,'c5')"> سوت اضطراری</label>
+      <div class="clcat">📄 اسناد و پول</div>
+      <label class="cli" data-k="d1"><input type="checkbox" onchange="ck(this,'d1')"> کپی مدارک شناسایی (کیف ضدآب)</label>
+      <label class="cli" data-k="d2"><input type="checkbox" onchange="ck(this,'d2')"> پول نقد کافی</label>
+      <label class="cli" data-k="d3"><input type="checkbox" onchange="ck(this,'d3')"> لیست شماره‌های مهم — کاغذی</label>
+      <label class="cli" data-k="d4"><input type="checkbox" onchange="ck(this,'d4')"> عکس خانواده</label>
+      <div class="clcat">👕 لباس و تجهیزات</div>
+      <label class="cli" data-k="e1"><input type="checkbox" onchange="ck(this,'e1')"> لباس گرم + جوراب ضخیم</label>
+      <label class="cli" data-k="e2"><input type="checkbox" onchange="ck(this,'e2')"> کفش محکم</label>
+      <label class="cli" data-k="e3"><input type="checkbox" onchange="ck(this,'e3')"> دستکش کار</label>
+      <label class="cli" data-k="e4"><input type="checkbox" onchange="ck(this,'e4')"> ماسک N95 — حداقل ۳ عدد</label>
+      <label class="cli" data-k="e5"><input type="checkbox" onchange="ck(this,'e5')"> پتوی نجات نقره‌ای</label>
+      <label class="cli" data-k="e6"><input type="checkbox" onchange="ck(this,'e6')"> کیسه نایلون بزرگ</label>
+    </div>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci cg"></div>تصفیه آب اضطراری</div>
- <div class="steps">
- <div class="step"><div class="sn g">۱</div><div><div class="st">جوشاندن — مطمئن‌ترین روش</div><div class="sd">۱ دقیقه جوش کامل (ارتفاع بالا: ۳ دقیقه)</div></div></div>
- <div class="step"><div class="sn g">۲</div><div><div class="st">کلر خانگی ۵٪</div><div class="sd">۸ قطره به هر لیتر — ۳۰ دقیقه صبر — آب نباید کدر باشد</div></div></div>
- <div class="step"><div class="sn g">۳</div><div><div class="st">قرص تصفیه آب</div><div class="sd">طبق دستور روی جعبه — معمولاً ۱ قرص برای ۱ لیتر</div></div></div>
- </div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci cg">💧</div>تصفیه آب اضطراری</div>
+    <div class="steps">
+      <div class="step"><div class="sn g">۱</div><div><div class="st">جوشاندن — مطمئن‌ترین روش</div><div class="sd">۱ دقیقه جوش کامل (ارتفاع بالا: ۳ دقیقه)</div></div></div>
+      <div class="step"><div class="sn g">۲</div><div><div class="st">کلر خانگی ۵٪</div><div class="sd">۸ قطره به هر لیتر — ۳۰ دقیقه صبر — آب نباید کدر باشد</div></div></div>
+      <div class="step"><div class="sn g">۳</div><div><div class="st">قرص تصفیه آب</div><div class="sd">طبق دستور روی جعبه — معمولاً ۱ قرص برای ۱ لیتر</div></div></div>
+    </div>
+  </div>
 </div>
 
-<!-- PAGE 5: COMMS -->
+<!-- ============================================================
+     PAGE 5: COMMS
+     ============================================================ -->
 <div class="pg" id="p5">
- <div class="stit"> ارتباطات اضطراری</div>
+  <div class="stit">📡 ارتباطات اضطراری</div>
 
- <div class="card">
- <div class="ctit"><div class="ci co"></div>رادیو ایران — فرکانس‌ها</div>
- <div class="bx bxo"><strong> رادیو مهم‌ترین منبع اطلاع در قطع اینترنت</strong>رادیو باتری‌دار یا دستی (دینامو) حتماً داشته باشید</div>
- <table class="tbl" style="margin-top:10px">
- <thead><tr><th>شبکه</th><th>نوع</th><th>فرکانس</th></tr></thead>
- <tbody>
- <tr><td>رادیو ایران (ملی)</td><td>AM</td><td><span class="freq-badge">810 kHz</span></td></tr>
- <tr><td>رادیو ایران</td><td>FM تهران</td><td><span class="freq-badge">100.1 MHz</span></td></tr>
- <tr><td>رادیو پیام</td><td>FM</td><td><span class="freq-badge">105.5 MHz</span></td></tr>
- <tr><td>رادیو جوان</td><td>FM</td><td><span class="freq-badge">98.6 MHz</span></td></tr>
- <tr><td>رادیو فرهنگ</td><td>FM</td><td><span class="freq-badge">107.3 MHz</span></td></tr>
- <tr><td>رادیو تهران</td><td>FM</td><td><span class="freq-badge">92.8 MHz</span></td></tr>
- <tr><td>رادیو اقتصاد</td><td>FM</td><td><span class="freq-badge">103.5 MHz</span></td></tr>
- </tbody>
- </table>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci co">📻</div>رادیو ایران — فرکانس‌ها</div>
+    <div class="bx bxo"><strong>📻 رادیو مهم‌ترین منبع اطلاع در قطع اینترنت</strong>رادیو باتری‌دار یا دستی (دینامو) حتماً داشته باشید</div>
+    <table class="tbl" style="margin-top:10px">
+      <thead><tr><th>شبکه</th><th>نوع</th><th>فرکانس</th></tr></thead>
+      <tbody>
+        <tr><td>رادیو ایران (ملی)</td><td>AM</td><td><span class="freq-badge">810 kHz</span></td></tr>
+        <tr><td>رادیو ایران</td><td>FM تهران</td><td><span class="freq-badge">100.1 MHz</span></td></tr>
+        <tr><td>رادیو پیام</td><td>FM</td><td><span class="freq-badge">105.5 MHz</span></td></tr>
+        <tr><td>رادیو جوان</td><td>FM</td><td><span class="freq-badge">98.6 MHz</span></td></tr>
+        <tr><td>رادیو فرهنگ</td><td>FM</td><td><span class="freq-badge">107.3 MHz</span></td></tr>
+        <tr><td>رادیو تهران</td><td>FM</td><td><span class="freq-badge">92.8 MHz</span></td></tr>
+        <tr><td>رادیو اقتصاد</td><td>FM</td><td><span class="freq-badge">103.5 MHz</span></td></tr>
+      </tbody>
+    </table>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci cb"></div>وقتی اینترنت قطع است</div>
- <div class="steps">
- <div class="step"><div class="sn g">۱</div><div><div class="st">SMS اول ارسال کنید</div><div class="sd">در شلوغی شبکه بهتر از تماس صوتی ارسال می‌شود — کوتاه بنویسید</div></div></div>
- <div class="step"><div class="sn g">۲</div><div><div class="st">ساعت ۳-۵ صبح تماس بگیرید</div><div class="sd">شبکه خلوت‌تر — احتمال موفقیت بیشتر</div></div></div>
- <div class="step"><div class="sn">۳</div><div><div class="st">نقطه تجمع خانوادگی</div><div class="sd">از همین الان یک محل مشخص تعیین کنید — همه بدانند</div></div></div>
- <div class="step"><div class="sn b">۴</div><div><div class="st">رادیو آماتور</div><div class="sd">باند ۲ متری: ۱۴۴-۱۴۸ MHz — باند ۷۰ سانت: ۴۳۰-۴۴۰ MHz</div></div></div>
- </div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci cb">💬</div>وقتی اینترنت قطع است</div>
+    <div class="steps">
+      <div class="step"><div class="sn g">۱</div><div><div class="st">SMS اول ارسال کنید</div><div class="sd">در شلوغی شبکه بهتر از تماس صوتی ارسال می‌شود — کوتاه بنویسید</div></div></div>
+      <div class="step"><div class="sn g">۲</div><div><div class="st">ساعت ۳-۵ صبح تماس بگیرید</div><div class="sd">شبکه خلوت‌تر — احتمال موفقیت بیشتر</div></div></div>
+      <div class="step"><div class="sn">۳</div><div><div class="st">نقطه تجمع خانوادگی</div><div class="sd">از همین الان یک محل مشخص تعیین کنید — همه بدانند</div></div></div>
+      <div class="step"><div class="sn b">۴</div><div><div class="st">رادیو آماتور</div><div class="sd">باند ۲ متری: ۱۴۴-۱۴۸ MHz — باند ۷۰ سانت: ۴۳۰-۴۴۰ MHz</div></div></div>
+    </div>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci cr"></div>علائم دستی بین‌المللی</div>
- <div class="g2">
- <div class="bx bxg"><strong> سالم هستم</strong>هر دو دست بالا (باز)<br>انگشت شست بالا<br>دایره با انگشتان (OK)</div>
- <div class="bx bxr"><strong> کمک لازم دارم</strong>هر دو دست بالا (مشت)<br>SOS روی زمین<br>آتش یا دود در روز</div>
- </div>
- <div class="bx bxo"><strong> SOS مورس — با چراغ یا بوق</strong>
- <span style="direction:ltr;font-family:'Courier New',monospace;font-size:18px;display:block;letter-spacing:5px;margin-top:5px;color:var(--ora2)">· · · — — — · · ·</span>
- ۳ کوتاه — ۳ بلند — ۳ کوتاه
- </div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci cr">🆘</div>علائم دستی بین‌المللی</div>
+    <div class="g2">
+      <div class="bx bxg"><strong>✅ سالم هستم</strong>هر دو دست بالا (باز)<br>انگشت شست بالا<br>دایره با انگشتان (OK)</div>
+      <div class="bx bxr"><strong>🆘 کمک لازم دارم</strong>هر دو دست بالا (مشت)<br>SOS روی زمین<br>آتش یا دود در روز</div>
+    </div>
+    <div class="bx bxo"><strong>📡 SOS مورس — با چراغ یا بوق</strong>
+      <span style="direction:ltr;font-family:'Courier New',monospace;font-size:20px;display:block;letter-spacing:5px;margin-top:5px;color:var(--ora2)">· · · — — — · · ·</span>
+      ۳ کوتاه — ۳ بلند — ۳ کوتاه
+    </div>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci co"></div>مدیریت باتری</div>
- <div class="steps">
- <div class="step"><div class="sn g">۱</div><div><div class="st">حالت هواپیما + WiFi جداگانه</div><div class="sd">شبکه سلولی قطع — مصرف ۴۰٪ کاهش می‌یابد</div></div></div>
- <div class="step"><div class="sn g">۲</div><div><div class="st">روشنایی صفحه حداقل</div><div class="sd">GPS — بلوتوث — NFC خاموش</div></div></div>
- <div class="step"><div class="sn g">۳</div><div><div class="st">بین استفاده‌ها خاموش کنید</div><div class="sd">شارژ ۳-۴ برابر دوام می‌آورد</div></div></div>
- </div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci co">🔋</div>مدیریت باتری</div>
+    <div class="steps">
+      <div class="step"><div class="sn g">۱</div><div><div class="st">حالت هواپیما + WiFi جداگانه</div><div class="sd">شبکه سلولی قطع — مصرف ۴۰٪ کاهش می‌یابد</div></div></div>
+      <div class="step"><div class="sn g">۲</div><div><div class="st">روشنایی صفحه حداقل</div><div class="sd">GPS — بلوتوث — NFC خاموش</div></div></div>
+      <div class="step"><div class="sn g">۳</div><div><div class="st">بین استفاده‌ها خاموش کنید</div><div class="sd">شارژ ۳-۴ برابر دوام می‌آورد</div></div></div>
+    </div>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci cg"></div>الگوی SMS اضطراری</div>
- <div class="bx bxg"><strong>پیام کوتاه اضطراری — کپی کنید</strong>
- <div style="direction:ltr;font-family:'Courier New',monospace;line-height:2.2;font-size:12px;margin-top:8px;background:var(--s1);padding:10px 12px;border-radius:7px;color:var(--grn2)">
- وضعیت: سالم / مصدوم<br>
- آدرس: [خیابان، کوچه، پلاک]<br>
- نیاز: [پزشکی / پناه / تخلیه]<br>
- تعداد: [نفر]<br>
- ساعت: [___]
- </div>
- </div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci cg">✉️</div>الگوی SMS اضطراری</div>
+    <div class="bx bxg"><strong>📱 پیام کوتاه اضطراری — کپی کنید</strong>
+      <div style="direction:ltr;font-family:'Courier New',monospace;line-height:2.2;font-size:12px;margin-top:8px;background:var(--s1);padding:10px 12px;border-radius:7px;color:var(--grn2)">
+        وضعیت: سالم / مصدوم<br>
+        آدرس: [خیابان، کوچه، پلاک]<br>
+        نیاز: [پزشکی / پناه / تخلیه]<br>
+        تعداد: [نفر]<br>
+        ساعت: [___]
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- PAGE 6: NUMBERS -->
+<!-- ============================================================
+     PAGE 6: NUMBERS
+     ============================================================ -->
 <div class="pg" id="p6">
- <div class="stit"> شماره‌های اورژانس</div>
- <div class="bx bxg" style="margin-bottom:12px"><strong> لمس کنید تا تماس بگیرید</strong>در شرایط قطع اینترنت هم کار می‌کنند</div>
+  <div class="stit">📞 شماره‌های اورژانس</div>
+  <div class="bx bxg" style="margin-bottom:12px"><strong>📲 لمس کنید تا تماس بگیرید</strong>در شرایط قطع اینترنت هم کار می‌کنند</div>
 
- <div class="ng">
- <a href="tel:115" class="nc"><span class="nn">۱۱۵</span><div class="nl"> اورژانس پزشکی</div></a>
- <a href="tel:110" class="nc"><span class="nn">۱۱۰</span><div class="nl"> پلیس</div></a>
- <a href="tel:125" class="nc"><span class="nn">۱۲۵</span><div class="nl"> آتش‌نشانی</div></a>
- <a href="tel:1480" class="nc"><span class="nn">۱۴۸۰</span><div class="nl"> هلال احمر</div></a>
- <a href="tel:123" class="nc"><span class="nn">۱۲۳</span><div class="nl"> اورژانس اجتماعی</div></a>
- <a href="tel:141" class="nc"><span class="nn">۱۴۱</span><div class="nl"> برق اضطراری</div></a>
- <a href="tel:194" class="nc"><span class="nn">۱۹۴</span><div class="nl"> گاز اضطراری</div></a>
- <a href="tel:122" class="nc"><span class="nn">۱۲۲</span><div class="nl"> آب و فاضلاب</div></a>
- <a href="tel:1521" class="nc"><span class="nn">۱۵۲۱</span><div class="nl"> مدیریت بحران</div></a>
- <a href="tel:1669" class="nc"><span class="nn">۱۶۶۹</span><div class="nl"> سوخت اضطراری</div></a>
- <a href="tel:150" class="nc"><span class="nn">۱۵۰</span><div class="nl"> اجتماعی ۲</div></a>
- <a href="tel:1480" class="nc"><span class="nn">۱۴۸۰</span><div class="nl"> اهدای خون</div></a>
- </div>
+  <div class="ng">
+    <a href="tel:115" class="nc"><span class="nn">۱۱۵</span><div class="nl">🚑 اورژانس پزشکی</div></a>
+    <a href="tel:110" class="nc"><span class="nn">۱۱۰</span><div class="nl">👮 پلیس</div></a>
+    <a href="tel:125" class="nc"><span class="nn">۱۲۵</span><div class="nl">🚒 آتش‌نشانی</div></a>
+    <a href="tel:1480" class="nc"><span class="nn">۱۴۸۰</span><div class="nl">🔴 هلال احمر</div></a>
+    <a href="tel:123" class="nc"><span class="nn">۱۲۳</span><div class="nl">👥 اورژانس اجتماعی</div></a>
+    <a href="tel:141" class="nc"><span class="nn">۱۴۱</span><div class="nl">⚡ برق اضطراری</div></a>
+    <a href="tel:194" class="nc"><span class="nn">۱۹۴</span><div class="nl">🔥 گاز اضطراری</div></a>
+    <a href="tel:122" class="nc"><span class="nn">۱۲۲</span><div class="nl">💧 آب و فاضلاب</div></a>
+    <a href="tel:1521" class="nc"><span class="nn">۱۵۲۱</span><div class="nl">🆘 مدیریت بحران</div></a>
+    <a href="tel:1669" class="nc"><span class="nn">۱۶۶۹</span><div class="nl">⛽ سوخت اضطراری</div></a>
+    <a href="tel:150" class="nc"><span class="nn">۱۵۰</span><div class="nl">👥 اجتماعی ۲</div></a>
+    <a href="tel:1480" class="nc"><span class="nn">۱۴۸۰</span><div class="nl">🩸 اهدای خون</div></a>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci co"></div>نکات مکالمه اضطراری</div>
- <div class="steps">
- <div class="step"><div class="sn">۱</div><div><div class="st">آدرس دقیق — اول از همه</div><div class="sd">خیابان اصلی — فرعی — پلاک — نزدیک‌ترین تقاطع معروف</div></div></div>
- <div class="step"><div class="sn">۲</div><div><div class="st">نوع و تعداد مصدوم</div><div class="sd">تعداد — نوع آسیب — وضعیت هوشیاری</div></div></div>
- <div class="step"><div class="sn g">۳</div><div><div class="st">گوشی را قطع نکنید</div><div class="sd">منتظر دستورالعمل اپراتور باشید — شماره خود را بدهید</div></div></div>
- </div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci co">📞</div>نکات مکالمه اضطراری</div>
+    <div class="steps">
+      <div class="step"><div class="sn">۱</div><div><div class="st">آدرس دقیق — اول از همه</div><div class="sd">خیابان اصلی — فرعی — پلاک — نزدیک‌ترین تقاطع معروف</div></div></div>
+      <div class="step"><div class="sn">۲</div><div><div class="st">نوع و تعداد مصدوم</div><div class="sd">تعداد — نوع آسیب — وضعیت هوشیاری</div></div></div>
+      <div class="step"><div class="sn g">۳</div><div><div class="st">گوشی را قطع نکنید</div><div class="sd">منتظر دستورالعمل اپراتور باشید — شماره خود را بدهید</div></div></div>
+    </div>
+  </div>
 </div>
 
-<!-- PAGE 7: NOTES -->
+<!-- ============================================================
+     PAGE 7: NOTES
+     ============================================================ -->
 <div class="pg" id="p7">
- <div class="stit"> یادداشت‌های شخصی</div>
+  <div class="stit">📝 یادداشت‌های شخصی</div>
 
- <div class="card">
- <div class="ctit"><div class="ci cg"></div>مخاطبین اضطراری</div>
- <textarea id="contacts-ta" placeholder="مثال:&#10;پزشک خانوادگی: ۰۹۱۲...&#10;بیمارستان نزدیک: ...&#10;نقطه تجمع: پارک..."></textarea>
- <button class="save-btn" onclick="sv('contacts')"> ذخیره</button>
- <div class="saved-note" id="contacts-saved"> ذخیره شد</div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci cg">👤</div>مخاطبین اضطراری</div>
+    <textarea id="contacts-ta" placeholder="مثال:&#10;پزشک خانوادگی: ۰۹۱۲...&#10;بیمارستان نزدیک: ...&#10;نقطه تجمع: پارک..."></textarea>
+    <button class="save-btn" onclick="sv('contacts')">💾 ذخیره</button>
+    <div class="saved-note" id="contacts-saved">✅ ذخیره شد</div>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci co"></div>آدرس‌های مهم</div>
- <textarea id="addresses-ta" placeholder="مثال:&#10;خانه: خ. ولیعصر، ک. ...&#10;محل کار: ...&#10;مدرسه بچه‌ها: ...&#10;پناهگاه نزدیک: ..."></textarea>
- <button class="save-btn" onclick="sv('addresses')"> ذخیره</button>
- <div class="saved-note" id="addresses-saved"> ذخیره شد</div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci co">🏠</div>آدرس‌های مهم</div>
+    <textarea id="addresses-ta" placeholder="مثال:&#10;خانه: خ. ولیعصر، ک. ...&#10;محل کار: ...&#10;مدرسه بچه‌ها: ...&#10;پناهگاه نزدیک: ..."></textarea>
+    <button class="save-btn" onclick="sv('addresses')">💾 ذخیره</button>
+    <div class="saved-note" id="addresses-saved">✅ ذخیره شد</div>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci cb"></div>اطلاعات پزشکی</div>
- <textarea id="medical-ta" placeholder="مثال:&#10;گروه خون: A+&#10;آلرژی: پنی‌سیلین&#10;داروی مزمن: متفورمین ۵۰۰mg&#10;بیماری: دیابت نوع ۲"></textarea>
- <button class="save-btn" onclick="sv('medical')"> ذخیره</button>
- <div class="saved-note" id="medical-saved"> ذخیره شد</div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci cb">🩺</div>اطلاعات پزشکی</div>
+    <textarea id="medical-ta" placeholder="مثال:&#10;گروه خون: A+&#10;آلرژی: پنی‌سیلین&#10;داروی مزمن: متفورمین ۵۰۰mg&#10;بیماری: دیابت نوع ۲"></textarea>
+    <button class="save-btn" onclick="sv('medical')">💾 ذخیره</button>
+    <div class="saved-note" id="medical-saved">✅ ذخیره شد</div>
+  </div>
 
- <div class="card">
- <div class="ctit"><div class="ci cr"></div>یادداشت آزاد</div>
- <textarea id="free-ta" placeholder="هر یادداشت اضطراری..." style="min-height:130px"></textarea>
- <button class="save-btn" onclick="sv('free')"> ذخیره</button>
- <div class="saved-note" id="free-saved"> ذخیره شد</div>
- </div>
+  <div class="card">
+    <div class="ctit"><div class="ci cr">📓</div>یادداشت آزاد</div>
+    <textarea id="free-ta" placeholder="هر یادداشت اضطراری..." style="min-height:130px"></textarea>
+    <button class="save-btn" onclick="sv('free')">💾 ذخیره</button>
+    <div class="saved-note" id="free-saved">✅ ذخیره شد</div>
+  </div>
 
- <div class="bx bxg"><strong> حریم خصوصی کامل</strong>تمام یادداشت‌ها فقط روی همین دستگاه ذخیره می‌شوند. هیچ داده‌ای به هیچ سروری ارسال نمی‌شود.</div>
+  <div class="bx bxg"><strong>🔒 حریم خصوصی کامل</strong>تمام یادداشت‌ها فقط روی همین دستگاه ذخیره می‌شوند. هیچ داده‌ای به هیچ سروری ارسال نمی‌شود.</div>
 </div>
 
 </main>
 
 <script>
-// 
-// PROVINCES DATA (31 provinces)
-// 
-const PROVINCES = {
-'تهران':{capital:'تهران',pop:'۱۵.۸ میلیون',area:'۱۲٬۹۸۱ کیلومتر مربع',warn:' پرجمعیت‌ترین استان — ترافیک شبکه در خطر زیاد',hospitals:['بیمارستان امام خمینی — میدان حر — ۰۲۱-۶۶۵۸۱۵۸۰','بیمارستان شریعتی — جلال‌آل‌احمد — ۰۲۱-۸۴۹۰۲۴۴۶','بیمارستان لقمان‌حکیم — ابوذر — ۰۲۱-۵۵۶۳۴۰۰۱','بیمارستان رسول اکرم — ستارخان — ۰۲۱-۶۴۳۵۲۰۰۰','بیمارستان مسیح دانشوری — دارآباد — ۰۲۱-۲۷۱۲۲۰۰۰','بیمارستان فارابی — قزوین میدان — ۰۲۱-۵۵۴۱۶۱۴۴'],shelter:['تمام ۱۱۴ ایستگاه مترو تهران','پارکینگ‌های زیرزمینی میدان ونک، تجریش، آزادی','تونل‌های زیرزمینی بزرگراه‌ها','پناهگاه‌های سازمان پدافند غیرعامل شهرداری'],rc:'هلال احمر تهران — خیابان سعدی — ۰۲۱-۶۶۴۸۰۳۱۱'},
-'البرز':{capital:'کرج',pop:'۲.۸ میلیون',area:'۵٬۱۲۲ کیلومتر مربع',warn:'',hospitals:['بیمارستان شهید مدنی — جهانشهر — ۰۲۶-۳۴۴۴۱۲۷۱','بیمارستان کمالی — چهارراه طالقانی — ۰۲۶-۳۲۵۱۰۰۰۰','بیمارستان باهنر — باغستان — ۰۲۶-۳۶۱۱۸۰۰۰','بیمارستان مهرگان — مهرشهر'],shelter:['مترو تهران-کرج خط ۵ (کرج تا صادقیه)','پارکینگ‌های زیرزمینی مراکز خرید','اداره فرمانداری البرز'],rc:'هلال احمر البرز — ۰۲۶-۳۲۵۳۳۹۳۳'},
-'اصفهان':{capital:'اصفهان',pop:'۵.۵ میلیون',area:'۱۰۷٬۰۲۷ کیلومتر مربع',warn:'',hospitals:['بیمارستان الزهرا — بزرگمهر — ۰۳۱-۳۶۲۰۱۰۰۸','بیمارستان امین — چهارباغ عباسی — ۰۳۱-۳۵۵۴۱۰۰۰','بیمارستان آیت‌الله کاشانی — حکیم نظامی — ۰۳۱-۳۶۶۱۵۹۱۱','بیمارستان شریعتی رضوی — ابن‌سینا — ۰۳۱-۳۲۳۵۰۰۰۰'],shelter:['مترو اصفهان — خط ۱ و خط ۲','میدان نقش جهان — زیرگذرها','پارکینگ‌های زیرزمینی مرکز شهر'],rc:'هلال احمر اصفهان — ۰۳۱-۳۲۲۲۰۰۸۸'},
-'آذربایجان شرقی':{capital:'تبریز',pop:'۴ میلیون',area:'۴۵٬۶۵۱ کیلومتر مربع',warn:' نزدیکی به مرز ترکیه و جمهوری آذربایجان',hospitals:['بیمارستان سینا — ارتش — ۰۴۱-۳۴۷۶۱۸۱۱','بیمارستان امام خمینی — آذربایجان — ۰۴۱-۳۳۳۴۰۰۰۰','بیمارستان شهید مدنی — گلکار — ۰۴۱-۳۵۴۱۲۰۰۰','بیمارستان شهریار — ولیعصر — ۰۴۱-۳۵۵۴۴۰۰۰'],shelter:['مترو تبریز — خط ۱ (میدان ساعت تا باسمنج)','مترو خط ۲ (تبریز جدید)','بازار بزرگ تبریز — زیرزمین‌های تاریخی'],rc:'هلال احمر آذربایجان شرقی — ۰۴۱-۳۳۲۹۰۱۲۰'},
-'آذربایجان غربی':{capital:'ارومیه',pop:'۳.۳ میلیون',area:'۳۷٬۴۱۱ کیلومتر مربع',warn:' نزدیکی به مرز ترکیه و عراق',hospitals:['بیمارستان امام خمینی — ارومیه — ۰۴۴-۳۲۷۵۴۰۰۰','بیمارستان مطهری — رسالت — ۰۴۴-۳۲۲۵۵۰۰۰','بیمارستان شهید بهشتی — ارومیه','بیمارستان امام رضا — ارومیه'],shelter:['ساختمان‌های دولتی بتونی مرکز شهر','پارکینگ‌های زیرزمینی میدان انقلاب','تونل‌های ارتباطی زیرزمینی'],rc:'هلال احمر آذربایجان غربی — ۰۴۴-۳۲۲۲۸۶۲۲'},
-'اردبیل':{capital:'اردبیل',pop:'۱.۳ میلیون',area:'۱۷٬۸۰۰ کیلومتر مربع',warn:' نزدیکی به مرز جمهوری آذربایجان',hospitals:['بیمارستان علوی — اردبیل — ۰۴۵-۳۳۷۲۰۷۲۱','بیمارستان فاطمی — استاد شهریار — ۰۴۵-۳۳۷۶۰۰۰۰','بیمارستان امام خمینی — اردبیل'],shelter:['بازار سنتی اردبیل — زیرزمین‌ها','ساختمان‌های اداری مرکز شهر'],rc:'هلال احمر اردبیل — ۰۴۵-۳۳۲۴۵۵۵۵'},
-'ایلام':{capital:'ایلام',pop:'۶۰۰ هزار',area:'۱۹٬۰۸۶ کیلومتر مربع',warn:' مرز مستقیم با عراق — منطقه پرخطر',hospitals:['بیمارستان مصطفی خمینی — ایلام — ۰۸۴-۳۳۳۳۳۳۳۳','بیمارستان شهدا — ایلام — ۰۸۴-۳۳۳۴۱۹۷۱','بیمارستان امام خمینی — دهلران'],shelter:['پناهگاه‌های کوهستانی زاگرس','ساختمان‌های دولتی و استانداری','غارهای طبیعی منطقه'],rc:'هلال احمر ایلام — ۰۸۴-۳۳۳۵۱۲۸۱'},
-'بوشهر':{capital:'بوشهر',pop:'۱.۲ میلیون',area:'۲۳٬۱۷۰ کیلومتر مربع',warn:' ساحل خلیج فارس — احتمال تهدید دریایی',hospitals:['بیمارستان شهید گنجی — بوشهر — ۰۷۷-۳۳۵۴۰۰۰۰','بیمارستان خلیج فارس — بوشهر','بیمارستان امام خمینی — بوشهر — ۰۷۷-۳۳۳۴۰۰۰۰'],shelter:['ساختمان‌های بتونی دور از خط ساحلی','پارکینگ‌های زیرزمینی مراکز اداری','اداره استانداری و فرمانداری'],rc:'هلال احمر بوشهر — ۰۷۷-۳۳۵۴۷۵۱۱'},
-'چهارمحال و بختیاری':{capital:'شهرکرد',pop:'۹۵۰ هزار',area:'۱۶٬۳۳۲ کیلومتر مربع',warn:'',hospitals:['بیمارستان هاجر — شهرکرد — ۰۳۸-۳۲۲۲۸۰۸۰','بیمارستان آیت‌الله کاشانی — شهرکرد','بیمارستان امام علی — بروجن'],shelter:['پناهگاه‌های کوهستانی زاگرس مرکزی','ساختمان‌های دولتی شهرکرد'],rc:'هلال احمر چهارمحال و بختیاری — ۰۳۸-۳۲۲۲۸۵۹۵'},
-'خراسان رضوی':{capital:'مشهد',pop:'۶.۸ میلیون',area:'۱۱۸٬۸۵۴ کیلومتر مربع',warn:'',hospitals:['بیمارستان قائم — احمدآباد — ۰۵۱-۳۸۴۱۱۵۲۱','بیمارستان ابن‌سینا — ۰۵۱-۳۸۴۲۵۰۱۵','بیمارستان امام رضا — شریعتی — ۰۵۱-۳۸۵۴۴۰۰۰','بیمارستان ام‌البنین — مشهد'],shelter:['مترو مشهد — خط ۱ و خط ۲','حرم امام رضا — زیرزمین‌های گسترده','پارکینگ‌های زیرزمینی میدان شهدا'],rc:'هلال احمر خراسان رضوی — ۰۵۱-۳۸۴۴۰۳۱۱'},
-'خراسان شمالی':{capital:'بجنورد',pop:'۸۶۰ هزار',area:'۲۸٬۴۳۴ کیلومتر مربع',warn:' نزدیکی به مرز ترکمنستان',hospitals:['بیمارستان امام علی — بجنورد — ۰۵۸-۳۲۷۲۷۰۷۰','بیمارستان ولیعصر — بجنورد','بیمارستان امام خمینی — شیروان'],shelter:['ساختمان‌های دولتی بتونی مرکز شهر','فرمانداری و استانداری'],rc:'هلال احمر خراسان شمالی — ۰۵۸-۳۲۲۲۳۳۳۳'},
-'خراسان جنوبی':{capital:'بیرجند',pop:'۷۶۰ هزار',area:'۱۵۱٬۱۹۳ کیلومتر مربع',warn:' نزدیکی به مرز افغانستان',hospitals:['بیمارستان ولیعصر — بیرجند — ۰۵۶-۳۲۳۸۲۰۶۱','بیمارستان امام رضا — بیرجند — ۰۵۶-۳۲۲۹۰۴۰۰','بیمارستان امام علی — قاین'],shelter:['ساختمان‌های دولتی مرکز بیرجند','پناهگاه‌های طبیعی کوهستان'],rc:'هلال احمر خراسان جنوبی — ۰۵۶-۳۲۲۲۰۳۳۳'},
-'خوزستان':{capital:'اهواز',pop:'۵ میلیون',area:'۶۳٬۲۳۸ کیلومتر مربع',warn:' مرز مستقیم با عراق — منطقه پرریسک',hospitals:['بیمارستان رازی — کیانپارس — ۰۶۱-۳۳۳۳۴۴۴۴','بیمارستان گلستان — اهواز — ۰۶۱-۳۳۳۸۰۰۰۰','بیمارستان امام خمینی — اهواز — ۰۶۱-۳۳۳۷۰۰۰۰','بیمارستان آبادان — ۰۶۱-۵۳۳۴۰۰۰۰'],shelter:['ساختمان‌های بتونی دولتی — دور از رود کارون','پارکینگ‌های زیرزمینی اهواز'],rc:'هلال احمر خوزستان — ۰۶۱-۳۳۳۳۴۴۸۴'},
-'زنجان':{capital:'زنجان',pop:'۱.۱ میلیون',area:'۲۱٬۷۷۳ کیلومتر مربع',warn:'',hospitals:['بیمارستان ولیعصر — زنجان — ۰۲۴-۳۳۴۴۰۰۰۱','بیمارستان آیت‌الله موسوی — زنجان — ۰۲۴-۳۳۴۴۶۰۰۰'],shelter:['پارکینگ‌های زیرزمینی مرکز شهر','ساختمان‌های دولتی بتونی'],rc:'هلال احمر زنجان — ۰۲۴-۳۳۴۲۵۲۵۲'},
-'سمنان':{capital:'سمنان',pop:'۷۰۰ هزار',area:'۹۷٬۴۹۱ کیلومتر مربع',warn:'',hospitals:['بیمارستان کوثر — سمنان — ۰۲۳-۳۳۴۴۰۰۰۰','بیمارستان امیرالمومنین — سمنان','بیمارستان امام علی — شاهرود — ۰۲۳-۳۲۳۸۰۰۰۰'],shelter:['ساختمان‌های دولتی مرکز شهر','دامنه کوه‌های البرز جنوبی'],rc:'هلال احمر سمنان — ۰۲۳-۳۳۳۳۱۲۳۴'},
-'سیستان و بلوچستان':{capital:'زاهدان',pop:'۲.۸ میلیون',area:'۱۸۷٬۵۰۲ کیلومتر مربع',warn:' مرز پاکستان و افغانستان — منطقه پرریسک',hospitals:['بیمارستان علی‌ابن‌ابیطالب — زاهدان — ۰۵۴-۳۳۲۳۴۴۶۴','بیمارستان خاتم‌الانبیاء — زاهدان — ۰۵۴-۳۳۴۴۰۰۰۰','بیمارستان امام علی — چابهار — ۰۵۴-۳۵۳۵۰۰۰۰'],shelter:['ساختمان‌های دولتی و اداری زاهدان','پناهگاه‌های طبیعی کوهستان','فرمانداری و استانداری زاهدان'],rc:'هلال احمر سیستان و بلوچستان — ۰۵۴-۳۳۴۲۲۵۵۵'},
-'فارس':{capital:'شیراز',pop:'۵.۲ میلیون',area:'۱۲۱٬۸۲۴ کیلومتر مربع',warn:'',hospitals:['بیمارستان نمازی — زند — ۰۷۱-۳۶۴۷۴۵۲۴','بیمارستان شهید فقیهی — ملاصدرا — ۰۷۱-۳۶۲۸۰۱۱۱','بیمارستان حافظ — حافظیه — ۰۷۱-۳۲۳۳۶۰۶۰','بیمارستان دستغیب — شیراز'],shelter:['پارکینگ‌های زیرزمینی میدان ارم','تونل‌های بزرگراهی شیراز','مترو شیراز — خط ۱'],rc:'هلال احمر فارس — ۰۷۱-۳۲۲۳۶۳۶۳'},
-'قزوین':{capital:'قزوین',pop:'۱.۳ میلیون',area:'۱۵٬۵۶۷ کیلومتر مربع',warn:'',hospitals:['بیمارستان بوعلی سینا — قزوین — ۰۲۸-۳۳۳۳۵۳۵۳','بیمارستان کوثر — قزوین — ۰۲۸-۳۳۳۵۰۰۰۰','بیمارستان ولایت — قزوین'],shelter:['پارکینگ‌های زیرزمینی مرکز شهر','بازار سنتی قزوین — زیرزمین‌ها'],rc:'هلال احمر قزوین — ۰۲۸-۳۳۳۲۴۶۴۶'},
-'قم':{capital:'قم',pop:'۱.۴ میلیون',area:'۱۱٬۲۳۷ کیلومتر مربع',warn:'',hospitals:['بیمارستان کامکار — دور شهر — ۰۲۵-۳۷۷۰۰۰۰۰','بیمارستان نکویی — قم — ۰۲۵-۳۷۷۵۴۰۰۰','بیمارستان میلاد — قم — ۰۲۵-۳۷۷۳۰۰۰۰'],shelter:['حرم حضرت معصومه — زیرزمین‌های گسترده','پارکینگ‌های زیرزمینی میدان جمهوری','مترو قم — خط ۱'],rc:'هلال احمر قم — ۰۲۵-۳۷۷۳۵۷۵۷'},
-'کردستان':{capital:'سنندج',pop:'۱.۷ میلیون',area:'۲۸٬۲۰۳ کیلومتر مربع',warn:' نزدیکی به مرز عراق',hospitals:['بیمارستان توحید — سنندج — ۰۸۷-۳۳۶۶۵۵۵۵','بیمارستان بعثت — سنندج — ۰۸۷-۳۳۶۲۱۰۰۰','بیمارستان قدس — سنندج','بیمارستان امام خمینی — بانه'],shelter:['پناهگاه‌های کوهستانی زاگرس','ساختمان‌های دولتی مرکز سنندج','غارهای طبیعی منطقه'],rc:'هلال احمر کردستان — ۰۸۷-۳۳۲۷۸۳۸۳'},
-'کرمان':{capital:'کرمان',pop:'۳.۳ میلیون',area:'۱۸۳٬۲۸۵ کیلومتر مربع',warn:'',hospitals:['بیمارستان شفا — هزار دستگاه — ۰۳۴-۳۱۳۲۰۰۰۰','بیمارستان باهنر — جهاد — ۰۳۴-۳۱۴۴۰۰۰۰','بیمارستان افضلی‌پور — کرمان'],shelter:['پارکینگ‌های زیرزمینی مرکز شهر','بازار سنتی کرمان','ساختمان‌های دولتی'],rc:'هلال احمر کرمان — ۰۳۴-۳۲۴۵۵۵۵۵'},
-'کرمانشاه':{capital:'کرمانشاه',pop:'۲ میلیون',area:'۲۴٬۶۴۱ کیلومتر مربع',warn:' نزدیکی به مرز عراق — منطقه لرزه‌خیز',hospitals:['بیمارستان امام علی — کرمانشاه — ۰۸۳-۳۸۳۶۰۰۰۰','بیمارستان طالقانی — کرمانشاه — ۰۸۳-۳۸۳۸۰۰۰۰','بیمارستان امام خمینی — کرمانشاه'],shelter:['پناهگاه‌های کوهستانی زاگرس','غارهای طبیعی (غار قوری قلعه)','ساختمان‌های دولتی مرکز شهر'],rc:'هلال احمر کرمانشاه — ۰۸۳-۳۷۲۶۳۰۳۰'},
-'کهگیلویه و بویراحمد':{capital:'یاسوج',pop:'۷۱۰ هزار',area:'۱۵٬۵۶۳ کیلومتر مربع',warn:'',hospitals:['بیمارستان مدنی — یاسوج — ۰۷۴-۳۳۳۳۱۹۱۱','بیمارستان امام خمینی — یاسوج — ۰۷۴-۳۳۲۲۰۰۰۰'],shelter:['پناهگاه‌های کوهستانی زاگرس جنوبی','ساختمان‌های دولتی مرکز شهر'],rc:'هلال احمر کهگیلویه و بویراحمد — ۰۷۴-۳۳۳۳۴۴۴۴'},
-'گلستان':{capital:'گرگان',pop:'۱.۹ میلیون',area:'۲۰٬۳۶۷ کیلومتر مربع',warn:' نزدیکی به مرز ترکمنستان',hospitals:['بیمارستان صیاد شیرازی — گرگان — ۰۱۷-۳۲۲۵۰۰۰۰','بیمارستان دکتر پنجه‌شاهی — گرگان — ۰۱۷-۳۲۴۲۰۰۰۰','بیمارستان امام علی — گنبد کاووس — ۰۱۷-۳۴۲۸۰۰۰۰'],shelter:['ساختمان‌های دولتی گرگان','پارکینگ‌های زیرزمینی مراکز خرید'],rc:'هلال احمر گلستان — ۰۱۷-۳۲۲۳۵۵۵۵'},
-'گیلان':{capital:'رشت',pop:'۲.۶ میلیون',area:'۱۴٬۰۴۲ کیلومتر مربع',warn:'',hospitals:['بیمارستان رازی — رشت — ۰۱۳-۳۳۲۲۰۰۲۲','بیمارستان الزهرا — رشت — ۰۱۳-۳۳۲۴۴۰۰۰','بیمارستان ولیعصر — رشت — ۰۱۳-۳۳۲۰۰۰۰۰'],shelter:['ساختمان‌های بتونی — مراقب لغزندگی باشید','پارکینگ‌های زیرزمینی مراکز خرید رشت'],rc:'هلال احمر گیلان — ۰۱۳-۳۳۲۴۱۴۱۴'},
-'لرستان':{capital:'خرم‌آباد',pop:'۱.۸ میلیون',area:'۲۸٬۵۶۰ کیلومتر مربع',warn:' منطقه لرزه‌خیز — احتمال زلزله همزمان',hospitals:['بیمارستان شهید مدنی — خرم‌آباد — ۰۶۶-۳۳۲۰۰۰۰۰','بیمارستان شهید رحیمی — خرم‌آباد — ۰۶۶-۳۳۲۴۴۰۰۰','بیمارستان امام رضا — بروجرد — ۰۶۶-۳۴۲۴۰۰۰۰'],shelter:['پناهگاه‌های کوهستانی زاگرس','دور از دره‌ها و مسیل‌ها (خطر سیل)'],rc:'هلال احمر لرستان — ۰۶۶-۳۳۲۴۲۲۲۲'},
-'مازندران':{capital:'ساری',pop:'۳.۵ میلیون',area:'۲۳٬۸۲۳ کیلومتر مربع',warn:'',hospitals:['بیمارستان بوعلی‌سینا — ساری — ۰۱۱-۳۳۳۰۴۰۰۴','بیمارستان امیرمازندرانی — ساری — ۰۱۱-۳۳۳۵۰۰۰۰','بیمارستان شهید بهشتی — بابل — ۰۱۱-۳۲۲۸۰۰۰۰'],shelter:['ساختمان‌های بتونی — دور از خط ساحل','پناهگاه‌های کوهستانی البرز شمالی'],rc:'هلال احمر مازندران — ۰۱۱-۳۳۲۲۰۲۰۲'},
-'مرکزی':{capital:'اراک',pop:'۱.۴ میلیون',area:'۲۹٬۱۳۰ کیلومتر مربع',warn:'',hospitals:['بیمارستان امام خمینی — اراک — ۰۸۶-۳۴۱۷۳۰۰۰','بیمارستان ولیعصر — اراک — ۰۸۶-۳۴۱۷۰۰۰۰','بیمارستان امیرکبیر — اراک — ۰۸۶-۳۴۱۷۱۰۰۰'],shelter:['پارکینگ‌های زیرزمینی مراکز اداری','ساختمان‌های دولتی بتونی'],rc:'هلال احمر مرکزی — ۰۸۶-۳۲۲۳۱۱۱۱'},
-'هرمزگان':{capital:'بندرعباس',pop:'۱.۸ میلیون',area:'۷۰٬۶۹۷ کیلومتر مربع',warn:' ساحل تنگه هرمز — منطقه حساس استراتژیک',hospitals:['بیمارستان شهید محمدی — بندرعباس — ۰۷۶-۳۳۵۵۵۵۵۵','بیمارستان خلیج فارس — بندرعباس — ۰۷۶-۳۳۵۲۰۰۰۰','بیمارستان ارتش — بندرعباس'],shelter:['ساختمان‌های بتونی دور از خط ساحلی','پارکینگ‌های زیرزمینی مراکز خرید'],rc:'هلال احمر هرمزگان — ۰۷۶-۳۳۵۵۲۵۲۵'},
-'همدان':{capital:'همدان',pop:'۱.۸ میلیون',area:'۱۹٬۴۹۳ کیلومتر مربع',warn:'',hospitals:['بیمارستان بعثت — همدان — ۰۸۱-۳۸۳۸۱۱۱۱','بیمارستان شهید بهشتی — همدان — ۰۸۱-۳۸۲۷۰۰۰۰','بیمارستان فرشچیان — همدان — ۰۸۱-۳۸۴۵۰۰۰۰'],shelter:['پناهگاه‌های غار طبیعی (غار علیصدر)','تونل‌های منطقه','دامنه‌های کوه الوند'],rc:'هلال احمر همدان — ۰۸۱-۳۸۲۶۶۶۶۶'},
-'یزد':{capital:'یزد',pop:'۱.۱ میلیون',area:'۷۲٬۷۱۳ کیلومتر مربع',warn:'',hospitals:['بیمارستان شهید صدوقی — یزد — ۰۳۵-۳۸۲۰۱۰۰۰','بیمارستان بهشتی — یزد — ۰۳۵-۳۸۲۵۰۰۰۰','بیمارستان افشار — یزد — ۰۳۵-۳۸۲۷۰۰۰۰'],shelter:['بافت تاریخی یزد — زیرزمین‌های شبکه قنات','قنات‌های قدیمی (عمق ۱۰-۳۰ متر)','ساختمان‌های دولتی مرکز شهر'],rc:'هلال احمر یزد — ۰۳۵-۳۶۲۷۲۷۲۷'}
-};
 
-// 
-// CORE FUNCTIONS
-// 
-const TOTAL_CHK = 22;
+
+const PROVINCES = {
+
+  'تهران': {
+    capital: 'تهران', warn: '⚠️ پرجمعیت‌ترین استان',
+    rc: 'هلال احمر تهران — ۰۲۱-۶۶۴۸۰۳۱۱',
+    shelter: ['۱۱۴ ایستگاه مترو تهران','پارکینگ‌های زیرزمینی میدان ونک، تجریش','تونل‌های زیرزمینی بزرگراه‌ها','پناهگاه‌های سازمان پدافند غیرعامل شهرداری'],
+    hospitals: [
+      { n:'بیمارستان امام خمینی', c:'تهران', a:'تهران، بزرگراه چمران، خ باقرخان', p:'021-61190000', v:true },
+      { n:'بیمارستان شریعتی', c:'تهران', a:'تهران، خ کارگر شمالی، تقاطع جلال آل احمد، روبروی دانشکده اقتصاد', p:'021-84901000', v:true },
+      { n:'بیمارستان لقمان‌حکیم', c:'تهران', a:'تهران، چهارراه لشگر، خ مخصوص، بیمارستان لقمان حکیم', p:'021-55419005', v:true },
+      { n:'بیمارستان رسول اکرم', c:'تهران', a:'تهران، ستارخان، خ نیایش', p:'021-64351000', v:true },
+      { n:'بیمارستان مسیح دانشوری', c:'تهران', a:'درآباد, خیابان شهید باهنر', p:'021-27123000', v:true },
+      { n:'بیمارستان فارابی', c:'تهران', a:'تهران، خ کارگر جنوبی، پایین‌تر از میدان قزوین', p:'021-55400004', v:true },
+      { n:'بیمارستان بهارلو', c:'تهران', a:'تهران،گمرک،خ. هلال احمر،خ. صیامی حاجی آبادی', p:'021-55658500', v:true },
+      { n:'بیمارستان بوعلی', c:'تهران', a:'تهران - میدان امام حسین - ابتدای خیابان دماوند', p:'021-33348036', v:true },
+      { n:'بیمارستان امام حسین', c:'تهران', a:'تهران ، میدان امام حسین ، ابتدای خیابان شهید مدنی', p:'021-73433000', v:true },
+    ]
+  },
+
+  'البرز': {
+    capital: 'کرج', warn: '',
+    rc: 'هلال احمر البرز — ۰۲۶-۳۲۵۳۳۹۳۳',
+    shelter: ['مترو تهران-کرج خط ۵','پارکینگ‌های زیرزمینی مراکز خرید','اداره فرمانداری البرز'],
+    hospitals: [
+      { n:'بیمارستان شهید مدنی', c:'کرج', a:'جهانشهر، خیابان شهید بهشتی', p:'026-34441271', v:false },
+      { n:'بیمارستان کمالی', c:'کرج', a:'چهارراه طالقانی', p:'026-32510000', v:false },
+      { n:'بیمارستان باهنر', c:'کرج', a:'باغستان، اتوبان کرج-قزوین', p:'026-36118000', v:false },
+      { n:'بیمارستان مهرگان', c:'کرج', a:'مهرشهر، خیابان شهید بهشتی', p:'026-34467700', v:false },
+      { n:'بیمارستان شهید رجایی', c:'کرج', a:'گوهردشت', p:'026-34482000', v:false },
+    ]
+  },
+
+  'اصفهان': {
+    capital: 'اصفهان', warn: '',
+    rc: 'هلال احمر اصفهان — ۰۳۱-۳۲۲۲۰۰۸۸',
+    shelter: ['مترو اصفهان خط ۱ و ۲','میدان نقش جهان — زیرگذرها','پارکینگ‌های زیرزمینی مرکز شهر'],
+    hospitals: [
+      { n:'بیمارستان الزهرا', c:'اصفهان', a:'خیابان بزرگمهر', p:'031-36200108', v:false },
+      { n:'بیمارستان امین', c:'اصفهان', a:'خیابان چهارباغ عباسی', p:'031-35541000', v:false },
+      { n:'بیمارستان آیت‌الله کاشانی', c:'اصفهان', a:'خیابان حکیم نظامی', p:'031-36615911', v:false },
+      { n:'بیمارستان شریعتی', c:'اصفهان', a:'خیابان ابن‌سینا', p:'031-32350000', v:false },
+      { n:'بیمارستان فیض', c:'اصفهان', a:'خیابان آتشگاه', p:'031-34452000', v:false },
+      { n:'بیمارستان امام موسی کاظم', c:'نجف‌آباد', a:'نجف‌آباد', p:'031-42622800', v:false },
+    ]
+  },
+
+  'آذربایجان شرقی': {
+    capital: 'تبریز', warn: '⚠️ نزدیکی به مرز ترکیه و جمهوری آذربایجان',
+    rc: 'هلال احمر آذربایجان شرقی — ۰۴۱-۳۳۲۹۰۱۲۰',
+    shelter: ['مترو تبریز خط ۱ و ۲','بازار بزرگ تبریز — زیرزمین‌های تاریخی'],
+    hospitals: [
+      { n:'بیمارستان سینا', c:'تبریز', a:'خیابان ارتش', p:'041-34761811', v:false },
+      { n:'بیمارستان امام خمینی', c:'تبریز', a:'خیابان آذربایجان', p:'041-33340000', v:false },
+      { n:'بیمارستان شهید مدنی', c:'تبریز', a:'خیابان گلکار', p:'041-35412000', v:false },
+      { n:'بیمارستان شهریار', c:'تبریز', a:'خیابان ولیعصر', p:'041-35544000', v:false },
+      { n:'بیمارستان امام رضا', c:'تبریز', a:'خیابان شهناز', p:'041-33341000', v:false },
+      { n:'بیمارستان طالقانی', c:'تبریز', a:'خیابان جمهوری', p:'041-33341900', v:false },
+    ]
+  },
+
+  'آذربایجان غربی': {
+    capital: 'ارومیه', warn: '⚠️ نزدیکی به مرز ترکیه و عراق',
+    rc: 'هلال احمر آذربایجان غربی — ۰۴۴-۳۲۲۲۸۶۲۲',
+    shelter: ['ساختمان‌های دولتی مرکز شهر','پارکینگ‌های زیرزمینی میدان انقلاب'],
+    hospitals: [
+      { n:'بیمارستان امام خمینی', c:'ارومیه', a:'خیابان امام', p:'044-32754000', v:false },
+      { n:'بیمارستان مطهری', c:'ارومیه', a:'خیابان رسالت', p:'044-32255000', v:false },
+      { n:'بیمارستان شهید بهشتی', c:'ارومیه', a:'بلوار شهید بهشتی', p:'044-32756000', v:false },
+      { n:'بیمارستان امام رضا', c:'ارومیه', a:'خیابان امام رضا', p:'044-32766000', v:false },
+    ]
+  },
+
+  'اردبیل': {
+    capital: 'اردبیل', warn: '⚠️ نزدیکی به مرز جمهوری آذربایجان',
+    rc: 'هلال احمر اردبیل — ۰۴۵-۳۳۲۴۵۵۵۵',
+    shelter: ['بازار سنتی اردبیل','ساختمان‌های اداری مرکز شهر'],
+    hospitals: [
+      { n:'بیمارستان علوی', c:'اردبیل', a:'خیابان دانشگاه', p:'045-33720721', v:false },
+      { n:'بیمارستان فاطمی', c:'اردبیل', a:'خیابان استاد شهریار', p:'045-33760000', v:false },
+      { n:'بیمارستان امام خمینی', c:'اردبیل', a:'خیابان امام', p:'045-33723000', v:false },
+    ]
+  },
+
+  'ایلام': {
+    capital: 'ایلام', warn: '🔴 مرز مستقیم با عراق — منطقه پرخطر',
+    rc: 'هلال احمر ایلام — ۰۸۴-۳۳۳۵۱۲۸۱',
+    shelter: ['پناهگاه‌های کوهستانی زاگرس','ساختمان‌های دولتی و استانداری','غارهای طبیعی منطقه'],
+    hospitals: [
+      { n:'بیمارستان شهدا', c:'ایلام', a:'خیابان شهدا', p:'084-33341971', v:false },
+      { n:'بیمارستان مصطفی خمینی', c:'ایلام', a:'خیابان مصطفی خمینی', p:'084-33330000', v:false },
+      { n:'بیمارستان امام خمینی', c:'دهلران', a:'دهلران', p:'084-34222000', v:false },
+    ]
+  },
+
+  'بوشهر': {
+    capital: 'بوشهر', warn: '⚠️ ساحل خلیج فارس',
+    rc: 'هلال احمر بوشهر — ۰۷۷-۳۳۵۴۷۵۱۱',
+    shelter: ['ساختمان‌های بتونی دور از خط ساحلی','اداره استانداری و فرمانداری'],
+    hospitals: [
+      { n:'بیمارستان شهید گنجی', c:'بوشهر', a:'بلوار امام خمینی', p:'077-33540000', v:false },
+      { n:'بیمارستان خلیج فارس', c:'بوشهر', a:'خیابان ساحلی', p:'077-33330000', v:false },
+      { n:'بیمارستان امام خمینی', c:'بوشهر', a:'خیابان امام', p:'077-33340000', v:false },
+    ]
+  },
+
+  'چهارمحال و بختیاری': {
+    capital: 'شهرکرد', warn: '',
+    rc: 'هلال احمر چهارمحال و بختیاری — ۰۳۸-۳۲۲۲۸۵۹۵',
+    shelter: ['پناهگاه‌های کوهستانی زاگرس مرکزی','ساختمان‌های دولتی شهرکرد'],
+    hospitals: [
+      { n:'بیمارستان هاجر', c:'شهرکرد', a:'بلوار هاجر', p:'038-32228080', v:false },
+      { n:'بیمارستان آیت‌الله کاشانی', c:'شهرکرد', a:'خیابان کاشانی', p:'038-32227900', v:false },
+      { n:'بیمارستان امام علی', c:'بروجن', a:'بروجن', p:'038-34221500', v:false },
+    ]
+  },
+
+  'خراسان رضوی': {
+    capital: 'مشهد', warn: '',
+    rc: 'هلال احمر خراسان رضوی — ۰۵۱-۳۸۴۴۰۳۱۱',
+    shelter: ['مترو مشهد خط ۱ و ۲','حرم امام رضا — زیرزمین‌های گسترده','پارکینگ‌های زیرزمینی میدان شهدا'],
+    hospitals: [
+      { n:'بیمارستان قائم', c:'مشهد', a:'خیابان احمدآباد', p:'051-38411521', v:false },
+      { n:'بیمارستان ابن‌سینا', c:'مشهد', a:'خیابان ابن‌سینا', p:'051-38425015', v:false },
+      { n:'بیمارستان امام رضا', c:'مشهد', a:'خیابان شریعتی', p:'051-38544000', v:false },
+      { n:'بیمارستان ام‌البنین', c:'مشهد', a:'خیابان پیروزی', p:'051-37028000', v:false },
+      { n:'بیمارستان شهید هاشمی‌نژاد', c:'مشهد', a:'خیابان خاقانی', p:'051-36025000', v:false },
+    ]
+  },
+
+  'خراسان شمالی': {
+    capital: 'بجنورد', warn: '⚠️ نزدیکی به مرز ترکمنستان',
+    rc: 'هلال احمر خراسان شمالی — ۰۵۸-۳۲۲۲۳۳۳۳',
+    shelter: ['ساختمان‌های دولتی مرکز شهر','فرمانداری و استانداری'],
+    hospitals: [
+      { n:'بیمارستان امام علی', c:'بجنورد', a:'خیابان امام علی', p:'058-32727070', v:false },
+      { n:'بیمارستان ولیعصر', c:'بجنورد', a:'خیابان ولیعصر', p:'058-32220000', v:false },
+      { n:'بیمارستان امام خمینی', c:'شیروان', a:'شیروان', p:'058-37223000', v:false },
+    ]
+  },
+
+  'خراسان جنوبی': {
+    capital: 'بیرجند', warn: '⚠️ نزدیکی به مرز افغانستان',
+    rc: 'هلال احمر خراسان جنوبی — ۰۵۶-۳۲۲۲۰۳۳۳',
+    shelter: ['ساختمان‌های دولتی مرکز بیرجند','پناهگاه‌های طبیعی کوهستان'],
+    hospitals: [
+      { n:'بیمارستان ولیعصر', c:'بیرجند', a:'خیابان ولیعصر', p:'056-32382061', v:false },
+      { n:'بیمارستان امام رضا', c:'بیرجند', a:'خیابان امام رضا', p:'056-32290400', v:false },
+      { n:'بیمارستان امام علی', c:'قاین', a:'قاین', p:'056-32722000', v:false },
+    ]
+  },
+
+  'خوزستان': {
+    capital: 'اهواز', warn: '🔴 مرز مستقیم با عراق',
+    rc: 'هلال احمر خوزستان — ۰۶۱-۳۳۳۳۴۴۸۴',
+    shelter: ['ساختمان‌های بتونی دولتی — دور از رود کارون','پارکینگ‌های زیرزمینی اهواز'],
+    hospitals: [
+      { n:'بیمارستان رازی', c:'اهواز', a:'کیانپارس، خیابان ۲۴ متری', p:'061-33334444', v:false },
+      { n:'بیمارستان گلستان', c:'اهواز', a:'بلوار گلستان', p:'061-33380000', v:false },
+      { n:'بیمارستان امام خمینی', c:'اهواز', a:'خیابان امام', p:'061-33370000', v:false },
+      { n:'بیمارستان شهید بقایی', c:'اهواز', a:'خیابان گلگون', p:'061-33367000', v:false },
+      { n:'بیمارستان سینا', c:'آبادان', a:'آبادان', p:'061-53340000', v:false },
+    ]
+  },
+
+  'زنجان': {
+    capital: 'زنجان', warn: '',
+    rc: 'هلال احمر زنجان — ۰۲۴-۳۳۴۲۵۲۵۲',
+    shelter: ['پارکینگ‌های زیرزمینی مرکز شهر','ساختمان‌های دولتی بتونی'],
+    hospitals: [
+      { n:'بیمارستان ولیعصر', c:'زنجان', a:'خیابان ولیعصر', p:'024-33440001', v:false },
+      { n:'بیمارستان آیت‌الله موسوی', c:'زنجان', a:'خیابان موسوی', p:'024-33446000', v:false },
+    ]
+  },
+
+  'سمنان': {
+    capital: 'سمنان', warn: '',
+    rc: 'هلال احمر سمنان — ۰۲۳-۳۳۳۳۱۲۳۴',
+    shelter: ['ساختمان‌های دولتی مرکز شهر','دامنه کوه‌های البرز جنوبی'],
+    hospitals: [
+      { n:'بیمارستان کوثر', c:'سمنان', a:'خیابان کوثر', p:'023-33440000', v:false },
+      { n:'بیمارستان امام علی', c:'شاهرود', a:'شاهرود، خیابان امام', p:'023-32380000', v:false },
+      { n:'بیمارستان امیرالمومنین', c:'سمنان', a:'خیابان امام خمینی', p:'023-33228000', v:false },
+    ]
+  },
+
+  'سیستان و بلوچستان': {
+    capital: 'زاهدان', warn: '🔴 مرز پاکستان و افغانستان',
+    rc: 'هلال احمر سیستان و بلوچستان — ۰۵۴-۳۳۴۲۲۵۵۵',
+    shelter: ['ساختمان‌های دولتی زاهدان','فرمانداری و استانداری'],
+    hospitals: [
+      { n:'بیمارستان علی‌ابن‌ابیطالب', c:'زاهدان', a:'خیابان دکتر بهشتی', p:'054-33234464', v:false },
+      { n:'بیمارستان خاتم‌الانبیاء', c:'زاهدان', a:'خیابان پاسداران', p:'054-33440000', v:false },
+      { n:'بیمارستان امام علی', c:'چابهار', a:'چابهار', p:'054-35350000', v:false },
+      { n:'بیمارستان امام خمینی', c:'ایرانشهر', a:'ایرانشهر', p:'054-34225000', v:false },
+    ]
+  },
+
+  'فارس': {
+    capital: 'شیراز', warn: '',
+    rc: 'هلال احمر فارس — ۰۷۱-۳۲۲۳۶۳۶۳',
+    shelter: ['پارکینگ‌های زیرزمینی میدان ارم','تونل‌های بزرگراهی شیراز','مترو شیراز خط ۱'],
+    hospitals: [
+      { n:'بیمارستان نمازی', c:'شیراز', a:'خیابان زند، بلوار شهید چمران', p:'071-36474524', v:false },
+      { n:'بیمارستان شهید فقیهی', c:'شیراز', a:'خیابان ملاصدرا', p:'071-36280111', v:false },
+      { n:'بیمارستان حافظ', c:'شیراز', a:'خیابان حافظیه', p:'071-32336060', v:false },
+      { n:'بیمارستان دستغیب', c:'شیراز', a:'بلوار دستغیب', p:'071-36390000', v:false },
+      { n:'بیمارستان امام رضا', c:'مرودشت', a:'مرودشت', p:'071-43222000', v:false },
+    ]
+  },
+
+  'قزوین': {
+    capital: 'قزوین', warn: '',
+    rc: 'هلال احمر قزوین — ۰۲۸-۳۳۳۲۴۶۴۶',
+    shelter: ['پارکینگ‌های زیرزمینی مرکز شهر','بازار سنتی قزوین'],
+    hospitals: [
+      { n:'بیمارستان بوعلی سینا', c:'قزوین', a:'خیابان بوعلی سینا', p:'028-33335353', v:false },
+      { n:'بیمارستان کوثر', c:'قزوین', a:'خیابان کوثر', p:'028-33350000', v:false },
+      { n:'بیمارستان ولایت', c:'قزوین', a:'خیابان ولایت', p:'028-33340000', v:false },
+    ]
+  },
+
+  'قم': {
+    capital: 'قم', warn: '',
+    rc: 'هلال احمر قم — ۰۲۵-۳۷۷۳۵۷۵۷',
+    shelter: ['حرم حضرت معصومه — زیرزمین‌های گسترده','پارکینگ‌های زیرزمینی میدان جمهوری','مترو قم خط ۱'],
+    hospitals: [
+      { n:'بیمارستان کامکار', c:'قم', a:'بلوار دور شهر', p:'025-37700000', v:false },
+      { n:'بیمارستان نکویی', c:'قم', a:'خیابان نکویی', p:'025-37754000', v:false },
+      { n:'بیمارستان میلاد', c:'قم', a:'خیابان میلاد', p:'025-37730000', v:false },
+    ]
+  },
+
+  'کردستان': {
+    capital: 'سنندج', warn: '⚠️ نزدیکی به مرز عراق',
+    rc: 'هلال احمر کردستان — ۰۸۷-۳۳۲۷۸۳۸۳',
+    shelter: ['پناهگاه‌های کوهستانی زاگرس','ساختمان‌های دولتی مرکز سنندج','غارهای طبیعی منطقه'],
+    hospitals: [
+      { n:'بیمارستان توحید', c:'سنندج', a:'خیابان پاسداران', p:'087-33665555', v:false },
+      { n:'بیمارستان بعثت', c:'سنندج', a:'خیابان بعثت', p:'087-33621000', v:false },
+      { n:'بیمارستان قدس', c:'سنندج', a:'خیابان قدس', p:'087-33660000', v:false },
+      { n:'بیمارستان امام خمینی', c:'بانه', a:'بانه', p:'087-35220000', v:false },
+      { n:'بیمارستان امام خمینی', c:'مریوان', a:'مریوان', p:'087-34220000', v:false },
+    ]
+  },
+
+  'کرمان': {
+    capital: 'کرمان', warn: '',
+    rc: 'هلال احمر کرمان — ۰۳۴-۳۲۴۵۵۵۵۵',
+    shelter: ['پارکینگ‌های زیرزمینی مرکز شهر','بازار سنتی کرمان','ساختمان‌های دولتی'],
+    hospitals: [
+      { n:'بیمارستان شفا', c:'کرمان', a:'خیابان هزار دستگاه', p:'034-31320000', v:false },
+      { n:'بیمارستان باهنر', c:'کرمان', a:'خیابان جهاد', p:'034-31440000', v:false },
+      { n:'بیمارستان افضلی‌پور', c:'کرمان', a:'میدان شهدا', p:'034-31340000', v:false },
+      { n:'بیمارستان امام علی', c:'جیرفت', a:'جیرفت', p:'034-43221000', v:false },
+    ]
+  },
+
+  'کرمانشاه': {
+    capital: 'کرمانشاه', warn: '⚠️ نزدیکی به مرز عراق — منطقه لرزه‌خیز',
+    rc: 'هلال احمر کرمانشاه — ۰۸۳-۳۷۲۶۳۰۳۰',
+    shelter: ['پناهگاه‌های کوهستانی زاگرس','غارهای طبیعی (غار قوری قلعه)','ساختمان‌های دولتی مرکز شهر'],
+    hospitals: [
+      { n:'بیمارستان امام علی', c:'کرمانشاه', a:'بلوار دولت', p:'083-38360000', v:false },
+      { n:'بیمارستان طالقانی', c:'کرمانشاه', a:'خیابان طالقانی', p:'083-38380000', v:false },
+      { n:'بیمارستان امام خمینی', c:'کرمانشاه', a:'میدان آزادی', p:'083-38350000', v:false },
+      { n:'بیمارستان فارابی', c:'کرمانشاه', a:'خیابان فارابی', p:'083-38340000', v:false },
+    ]
+  },
+
+  'کهگیلویه و بویراحمد': {
+    capital: 'یاسوج', warn: '',
+    rc: 'هلال احمر کهگیلویه و بویراحمد — ۰۷۴-۳۳۳۳۴۴۴۴',
+    shelter: ['پناهگاه‌های کوهستانی زاگرس جنوبی','ساختمان‌های دولتی مرکز شهر'],
+    hospitals: [
+      { n:'بیمارستان مدنی', c:'یاسوج', a:'خیابان مدنی', p:'074-33331911', v:false },
+      { n:'بیمارستان امام خمینی', c:'یاسوج', a:'خیابان امام', p:'074-33220000', v:false },
+    ]
+  },
+
+  'گلستان': {
+    capital: 'گرگان', warn: '⚠️ نزدیکی به مرز ترکمنستان',
+    rc: 'هلال احمر گلستان — ۰۱۷-۳۲۲۳۵۵۵۵',
+    shelter: ['ساختمان‌های دولتی گرگان','پارکینگ‌های زیرزمینی مراکز خرید'],
+    hospitals: [
+      { n:'بیمارستان صیاد شیرازی', c:'گرگان', a:'خیابان شهید صیاد شیرازی', p:'017-32250000', v:false },
+      { n:'بیمارستان دکتر پنجه‌شاهی', c:'گرگان', a:'خیابان ولیعصر', p:'017-32420000', v:false },
+      { n:'بیمارستان امام علی', c:'گنبدکاووس', a:'گنبدکاووس', p:'017-34280000', v:false },
+      { n:'بیمارستان طالقانی', c:'علی‌آباد', a:'علی‌آباد کتول', p:'017-34522000', v:false },
+    ]
+  },
+
+  'گیلان': {
+    capital: 'رشت', warn: '',
+    rc: 'هلال احمر گیلان — ۰۱۳-۳۳۲۴۱۴۱۴',
+    shelter: ['ساختمان‌های بتونی — مراقب لغزندگی','پارکینگ‌های زیرزمینی مراکز خرید رشت'],
+    hospitals: [
+      { n:'بیمارستان رازی', c:'رشت', a:'خیابان رازی', p:'013-33220022', v:false },
+      { n:'بیمارستان الزهرا', c:'رشت', a:'بلوار نماز', p:'013-33244000', v:false },
+      { n:'بیمارستان ولیعصر', c:'رشت', a:'خیابان لاکانی', p:'013-33200000', v:false },
+      { n:'بیمارستان شهید بهشتی', c:'رشت', a:'خیابان شهید بهشتی', p:'013-33226000', v:false },
+      { n:'بیمارستان امام خمینی', c:'بندرانزلی', a:'بندرانزلی', p:'013-44422000', v:false },
+    ]
+  },
+
+  'لرستان': {
+    capital: 'خرم‌آباد', warn: '⚠️ منطقه لرزه‌خیز',
+    rc: 'هلال احمر لرستان — ۰۶۶-۳۳۲۴۲۲۲۲',
+    shelter: ['پناهگاه‌های کوهستانی زاگرس','دور از دره‌ها و مسیل‌ها (خطر سیل)'],
+    hospitals: [
+      { n:'بیمارستان شهید مدنی', c:'خرم‌آباد', a:'بلوار شهید مدنی', p:'066-33200000', v:false },
+      { n:'بیمارستان شهید رحیمی', c:'خرم‌آباد', a:'خیابان شهید رحیمی', p:'066-33244000', v:false },
+      { n:'بیمارستان امام رضا', c:'بروجرد', a:'بروجرد', p:'066-34240000', v:false },
+    ]
+  },
+
+  'مازندران': {
+    capital: 'ساری', warn: '',
+    rc: 'هلال احمر مازندران — ۰۱۱-۳۳۲۲۰۲۰۲',
+    shelter: ['ساختمان‌های بتونی — دور از خط ساحل','پناهگاه‌های کوهستانی البرز شمالی'],
+    hospitals: [
+      { n:'بیمارستان بوعلی‌سینا', c:'ساری', a:'خیابان طالب‌آملی', p:'011-33304004', v:false },
+      { n:'بیمارستان امیرمازندرانی', c:'ساری', a:'خیابان امیرکبیر', p:'011-33350000', v:false },
+      { n:'بیمارستان شهید بهشتی', c:'بابل', a:'بابل', p:'011-32280000', v:false },
+      { n:'بیمارستان امام خمینی', c:'آمل', a:'آمل، خیابان امام', p:'011-44222000', v:false },
+    ]
+  },
+
+  'مرکزی': {
+    capital: 'اراک', warn: '',
+    rc: 'هلال احمر مرکزی — ۰۸۶-۳۲۲۳۱۱۱۱',
+    shelter: ['پارکینگ‌های زیرزمینی مراکز اداری','ساختمان‌های دولتی بتونی'],
+    hospitals: [
+      { n:'بیمارستان امام خمینی', c:'اراک', a:'میدان امام', p:'086-34173000', v:false },
+      { n:'بیمارستان ولیعصر', c:'اراک', a:'خیابان ولیعصر', p:'086-34170000', v:false },
+      { n:'بیمارستان امیرکبیر', c:'اراک', a:'خیابان امیرکبیر', p:'086-34171000', v:false },
+      { n:'بیمارستان امام علی', c:'ساوه', a:'ساوه', p:'086-42222000', v:false },
+    ]
+  },
+
+  'هرمزگان': {
+    capital: 'بندرعباس', warn: '🔴 ساحل تنگه هرمز — منطقه حساس استراتژیک',
+    rc: 'هلال احمر هرمزگان — ۰۷۶-۳۳۵۵۲۵۲۵',
+    shelter: ['ساختمان‌های بتونی دور از خط ساحلی','پارکینگ‌های زیرزمینی مراکز خرید'],
+    hospitals: [
+      { n:'بیمارستان شهید محمدی', c:'بندرعباس', a:'بلوار امام خمینی', p:'076-33555555', v:false },
+      { n:'بیمارستان خلیج فارس', c:'بندرعباس', a:'خیابان امام', p:'076-33520000', v:false },
+      { n:'بیمارستان ارتش', c:'بندرعباس', a:'خیابان ارتش', p:'076-33530000', v:false },
+      { n:'بیمارستان سلمان فارسی', c:'بندرعباس', a:'بندرعباس', p:'076-33540000', v:false },
+    ]
+  },
+
+  'همدان': {
+    capital: 'همدان', warn: '',
+    rc: 'هلال احمر همدان — ۰۸۱-۳۸۲۶۶۶۶۶',
+    shelter: ['پناهگاه‌های غار طبیعی (غار علیصدر)','تونل‌های منطقه','دامنه‌های کوه الوند'],
+    hospitals: [
+      { n:'بیمارستان بعثت', c:'همدان', a:'خیابان بعثت', p:'081-38381111', v:false },
+      { n:'بیمارستان شهید بهشتی', c:'همدان', a:'خیابان شهید بهشتی', p:'081-38270000', v:false },
+      { n:'بیمارستان فرشچیان', c:'همدان', a:'خیابان فرشچیان', p:'081-38450000', v:false },
+    ]
+  },
+
+  'یزد': {
+    capital: 'یزد', warn: '',
+    rc: 'هلال احمر یزد — ۰۳۵-۳۶۲۷۲۷۲۷',
+    shelter: ['بافت تاریخی یزد — زیرزمین‌های شبکه قنات','قنات‌های قدیمی (عمق ۱۰-۳۰ متر)','ساختمان‌های دولتی مرکز شهر'],
+    hospitals: [
+      { n:'بیمارستان شهید صدوقی', c:'یزد', a:'بلوار شهید صدوقی', p:'035-38201000', v:false },
+      { n:'بیمارستان بهشتی', c:'یزد', a:'خیابان بهشتی', p:'035-38250000', v:false },
+      { n:'بیمارستان افشار', c:'یزد', a:'خیابان افشار', p:'035-38270000', v:false },
+    ]
+  }
+
+}; // END PROVINCES
+
+/* ============================================================
+   CORE FUNCTIONS
+   ============================================================ */
+const TOTAL_CHK = 24;
+let currentProv = 'تهران';
 
 function go(idx) {
- document.querySelectorAll('.pg').forEach((p,i) => p.classList.toggle('on', i===idx));
- document.querySelectorAll('.nb').forEach((b,i) => b.classList.toggle('on', i===idx));
- window.scrollTo({top:0, behavior:'smooth'});
+  document.querySelectorAll('.pg').forEach((p,i) => p.classList.toggle('on', i===idx));
+  document.querySelectorAll('.nb').forEach((b,i) => b.classList.toggle('on', i===idx));
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 
-function ta(h) {
- h.parentElement.classList.toggle('on');
-}
+function ta(h) { h.parentElement.classList.toggle('on'); }
 
 function ck(input, key) {
- const lbl = input.parentElement;
- if (input.checked) {
- lbl.classList.add('done');
- try { localStorage.setItem('chk_'+key,'1'); } catch(e){}
- } else {
- lbl.classList.remove('done');
- try { localStorage.removeItem('chk_'+key); } catch(e){}
- }
- updateProg();
+  const lbl = input.parentElement;
+  lbl.classList.toggle('done', input.checked);
+  try { input.checked ? localStorage.setItem('chk_'+key,'1') : localStorage.removeItem('chk_'+key); } catch(e){}
+  updateProg();
 }
 
 function updateProg() {
- const done = document.querySelectorAll('.cli.done').length;
- const pct = Math.round((done/TOTAL_CHK)*100);
- document.getElementById('pb').style.width = pct+'%';
- document.getElementById('pt').textContent = `${done} از ${TOTAL_CHK} آیتم تکمیل شده (${pct}٪)`;
+  const done = document.querySelectorAll('.cli.done').length;
+  const pct = Math.round((done/TOTAL_CHK)*100);
+  document.getElementById('pb').style.width = pct+'%';
+  document.getElementById('pt').textContent = `${done} از ${TOTAL_CHK} آیتم تکمیل شده (${pct}٪)`;
 }
 
 function loadChecklist() {
- document.querySelectorAll('.cli').forEach(l => {
- const k = l.dataset.k;
- try {
- if (localStorage.getItem('chk_'+k)) {
- l.classList.add('done');
- l.querySelector('input').checked = true;
- }
- } catch(e) {}
- });
- updateProg();
+  document.querySelectorAll('.cli').forEach(l => {
+    const k = l.dataset.k;
+    try { if (localStorage.getItem('chk_'+k)) { l.classList.add('done'); l.querySelector('input').checked = true; } } catch(e){}
+  });
+  updateProg();
 }
 
 function sv(key) {
- try { localStorage.setItem('note_'+key, document.getElementById(key+'-ta').value); } catch(e){}
- const n = document.getElementById(key+'-saved');
- n.style.display = 'block';
- setTimeout(() => n.style.display='none', 2000);
+  try { localStorage.setItem('note_'+key, document.getElementById(key+'-ta').value); } catch(e){}
+  const n = document.getElementById(key+'-saved');
+  n.style.display = 'block';
+  setTimeout(() => n.style.display='none', 2000);
 }
 
 function loadNotes() {
- ['contacts','addresses','medical','free'].forEach(k => {
- try {
- const v = localStorage.getItem('note_'+k);
- if (v) document.getElementById(k+'-ta').value = v;
- } catch(e) {}
- });
+  ['contacts','addresses','medical','free'].forEach(k => {
+    try { const v = localStorage.getItem('note_'+k); if (v) document.getElementById(k+'-ta').value = v; } catch(e){}
+  });
 }
 
-// 
-// CITY SELECTOR
-// 
-function buildSelector() {
- const grid = document.getElementById('csel');
- grid.innerHTML = '';
- Object.keys(PROVINCES).forEach(prov => {
- const d = PROVINCES[prov];
- const btn = document.createElement('button');
- btn.className = 'csb';
- btn.dataset.prov = prov;
- btn.innerHTML = `<div style="font-weight:800;font-size:12px">${prov}</div><div style="font-size:10px;color:var(--txt2);margin-top:2px">${d.capital}</div>`;
- btn.onclick = () => selectProv(prov);
- grid.appendChild(btn);
- });
+/* ============================================================
+   HOSPITAL FUNCTIONS (v3.0)
+   ============================================================ */
+function buildProvSelector() {
+  const grid = document.getElementById('prov-sel');
+  grid.innerHTML = '';
+  Object.keys(PROVINCES).forEach(prov => {
+    const d = PROVINCES[prov];
+    const btn = document.createElement('button');
+    btn.className = 'csb' + (prov === currentProv ? ' sel' : '');
+    btn.dataset.prov = prov;
+    btn.innerHTML = `<div style="font-weight:800;font-size:12px">${prov}</div><div style="font-size:10px;color:var(--txt2);margin-top:2px">${d.capital}</div>`;
+    btn.onclick = () => {
+      currentProv = prov;
+      document.querySelectorAll('.csb').forEach(b => b.classList.toggle('sel', b.dataset.prov===prov));
+      renderHospitals(prov);
+      setTimeout(() => document.getElementById('hosp-detail').scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+    };
+    grid.appendChild(btn);
+  });
 }
 
-function selectProv(prov) {
- document.querySelectorAll('.csb').forEach(b => b.classList.toggle('sel', b.dataset.prov===prov));
- renderCity(prov);
- setTimeout(() => {
- document.getElementById('city-detail').scrollIntoView({behavior:'smooth', block:'nearest'});
- }, 50);
+function filterHosp(query) {
+  const q = query.trim().toLowerCase();
+  document.querySelectorAll('.csb').forEach(btn => {
+    const d = PROVINCES[btn.dataset.prov];
+    const match = !q || btn.dataset.prov.toLowerCase().includes(q) ||
+      d.capital.toLowerCase().includes(q) ||
+      d.hospitals.some(h => h.n.includes(q) || h.c.includes(q));
+    btn.style.display = match ? '' : 'none';
+  });
+  if (q) renderHospSearch(q);
+  else renderHospitals(currentProv);
 }
 
-function filterCities(query) {
- const q = query.trim().toLowerCase();
- document.querySelectorAll('.csb').forEach(btn => {
- const match = btn.dataset.prov.toLowerCase().includes(q) ||
- PROVINCES[btn.dataset.prov].capital.toLowerCase().includes(q);
- btn.style.display = match ? '' : 'none';
- });
+function renderHospSearch(q) {
+  let html = '';
+  let count = 0;
+  Object.keys(PROVINCES).forEach(prov => {
+    const d = PROVINCES[prov];
+    const matches = d.hospitals.filter(h => h.n.includes(q) || h.c.includes(q) || prov.includes(q) || d.capital.includes(q));
+    if (matches.length) {
+      html += `<div style="font-size:11px;color:var(--txt2);font-weight:800;padding:8px 0 4px;letter-spacing:.04em">${prov} — ${d.capital}</div>`;
+      matches.forEach(h => { html += hospRowHTML(h); count++; });
+    }
+  });
+  document.getElementById('hosp-detail').innerHTML =
+    `<div class="count-badge" style="margin-bottom:10px">🔍 ${count} نتیجه</div>` +
+    (html || '<div class="bx bxo">نتیجه‌ای یافت نشد</div>');
 }
 
-function renderCity(prov) {
- const d = PROVINCES[prov];
- if (!d) return;
- const warnHTML = d.warn ? `<span class="tag tr">${d.warn}</span>` : '';
- document.getElementById('city-detail').innerHTML = `
- <div class="city-card">
- <div class="city-name"> ${prov} ${warnHTML}</div>
- <div class="info-r"><span class="info-l">مرکز:</span><span>${d.capital}</span></div>
- <div class="info-r"><span class="info-l">جمعیت:</span><span>${d.pop}</span></div>
- <div class="info-r"><span class="info-l">مساحت:</span><span>${d.area}</span></div>
- <div class="info-r"><span class="info-l">هلال احمر:</span><span style="font-size:12px">${d.rc}</span></div>
- <hr>
- <div style="font-weight:800;margin-bottom:10px;font-size:13px;color:var(--txt)"> بیمارستان‌های اصلی</div>
- ${d.hospitals.map(h => {
- const parts = h.split('—');
- if (parts.length >= 3) {
- const phone = parts[parts.length - 1].trim();
- const rest = parts.slice(0, -1).map(p => p.trim()).join(' — ');
- return `<div class="bx bxg" style="margin-bottom:6px;font-size:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><span> ${rest}</span><span style="direction:ltr;font-family:'Courier New',monospace;color:var(--grn2);font-weight:700;white-space:nowrap;font-size:12px">${phone}</span></div>`;
- }
- return `<div class="bx bxg" style="margin-bottom:6px;font-size:12px"> ${h}</div>`;
- }).join('')}
- <div style="font-weight:800;margin:12px 0 10px;font-size:13px;color:var(--txt)"> پناهگاه‌های موقت</div>
- ${d.shelter.map(s=>`<div class="bx bxb" style="margin-bottom:6px;font-size:12px"> ${s}</div>`).join('')}
- </div>
- `;
+function hospRowHTML(h) {
+  const vBadge = h.v
+    ? `<span class="v-badge">✓ تأیید شده</span>`
+    : `<span class="u-badge">نیاز به تأیید</span>`;
+  return `
+    <div class="hosp-row">
+      <div class="hosp-info">
+        <div class="hosp-name">${h.n} ${vBadge}</div>
+        ${h.a ? `<div class="hosp-addr">📍 ${h.a}</div>` : ''}
+        <div class="hosp-city">🏙️ ${h.c}</div>
+      </div>
+      <a href="tel:${h.p}" class="hosp-phone">📞 ${h.p}</a>
+    </div>`;
 }
 
-// 
-// BOOT
-// 
+function renderHospitals(prov) {
+  const d = PROVINCES[prov];
+  if (!d) return;
+  const verified = d.hospitals.filter(h => h.v).length;
+  const total = d.hospitals.length;
+  const warnHTML = d.warn ? `<span class="tag tr">${d.warn}</span>` : '';
+
+  document.getElementById('hosp-detail').innerHTML = `
+    <div class="city-card">
+      <div class="city-name">${prov} ${warnHTML}</div>
+      <div class="info-r"><span class="info-l">مرکز:</span><span>${d.capital}</span></div>
+      <div class="info-r"><span class="info-l">هلال احمر:</span><span style="font-size:11px;unicode-bidi:plaintext">${d.rc}</span></div>
+
+      <hr>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+        <div style="font-weight:800;font-size:13px;color:var(--txt)">🏥 بیمارستان‌ها</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span class="v-badge">✓ ${verified} تأیید شده</span>
+          ${total-verified ? `<span class="u-badge">${total-verified} نیاز به تأیید</span>` : ''}
+          <span class="count-badge">${total} کل</span>
+        </div>
+      </div>
+      ${d.hospitals.map(h => hospRowHTML(h)).join('')}
+
+      <div style="margin-top:16px">
+        <div style="font-weight:800;font-size:13px;color:var(--txt);margin-bottom:8px">🏚️ پناهگاه‌های موقت</div>
+        ${d.shelter.map(s => `<div class="bx bxb" style="margin-bottom:6px;font-size:12px">📍 ${s}</div>`).join('')}
+      </div>
+
+      <div class="contrib-bar" style="margin-top:14px;margin-bottom:0">
+        <span class="contrib-text">➕ اطلاعات اشتباه دیدید یا بیمارستان جدید می‌شناسید؟</span>
+        <a href="https://github.com/MR-Amouei/Panah/issues/new" target="_blank">گزارش / مشارکت ↗</a>
+      </div>
+    </div>`;
+}
+
+/* ============================================================
+   BOOT
+   ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
- loadChecklist();
- loadNotes();
- buildSelector();
- renderCity('تهران');
- if ('serviceWorker' in navigator) {
- navigator.serviceWorker.register('sw.js').catch(() => {});
- }
+  loadChecklist();
+  loadNotes();
+  buildProvSelector();
+  renderHospitals('تهران');
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 });
 </script>
 </body>
