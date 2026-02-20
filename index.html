@@ -58,6 +58,9 @@
   --transition: all .2s cubic-bezier(.4,0,.2,1);
   --shadow: 0 4px 24px rgba(0,0,0,.35);
   --shadow-lg: 0 8px 40px rgba(0,0,0,.5);
+  --header-bg: rgba(8,8,16,.9);
+  --nav-bg: rgba(15,15,26,.95);
+  --sidebar-bg: rgba(7,7,15,.98);
 }
 
 /* ===== LIGHT THEME ===== */
@@ -92,6 +95,9 @@
 
   --shadow: 0 4px 24px rgba(0,0,0,.10);
   --shadow-lg: 0 8px 40px rgba(0,0,0,.15);
+  --header-bg: rgba(240,240,248,.92);
+  --nav-bg: rgba(247,247,252,.97);
+  --sidebar-bg: rgba(247,247,252,.99);
 }
 
 /* ===== THEME TOGGLE BUTTON ===== */
@@ -195,7 +201,7 @@ body {
    HEADER
    ============================================================ */
 header {
-  background: rgba(8,8,16,.9);
+  background: var(--header-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--bd);
@@ -258,7 +264,7 @@ header {
    NAVIGATION
    ============================================================ */
 nav {
-  background: rgba(15,15,26,.95);
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--bd);
   display: flex;
@@ -702,11 +708,9 @@ textarea::placeholder { color: var(--txt2); opacity: .6; }
    LIGHT MODE OVERRIDES
    ============================================================ */
 [data-theme="light"] header {
-  background: rgba(240,240,248,.92);
   border-bottom-color: var(--bd);
 }
 [data-theme="light"] nav {
-  background: rgba(247,247,252,.95);
   border-bottom-color: var(--bd);
 }
 [data-theme="light"] .abar {
@@ -824,7 +828,7 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
     scrollbar-width: thin;
     scrollbar-color: var(--bd2) transparent;
     z-index: 350;
-    background: rgba(7,7,15,.98);
+    background: var(--sidebar-bg);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     padding: 0;
@@ -843,7 +847,7 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
     flex-shrink: 0;
     position: sticky;
     top: 0;
-    background: rgba(7,7,15,.98);
+    background: var(--sidebar-bg);
     z-index: 2;
   }
   .nav-logo-icon {
@@ -866,7 +870,7 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
     margin-top: auto;
     border-top: 1px solid var(--bd);
     flex-shrink: 0;
-    background: rgba(7,7,15,.98);
+    background: var(--sidebar-bg);
     position: sticky;
     bottom: 0;
   }
