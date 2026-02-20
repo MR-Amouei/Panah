@@ -1,17 +1,42 @@
 {
   "name": "پناه — راهنمای اضطراری",
   "short_name": "پناه",
-  "description": "راهنمای آفلاین اضطراری — جنگ و قطعی اینترنت",
-  "start_url": "/index.html",
+  "description": "راهنمای اضطراری — اطلاعات بیمارستان، پناهگاه و اقدامات بحران",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#0a0a0f",
-  "theme_color": "#e84444",
+  "background_color": "#080810",
+  "theme_color": "#080810",
   "lang": "fa",
   "dir": "rtl",
-  "icons": [
-    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
-    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"}
-  ],
+  "orientation": "portrait-primary",
   "categories": ["medical", "utilities"],
-  "screenshots": []
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "اورژانس",
+      "short_name": "اورژانس",
+      "description": "شماره‌های اضطراری",
+      "url": "./index.html#emergency"
+    },
+    {
+      "name": "بیمارستان‌ها",
+      "short_name": "بیمارستان",
+      "description": "پیدا کردن بیمارستان",
+      "url": "./index.html#hospitals"
+    }
+  ]
 }
