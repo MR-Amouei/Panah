@@ -3,9 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#080810">
+<meta name="theme-color" content="#080810" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f0f0f8" media="(prefers-color-scheme: light)">
+<meta id="theme-color-meta" name="theme-color" content="#080810">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="پناه">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="پناه">
+<meta name="description" content="راهنمای اضطراری — اطلاعات بیمارستان، پناهگاه و اقدامات بحران">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
 <title>پناه — راهنمای اضطراری</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +23,7 @@
    DESIGN TOKENS
    ============================================================ */
 :root {
+  /* ===== DARK (default) ===== */
   --bg: #080810;
   --s1: #0f0f1a;
   --s2: #161625;
@@ -49,6 +58,117 @@
   --transition: all .2s cubic-bezier(.4,0,.2,1);
   --shadow: 0 4px 24px rgba(0,0,0,.35);
   --shadow-lg: 0 8px 40px rgba(0,0,0,.5);
+}
+
+/* ===== LIGHT THEME ===== */
+[data-theme="light"] {
+  --bg: #f0f0f8;
+  --s1: #ffffff;
+  --s2: #f7f7fc;
+  --s3: #ededf5;
+  --bd: #d8d8e8;
+  --bd2: #c0c0d8;
+
+  --red: #d62828;
+  --red2: #e63946;
+  --ora: #d97706;
+  --ora2: #b45309;
+  --grn: #059669;
+  --grn2: #047857;
+  --blu: #2563eb;
+  --blu2: #1d4ed8;
+
+  --txt: #1a1a2e;
+  --txt2: #5a5a7a;
+
+  --rbg: rgba(214,40,40,.08);
+  --rbg2: rgba(214,40,40,.15);
+  --obg: rgba(217,119,6,.08);
+  --obg2: rgba(217,119,6,.15);
+  --gbg: rgba(5,150,105,.08);
+  --gbg2: rgba(5,150,105,.15);
+  --bbg: rgba(37,99,235,.08);
+  --bbg2: rgba(37,99,235,.15);
+
+  --shadow: 0 4px 24px rgba(0,0,0,.10);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,.15);
+}
+
+/* ===== THEME TOGGLE BUTTON ===== */
+#theme-btn {
+  background: var(--s2);
+  border: 1px solid var(--bd);
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 16px;
+  flex-shrink: 0;
+  color: var(--txt2);
+  transition: transform .3s ease, background .25s ease, border-color .25s ease !important;
+}
+#theme-btn:hover {
+  border-color: var(--bd2);
+  background: var(--s3);
+  transform: rotate(20deg) scale(1.1);
+}
+
+/* ============================================================
+   PWA — INSTALL BANNER
+   ============================================================ */
+#pwa-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+  background: var(--s2); border-top: 1px solid var(--bd2);
+  padding: 14px 16px;
+  display: none; align-items: center; gap: 12px;
+  box-shadow: 0 -4px 24px rgba(0,0,0,.5);
+  animation: slideUp .3s cubic-bezier(.4,0,.2,1);
+}
+#pwa-banner.show { display: flex; }
+@keyframes slideUp { from{transform:translateY(100%)} to{transform:translateY(0)} }
+.pwa-icon { font-size: 28px; flex-shrink: 0; }
+.pwa-text { flex: 1; }
+.pwa-text strong { display: block; font-size: 13px; font-weight: 800; color: var(--txt); }
+.pwa-text span { font-size: 11px; color: var(--txt2); }
+.pwa-btn {
+  background: var(--red); color: #fff; border: none;
+  border-radius: var(--radius-sm); padding: 9px 16px;
+  font-family: var(--font); font-size: 12px; font-weight: 800;
+  cursor: pointer; white-space: nowrap; flex-shrink: 0;
+  transition: var(--transition);
+}
+.pwa-btn:hover { background: var(--red2); }
+.pwa-close {
+  background: none; border: none; color: var(--txt2);
+  font-size: 18px; cursor: pointer; padding: 4px; flex-shrink: 0;
+  transition: color .2s;
+}
+.pwa-close:hover { color: var(--txt); }
+
+/* PWA — OFFLINE BAR */
+#offline-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9998;
+  background: rgba(245,158,11,.15); border-bottom: 1px solid rgba(245,158,11,.4);
+  padding: 7px 16px; text-align: center;
+  font-size: 11px; font-weight: 700; color: var(--ora2);
+  display: none; align-items: center; justify-content: center; gap: 7px;
+}
+#offline-bar.show { display: flex; }
+
+/* PWA — UPDATE TOAST */
+#update-toast {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+  z-index: 9999; background: var(--s3); border: 1px solid var(--blu);
+  border-radius: var(--radius); padding: 12px 18px;
+  display: none; align-items: center; gap: 10px;
+  box-shadow: var(--shadow-lg); white-space: nowrap;
+}
+#update-toast.show { display: flex; }
+#update-toast span { font-size: 12px; color: var(--txt2); }
+#update-toast button {
+  background: var(--blu); color: #fff; border: none;
+  border-radius: var(--radius-sm); padding: 6px 14px;
+  font-family: var(--font); font-size: 12px; font-weight: 800;
+  cursor: pointer;
 }
 
 /* ============================================================
@@ -579,6 +699,46 @@ textarea::placeholder { color: var(--txt2); opacity: .6; }
 }
 
 /* ============================================================
+   LIGHT MODE OVERRIDES
+   ============================================================ */
+[data-theme="light"] header {
+  background: rgba(240,240,248,.92);
+  border-bottom-color: var(--bd);
+}
+[data-theme="light"] nav {
+  background: rgba(247,247,252,.95);
+  border-bottom-color: var(--bd);
+}
+[data-theme="light"] .abar {
+  background: linear-gradient(90deg, rgba(214,40,40,.10), rgba(214,40,40,.05));
+  border-bottom-color: rgba(214,40,40,.25);
+}
+[data-theme="light"] .hosp-row { background: var(--s1); }
+[data-theme="light"] .v-badge {
+  background: rgba(5,150,105,.10);
+  border-color: rgba(5,150,105,.25);
+  color: var(--grn);
+}
+[data-theme="light"] .u-badge {
+  background: rgba(217,119,6,.10);
+  border-color: rgba(217,119,6,.25);
+  color: var(--ora);
+}
+[data-theme="light"] .count-badge {
+  background: rgba(37,99,235,.08);
+  border-color: rgba(37,99,235,.2);
+  color: var(--blu);
+}
+[data-theme="light"] #pwa-banner {
+  box-shadow: 0 -4px 24px rgba(0,0,0,.12);
+}
+[data-theme="light"] .nb.on {
+  color: var(--red);
+  border-bottom-color: var(--red);
+  background: linear-gradient(0deg, rgba(214,40,40,.08), transparent);
+}
+
+/* ============================================================
    MISC
    ============================================================ */
 .freq-badge {
@@ -866,6 +1026,7 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
       <span class="logo-sub">راهنمای اضطراری</span>
     </div>
   </div>
+  <button id="theme-btn" onclick="toggleTheme()" title="تغییر تم">🌙</button>
 </header>
 
 <div class="abar">
@@ -1879,13 +2040,165 @@ function renderHospitals(prov) {
 /* ============================================================
    BOOT
    ============================================================ */
+// تم رو قبل از رندر اعمال کن تا فلش نشه
+(function() {
+  let t = 'dark';
+  try { t = localStorage.getItem('theme') || 'dark'; } catch(e){}
+  if (t === 'light') document.documentElement.dataset.theme = 'light';
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
+  loadTheme();
   loadChecklist();
   loadNotes();
   buildProvSelector();
   renderHospitals('تهران');
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+  initPWA();
 });
+
+/* ============================================================
+   PWA — INSTALL + OFFLINE + UPDATE
+   ============================================================ */
+let deferredPrompt = null;
+
+function initPWA() {
+  // Service Worker
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').then(reg => {
+      reg.addEventListener('updatefound', () => {
+        const newSW = reg.installing;
+        newSW.addEventListener('statechange', () => {
+          if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+            showUpdateToast(newSW);
+          }
+        });
+      });
+    }).catch(() => {});
+  }
+
+  // Offline / Online detection
+  function updateOnlineStatus() {
+    const bar = document.getElementById('offline-bar');
+    if (!navigator.onLine) bar.classList.add('show');
+    else bar.classList.remove('show');
+  }
+  window.addEventListener('online', updateOnlineStatus);
+  window.addEventListener('offline', updateOnlineStatus);
+  updateOnlineStatus();
+
+  // Install prompt
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const dismissed = localStorage.getItem('pwa_dismissed');
+    if (!dismissed) showInstallBanner();
+  });
+
+  window.addEventListener('appinstalled', () => {
+    hidePWABanner();
+    deferredPrompt = null;
+  });
+}
+
+function showInstallBanner() {
+  document.getElementById('pwa-banner').classList.add('show');
+}
+
+function hidePWABanner() {
+  document.getElementById('pwa-banner').classList.remove('show');
+}
+
+function installPWA() {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(choice => {
+    if (choice.outcome === 'accepted') hidePWABanner();
+    deferredPrompt = null;
+  });
+}
+
+function dismissPWA() {
+  hidePWABanner();
+  try { localStorage.setItem('pwa_dismissed', '1'); } catch(e){}
+}
+
+function showUpdateToast(newSW) {
+  const toast = document.getElementById('update-toast');
+  toast.classList.add('show');
+  toast.querySelector('button').onclick = () => {
+    newSW.postMessage({ type: 'SKIP_WAITING' });
+    window.location.reload();
+  };
+}
+
+/* ============================================================
+   THEME — LIGHT / DARK TOGGLE
+   ============================================================ */
+function toggleTheme() {
+  const html = document.documentElement;
+  const isLight = html.dataset.theme === 'light';
+  const newTheme = isLight ? 'dark' : 'light';
+  applyTheme(newTheme);
+  try { localStorage.setItem('theme', newTheme); } catch(e) {}
+}
+
+function applyTheme(theme) {
+  const html = document.documentElement;
+  const btn = document.getElementById('theme-btn');
+  const meta = document.getElementById('theme-color-meta');
+
+  if (theme === 'light') {
+    html.dataset.theme = 'light';
+    if (btn) btn.textContent = '☀️';
+    if (meta) meta.content = '#f0f0f8';
+  } else {
+    delete html.dataset.theme;
+    if (btn) btn.textContent = '🌙';
+    if (meta) meta.content = '#080810';
+  }
+}
+
+function loadTheme() {
+  let theme = 'dark';
+  try { theme = localStorage.getItem('theme') || 'dark'; } catch(e) {}
+  // اگر ذخیره نشده، از تنظیمات سیستم استفاده کن
+  if (!localStorage.getItem('theme')) {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      theme = 'light';
+    }
+  }
+  applyTheme(theme);
+  // گوش دادن به تغییر تنظیمات سیستم
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+    try {
+      if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'light' : 'dark');
+    } catch(ex) {}
+  });
+}
 </script>
+
+<!-- ===== OFFLINE BAR ===== -->
+<div id="offline-bar">
+  <span>📡</span>
+  <span>اتصال اینترنت قطع است — اطلاعات کش‌شده در دسترس هستند</span>
+</div>
+
+<!-- ===== PWA INSTALL BANNER ===== -->
+<div id="pwa-banner">
+  <span class="pwa-icon">🛡️</span>
+  <div class="pwa-text">
+    <strong>پناه را نصب کنید</strong>
+    <span>دسترسی سریع + کار آفلاین بدون نیاز به اینترنت</span>
+  </div>
+  <button class="pwa-btn" onclick="installPWA()">نصب</button>
+  <button class="pwa-close" onclick="dismissPWA()" title="بستن">✕</button>
+</div>
+
+<!-- ===== UPDATE TOAST ===== -->
+<div id="update-toast">
+  <span>🔄 نسخه جدید در دسترس است</span>
+  <button>به‌روزرسانی</button>
+</div>
+
 </body>
 </html>
