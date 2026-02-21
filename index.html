@@ -1896,6 +1896,20 @@ const PROVINCES = {
 }; // END PROVINCES
 
 /* ============================================================
+   DATA VERSION — خودکار از روی محتوای داده‌ها محاسبه می‌شه
+   نیازی به تغییر دستی نیست — هر بار داده عوض بشه، ورژن عوض میشه
+   ============================================================ */
+function hashString(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash).toString(36);
+}
+const DATA_VERSION = hashString(JSON.stringify(PROVINCES));
+
+/* ============================================================
    CORE FUNCTIONS
    ============================================================ */
 const TOTAL_CHK = 24;
@@ -2057,6 +2071,7 @@ function renderHospitals(prov) {
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
+  checkDataVersion();
   loadTheme();
   loadChecklist();
   loadNotes();
@@ -2066,6 +2081,50 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ============================================================
+   DATA VERSION CHECK — آپدیت خودکار وقتی اطلاعات تغییر می‌کنه
+   ============================================================ */
+function checkDataVersion() {
+  try {
+    const storedVersion = localStorage.getItem('data_version');
+    if (storedVersion && storedVersion !== DATA_VERSION) {
+      // ورژن جدیده — Service Worker رو آپدیت کن و صفحه رو رفرش کن
+      localStorage.setItem('data_version', DATA_VERSION);
+      forceUpdate();
+      return;
+    }
+    // اولین بار یا همون ورژن
+    localStorage.setItem('data_version', DATA_VERSION);
+  } catch(e) {}
+}
+
+function forceUpdate() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistration().then(reg => {
+      if (reg) {
+        // SW در حال انتظار رو فعال کن
+        if (reg.waiting) {
+          reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+        }
+        // Cache پروگرام رو پاک کن
+        if ('caches' in window) {
+          caches.keys().then(names => {
+            Promise.all(names.map(name => caches.delete(name))).then(() => {
+              window.location.reload(true);
+            });
+          });
+        } else {
+          window.location.reload(true);
+        }
+      } else {
+        window.location.reload(true);
+      }
+    }).catch(() => window.location.reload(true));
+  } else {
+    window.location.reload(true);
+  }
+}
+
+/* ============================================================
    PWA — INSTALL + OFFLINE + UPDATE
    ============================================================ */
 let deferredPrompt = null;
@@ -2073,7 +2132,12 @@ let deferredPrompt = null;
 function initPWA() {
   // Service Worker
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').then(reg => {
+    // updateViaCache: 'none' = هیچ‌وقت sw.js رو از cache نخون، همیشه از شبکه چک کن
+    navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then(reg => {
+
+      // هر بار که صفحه باز میشه، فوری چک کن آپدیت هست یا نه
+      reg.update();
+
       reg.addEventListener('updatefound', () => {
         const newSW = reg.installing;
         newSW.addEventListener('statechange', () => {
@@ -2082,7 +2146,18 @@ function initPWA() {
           }
         });
       });
+
+      // اگه SW در حال انتظار بود (از قبل نصب شده ولی فعال نشده)، فوری فعالش کن
+      if (reg.waiting) {
+        reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+      }
+
     }).catch(() => {});
+
+    // هر بار که SW کنترل رو گرفت، صفحه رو خودکار رفرش کن
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      window.location.reload();
+    });
   }
 
   // Offline / Online detection
@@ -2132,12 +2207,11 @@ function dismissPWA() {
 }
 
 function showUpdateToast(newSW) {
-  const toast = document.getElementById('update-toast');
-  toast.classList.add('show');
-  toast.querySelector('button').onclick = () => {
-    newSW.postMessage({ type: 'SKIP_WAITING' });
-    window.location.reload();
-  };
+  // فوری SW جدید رو فعال کن — controllerchange بالا صفحه رو reload می‌کنه
+  newSW.postMessage({ type: 'SKIP_WAITING' });
+
+  // اگه به هر دلیلی reload نشد، بعد از ۱ ثانیه دستی reload کن
+  setTimeout(() => window.location.reload(), 1000);
 }
 
 /* ============================================================
