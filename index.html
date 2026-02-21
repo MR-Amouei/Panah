@@ -19,11 +19,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* ============================================================
-   DESIGN TOKENS
-   ============================================================ */
+
 :root {
-  /* ===== DARK (default) ===== */
   --bg: #080810;
   --s1: #0f0f1a;
   --s2: #161625;
@@ -63,7 +60,6 @@
   --sidebar-bg: rgba(7,7,15,.98);
 }
 
-/* ===== LIGHT THEME ===== */
 [data-theme="light"] {
   --bg: #f0f0f8;
   --s1: #ffffff;
@@ -100,7 +96,6 @@
   --sidebar-bg: rgba(247,247,252,.99);
 }
 
-/* ===== THEME TOGGLE BUTTON ===== */
 #theme-btn {
   background: var(--s2);
   border: 1px solid var(--bd);
@@ -118,9 +113,6 @@
   transform: rotate(20deg) scale(1.1);
 }
 
-/* ============================================================
-   PWA — INSTALL BANNER
-   ============================================================ */
 #pwa-banner {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
   background: var(--s2); border-top: 1px solid var(--bd2);
@@ -150,7 +142,6 @@
 }
 .pwa-close:hover { color: var(--txt); }
 
-/* PWA — OFFLINE BAR */
 #offline-bar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 9998;
   background: rgba(245,158,11,.15); border-bottom: 1px solid rgba(245,158,11,.4);
@@ -160,7 +151,6 @@
 }
 #offline-bar.show { display: flex; }
 
-/* PWA — UPDATE TOAST */
 #update-toast {
   position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
   z-index: 9999; background: var(--s3); border: 1px solid var(--blu);
@@ -177,9 +167,6 @@
   cursor: pointer;
 }
 
-/* ============================================================
-   RESET & BASE
-   ============================================================ */
 *, *::before, *::after {
   margin: 0; padding: 0;
   box-sizing: border-box;
@@ -197,9 +184,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ============================================================
-   HEADER
-   ============================================================ */
 header {
   background: var(--header-bg);
   backdrop-filter: blur(16px);
@@ -237,10 +221,6 @@ header {
   display: block; line-height: 1;
 }
 
-
-/* ============================================================
-   ALERT BAR
-   ============================================================ */
 .abar {
   background: linear-gradient(90deg, rgba(240,64,64,.15), rgba(240,64,64,.08));
   border-bottom: 1px solid rgba(240,64,64,.3);
@@ -260,9 +240,6 @@ header {
 }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.15} }
 
-/* ============================================================
-   NAVIGATION
-   ============================================================ */
 nav {
   background: var(--nav-bg);
   backdrop-filter: blur(12px);
@@ -293,9 +270,6 @@ nav::-webkit-scrollbar { display: none; }
   background: linear-gradient(0deg, rgba(240,64,64,.08), transparent);
 }
 
-/* ============================================================
-   MAIN LAYOUT
-   ============================================================ */
 main { max-width: 720px; margin: 0 auto; padding: 16px 14px 100px; }
 .pg { display: none; }
 .pg.on { display: block; animation: fadeUp .28s cubic-bezier(.4,0,.2,1); }
@@ -304,9 +278,6 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 14px 100px; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ============================================================
-   SECTION TITLES
-   ============================================================ */
 .stit {
   font-size: 17px; font-weight: 800;
   margin-bottom: 16px;
@@ -320,9 +291,6 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 14px 100px; }
   border-radius: 2px; flex-shrink: 0;
 }
 
-/* ============================================================
-   CARDS
-   ============================================================ */
 .card {
   background: var(--s1);
   border: 1px solid var(--bd);
@@ -349,9 +317,6 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 14px 100px; }
 .cg { background: var(--gbg); }
 .cb { background: var(--bbg); }
 
-/* ============================================================
-   BOXES
-   ============================================================ */
 .bx {
   border-radius: var(--radius-sm);
   padding: 12px 14px; margin-bottom: 8px;
@@ -368,9 +333,6 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 14px 100px; }
 .bxb { background: var(--bbg); border: 1px solid rgba(59,130,246,.2); }
 .bxb strong { color: var(--blu2); }
 
-/* ============================================================
-   STEPS
-   ============================================================ */
 .steps { display: flex; flex-direction: column; gap: 8px; }
 .step {
   background: var(--s2); border: 1px solid var(--bd);
@@ -393,9 +355,6 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 14px 100px; }
 .st { font-weight: 700; margin-bottom: 2px; font-size: 13px; line-height: 1.4; }
 .sd { font-size: 12px; color: var(--txt2); line-height: 1.6; }
 
-/* ============================================================
-   GRIDS
-   ============================================================ */
 .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
 .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
 @media (max-width: 480px) {
@@ -403,9 +362,6 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 14px 100px; }
   .g3 { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* ============================================================
-   QUICK CARDS (HOME)
-   ============================================================ */
 .qc {
   background: var(--s2); border: 1px solid var(--bd);
   border-radius: var(--radius); padding: 14px 8px;
@@ -420,9 +376,6 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 14px 100px; }
 .qi { font-size: 24px; margin-bottom: 6px; display: block; }
 .ql { font-size: 11px; color: var(--txt2); line-height: 1.3; font-weight: 600; }
 
-/* ============================================================
-   ACCORDION
-   ============================================================ */
 .acc { display: flex; flex-direction: column; gap: 6px; }
 .ai {
   background: var(--s2); border: 1px solid var(--bd);
@@ -448,9 +401,6 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 14px 100px; }
 }
 .ai.on .ab { display: block; }
 
-/* ============================================================
-   EMERGENCY NUMBERS
-   ============================================================ */
 .ng {
   display: grid; grid-template-columns: repeat(4, 1fr);
   gap: 8px; margin-bottom: 14px;
@@ -471,9 +421,6 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 14px 100px; }
 .nn { font-size: 18px; font-weight: 900; color: var(--grn2); direction: ltr; letter-spacing: 1px; line-height: 1; }
 .nl { font-size: 10px; color: var(--txt2); line-height: 1.3; font-weight: 600; }
 
-/* ============================================================
-   CHECKLIST
-   ============================================================ */
 .cl { display: flex; flex-direction: column; gap: 5px; }
 .cli {
   display: flex; align-items: center; gap: 10px;
@@ -495,9 +442,6 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 14px 100px; }
   margin-bottom: 3px; letter-spacing: .06em; text-transform: uppercase;
 }
 
-/* ============================================================
-   PROGRESS BAR
-   ============================================================ */
 .pw {
   background: var(--s2); border-radius: 20px; height: 8px;
   overflow: hidden; margin: 8px 0 6px; border: 1px solid var(--bd);
@@ -511,9 +455,6 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 14px 100px; }
 }
 .pt { font-size: 11px; color: var(--txt2); margin-bottom: 4px; font-weight: 600; }
 
-/* ============================================================
-   TABLE
-   ============================================================ */
 .tbl { width: 100%; border-collapse: collapse; font-size: 12px; }
 .tbl th, .tbl td {
   padding: 9px 12px; text-align: right;
@@ -527,9 +468,6 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 14px 100px; }
 .tbl tr:hover td { background: var(--s2); }
 .tfr { direction: ltr; font-family: 'Courier New', monospace; color: var(--grn2); font-size: 13px; font-weight: 700; }
 
-/* ============================================================
-   TAGS
-   ============================================================ */
 .tag {
   display: inline-block; padding: 3px 10px; border-radius: 20px;
   font-size: 10px; font-weight: 800; margin: 2px;
@@ -540,9 +478,6 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 14px 100px; }
 .to { background: var(--obg); color: var(--ora2); border: 1px solid rgba(245,158,11,.25); }
 .tb { background: var(--bbg); color: var(--blu2); border: 1px solid rgba(59,130,246,.25); }
 
-/* ============================================================
-   TEXTAREA & BUTTONS
-   ============================================================ */
 textarea {
   background: var(--s2); border: 1px solid var(--bd);
   border-radius: var(--radius-sm); color: var(--txt);
@@ -563,9 +498,6 @@ textarea::placeholder { color: var(--txt2); opacity: .6; }
 .save-btn:hover { background: rgba(16,185,129,.25); border-color: var(--grn); }
 .saved-note { font-size: 11px; color: var(--grn2); margin-top: 5px; display: none; font-weight: 700; }
 
-/* ============================================================
-   SEARCH
-   ============================================================ */
 .search-wrap { position: relative; margin-bottom: 10px; }
 .search-inp {
   background: var(--s2); border: 1px solid var(--bd);
@@ -583,9 +515,6 @@ textarea::placeholder { color: var(--txt2); opacity: .6; }
   color: var(--txt2); font-size: 15px; pointer-events: none;
 }
 
-/* ============================================================
-   CITY / PROVINCE SELECTOR
-   ============================================================ */
 .csel-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -615,9 +544,6 @@ textarea::placeholder { color: var(--txt2); opacity: .6; }
 .info-r { display: flex; gap: 10px; margin-bottom: 6px; font-size: 12px; align-items: flex-start; }
 .info-l { color: var(--txt2); width: 80px; flex-shrink: 0; font-weight: 600; }
 
-/* ============================================================
-   LEVEL CARDS
-   ============================================================ */
 .lvl {
   border-radius: var(--radius-sm); padding: 14px 10px;
   text-align: center; border: 1px solid transparent;
@@ -631,9 +557,6 @@ textarea::placeholder { color: var(--txt2); opacity: .6; }
 .lv-name { font-weight: 800; font-size: 12px; }
 .lv-desc { font-size: 10px; color: var(--txt2); margin-top: 2px; line-height: 1.4; }
 
-/* ============================================================
-   HOME HERO CARD
-   ============================================================ */
 .hero-card {
   background: linear-gradient(135deg, rgba(240,64,64,.12), rgba(240,64,64,.05));
   border: 1px solid rgba(240,64,64,.3);
@@ -653,9 +576,6 @@ textarea::placeholder { color: var(--txt2); opacity: .6; }
   display: flex; align-items: center; gap: 6px;
 }
 
-/* ============================================================
-   HOSPITAL-SPECIFIC STYLES (v3.0)
-   ============================================================ */
 .v-badge {
   display: inline-flex; align-items: center; gap: 3px;
   background: rgba(16,185,129,.12); border: 1px solid rgba(16,185,129,.3);
@@ -704,9 +624,6 @@ textarea::placeholder { color: var(--txt2); opacity: .6; }
   font-size: 10px; color: var(--blu2); font-weight: 700;
 }
 
-/* ============================================================
-   LIGHT MODE OVERRIDES
-   ============================================================ */
 [data-theme="light"] header {
   border-bottom-color: var(--bd);
 }
@@ -742,9 +659,6 @@ textarea::placeholder { color: var(--txt2); opacity: .6; }
   background: linear-gradient(0deg, rgba(214,40,40,.08), transparent);
 }
 
-/* ============================================================
-   MISC
-   ============================================================ */
 .freq-badge {
   font-family: 'Courier New', monospace; font-size: 13px; font-weight: 900;
   color: var(--grn2); background: var(--gbg); padding: 2px 8px;
@@ -753,21 +667,14 @@ textarea::placeholder { color: var(--txt2); opacity: .6; }
 hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
 .mt10 { margin-top: 10px; }
 
-/* sidebar elements — hidden on mobile */
 .nav-logo  { display: none; }
 .nav-footer { display: none; }
-.prov-col { display: contents; } /* passthrough wrapper on mobile */
+.prov-col { display: contents; } 
 
-/* ============================================================
-   SCROLLBAR
-   ============================================================ */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--bd2); border-radius: 4px; }
 
-/* ============================================================
-   RESPONSIVE — SMALL MOBILE
-   ============================================================ */
 @media (max-width: 380px) {
   .logo-sub { display: none; }
   main { padding: 12px 10px 90px; }
@@ -775,9 +682,6 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   .ng { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* ============================================================
-   RESPONSIVE — TABLET (768–1023px)
-   ============================================================ */
 @media (min-width: 768px) and (max-width: 1023px) {
   main { padding: 20px 20px 100px; }
   .card { padding: 20px; }
@@ -785,17 +689,13 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   .ng { grid-template-columns: repeat(4, 1fr); }
 }
 
-/* ============================================================
-   RESPONSIVE — DESKTOP (≥1024px)
-   Fixed right sidebar + multi-column content layout
-   ============================================================ */
 @media (min-width: 1024px) {
   :root {
     --sidebar-w: 260px;
     --header-h: 64px;
   }
 
-  /* ---- HEADER ---- */
+  
   header {
     height: var(--header-h);
     padding: 0 calc(var(--sidebar-w) + 28px) 0 32px;
@@ -804,7 +704,7 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   .logo-icon { width: 38px; height: 38px; font-size: 19px; }
   .logo-sub { font-size: 13px; }
 
-  /* ---- ALERT BAR ---- */
+  
   .abar {
     top: var(--header-h);
     padding: 12px 32px;
@@ -812,7 +712,7 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
     font-size: 13px;
   }
 
-  /* ---- SIDEBAR NAVIGATION ---- */
+  
   nav {
     position: fixed;
     right: 0;
@@ -836,7 +736,7 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   nav::-webkit-scrollbar { width: 3px; }
   nav::-webkit-scrollbar-thumb { background: var(--bd2); border-radius: 3px; }
 
-  /* sidebar logo */
+  
   .nav-logo {
     display: flex;
     align-items: center;
@@ -861,7 +761,7 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   .nav-logo-text { font-weight: 900; font-size: 16px; line-height: 1.2; }
   .nav-logo-sub { font-size: 10px; color: var(--txt2); font-weight: 300; }
 
-  /* sidebar footer */
+  
   .nav-footer {
     display: flex;
     align-items: center;
@@ -879,7 +779,7 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   }
   .nav-footer a:hover { text-decoration: underline; }
 
-  /* nav buttons */
+  
   .nb {
     padding: 15px 20px 15px 18px;
     font-size: 13px;
@@ -901,13 +801,13 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
     color: var(--red2);
     font-weight: 700;
   }
-  /* prevent hover from overriding active item color */
+  
   .nb.on:hover {
     color: var(--red2);
     background: linear-gradient(90deg, rgba(240,64,64,.18), rgba(240,64,64,.04));
   }
 
-  /* ---- MAIN CONTENT ---- */
+  
   main {
     margin-right: var(--sidebar-w);
     max-width: none;
@@ -925,22 +825,22 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   .ab { padding: 16px 20px; font-size: 13px; }
   .ai { border-radius: var(--radius); }
 
-  /* ---- HIDE HERO CARD ON DESKTOP ---- */
+  
   .hero-card { display: none !important; }
 
-  /* ---- PAGE 0: HOME — 2-column layout ---- */
+  
   #p0.on {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 18px;
     align-items: start;
   }
-  /* hero hidden — direct children re-mapped */
-  #p0.on > *:nth-child(2) { grid-column: 1; }       /* danger now */
-  #p0.on > *:nth-child(3) { grid-column: 2; }       /* alert levels */
-  #p0.on > *:nth-child(4) { grid-column: 1 / -1; } /* about */
+  
+  #p0.on > *:nth-child(2) { grid-column: 1; }       
+  #p0.on > *:nth-child(3) { grid-column: 2; }       
+  #p0.on > *:nth-child(4) { grid-column: 1 / -1; } 
 
-  /* ---- PAGE 1: SHELTER — 2-column ---- */
+  
   #p1.on {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -954,7 +854,7 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   #p1.on > *:nth-child(5) { grid-column: 2; }
   #p1.on > *:nth-child(6) { grid-column: 1 / -1; }
 
-  /* ---- PAGE 3: HOSPITALS — sidebar province list ---- */
+  
   #p3.on {
     display: grid;
     grid-template-columns: 268px 1fr;
@@ -965,7 +865,7 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   #p3.on > *:nth-child(2) { grid-column: 1 / -1; }
   #p3.on > *:nth-child(3) { grid-column: 1 / -1; }
   .prov-col {
-    display: block; /* override display:contents on mobile */
+    display: block; 
     grid-column: 1;
     position: sticky;
     top: calc(var(--header-h) + 46px);
@@ -976,12 +876,12 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
     padding-bottom: 8px;
   }
   #hosp-detail { grid-column: 2; }
-  /* 2 cols for province buttons in sidebar */
+  
   .csel-grid { grid-template-columns: repeat(2, 1fr); }
   .csb { min-height: 44px; font-size: 11px; }
   .csb > div:first-child { font-size: 11px; }
 
-  /* ---- PAGE 5: COMMS — 2-column ---- */
+  
   #p5.on {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -995,10 +895,10 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   #p5.on > *:nth-child(5) { grid-column: 2; }
   #p5.on > *:nth-child(6) { grid-column: 1 / -1; }
 
-  /* ---- PAGE 6: EMERGENCY NUMBERS — 6 per row ---- */
+  
   .ng { grid-template-columns: repeat(6, 1fr); }
 
-  /* ---- PAGE 7: NOTES — 2x2 grid ---- */
+  
   #p7.on {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1009,9 +909,6 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   #p7.on > *:last-child   { grid-column: 1 / -1; }
 }
 
-/* ============================================================
-   PRINT
-   ============================================================ */
 @media print {
   header, nav, .abar, .off-badge, .search-wrap, .save-btn, .hero-card::before { display: none !important; }
   body { background: #fff; color: #000; }
@@ -1062,9 +959,6 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
 
 <main>
 
-<!-- ============================================================
-     PAGE 0: HOME
-     ============================================================ -->
 <div class="pg on" id="p0">
 
   <div class="hero-card">
@@ -1116,9 +1010,6 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
 
 </div>
 
-<!-- ============================================================
-     PAGE 1: SHELTER
-     ============================================================ -->
 <div class="pg" id="p1">
   <div class="stit">🏚️ راهنمای پناه‌گیری</div>
 
@@ -1173,9 +1064,6 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   </div>
 </div>
 
-<!-- ============================================================
-     PAGE 2: FIRST AID
-     ============================================================ -->
 <div class="pg" id="p2">
   <div class="stit">🩺 کمک‌های اولیه</div>
   <div class="bx bxo"><strong>⚠️ مهم</strong>این اطلاعات برای شرایط اضطراری است. در اولین فرصت با ۱۱۵ تماس بگیرید.</div>
@@ -1287,9 +1175,6 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   </div>
 </div>
 
-<!-- ============================================================
-     PAGE 3: HOSPITALS (v3.0 — با پایگاه داده کامل)
-     ============================================================ -->
 <div class="pg" id="p3">
   <div class="stit">🏥 بیمارستان‌های اضطراری</div>
 
@@ -1315,9 +1200,6 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   <div id="hosp-detail"></div>
 </div>
 
-<!-- ============================================================
-     PAGE 4: BAG
-     ============================================================ -->
 <div class="pg" id="p4">
   <div class="stit">🎒 کیف اضطراری</div>
 
@@ -1373,9 +1255,6 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   </div>
 </div>
 
-<!-- ============================================================
-     PAGE 5: COMMS
-     ============================================================ -->
 <div class="pg" id="p5">
   <div class="stit">📡 ارتباطات اضطراری</div>
 
@@ -1441,9 +1320,6 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   </div>
 </div>
 
-<!-- ============================================================
-     PAGE 6: NUMBERS
-     ============================================================ -->
 <div class="pg" id="p6">
   <div class="stit">📞 شماره‌های اورژانس</div>
   <div class="bx bxg" style="margin-bottom:12px"><strong>📲 لمس کنید تا تماس بگیرید</strong>در شرایط قطع اینترنت هم کار می‌کنند</div>
@@ -1473,9 +1349,6 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   </div>
 </div>
 
-<!-- ============================================================
-     PAGE 7: NOTES
-     ============================================================ -->
 <div class="pg" id="p7">
   <div class="stit">📝 یادداشت‌های شخصی</div>
 
@@ -1514,7 +1387,6 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
 
 <script>
 
-
 const PROVINCES = {
 
   'تهران': {
@@ -1526,7 +1398,7 @@ const PROVINCES = {
      { n:'بیمارستان امام حسین', c:'تهران', a:'میدان امام حسین، خیابان شهید مدنی', p:'021-73433000', v:true },
      { n:'بیمارستان امام خمینی', c:'تهران', a:'انتهای بلوار کشاورز', p:'021-61190000', v:true },
      { n:'بیمارستان شهید هاشمی‌نژاد', c:'تهران', a:'خیابان ولی عصر، میدان ونک', p:'021-81161', v:true },
-     { n:'بیمارستان سینا', c:'تهران', a:'خیابان امام خمینی(ره)، نرسیده به میدان حسن آباد', p:'021-63120', v:true },
+     { n:'بیمارستان سینا', c:'تهران', a:'خیابان امام خمینی، نرسیده به میدان حسن آباد', p:'021-63120', v:true },
      { n:'بیمارستان بقیه الله', c:'تهران', a:'میدان ونک، خیابان ملاصدرا، شیخ بهایی', p:'021-88050435', v:true },
      { n:'بیمارستان بازرگانان', c:'تهران', a:'بزرگراه شهید محلاتی، جنب پل ری', p:'021-33552001', v:true },
    ]
@@ -1596,11 +1468,12 @@ const PROVINCES = {
     capital: 'اردبیل', warn: '⚠️ نزدیکی به مرز جمهوری آذربایجان',
     rc: 'هلال احمر اردبیل — ۰۴۵-۳۳۲۴۵۵۵۵',
     shelter: ['بازار سنتی اردبیل','ساختمان‌های اداری مرکز شهر'],
-    hospitals: [
-      { n:'بیمارستان علوی', c:'اردبیل', a:'خیابان دانشگاه', p:'045-33720721', v:false },
-      { n:'بیمارستان فاطمی', c:'اردبیل', a:'خیابان استاد شهریار', p:'045-33760000', v:false },
-      { n:'بیمارستان امام خمینی', c:'اردبیل', a:'خیابان امام', p:'045-33723000', v:false },
-    ]
+   hospitals: [
+     { n:'بیمارستان بوعلی', c:'اردبیل', a:'خیابان ساحلی، خیابان معلم', p:'045-33252252', v:true },
+     { n:'بیمارستان دکتر فاطمی', c:'اردبیل', a:'خیابان امام خمینی، بالاتر از میدان شریعتی، خیابان هلال احمر', p:'045-33232520', v:true },
+     { n:'بیمارستان سبلان', c:'اردبیل', a:'بزرگراه بسیج', p:'045-33339791', v:true },
+     { n:'بیمارستان امام رضا', c:'اردبیل', a:'میدان بسیج رضازاده، جنب دانشگاه آزاد اسلامی', p:'045-33733089', v:true },
+   ]
   },
 
   'ایلام': {
@@ -1893,12 +1766,8 @@ const PROVINCES = {
     ]
   }
 
-}; // END PROVINCES
+}; 
 
-/* ============================================================
-   DATA VERSION — خودکار از روی محتوای داده‌ها محاسبه می‌شه
-   نیازی به تغییر دستی نیست — هر بار داده عوض بشه، ورژن عوض میشه
-   ============================================================ */
 function hashString(str) {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
@@ -1909,9 +1778,6 @@ function hashString(str) {
 }
 const DATA_VERSION = hashString(JSON.stringify(PROVINCES));
 
-/* ============================================================
-   CORE FUNCTIONS
-   ============================================================ */
 const TOTAL_CHK = 24;
 let currentProv = 'تهران';
 
@@ -1958,9 +1824,6 @@ function loadNotes() {
   });
 }
 
-/* ============================================================
-   HOSPITAL FUNCTIONS (v3.0)
-   ============================================================ */
 function buildProvSelector() {
   const grid = document.getElementById('prov-sel');
   grid.innerHTML = '';
@@ -2060,10 +1923,6 @@ function renderHospitals(prov) {
     </div>`;
 }
 
-/* ============================================================
-   BOOT
-   ============================================================ */
-// تم رو قبل از رندر اعمال کن تا فلش نشه
 (function() {
   let t = 'dark';
   try { t = localStorage.getItem('theme') || 'dark'; } catch(e){}
@@ -2080,19 +1939,14 @@ document.addEventListener('DOMContentLoaded', () => {
   initPWA();
 });
 
-/* ============================================================
-   DATA VERSION CHECK — آپدیت خودکار وقتی اطلاعات تغییر می‌کنه
-   ============================================================ */
 function checkDataVersion() {
   try {
     const storedVersion = localStorage.getItem('data_version');
     if (storedVersion && storedVersion !== DATA_VERSION) {
-      // ورژن جدیده — Service Worker رو آپدیت کن و صفحه رو رفرش کن
       localStorage.setItem('data_version', DATA_VERSION);
       forceUpdate();
       return;
     }
-    // اولین بار یا همون ورژن
     localStorage.setItem('data_version', DATA_VERSION);
   } catch(e) {}
 }
@@ -2101,11 +1955,9 @@ function forceUpdate() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistration().then(reg => {
       if (reg) {
-        // SW در حال انتظار رو فعال کن
         if (reg.waiting) {
           reg.waiting.postMessage({ type: 'SKIP_WAITING' });
         }
-        // Cache پروگرام رو پاک کن
         if ('caches' in window) {
           caches.keys().then(names => {
             Promise.all(names.map(name => caches.delete(name))).then(() => {
@@ -2124,18 +1976,15 @@ function forceUpdate() {
   }
 }
 
-/* ============================================================
-   PWA — INSTALL + OFFLINE + UPDATE
-   ============================================================ */
 let deferredPrompt = null;
 
 function initPWA() {
-  // Service Worker
+  
   if ('serviceWorker' in navigator) {
-    // updateViaCache: 'none' = هیچ‌وقت sw.js رو از cache نخون، همیشه از شبکه چک کن
+    
     navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then(reg => {
 
-      // هر بار که صفحه باز میشه، فوری چک کن آپدیت هست یا نه
+      
       reg.update();
 
       reg.addEventListener('updatefound', () => {
@@ -2147,20 +1996,20 @@ function initPWA() {
         });
       });
 
-      // اگه SW در حال انتظار بود (از قبل نصب شده ولی فعال نشده)، فوری فعالش کن
+      
       if (reg.waiting) {
         reg.waiting.postMessage({ type: 'SKIP_WAITING' });
       }
 
     }).catch(() => {});
 
-    // هر بار که SW کنترل رو گرفت، صفحه رو خودکار رفرش کن
+    
     navigator.serviceWorker.addEventListener('controllerchange', () => {
       window.location.reload();
     });
   }
 
-  // Offline / Online detection
+  
   function updateOnlineStatus() {
     const bar = document.getElementById('offline-bar');
     if (!navigator.onLine) bar.classList.add('show');
@@ -2170,7 +2019,7 @@ function initPWA() {
   window.addEventListener('offline', updateOnlineStatus);
   updateOnlineStatus();
 
-  // Install prompt
+  
   window.addEventListener('beforeinstallprompt', e => {
     e.preventDefault();
     deferredPrompt = e;
@@ -2207,16 +2056,11 @@ function dismissPWA() {
 }
 
 function showUpdateToast(newSW) {
-  // فوری SW جدید رو فعال کن — controllerchange بالا صفحه رو reload می‌کنه
   newSW.postMessage({ type: 'SKIP_WAITING' });
 
-  // اگه به هر دلیلی reload نشد، بعد از ۱ ثانیه دستی reload کن
   setTimeout(() => window.location.reload(), 1000);
 }
 
-/* ============================================================
-   THEME — LIGHT / DARK TOGGLE
-   ============================================================ */
 function toggleTheme() {
   const html = document.documentElement;
   const isLight = html.dataset.theme === 'light';
@@ -2244,14 +2088,14 @@ function applyTheme(theme) {
 function loadTheme() {
   let theme = 'dark';
   try { theme = localStorage.getItem('theme') || 'dark'; } catch(e) {}
-  // اگر ذخیره نشده، از تنظیمات سیستم استفاده کن
+  
   if (!localStorage.getItem('theme')) {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
       theme = 'light';
     }
   }
   applyTheme(theme);
-  // گوش دادن به تغییر تنظیمات سیستم
+  
   window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
     try {
       if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'light' : 'dark');
@@ -2260,13 +2104,11 @@ function loadTheme() {
 }
 </script>
 
-<!-- ===== OFFLINE BAR ===== -->
 <div id="offline-bar">
   <span>📡</span>
   <span>اتصال اینترنت قطع است — اطلاعات کش‌شده در دسترس هستند</span>
 </div>
 
-<!-- ===== PWA INSTALL BANNER ===== -->
 <div id="pwa-banner">
   <span class="pwa-icon">🛡️</span>
   <div class="pwa-text">
@@ -2277,7 +2119,6 @@ function loadTheme() {
   <button class="pwa-close" onclick="dismissPWA()" title="بستن">✕</button>
 </div>
 
-<!-- ===== UPDATE TOAST ===== -->
 <div id="update-toast">
   <span>🔄 نسخه جدید در دسترس است</span>
   <button>به‌روزرسانی</button>
