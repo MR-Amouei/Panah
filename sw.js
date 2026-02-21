@@ -1,25 +1,21 @@
-
-
-const CACHE_NAME = 'panah-v1';
+const CACHE_NAME = 'panah-v2';
 const OFFLINE_URL = 'index.html';
 
 const PRECACHE_URLS = [
   './',
   './index.html',
   './manifest.json',
-  'https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap',
 ];
 
 /* ====== INSTALL ====== */
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      const localUrls = ['./', './index.html', './manifest.json'];
-      return cache.addAll(localUrls).then(() => {
-        return cache.add('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap')
-          .catch(() => {});
-      });
-    }).then(() => self.skipWaiting())
+    caches.open(CACHE_NAME).then(cache =>
+      cache.addAll(PRECACHE_URLS).then(() =>
+        cache.add('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap')
+          .catch(() => {})
+      )
+    ).then(() => self.skipWaiting())
   );
 });
 
@@ -48,6 +44,12 @@ self.addEventListener('fetch', event => {
     return;
   }
 
+  if (url.origin === self.location.origin &&
+      (url.pathname.endsWith('/') || url.pathname.endsWith('index.html'))) {
+    event.respondWith(networkFirst(request));
+    return;
+  }
+
   if (url.origin === self.location.origin) {
     event.respondWith(staleWhileRevalidate(request));
     return;
@@ -69,20 +71,8 @@ async function cacheFirst(request) {
     }
     return response;
   } catch {
-    return new Response('آفلاین', { status: 503, statusText: 'Offline' });
+    return new Response('آفلاین', { status: 503 });
   }
-}
-
-async function staleWhileRevalidate(request) {
-  const cache = await caches.open(CACHE_NAME);
-  const cached = await cache.match(request);
-
-  const fetchPromise = fetch(request).then(response => {
-    if (response.ok) cache.put(request, response.clone());
-    return response;
-  }).catch(() => null);
-
-  return cached || fetchPromise || offlineFallback();
 }
 
 async function networkFirst(request) {
@@ -97,6 +87,18 @@ async function networkFirst(request) {
     const cached = await caches.match(request);
     return cached || offlineFallback();
   }
+}
+
+async function staleWhileRevalidate(request) {
+  const cache = await caches.open(CACHE_NAME);
+  const cached = await cache.match(request);
+
+  const fetchPromise = fetch(request).then(response => {
+    if (response.ok) cache.put(request, response.clone());
+    return response;
+  }).catch(() => null);
+
+  return cached || fetchPromise || offlineFallback();
 }
 
 async function offlineFallback() {
