@@ -1391,7 +1391,53 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
 
 <script>
 
-const PROVINCES = {
+const API_BASE = 'https://panah-admin-isfbtzsxr.liara.run';
+const CACHE_KEY = 'panah_api_cache';
+
+let PROVINCES = {};
+
+async function loadData() {
+  document.getElementById('hosp-detail').innerHTML = '<div class="bx bxo" style="text-align:center">⏳ در حال بارگذاری اطلاعات...</div>';
+
+  if (navigator.onLine) {
+    try {
+      const [provRes, hospRes, sheltRes] = await Promise.all([
+        fetch(`${API_BASE}/items/provinces?fields=*&limit=100&filter[status][_eq]=published`),
+        fetch(`${API_BASE}/items/hospitals?fields=*&limit=1000&filter[status][_eq]=published`),
+        fetch(`${API_BASE}/items/shelters?fields=*&limit=1000&filter[status][_eq]=published`),
+      ]);
+      const [provData, hospData, sheltData] = await Promise.all([
+        provRes.json(), hospRes.json(), sheltRes.json()
+      ]);
+
+      const built = {};
+      for (const prov of provData.data) {
+        built[prov.name] = {
+          capital: prov.capital,
+          warn: prov.warning || '',
+          shelter: sheltData.data.filter(s => s.province === prov.id).map(s => s.description),
+          hospitals: hospData.data.filter(h => h.province === prov.id).map(h => ({
+            n: h.name, c: h.city, a: h.address || '', p: h.phone, v: h.verified
+          }))
+        };
+      }
+      PROVINCES = built;
+      try { localStorage.setItem(CACHE_KEY, JSON.stringify(built)); } catch(e) {}
+      return;
+    } catch(e) {
+      console.warn('API fetch failed, falling back to cache', e);
+    }
+  }
+
+  try {
+    const cached = localStorage.getItem(CACHE_KEY);
+    if (cached) { PROVINCES = JSON.parse(cached); return; }
+  } catch(e) {}
+
+  PROVINCES = PROVINCES_HARDCODED;
+}
+
+const PROVINCES_HARDCODED = {
 
   'تهران': {
     capital: 'تهران', warn: '⚠️ پرجمعیت‌ترین استان',
@@ -1769,17 +1815,7 @@ const PROVINCES = {
     ]
   }
 
-}; 
-
-function hashString(str) {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) - hash) + str.charCodeAt(i);
-    hash |= 0;
-  }
-  return Math.abs(hash).toString(36);
-}
-const DATA_VERSION = hashString(JSON.stringify(PROVINCES));
+};
 
 const TOTAL_CHK = 24;
 let currentProv = 'تهران';
@@ -1932,14 +1968,17 @@ function renderHospitals(prov) {
   if (t === 'light') document.documentElement.dataset.theme = 'light';
 })();
 
-document.addEventListener('DOMContentLoaded', () => {
-  checkDataVersion();
+document.addEventListener('DOMContentLoaded', async () => {
   loadTheme();
   loadChecklist();
   loadNotes();
-  buildProvSelector();
-  renderHospitals('تهران');
   initPWA();
+
+  await loadData();
+
+  buildProvSelector();
+  const firstProv = Object.keys(PROVINCES)[0] || 'تهران';
+  renderHospitals(firstProv);
 });
 
 function checkDataVersion() {
