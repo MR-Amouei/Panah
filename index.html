@@ -1415,6 +1415,8 @@ async function loadData() {
         built[prov.name] = {
           capital: prov.capital,
           warn: prov.warning || '',
+          rc: prov.rc || '',
+
           shelter: sheltData.data.filter(s => s.province === prov.id).map(s => s.description),
           hospitals: hospData.data.filter(h => h.province === prov.id).map(h => ({
             n: h.name, c: h.city, a: h.address || '', p: h.phone, v: h.verified
