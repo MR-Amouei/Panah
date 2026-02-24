@@ -1,0 +1,60 @@
+{
+  "data": [
+    {
+      "id": 9,
+      "status": "draft",
+      "name": "اورژانس",
+      "number": "115",
+      "icon": "🚑"
+    },
+    {
+      "id": 10,
+      "status": "draft",
+      "name": "آتش‌نشانی",
+      "number": "125",
+      "icon": "🚒"
+    },
+    {
+      "id": 11,
+      "status": "draft",
+      "name": "پلیس",
+      "number": "110",
+      "icon": "🚔"
+    },
+    {
+      "id": 12,
+      "status": "draft",
+      "name": "اورژانس اجتماعی",
+      "number": "123",
+      "icon": "🆘"
+    },
+    {
+      "id": 13,
+      "status": "draft",
+      "name": "هلال احمر",
+      "number": "112",
+      "icon": "🏥"
+    },
+    {
+      "id": 14,
+      "status": "draft",
+      "name": "گاز",
+      "number": "194",
+      "icon": "⚡"
+    },
+    {
+      "id": 15,
+      "status": "draft",
+      "name": "برق",
+      "number": "121",
+      "icon": "💡"
+    },
+    {
+      "id": 16,
+      "status": "draft",
+      "name": "آب",
+      "number": "122",
+      "icon": "💧"
+    }
+  ]
+}

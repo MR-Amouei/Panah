@@ -1378,39 +1378,48 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
 
 <script>
 
-const PROVINCES_DATA = {"data":[{"id":1,"status":"published","name":"تهران","capital":"تهران","warning":"⚠️ پرجمعیت‌ترین استان","rc":"هلال احمر تهران — ۰۲۱-۶۶۴۸۰۳۱۱"},{"id":2,"status":"published","name":"البرز","capital":"کرج","warning":"","rc":"هلال احمر البرز — ۰۲۶-۳۲۵۳۳۹۳۳"},{"id":3,"status":"published","name":"اصفهان","capital":"اصفهان","warning":"","rc":"هلال احمر اصفهان — ۰۳۱-۳۲۲۲۰۰۸۸"},{"id":4,"status":"published","name":"آذربایجان شرقی","capital":"تبریز","warning":"⚠️ نزدیکی به مرز ترکیه و جمهوری آذربایجان","rc":"هلال احمر آذربایجان شرقی — ۰۴۱-۳۳۲۹۰۱۲۰"},{"id":5,"status":"published","name":"آذربایجان غربی","capital":"ارومیه","warning":"⚠️ نزدیکی به مرز ترکیه و عراق","rc":"هلال احمر آذربایجان غربی — ۰۴۴-۳۲۲۲۸۶۲۲"},{"id":6,"status":"published","name":"اردبیل","capital":"اردبیل","warning":"⚠️ نزدیکی به مرز جمهوری آذربایجان","rc":"هلال احمر اردبیل — ۰۴۵-۳۳۲۴۵۵۵۵"},{"id":7,"status":"published","name":"ایلام","capital":"ایلام","warning":"🔴 مرز مستقیم با عراق — منطقه پرخطر","rc":"هلال احمر ایلام — ۰۸۴-۳۳۳۵۱۲۸۱"},{"id":8,"status":"published","name":"بوشهر","capital":"بوشهر","warning":"⚠️ ساحل خلیج فارس","rc":"هلال احمر بوشهر — ۰۷۷-۳۳۵۴۷۵۱۱"},{"id":9,"status":"published","name":"چهارمحال و بختیاری","capital":"شهرکرد","warning":"","rc":"هلال احمر چهارمحال و بختیاری — ۰۳۸-۳۲۲۲۸۵۹۵"},{"id":10,"status":"published","name":"خراسان رضوی","capital":"مشهد","warning":"","rc":"هلال احمر خراسان رضوی — ۰۵۱-۳۸۴۴۰۳۱۱"}]};
-
-const HOSPITALS_DATA = {"data":[{"id":1,"status":"published","name":"بیمارستان نجمیه","city":"تهران","address":"خیابان حافظ، تقاطع جمهوری","phone":"021-66707071","verified":true,"province":1},{"id":2,"status":"published","name":"بیمارستان امام حسین","city":"تهران","address":"میدان امام حسین، خیابان شهید مدنی","phone":"021-73433000","verified":true,"province":1},{"id":3,"status":"published","name":"بیمارستان امام خمینی","city":"تهران","address":"انتهای بلوار کشاورز","phone":"021-61190000","verified":true,"province":1},{"id":4,"status":"published","name":"بیمارستان شهید هاشمی‌نژاد","city":"تهران","address":"خیابان ولی عصر، میدان ونک","phone":"021-81161","verified":true,"province":1},{"id":5,"status":"published","name":"بیمارستان سینا","city":"تهران","address":"خیابان امام خمینی، نرسیده به میدان حسن آباد","phone":"021-63120","verified":true,"province":1},{"id":6,"status":"published","name":"بیمارستان بقیه الله","city":"تهران","address":"میدان ونک، خیابان ملاصدرا، شیخ بهایی","phone":"021-88050435","verified":true,"province":1},{"id":7,"status":"published","name":"بیمارستان بازرگانان","city":"تهران","address":"بزرگراه شهید محلاتی، جنب پل ری","phone":"021-33552001","verified":true,"province":1},{"id":8,"status":"published","name":"درمانگاه شبانه روزی رجائی شهر","city":"کرج","address":"کرج - رجائی شهر - نبش خیابان دوم شرقی","phone":"026-34432060","verified":true,"province":2},{"id":9,"status":"published","name":"بیمارستان کوثر کرج","city":"کرج","address":"حصارک -میدان دانشگاه خوارزمی- بلوار خوارزمی","phone":"026-34544070","verified":true,"province":2},{"id":10,"status":"published","name":"بیمارستان تخت جمشید البرز","city":"کرج","address":"کرج، میدان استقلال، بلوار شریعتی","phone":"026-32119000","verified":true,"province":2},{"id":11,"status":"published","name":"بیمارستان ثارالله مهرشهر","city":"کرج","address":"شهرستان مهر شهر - بلوار ارم","phone":"026-33320125","verified":true,"province":2},{"id":12,"status":"published","name":"بیمارستان امام جعفر صادق","city":"کرج","address":"شهرستان هشتگرد- بلوار آیت الله خامنه ای","phone":"026-44210921","verified":true,"province":2},{"id":13,"status":"published","name":"بیمارستان امام حسن مجتبی","city":"کرج","address":"شهرستان نظراباد-خیابان شهید مطهری","phone":"026-45355956","verified":true,"province":2},{"id":14,"status":"published","name":"بیمارستان الزهرا","city":"اصفهان","address":"بلوار صفه – مرکز آموزشی درمانی الزهرا(س)","phone":"031-36202020","verified":true,"province":3},{"id":15,"status":"published","name":"بیمارستان امام کاظم","city":"اصفهان","address":"خیابان کاوه – بعد از پل چمران","phone":"031-33457670","verified":true,"province":3},{"id":16,"status":"published","name":"بیمارستان امیرالمومنین","city":"اصفهان","address":"خیابان احمدآباد","phone":"031-32291318","verified":true,"province":3},{"id":17,"status":"published","name":"بیمارستان امین","city":"اصفهان","address":"خیابان ابن سینا کوچه سنبلستان","phone":"031-34455051","verified":true,"province":3},{"id":18,"status":"published","name":"بیمارستان خورشید","city":"اصفهان","address":"خیابان استانداری – جنب بلوار شهید دستغیب","phone":"031-32222127","verified":true,"province":3},{"id":19,"status":"published","name":"بیمارستان کاشانی","city":"اصفهان","address":"خیابان کاشانی","phone":"031-32330091","verified":true,"province":3},{"id":20,"status":"published","name":"بیمارستان فیض","city":"اصفهان","address":"میدان قدس، ابتدای خیابان مدرس","phone":"031-34452034","verified":true,"province":3},{"id":21,"status":"published","name":"بیمارستان فارابی","city":"اصفهان","address":"بلوار ارغوانیه","phone":"031-35312020","verified":true,"province":3},{"id":22,"status":"published","name":"بیمارستان غرضی","city":"اصفهان","address":"خیابان کاوه، خیابان دکتر غرضی","phone":"031-34509901","verified":true,"province":3},{"id":23,"status":"published","name":"بیمارستان عیسی بن مریم","city":"اصفهان","address":"خیابان شمس آبادی","phone":"031-32339012","verified":true,"province":3},{"id":24,"status":"published","name":"بیمارستان شهید بهشتی","city":"اصفهان","address":"پل فلزی – خیابان استاد مطهری","phone":"031-32367001","verified":true,"province":3},{"id":25,"status":"published","name":"بیمارستان شریعتی","city":"اصفهان","address":"چهار باغ بالا، خیابان شریعتی","phone":"031-36272009","verified":true,"province":3},{"id":26,"status":"published","name":"بیمارستان شهید مدنی","city":"تبریز","address":"خیابان دانشگاه","phone":"041-33357767","verified":true,"province":4},{"id":27,"status":"published","name":"بیمارستان سینا","city":"تبریز","address":"خیابان آزادی، بین چهارراه منتظری و حافظ","phone":"041-35412101","verified":true,"province":4},{"id":28,"status":"published","name":"بیمارستان امیرالمومنین","city":"تبریز","address":"خیابان قدس، بالاتر از ایستگاه منتظر","phone":"041-91010920","verified":true,"province":4},{"id":29,"status":"published","name":"بیمارستان عالی‌نسب","city":"تبریز","address":"شهرک ارم","phone":"041-32305911","verified":false,"province":4},{"id":30,"status":"published","name":"بیمارستان شهید محلاتی","city":"تبریز","address":"کوچه باغ، خیابان راه آهن","phone":"041-34440084","verified":true,"province":4},{"id":31,"status":"published","name":"بیمارستان ولیعصر","city":"تبریز","address":"خیابان امام، ورودی زعفرانیه","phone":"041-33273000","verified":true,"province":4},{"id":32,"status":"published","name":"بیمارستان آذربایجان","city":"ارومیه","address":"خیابان شهید بهشتی- نبش چهارراه شورا","phone":"044-33463300","verified":false,"province":5},{"id":33,"status":"published","name":"بیمارستان امید","city":"ارومیه","address":"شهرک فرهنگیان، نرسیده به چهار راه شمالی","phone":"044-31881100","verified":true,"province":5},{"id":34,"status":"published","name":"بیمارستان امام خمینی نقده","city":"نقده","address":"خیابان دانشگاه","phone":"044-35661820","verified":true,"province":5},{"id":35,"status":"published","name":"بیمارستان عارفیان","city":"ارومیه","address":"خیابان امام خمینی، خیابان بسیج","phone":"044-31934000","verified":true,"province":5},{"id":36,"status":"published","name":"بیمارستان بوعلی","city":"اردبیل","address":"خیابان ساحلی، خیابان معلم","phone":"045-33252252","verified":true,"province":6},{"id":37,"status":"published","name":"بیمارستان دکتر فاطمی","city":"اردبیل","address":"خیابان امام خمینی، بالاتر از میدان شریعتی","phone":"045-33232520","verified":true,"province":6},{"id":38,"status":"published","name":"بیمارستان سبلان","city":"اردبیل","address":"بزرگراه بسیج","phone":"045-33339791","verified":true,"province":6},{"id":39,"status":"published","name":"بیمارستان امام رضا","city":"اردبیل","address":"میدان بسیج رضازاده، جنب دانشگاه آزاد اسلامی","phone":"045-33733089","verified":true,"province":6},{"id":40,"status":"published","name":"بیمارستان مصطفی خمینی","city":"ایلام","address":"ایلام","phone":"084-33338265","verified":false,"province":7},{"id":41,"status":"published","name":"بیمارستان کوثر","city":"ایلام","address":"ایلام","phone":"084-32224971","verified":false,"province":7},{"id":42,"status":"published","name":"بیمارستان امام حسین(ع)","city":"ایلام","address":"بلوار سید حسن","phone":"084-33823396","verified":true,"province":7},{"id":43,"status":"published","name":"بیمارستان شهید گنجی","city":"برازجان","address":"بلوار امام رضا، میدان امام رضا","phone":"077-34260010","verified":false,"province":8},{"id":44,"status":"published","name":"بیمارستان خلیج فارس","city":"بوشهر","address":"بلوار آزادی، خ شهید ناخدا همتی","phone":"077-33455374","verified":false,"province":8},{"id":45,"status":"published","name":"بیمارستان هفده شهریور","city":"برازجان","address":"میدان هفده شهریور","phone":"077-34245918","verified":false,"province":8},{"id":46,"status":"published","name":"بیمارستان تامین اجتماعی فرخشهر","city":"فرخشهر","address":"میدان امام علی، بیمارستان امام علی","phone":"038-32424900","verified":false,"province":9},{"id":47,"status":"published","name":"بیمارستان هاجر","city":"شهرکرد","address":"شریعتی، بلوار فارابی","phone":"038-32220016","verified":false,"province":9},{"id":48,"status":"published","name":"بیمارستان شهدا","city":"لردگان","address":"جاده لردگان، بلوار پرستار","phone":"038-34444444","verified":false,"province":9},{"id":49,"status":"published","name":"بیمارستان قائم","city":"مشهد","address":"احمد آباد، بلوار احمد آباد","phone":"051-38400000","verified":true,"province":10},{"id":50,"status":"published","name":"بیمارستان آریا","city":"مشهد","address":"جنت، خ دکتر چمران","phone":"051-32229094","verified":true,"province":10},{"id":51,"status":"published","name":"بیمارستان رضوی","city":"مشهد","address":"شهرک امام هادی، بزرگراه آزادی","phone":"051-36668888","verified":true,"province":10},{"id":52,"status":"published","name":"بیمارستان امام رضا","city":"مشهد","address":"خیابان ابن سینا","phone":"051-38543031","verified":false,"province":10}]};
-
-const SHELTERS_DATA = {"data":[{"id":21,"status":"draft","description":"۱۱۴ ایستگاه مترو تهران","province":1},{"id":22,"status":"draft","description":"پارکینگ‌های زیرزمینی میدان ونک، تجریش","province":1},{"id":23,"status":"draft","description":"تونل‌های زیرزمینی بزرگراه‌ها","province":1},{"id":24,"status":"draft","description":"پناهگاه‌های سازمان پدافند غیرعامل شهرداری","province":1},{"id":25,"status":"draft","description":"مترو تهران-کرج خط ۵","province":2},{"id":26,"status":"draft","description":"پارکینگ‌های زیرزمینی مراکز خرید","province":2},{"id":27,"status":"draft","description":"اداره فرمانداری البرز","province":2},{"id":28,"status":"draft","description":"مترو اصفهان خط ۱ و ۲","province":3},{"id":29,"status":"draft","description":"میدان نقش جهان — زیرگذرها","province":3},{"id":30,"status":"draft","description":"پارکینگ‌های زیرزمینی مرکز شهر","province":3},{"id":31,"status":"draft","description":"مترو تبریز خط ۱ و ۲","province":4},{"id":32,"status":"draft","description":"بازار بزرگ تبریز — زیرزمین‌های تاریخی","province":4},{"id":33,"status":"draft","description":"ساختمان‌های دولتی مرکز شهر","province":5},{"id":34,"status":"draft","description":"پارکینگ‌های زیرزمینی میدان انقلاب","province":5},{"id":35,"status":"draft","description":"بازار سنتی اردبیل","province":6},{"id":36,"status":"draft","description":"ساختمان‌های اداری مرکز شهر","province":6},{"id":37,"status":"draft","description":"پناهگاه‌های کوهستانی زاگرس","province":7},{"id":38,"status":"draft","description":"ساختمان‌های دولتی و استانداری","province":7},{"id":39,"status":"draft","description":"غارهای طبیعی منطقه","province":7},{"id":40,"status":"draft","description":"ساختمان‌های بتونی دور از خط ساحلی","province":8},{"id":41,"status":"draft","description":"اداره استانداری و فرمانداری","province":8},{"id":42,"status":"draft","description":"پناهگاه‌های کوهستانی زاگرس مرکزی","province":9},{"id":43,"status":"draft","description":"ساختمان‌های دولتی شهرکرد","province":9},{"id":44,"status":"draft","description":"مترو مشهد خط ۱ و ۲","province":10},{"id":45,"status":"draft","description":"حرم امام رضا — زیرزمین‌های گسترده","province":10},{"id":46,"status":"draft","description":"پارکینگ‌های زیرزمینی میدان شهدا","province":10}]};
-
-const EMERGENCY_DATA = {"data":[{"id":9,"status":"draft","name":"اورژانس","number":"115","icon":"🚑"},{"id":10,"status":"draft","name":"آتش‌نشانی","number":"125","icon":"🚒"},{"id":11,"status":"draft","name":"پلیس","number":"110","icon":"🚔"},{"id":12,"status":"draft","name":"اورژانس اجتماعی","number":"123","icon":"🆘"},{"id":13,"status":"draft","name":"هلال احمر","number":"112","icon":"🏥"},{"id":14,"status":"draft","name":"گاز","number":"194","icon":"⚡"},{"id":15,"status":"draft","name":"برق","number":"121","icon":"💡"},{"id":16,"status":"draft","name":"آب","number":"122","icon":"💧"}]};
-
 let PROVINCES = {};
 
-function loadData() {
-  const built = {};
-  for (const prov of PROVINCES_DATA.data) {
-    built[prov.name] = {
-      capital: prov.capital,
-      warn: prov.warning || '',
-      rc: prov.rc || '',
-      shelter: SHELTERS_DATA.data.filter(s => s.province === prov.id).map(s => s.description),
-      hospitals: HOSPITALS_DATA.data
-        .filter(h => h.province === prov.id && h.status === 'published')
-        .map(h => ({ n: h.name, c: h.city, a: h.address || '', p: h.phone, v: h.verified }))
-    };
-  }
-  PROVINCES = built;
+async function loadData() {
+  document.getElementById('hosp-detail').innerHTML =
+    '<div class="bx bxo" style="text-align:center">⏳ در حال بارگذاری اطلاعات...</div>';
 
-  const grid = document.getElementById('emergency-grid');
-  if (grid) {
-    grid.innerHTML = EMERGENCY_DATA.data.map(e =>
-      `<a href="tel:${e.number}" class="nc">
-        <span class="nn">${e.number}</span>
-        <div class="nl">${e.icon} ${e.name}</div>
-      </a>`
-    ).join('');
+  try {
+    const [provData, hospData, sheltData, emergData] = await Promise.all([
+      fetch('data/provinces.json').then(r => r.json()),
+      fetch('data/hospitals.json').then(r => r.json()),
+      fetch('data/shelters.json').then(r => r.json()),
+      fetch('data/emergency_numbers.json').then(r => r.json()),
+    ]);
+
+    const built = {};
+    for (const prov of provData.data) {
+      built[prov.name] = {
+        capital: prov.capital,
+        warn: prov.warning || '',
+        rc: prov.rc || '',
+        shelter: sheltData.data.filter(s => s.province === prov.id).map(s => s.description),
+        hospitals: hospData.data
+          .filter(h => h.province === prov.id && h.status === 'published')
+          .map(h => ({ n: h.name, c: h.city, a: h.address || '', p: h.phone, v: h.verified }))
+      };
+    }
+    PROVINCES = built;
+
+    const grid = document.getElementById('emergency-grid');
+    if (grid) {
+      grid.innerHTML = emergData.data.map(e =>
+        `<a href="tel:${e.number}" class="nc">
+          <span class="nn">${e.number}</span>
+          <div class="nl">${e.icon} ${e.name}</div>
+        </a>`
+      ).join('');
+    }
+
+  } catch(e) {
+    console.error('خطا در بارگذاری داده‌ها:', e);
+    document.getElementById('hosp-detail').innerHTML =
+      '<div class="bx bxr" style="text-align:center"><strong>⚠️ خطا در بارگذاری</strong><br>فایل‌های داده یافت نشدند.</div>';
   }
 }
 
@@ -1520,7 +1529,7 @@ function hospRowHTML(h) {
         ${h.a ? `<div class="hosp-addr">📍 ${h.a}</div>` : ''}
         <div class="hosp-city">🏙️ ${h.c}</div>
       </div>
-      <a href="tel:${h.p.replace(/-/g,'')}" class="hosp-phone">📞 ${h.p}</a>
+      <a href="tel:${h.p}" class="hosp-phone">📞 ${h.p}</a>
     </div>`;
 }
 
@@ -1535,7 +1544,7 @@ function renderHospitals(prov) {
     <div class="city-card">
       <div class="city-name">${prov} ${warnHTML}</div>
       <div class="info-r"><span class="info-l">مرکز:</span><span>${d.capital}</span></div>
-      <div class="info-r"><span class="info-l">هلال احمر:</span><span style="font-size:11px">${(()=>{const parts=d.rc.split(' — ');if(parts.length===2){const num=parts[1].replace(/-/g,'');return `${parts[0]} — <a href="tel:${num}" style="direction:ltr;display:inline-block;color:var(--grn2);text-decoration:none">${parts[1]}</a>`;}return d.rc;})()} </span></div>
+      <div class="info-r"><span class="info-l">هلال احمر:</span><span style="font-size:11px;unicode-bidi:plaintext">${d.rc}</span></div>
 
       <hr>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
@@ -1566,13 +1575,13 @@ function renderHospitals(prov) {
   if (t === 'light') document.documentElement.dataset.theme = 'light';
 })();
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   loadTheme();
   loadChecklist();
   loadNotes();
   initPWA();
 
-  loadData();
+  await loadData();
 
   buildProvSelector();
   const firstProv = Object.keys(PROVINCES)[0] || 'تهران';
