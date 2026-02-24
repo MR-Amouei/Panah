@@ -1520,7 +1520,7 @@ function hospRowHTML(h) {
         ${h.a ? `<div class="hosp-addr">📍 ${h.a}</div>` : ''}
         <div class="hosp-city">🏙️ ${h.c}</div>
       </div>
-      <a href="tel:${h.p}" class="hosp-phone">📞 ${h.p}</a>
+      <a href="tel:${h.p.replace(/-/g,'')}" class="hosp-phone">📞 ${h.p}</a>
     </div>`;
 }
 
@@ -1535,7 +1535,7 @@ function renderHospitals(prov) {
     <div class="city-card">
       <div class="city-name">${prov} ${warnHTML}</div>
       <div class="info-r"><span class="info-l">مرکز:</span><span>${d.capital}</span></div>
-      <div class="info-r"><span class="info-l">هلال احمر:</span><span style="font-size:11px;unicode-bidi:plaintext">${d.rc}</span></div>
+      <div class="info-r"><span class="info-l">هلال احمر:</span><span style="font-size:11px">${(()=>{const parts=d.rc.split(' — ');if(parts.length===2){const num=parts[1].replace(/-/g,'');return `${parts[0]} — <a href="tel:${num}" style="direction:ltr;display:inline-block;color:var(--grn2);text-decoration:none">${parts[1]}</a>`;}return d.rc;})()} </span></div>
 
       <hr>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
