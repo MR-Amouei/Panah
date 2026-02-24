@@ -1,13 +1,16 @@
-const CACHE_NAME = 'panah-v2';
+const CACHE_NAME = 'panah-v3';
 const OFFLINE_URL = 'index.html';
 
 const PRECACHE_URLS = [
   './',
   './index.html',
   './manifest.json',
+  './data/provinces.json',
+  './data/hospitals.json',
+  './data/shelters.json',
+  './data/emergency_numbers.json',
 ];
 
-/* ====== INSTALL ====== */
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache =>
@@ -19,7 +22,6 @@ self.addEventListener('install', event => {
   );
 });
 
-/* ====== ACTIVATE ====== */
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(cacheNames =>
@@ -32,7 +34,6 @@ self.addEventListener('activate', event => {
   );
 });
 
-/* ====== FETCH ====== */
 self.addEventListener('fetch', event => {
   const { request } = event;
   const url = new URL(request.url);
@@ -58,7 +59,6 @@ self.addEventListener('fetch', event => {
   event.respondWith(networkFirst(request));
 });
 
-/* ====== STRATEGIES ====== */
 
 async function cacheFirst(request) {
   const cached = await caches.match(request);
@@ -109,7 +109,6 @@ async function offlineFallback() {
   });
 }
 
-/* ====== MESSAGES ====== */
 self.addEventListener('message', event => {
   if (event.data?.type === 'SKIP_WAITING') {
     self.skipWaiting();
