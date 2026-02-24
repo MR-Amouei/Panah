@@ -3,10 +3,10 @@
     {
       "id": 1,
       "status": "published",
-      "name": "بیمارستان نجمیه",
+      "name": "بیمارستان عباس",
       "city": "تهران",
       "address": "خیابان حافظ، تقاطع جمهوری",
-      "phone": "021-66707071",
+      "phone": "021-blablabla",
       "verified": true,
       "province": 1
     },
