@@ -1378,12 +1378,10 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
 
 <script>
 
-// باید اول از همه register بشه — قبل از DOMContentLoaded
 let deferredPrompt = null;
 window.addEventListener('beforeinstallprompt', e => {
   e.preventDefault();
   deferredPrompt = e;
-  // اگه DOM آماده‌ست بنر رو نشون بده، وگرنه صبر کن
   const show = () => {
     try {
       const dismissed = localStorage.getItem('pwa_dismissed');
