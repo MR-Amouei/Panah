@@ -1,0 +1,524 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "status": "published",
+      "name": "بیمارستان نجمیه",
+      "city": "تهران",
+      "address": "خیابان حافظ، تقاطع جمهوری",
+      "phone": "021-66707071",
+      "verified": true,
+      "province": 1
+    },
+    {
+      "id": 2,
+      "status": "published",
+      "name": "بیمارستان امام حسین",
+      "city": "تهران",
+      "address": "میدان امام حسین، خیابان شهید مدنی",
+      "phone": "021-73433000",
+      "verified": true,
+      "province": 1
+    },
+    {
+      "id": 3,
+      "status": "published",
+      "name": "بیمارستان امام خمینی",
+      "city": "تهران",
+      "address": "انتهای بلوار کشاورز",
+      "phone": "021-61190000",
+      "verified": true,
+      "province": 1
+    },
+    {
+      "id": 4,
+      "status": "published",
+      "name": "بیمارستان شهید هاشمی‌نژاد",
+      "city": "تهران",
+      "address": "خیابان ولی عصر، میدان ونک",
+      "phone": "021-81161",
+      "verified": true,
+      "province": 1
+    },
+    {
+      "id": 5,
+      "status": "published",
+      "name": "بیمارستان سینا",
+      "city": "تهران",
+      "address": "خیابان امام خمینی، نرسیده به میدان حسن آباد",
+      "phone": "021-63120",
+      "verified": true,
+      "province": 1
+    },
+    {
+      "id": 6,
+      "status": "published",
+      "name": "بیمارستان بقیه الله",
+      "city": "تهران",
+      "address": "میدان ونک، خیابان ملاصدرا، شیخ بهایی",
+      "phone": "021-88050435",
+      "verified": true,
+      "province": 1
+    },
+    {
+      "id": 7,
+      "status": "published",
+      "name": "بیمارستان بازرگانان",
+      "city": "تهران",
+      "address": "بزرگراه شهید محلاتی، جنب پل ری",
+      "phone": "021-33552001",
+      "verified": true,
+      "province": 1
+    },
+    {
+      "id": 8,
+      "status": "published",
+      "name": "درمانگاه شبانه روزی رجائی شهر",
+      "city": "کرج",
+      "address": "کرج - رجائی شهر - نبش خیابان دوم شرقی",
+      "phone": "026-34432060",
+      "verified": true,
+      "province": 2
+    },
+    {
+      "id": 9,
+      "status": "published",
+      "name": "بیمارستان کوثر کرج",
+      "city": "کرج",
+      "address": "حصارک -میدان دانشگاه خوارزمی- بلوار خوارزمی",
+      "phone": "026-34544070",
+      "verified": true,
+      "province": 2
+    },
+    {
+      "id": 10,
+      "status": "published",
+      "name": "بیمارستان تخت جمشید البرز",
+      "city": "کرج",
+      "address": "کرج، میدان استقلال، بلوار شریعتی",
+      "phone": "026-32119000",
+      "verified": true,
+      "province": 2
+    },
+    {
+      "id": 11,
+      "status": "published",
+      "name": "بیمارستان ثارالله مهرشهر",
+      "city": "کرج",
+      "address": "شهرستان مهر شهر - بلوار ارم",
+      "phone": "026-33320125",
+      "verified": true,
+      "province": 2
+    },
+    {
+      "id": 12,
+      "status": "published",
+      "name": "بیمارستان امام جعفر صادق",
+      "city": "کرج",
+      "address": "شهرستان هشتگرد- بلوار آیت الله خامنه ای",
+      "phone": "026-44210921",
+      "verified": true,
+      "province": 2
+    },
+    {
+      "id": 13,
+      "status": "published",
+      "name": "بیمارستان امام حسن مجتبی",
+      "city": "کرج",
+      "address": "شهرستان نظراباد-خیابان شهید مطهری",
+      "phone": "026-45355956",
+      "verified": true,
+      "province": 2
+    },
+    {
+      "id": 14,
+      "status": "published",
+      "name": "بیمارستان الزهرا",
+      "city": "اصفهان",
+      "address": "بلوار صفه – مرکز آموزشی درمانی الزهرا(س)",
+      "phone": "031-36202020",
+      "verified": true,
+      "province": 3
+    },
+    {
+      "id": 15,
+      "status": "published",
+      "name": "بیمارستان امام کاظم",
+      "city": "اصفهان",
+      "address": "خیابان کاوه – بعد از پل چمران",
+      "phone": "031-33457670",
+      "verified": true,
+      "province": 3
+    },
+    {
+      "id": 16,
+      "status": "published",
+      "name": "بیمارستان امیرالمومنین",
+      "city": "اصفهان",
+      "address": "خیابان احمدآباد",
+      "phone": "031-32291318",
+      "verified": true,
+      "province": 3
+    },
+    {
+      "id": 17,
+      "status": "published",
+      "name": "بیمارستان امین",
+      "city": "اصفهان",
+      "address": "خیابان ابن سینا کوچه سنبلستان",
+      "phone": "031-34455051",
+      "verified": true,
+      "province": 3
+    },
+    {
+      "id": 18,
+      "status": "published",
+      "name": "بیمارستان خورشید",
+      "city": "اصفهان",
+      "address": "خیابان استانداری – جنب بلوار شهید دستغیب",
+      "phone": "031-32222127",
+      "verified": true,
+      "province": 3
+    },
+    {
+      "id": 19,
+      "status": "published",
+      "name": "بیمارستان کاشانی",
+      "city": "اصفهان",
+      "address": "خیابان کاشانی",
+      "phone": "031-32330091",
+      "verified": true,
+      "province": 3
+    },
+    {
+      "id": 20,
+      "status": "published",
+      "name": "بیمارستان فیض",
+      "city": "اصفهان",
+      "address": "میدان قدس، ابتدای خیابان مدرس",
+      "phone": "031-34452034",
+      "verified": true,
+      "province": 3
+    },
+    {
+      "id": 21,
+      "status": "published",
+      "name": "بیمارستان فارابی",
+      "city": "اصفهان",
+      "address": "بلوار ارغوانیه",
+      "phone": "031-35312020",
+      "verified": true,
+      "province": 3
+    },
+    {
+      "id": 22,
+      "status": "published",
+      "name": "بیمارستان غرضی",
+      "city": "اصفهان",
+      "address": "خیابان کاوه، خیابان دکتر غرضی",
+      "phone": "031-34509901",
+      "verified": true,
+      "province": 3
+    },
+    {
+      "id": 23,
+      "status": "published",
+      "name": "بیمارستان عیسی بن مریم",
+      "city": "اصفهان",
+      "address": "خیابان شمس آبادی",
+      "phone": "031-32339012",
+      "verified": true,
+      "province": 3
+    },
+    {
+      "id": 24,
+      "status": "published",
+      "name": "بیمارستان شهید بهشتی",
+      "city": "اصفهان",
+      "address": "پل فلزی – خیابان استاد مطهری",
+      "phone": "031-32367001",
+      "verified": true,
+      "province": 3
+    },
+    {
+      "id": 25,
+      "status": "published",
+      "name": "بیمارستان شریعتی",
+      "city": "اصفهان",
+      "address": "چهار باغ بالا، خیابان شریعتی",
+      "phone": "031-36272009",
+      "verified": true,
+      "province": 3
+    },
+    {
+      "id": 26,
+      "status": "published",
+      "name": "بیمارستان شهید مدنی",
+      "city": "تبریز",
+      "address": "خیابان دانشگاه",
+      "phone": "041-33357767",
+      "verified": true,
+      "province": 4
+    },
+    {
+      "id": 27,
+      "status": "published",
+      "name": "بیمارستان سینا",
+      "city": "تبریز",
+      "address": "خیابان آزادی، بین چهارراه منتظری و حافظ",
+      "phone": "041-35412101",
+      "verified": true,
+      "province": 4
+    },
+    {
+      "id": 28,
+      "status": "published",
+      "name": "بیمارستان امیرالمومنین",
+      "city": "تبریز",
+      "address": "خیابان قدس، بالاتر از ایستگاه منتظر",
+      "phone": "041-91010920",
+      "verified": true,
+      "province": 4
+    },
+    {
+      "id": 29,
+      "status": "published",
+      "name": "بیمارستان عالی‌نسب",
+      "city": "تبریز",
+      "address": "شهرک ارم",
+      "phone": "041-32305911",
+      "verified": false,
+      "province": 4
+    },
+    {
+      "id": 30,
+      "status": "published",
+      "name": "بیمارستان شهید محلاتی",
+      "city": "تبریز",
+      "address": "کوچه باغ، خیابان راه آهن",
+      "phone": "041-34440084",
+      "verified": true,
+      "province": 4
+    },
+    {
+      "id": 31,
+      "status": "published",
+      "name": "بیمارستان ولیعصر",
+      "city": "تبریز",
+      "address": "خیابان امام، ورودی زعفرانیه",
+      "phone": "041-33273000",
+      "verified": true,
+      "province": 4
+    },
+    {
+      "id": 32,
+      "status": "published",
+      "name": "بیمارستان آذربایجان",
+      "city": "ارومیه",
+      "address": "خیابان شهید بهشتی- نبش چهارراه شورا",
+      "phone": "044-33463300",
+      "verified": false,
+      "province": 5
+    },
+    {
+      "id": 33,
+      "status": "published",
+      "name": "بیمارستان امید",
+      "city": "ارومیه",
+      "address": "شهرک فرهنگیان، نرسیده به چهار راه شمالی",
+      "phone": "044-31881100",
+      "verified": true,
+      "province": 5
+    },
+    {
+      "id": 34,
+      "status": "published",
+      "name": "بیمارستان امام خمینی نقده",
+      "city": "نقده",
+      "address": "خیابان دانشگاه",
+      "phone": "044-35661820",
+      "verified": true,
+      "province": 5
+    },
+    {
+      "id": 35,
+      "status": "published",
+      "name": "بیمارستان عارفیان",
+      "city": "ارومیه",
+      "address": "خیابان امام خمینی، خیابان بسیج",
+      "phone": "044-31934000",
+      "verified": true,
+      "province": 5
+    },
+    {
+      "id": 36,
+      "status": "published",
+      "name": "بیمارستان بوعلی",
+      "city": "اردبیل",
+      "address": "خیابان ساحلی، خیابان معلم",
+      "phone": "045-33252252",
+      "verified": true,
+      "province": 6
+    },
+    {
+      "id": 37,
+      "status": "published",
+      "name": "بیمارستان دکتر فاطمی",
+      "city": "اردبیل",
+      "address": "خیابان امام خمینی، بالاتر از میدان شریعتی",
+      "phone": "045-33232520",
+      "verified": true,
+      "province": 6
+    },
+    {
+      "id": 38,
+      "status": "published",
+      "name": "بیمارستان سبلان",
+      "city": "اردبیل",
+      "address": "بزرگراه بسیج",
+      "phone": "045-33339791",
+      "verified": true,
+      "province": 6
+    },
+    {
+      "id": 39,
+      "status": "published",
+      "name": "بیمارستان امام رضا",
+      "city": "اردبیل",
+      "address": "میدان بسیج رضازاده، جنب دانشگاه آزاد اسلامی",
+      "phone": "045-33733089",
+      "verified": true,
+      "province": 6
+    },
+    {
+      "id": 40,
+      "status": "published",
+      "name": "بیمارستان مصطفی خمینی",
+      "city": "ایلام",
+      "address": "ایلام",
+      "phone": "084-33338265",
+      "verified": false,
+      "province": 7
+    },
+    {
+      "id": 41,
+      "status": "published",
+      "name": "بیمارستان کوثر",
+      "city": "ایلام",
+      "address": "ایلام",
+      "phone": "084-32224971",
+      "verified": false,
+      "province": 7
+    },
+    {
+      "id": 42,
+      "status": "published",
+      "name": "بیمارستان امام حسین(ع)",
+      "city": "ایلام",
+      "address": "بلوار سید حسن",
+      "phone": "084-33823396",
+      "verified": true,
+      "province": 7
+    },
+    {
+      "id": 43,
+      "status": "published",
+      "name": "بیمارستان شهید گنجی",
+      "city": "برازجان",
+      "address": "بلوار امام رضا، میدان امام رضا",
+      "phone": "077-34260010",
+      "verified": false,
+      "province": 8
+    },
+    {
+      "id": 44,
+      "status": "published",
+      "name": "بیمارستان خلیج فارس",
+      "city": "بوشهر",
+      "address": "بلوار آزادی، خ شهید ناخدا همتی، خ شهدای ناوچه پیکان",
+      "phone": "077-33455374",
+      "verified": false,
+      "province": 8
+    },
+    {
+      "id": 45,
+      "status": "published",
+      "name": "بیمارستان هفده شهریور",
+      "city": "برازجان",
+      "address": "میدان هفده شهریور",
+      "phone": "077-34245918",
+      "verified": false,
+      "province": 8
+    },
+    {
+      "id": 46,
+      "status": "published",
+      "name": "بیمارستان تامین اجتماعی فرخشهر",
+      "city": "فرخشهر",
+      "address": "میدان امام علی، بیمارستان امام علی",
+      "phone": "038-32424900",
+      "verified": false,
+      "province": 9
+    },
+    {
+      "id": 47,
+      "status": "published",
+      "name": "بیمارستان هاجر",
+      "city": "شهرکرد",
+      "address": "شریعتی، بلوار فارابی، خ. ورزش",
+      "phone": "038-32220016",
+      "verified": false,
+      "province": 9
+    },
+    {
+      "id": 48,
+      "status": "published",
+      "name": "بیمارستان شهدا",
+      "city": "لردگان",
+      "address": "جاده لردگان، بلوار پرستار",
+      "phone": "038-34444444",
+      "verified": false,
+      "province": 9
+    },
+    {
+      "id": 49,
+      "status": "published",
+      "name": "بیمارستان قائم",
+      "city": "مشهد",
+      "address": "احمد آباد، بلوار احمد آباد",
+      "phone": "051-38400000",
+      "verified": true,
+      "province": 10
+    },
+    {
+      "id": 50,
+      "status": "published",
+      "name": "بیمارستان آریا",
+      "city": "مشهد",
+      "address": "جنت، خ دکتر چمران، خ گلستان شرقی",
+      "phone": "051-32229094",
+      "verified": true,
+      "province": 10
+    },
+    {
+      "id": 51,
+      "status": "published",
+      "name": "بیمارستان رضوی",
+      "city": "مشهد",
+      "address": "شهرک امام هادی، بزرگراه آزادی",
+      "phone": "051-36668888",
+      "verified": true,
+      "province": 10
+    },
+    {
+      "id": 52,
+      "status": "published",
+      "name": "بیمارستان امام رضا",
+      "city": "مشهد",
+      "address": "خیابان ابن سینا",
+      "phone": "051-38543031",
+      "verified": false,
+      "province": 10
+    }
+  ]
+}
