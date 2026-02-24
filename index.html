@@ -1378,6 +1378,25 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
 
 <script>
 
+// باید اول از همه register بشه — قبل از DOMContentLoaded
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  // اگه DOM آماده‌ست بنر رو نشون بده، وگرنه صبر کن
+  const show = () => {
+    try {
+      const dismissed = localStorage.getItem('pwa_dismissed');
+      if (!dismissed) document.getElementById('pwa-banner')?.classList.add('show');
+    } catch(err) {}
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', show);
+  } else {
+    show();
+  }
+});
+
 let PROVINCES = {};
 
 async function loadData() {
@@ -1625,8 +1644,6 @@ function forceUpdate() {
   }
 }
 
-let deferredPrompt = null;
-
 function initPWA() {
   
   if ('serviceWorker' in navigator) {
@@ -1669,13 +1686,6 @@ function initPWA() {
   updateOnlineStatus();
 
   
-  window.addEventListener('beforeinstallprompt', e => {
-    e.preventDefault();
-    deferredPrompt = e;
-    const dismissed = localStorage.getItem('pwa_dismissed');
-    if (!dismissed) showInstallBanner();
-  });
-
   window.addEventListener('appinstalled', () => {
     hidePWABanner();
     deferredPrompt = null;
