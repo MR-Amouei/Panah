@@ -1,31 +1,36 @@
-const CACHE_NAME = 'panah-v4';
+const CACHE_NAME = 'panah-v5';
 const OFFLINE_URL = 'index.html';
 
 const PRECACHE_URLS = [
   './',
   './index.html',
   './manifest.json',
-  './icon-192.png',
-  './icon-512.png',
   './data/provinces.json',
   './data/hospitals.json',
   './data/shelters.json',
   './data/emergency_numbers.json',
 ];
 
-/* ====== INSTALL ====== */
+const OPTIONAL_URLS = [
+  './icon-192.png',
+  './icon-512.png',
+  'https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap',
+];
+
 self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache =>
-      cache.addAll(PRECACHE_URLS).then(() =>
-        cache.add('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap')
-          .catch(() => {})
-      )
-    ).then(() => self.skipWaiting())
-  );
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+
+    await cache.addAll(PRECACHE_URLS);
+
+    await Promise.allSettled(
+      OPTIONAL_URLS.map(url => cache.add(url).catch(() => {}))
+    );
+
+    await self.skipWaiting();
+  })());
 });
 
-/* ====== ACTIVATE ====== */
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(cacheNames =>
@@ -38,14 +43,16 @@ self.addEventListener('activate', event => {
   );
 });
 
-/* ====== FETCH ====== */
 self.addEventListener('fetch', event => {
   const { request } = event;
-  const url = new URL(request.url);
 
-  // فقط http/https — chrome-extension و غیره رو نادیده بگیر
+  let url;
+  try {
+    url = new URL(request.url);
+  } catch {
+    return;
+  }
   if (!url.protocol.startsWith('http')) return;
-
   if (request.method !== 'GET') return;
 
   if (url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com') {
@@ -67,7 +74,6 @@ self.addEventListener('fetch', event => {
   event.respondWith(networkFirst(request));
 });
 
-/* ====== STRATEGIES ====== */
 
 async function cacheFirst(request) {
   const cached = await caches.match(request);
@@ -118,7 +124,6 @@ async function offlineFallback() {
   });
 }
 
-/* ====== MESSAGES ====== */
 self.addEventListener('message', event => {
   if (event.data?.type === 'SKIP_WAITING') {
     self.skipWaiting();
