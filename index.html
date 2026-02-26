@@ -951,6 +951,7 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   <button class="nb" onclick="go(5)">📡 ارتباط</button>
   <button class="nb" onclick="go(6)">📞 اورژانس</button>
   <button class="nb" onclick="go(7)">📝 یادداشت</button>
+  <button class="nb" onclick="go(8)">🖼️ چیت‌شیت</button>
   <div class="nav-footer">
     <span class="tag to">v3.0</span>
     <a href="https://github.com/MR-Amouei/Panah" target="_blank">GitHub ↗</a>
@@ -1374,6 +1375,109 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   <div class="bx bxg"><strong>🔒 حریم خصوصی کامل</strong>تمام یادداشت‌ها فقط روی همین دستگاه ذخیره می‌شوند. هیچ داده‌ای به هیچ سروری ارسال نمی‌شود.</div>
 </div>
 
+
+<div class="pg" id="p8">
+  <div class="stit">🖼️ چیت‌شیت‌های اضطراری</div>
+
+  <div class="bx bxo" style="margin-bottom:20px">
+    این تصاویر را دانلود و ذخیره کنید تا در شرایط بحران — حتی بدون اینترنت — در دسترس داشته باشید.
+  </div>
+
+  <style>
+    .cs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .cs-card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--brd);
+    }
+    .cs-card .cs-title {
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--txt);
+      text-align: center;
+    }
+    .cs-card img {
+      width: 100%;
+      max-width: 340px;
+      border-radius: 10px;
+      cursor: zoom-in;
+      transition: transform .2s;
+      box-shadow: 0 4px 16px rgba(0,0,0,.25);
+    }
+    .cs-card img:hover { transform: scale(1.02); }
+    .cs-dl {
+      display: block;
+      width: 100%;
+      max-width: 340px;
+      text-align: center;
+      text-decoration: none;
+      background: var(--grn2);
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: opacity .2s;
+    }
+    .cs-dl:hover { opacity: .85; }
+    .cs-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.9);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .cs-overlay.open { display: flex; }
+    .cs-overlay img {
+      max-width: 92vw;
+      max-height: 92vh;
+      border-radius: 12px;
+      object-fit: contain;
+    }
+  </style>
+
+  <div class="cs-overlay" id="cs-overlay" onclick="this.classList.remove('open')">
+    <img id="cs-overlay-img" src="" alt="">
+  </div>
+
+  <div class="cs-grid">
+
+    <div class="cs-card">
+      <div class="cs-title">🚨 اقدامات هنگام آژیر خطر</div>
+      <img src="assets/cheatsheet-ajir.png" alt="اقدامات حیاتی هنگام شنیدن آژیر خطر"
+        onclick="document.getElementById('cs-overlay-img').src=this.src;document.getElementById('cs-overlay').classList.add('open')">
+      <a href="assets/cheatsheet-ajir.png" download="پناه-آژیر-خطر.png" class="cs-dl">⬇️ دانلود تصویر</a>
+    </div>
+
+    <div class="cs-card">
+      <div class="cs-title">📡 ارتباطات در شرایط اضطراری</div>
+      <img src="assets/cheatsheet-communication.png" alt="راهنمای جامع ارتباطات در شرایط اضطراری"
+        onclick="document.getElementById('cs-overlay-img').src=this.src;document.getElementById('cs-overlay').classList.add('open')">
+      <a href="assets/cheatsheet-communication.png" download="پناه-ارتباطات-اضطراری.png" class="cs-dl">⬇️ دانلود تصویر</a>
+    </div>
+
+    <div class="cs-card">
+      <div class="cs-title">🩺 کمک‌های اولیه</div>
+      <img src="assets/cheatsheet-firstaid.png" alt="چیت‌شیت کمک‌های اولیه"
+        onclick="document.getElementById('cs-overlay-img').src=this.src;document.getElementById('cs-overlay').classList.add('open')">
+      <a href="assets/cheatsheet-firstaid.png" download="پناه-کمک-اولیه.png" class="cs-dl">⬇️ دانلود تصویر</a>
+    </div>
+
+  </div>
+</div>
+
 </main>
 
 <script>
@@ -1397,6 +1501,8 @@ window.addEventListener('beforeinstallprompt', e => {
 
 let PROVINCES = {};
 
+const API_URL = 'https://panah-api.liara.run';
+
 async function loadData() {
   document.getElementById('hosp-detail').innerHTML =
     '<div class="bx bxo" style="text-align:center">⏳ در حال بارگذاری اطلاعات...</div>';
@@ -1404,7 +1510,7 @@ async function loadData() {
   try {
     const [provData, hospData, sheltData, emergData] = await Promise.all([
       fetch('data/provinces.json').then(r => r.json()),
-      fetch('data/hospitals.json').then(r => r.json()),
+      fetch(`${API_URL}/hospitals?limit=2000`).then(r => r.json()),
       fetch('data/shelters.json').then(r => r.json()),
       fetch('data/emergency_numbers.json').then(r => r.json()),
     ]);
@@ -1415,10 +1521,12 @@ async function loadData() {
         capital: prov.capital,
         warn: prov.warning || '',
         rc: prov.rc || '',
+        rc_contact: prov.rc_contact || '',
+        rc_mobile: prov.rc_mobile || '',
         shelter: sheltData.data.filter(s => s.province === prov.id).map(s => s.description),
         hospitals: hospData.data
-          .filter(h => h.province === prov.id && h.status === 'published')
-          .map(h => ({ n: h.name, c: h.city, a: h.address || '', p: h.phone, v: h.verified }))
+          .filter(h => h.province_id === prov.id && h.status === 'published')
+          .map(h => ({ n: h.name, c: h.city, a: h.address || '', p: h.phone || 'در دسترس نیست', v: h.verified }))
       };
     }
     PROVINCES = built;
@@ -1436,7 +1544,7 @@ async function loadData() {
   } catch(e) {
     console.error('خطا در بارگذاری داده‌ها:', e);
     document.getElementById('hosp-detail').innerHTML =
-      '<div class="bx bxr" style="text-align:center"><strong>⚠️ خطا در بارگذاری</strong><br>فایل‌های داده یافت نشدند.</div>';
+      '<div class="bx bxr" style="text-align:center"><strong>⚠️ خطا در بارگذاری</strong><br>اتصال به سرور ممکن نیست. لطفاً اینترنت را بررسی کنید.</div>';
   }
 }
 
@@ -1562,6 +1670,7 @@ function renderHospitals(prov) {
       <div class="city-name">${prov} ${warnHTML}</div>
       <div class="info-r"><span class="info-l">مرکز:</span><span>${d.capital}</span></div>
       <div class="info-r"><span class="info-l">هلال احمر:</span><span style="font-size:11px">${(()=>{const parts=d.rc.split(' — ');if(parts.length===2){const num=parts[1].replace(/-/g,'');return `${parts[0]} — <a href="tel:${num}" style="direction:ltr;display:inline-block;color:var(--grn2);text-decoration:none">${parts[1]}</a>`;}return d.rc;})()} </span></div>
+      ${d.rc_contact ? `<div class="info-r"><span class="info-l">رابط:</span><span style="font-size:11px">${d.rc_contact}${d.rc_mobile ? ` — <a href="tel:${d.rc_mobile}" style="direction:ltr;display:inline-block;color:var(--grn2);text-decoration:none">${d.rc_mobile}</a>` : ''}</span></div>` : ''}
 
       <hr>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
