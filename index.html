@@ -913,6 +913,18 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   }
   #p7.on > *:nth-child(1) { grid-column: 1 / -1; }
   #p7.on > *:last-child   { grid-column: 1 / -1; }
+
+  #p8.on {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+  #p8.on > *:nth-child(1) { grid-column: 1 / -1; }
+  #p8.on > *:nth-child(2) { grid-column: 1 / -1; }
+  #p8.on > *:nth-child(3) { grid-column: 1; }
+  #p8.on > *:nth-child(4) { grid-column: 2; }
+  #p8.on > *:nth-child(5) { grid-column: 3; }
 }
 
 @media print {
@@ -1391,7 +1403,7 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   <div class="card" style="margin-bottom:14px">
     <div class="ctit"><div class="ci cr">🚨</div>اقدامات هنگام آژیر خطر</div>
     <img src="assets/cheatsheet-ajir.jpg" alt="اقدامات حیاتی هنگام شنیدن آژیر خطر"
-      style="width:100%;border-radius:10px;margin:10px 0;display:block">
+      style="width:100%;border-radius:10px;margin:10px 0;display:block;object-fit:cover;aspect-ratio:3/4">
     <a href="assets/cheatsheet-ajir.jpg" download="پناه-آژیر-خطر.png"
       class="save-btn" style="display:block;text-align:center;text-decoration:none;margin-top:4px">
       ⬇️ دانلود تصویر
@@ -1401,7 +1413,7 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   <div class="card" style="margin-bottom:14px">
     <div class="ctit"><div class="ci cb">📡</div>ارتباطات در شرایط اضطراری</div>
     <img src="assets/cheatsheet-communication.png" alt="راهنمای جامع ارتباطات در شرایط اضطراری"
-      style="width:100%;border-radius:10px;margin:10px 0;display:block">
+      style="width:100%;border-radius:10px;margin:10px 0;display:block;object-fit:cover;aspect-ratio:3/4">
     <a href="assets/cheatsheet-communication.png" download="پناه-ارتباطات-اضطراری.png"
       class="save-btn" style="display:block;text-align:center;text-decoration:none;margin-top:4px">
       ⬇️ دانلود تصویر
@@ -1411,7 +1423,7 @@ hr { border: none; border-top: 1px solid var(--bd); margin: 12px 0; }
   <div class="card" style="margin-bottom:14px">
     <div class="ctit"><div class="ci cg">🩺</div>کمک‌های اولیه</div>
     <img src="assets/cheatsheet-firstaid.jpg" alt="چیت‌شیت کمک‌های اولیه"
-      style="width:100%;border-radius:10px;margin:10px 0;display:block">
+      style="width:100%;border-radius:10px;margin:10px 0;display:block;object-fit:cover;aspect-ratio:3/4">
     <a href="assets/cheatsheet-firstaid.jpg" download="پناه-کمک-اولیه.png"
       class="save-btn" style="display:block;text-align:center;text-decoration:none;margin-top:4px">
       ⬇️ دانلود تصویر
